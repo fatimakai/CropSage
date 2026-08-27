@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://cropsage.local/schemas/crop-catalog-1.0.0.json",
+  "$id": "https://cropsage.local/schemas/crop-catalog-1.1.0.json",
   "title": "CropSage Texas crop catalog",
   "type": "object",
   "additionalProperties": false,
@@ -15,7 +15,7 @@
     "crops"
   ],
   "properties": {
-    "catalog_version": { "type": "string", "const": "1.0.0" },
+    "catalog_version": { "type": "string", "const": "1.1.0" },
     "jurisdiction": { "type": "string", "const": "Texas, United States" },
     "last_reviewed": { "type": "string", "format": "date" },
     "record_status_definition": { "type": "object" },
@@ -132,6 +132,19 @@
         "source_ids": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceId" } }
       }
     },
+    "rootZoneDepth": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "max", "reference", "basis", "evidence_status", "source_ids"],
+      "properties": {
+        "min": { "type": "integer", "minimum": 1, "maximum": 500 },
+        "max": { "type": "integer", "minimum": 1, "maximum": 500 },
+        "reference": { "type": ["integer", "null"], "minimum": 1, "maximum": 500 },
+        "basis": { "type": "string", "minLength": 1 },
+        "evidence_status": { "$ref": "#/$defs/evidenceStatus" },
+        "source_ids": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceId" } }
+      }
+    },
     "waterDemand": {
       "type": "object",
       "additionalProperties": false,
@@ -184,7 +197,7 @@
         "supported_texas_regions", "regional_suitability", "planting_windows_by_region", "days_to_maturity",
         "optimal_temperature_range", "heat_stress_threshold", "heat_exposure_duration", "heat_sensitive_stages",
         "frost_sensitivity", "temperature_unit", "temperature_measurement_basis",
-        "preferred_soil_textures", "ph_tolerable_range", "drainage_requirement",
+        "preferred_soil_textures", "ph_tolerable_range", "effective_root_zone_depth_cm", "drainage_requirement",
         "water_demand", "drought_tolerance", "irrigation_requirement",
         "source_ids", "confidence", "last_reviewed", "assumptions", "catalog_version", "record_status"
       ],
@@ -227,6 +240,7 @@
         "temperature_measurement_basis": { "type": "string", "minLength": 1 },
         "preferred_soil_textures": { "type": "array", "minItems": 1, "items": { "type": "string" } },
         "ph_tolerable_range": { "$ref": "#/$defs/phRange" },
+        "effective_root_zone_depth_cm": { "$ref": "#/$defs/rootZoneDepth" },
         "drainage_requirement": {
           "type": "object",
           "additionalProperties": false,
@@ -253,7 +267,7 @@
         "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
         "last_reviewed": { "type": "string", "format": "date" },
         "assumptions": { "type": "array", "items": { "type": "string" } },
-        "catalog_version": { "type": "string", "const": "1.0.0" },
+        "catalog_version": { "type": "string", "const": "1.1.0" },
         "record_status": { "type": "string", "enum": ["provisional", "approved", "retired"] }
       }
     }
