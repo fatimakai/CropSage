@@ -1,0 +1,1964 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<<
+/Producer (ReportLab PDF Library \055 \050opensource\051)
+/Author (CropSage project planning)
+/CreationDate (D\07220260826191905\05305\04700\047)
+/Creator (\050unspecified\051)
+/Keywords ()
+/ModDate (D\07220260827230000\05305\04700\047)
+/Subject (Final crop catalog schema and evidence comparison matrix)
+/Title (CropSage Final MVP Crop Catalog Fields and Location Comparisons)
+/Trapped (\057False)
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Count 4
+/Kids [ 4 0 R 10 0 R 13 0 R 16 0 R ]
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+4 0 obj
+<<
+/Contents 5 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/F1 6 0 R
+/F1-0 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+5 0 obj
+<<
+/Length 12028
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+.113725 .356863 .270588 rg
+n 0 780.48 612 11.52 re f*
+.784314 .819608 .8 RG
+.5 w
+n 39.6 26.64 m 572.4 26.64 l S
+BT /F1 7.4 Tf 8.88 TL ET
+.360784 .407843 .380392 rg
+BT 1 0 0 1 39.6 15.12 Tm (CropSage | Final MVP crop catalog field matrix) Tj T* ET
+BT 1 0 0 1 548.9494 15.12 Tm (Page 1) Tj T* ET
+Q
+q
+1 0 0 1 39.6 738 cm
+Q
+q
+1 0 0 1 39.6 727 cm
+q
+.113725 .356863 .270588 rg
+BT 1 0 0 1 0 2 Tm /F2 9 Tf 11 TL (CROPSAGE PLANNING REFERENCE) Tj T* ET
+Q
+Q
+q
+1 0 0 1 39.6 661 cm
+q
+BT 1 0 0 1 0 33 Tm 29 TL /F2 25 Tf .094118 .129412 .113725 rg (Final MVP Crop Catalog Fields) Tj  T* (& Location Comparisons) Tj T* ET
+Q
+Q
+q
+1 0 0 1 39.6 623 cm
+q
+.360784 .407843 .380392 rg
+BT 1 0 0 1 0 19.5 Tm /F1 10.5 Tf 15 TL -0.042115 Tw (A practical schema for comparing sourced crop requirements with location-specific temperature, soil, water, region,) Tj T* 0 Tw (and planting evidence across Texas.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 39.6 594 cm
+q
+.113725 .356863 .270588 rg
+BT 1 0 0 1 0 3 Tm /F2 14 Tf 17 TL (How the evidence is divided) Tj T* ET
+Q
+Q
+q
+1 0 0 1 39.6 447.8 cm
+q
+.113725 .356863 .270588 rg
+n 0 139.2 532.8 -19.2 re f*
+1 1 1 rg
+n 0 120 532.8 -20 re f*
+.960784 .968627 .960784 rg
+n 0 100 532.8 -20 re f*
+1 1 1 rg
+n 0 80 532.8 -30 re f*
+.960784 .968627 .960784 rg
+n 0 50 532.8 -30 re f*
+1 1 1 rg
+n 0 20 532.8 -20 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 125 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.8 Tm /F2 7.4 Tf 9.2 TL (Dimension) Tj T* ET
+Q
+Q
+q
+1 0 0 1 81.6 125 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.8 Tm /F2 7.4 Tf 9.2 TL (Stored in crop catalog) Tj T* ET
+Q
+Q
+q
+1 0 0 1 261.6 125 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.8 Tm /F2 7.4 Tf 9.2 TL (Compared with) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 105 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Temperature) Tj T* ET
+Q
+Q
+q
+1 0 0 1 81.6 105 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Crop thermal ranges and thresholds) Tj T* ET
+Q
+Q
+q
+1 0 0 1 261.6 105 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (FortyGuard recent/local heat plus NASA long-term climatology) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 85 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Soil) Tj T* ET
+Q
+Q
+q
+1 0 0 1 81.6 85 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Crop texture, pH, and drainage requirements) Tj T* ET
+Q
+Q
+q
+1 0 0 1 261.6 85 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (USDA SSURGO map-unit properties, with optional soil-test override) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 65 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Water) Tj T* ET
+Q
+Q
+q
+1 0 0 1 81.6 55 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Demand, drought tolerance, and irrigation) Tj T* (dependency) Tj T* ET
+Q
+Q
+q
+1 0 0 1 261.6 65 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (NASA precipitation, SSURGO water storage, and farmer irrigation status) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 25 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Region and) Tj T* (season) Tj T* ET
+Q
+Q
+q
+1 0 0 1 81.6 35 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Texas applicability, planting window, maturity) Tj T* ET
+Q
+Q
+q
+1 0 0 1 261.6 35 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Farm coordinates, region mapping, and proposed planting date) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Evidence quality) Tj T* ET
+Q
+Q
+q
+1 0 0 1 81.6 5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Sources, confidence, review date, assumptions) Tj T* ET
+Q
+Q
+q
+1 0 0 1 261.6 5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Used by validation and confidence; not compared as agronomic conditions) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.784314 .819608 .8 RG
+.35 w
+n 0 139.2 m 532.8 139.2 l S
+n 0 0 m 532.8 0 l S
+n 0 0 m 0 139.2 l S
+n 532.8 0 m 532.8 139.2 l S
+n 0 120 m 532.8 120 l S
+n 0 100 m 532.8 100 l S
+n 0 80 m 532.8 80 l S
+n 0 50 m 532.8 50 l S
+n 0 20 m 532.8 20 l S
+n 75.6 0 m 75.6 139.2 l S
+n 255.6 0 m 255.6 139.2 l S
+Q
+Q
+Q
+q
+1 0 0 1 39.6 437.72 cm
+Q
+q
+1 0 0 1 39.6 407.32 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 15.7 Tm /F1 8.7 Tf 12.2 TL -0.112159 Tw (Scope note: SSURGO estimates what the soil can store and how it drains. It does not report current soil moisture, rainfall, irrigation access,) Tj T* 0 Tw (or legal water availability.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 39.6 392.68 cm
+Q
+q
+1 0 0 1 39.6 369.68 cm
+q
+.113725 .356863 .270588 rg
+BT 1 0 0 1 0 3 Tm /F2 14 Tf 17 TL (Comparison model) Tj T* ET
+Q
+Q
+q
+1 0 0 1 39.6 338.28 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 15.7 Tm /F1 8.7 Tf 12.2 TL -0.106029 Tw (CropSage compares stable catalog requirements with normalized location evidence. The deterministic scorer produces separate suitability,) Tj T* 0 Tw (risk, and confidence outputs; missing evidence lowers confidence rather than being treated as favorable.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 39.6 326.52 cm
+Q
+q
+1 0 0 1 39.6 303.52 cm
+q
+.113725 .356863 .270588 rg
+BT 1 0 0 1 0 3 Tm /F2 14 Tf 17 TL (Complete Catalog Field Matrix) Tj T* ET
+Q
+Q
+q
+1 0 0 1 39.6 284.32 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 3.5 Tm /F1 8.7 Tf 12.2 TL (All required crop-catalog fields are listed in one continuous table. The header repeats when the table crosses a page boundary.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 39.6 48.12 cm
+q
+.113725 .356863 .270588 rg
+n 0 230.2 532.8 -18.2 re f*
+1 1 1 rg
+n 0 212 532.8 -29 re f*
+.960784 .968627 .960784 rg
+n 0 183 532.8 -19 re f*
+1 1 1 rg
+n 0 164 532.8 -29 re f*
+.960784 .968627 .960784 rg
+n 0 135 532.8 -29 re f*
+1 1 1 rg
+n 0 106 532.8 -29 re f*
+.960784 .968627 .960784 rg
+n 0 77 532.8 -29 re f*
+1 1 1 rg
+n 0 48 532.8 -19 re f*
+.960784 .968627 .960784 rg
+n 0 29 532.8 -29 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 5 216.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.8 Tm /F2 7.4 Tf 9.2 TL (Group) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 216.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.8 Tm /F2 7.4 Tf 9.2 TL (Crop catalog field) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 216.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.8 Tm /F2 7.4 Tf 9.2 TL (Location evidence) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 216.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.8 Tm /F2 7.4 Tf 9.2 TL (Comparison or purpose) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 197.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Identity) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 198.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (crop_id) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 197.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (None) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 187.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Stable internal identifier used across scoring, citations,) Tj T* (and UI state.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 168.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Identity) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 169.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (common_name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 168.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (None) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 168.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Farmer-facing display name.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 149.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Identity) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 150.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (scientific_name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 149.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (None) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 139.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Prevents ambiguity between crops with similar) Tj T* (common names.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 120.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Identity) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 121.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (production_use) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 120.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Optional farmer objective) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 110.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Separates production profiles such as grain corn and) Tj T* (silage corn.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 91.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Identity) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 92.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (variety_scope) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 91.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (None) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 81.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (States whether requirements apply to a species,) Tj T* (commercial type, or named cultivar.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 62.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Region) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 63.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (supported_texas_regions) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 52.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Farm coordinates mapped to a Texas) Tj T* (region) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 52.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL -0.0768 Tw (Determines whether the crop profile is supported at the) Tj T* 0 Tw (selected location.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 33.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Region) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 34.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (regional_suitability) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 33.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Resolved Texas region) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 33.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Returns core, conditional, marginal, or unsupported.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 14.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Season) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 15.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (planting_windows_by_region) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 14.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Region and proposed planting date) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 4.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Checks whether the scenario date is inside a) Tj T* (recommended planting window.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.784314 .819608 .8 RG
+.35 w
+n 0 230.2 m 532.8 230.2 l S
+n 0 0 m 0 230.2 l S
+n 532.8 0 m 532.8 230.2 l S
+n 0 0 m 532.8 0 l S
+n 0 212 m 532.8 212 l S
+n 0 183 m 532.8 183 l S
+n 0 164 m 532.8 164 l S
+n 0 135 m 532.8 135 l S
+n 0 106 m 532.8 106 l S
+n 0 77 m 532.8 77 l S
+n 0 48 m 532.8 48 l S
+n 0 29 m 532.8 29 l S
+n 64.8 0 m 64.8 230.2 l S
+n 201.6 0 m 201.6 230.2 l S
+n 338.4 0 m 338.4 230.2 l S
+.301961 .545098 .392157 RG
+1.1 w
+n 0 77 m 532.8 77 l S
+n 0 29 m 532.8 29 l S
+Q
+Q
+Q
+ 
+
+Q
+
+q
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+0.960784 0.968627 0.960784 rg
+n
+241.75 154.67 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 164.82 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 1 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(Farmer production objective \050not API\051) Tj
+T*
+ET
+Q
+Q
+0.960784 0.968627 0.960784 rg
+n
+241.75 96.67 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 99.22 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 16.2 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(Farm coordinate \053 Texas region resolver) Tj
+T*
+(\050pending\051\073 Open\055Meteo geocoding) Tj
+T*
+(confirms Plainview) Tj
+T*
+ET
+Q
+Q
+1 1 1 rg
+n
+241.75 77.67 135.7 17.9 re
+f*
+q
+1 0 0 1 246.2 79.62 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8 Tm
+/F1-0 6 Tf
+7 TL
+(Manual Texas Plains context\073 automated region) Tj
+T*
+(resolver pending) Tj
+T*
+ET
+Q
+Q
+0.960784 0.968627 0.960784 rg
+n
+241.75 48.67 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 55.02 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8.6 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(Resolved region \053 farmer proposed) Tj
+T*
+(planting date \050pending\051) Tj
+T*
+ET
+Q
+Q
+Q
+
+
+endstream
+endobj
+6 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+7 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+8 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+9 0 obj
+<<
+/BaseFont /Courier
+/Encoding /WinAnsiEncoding
+/Name /F3
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+10 0 obj
+<<
+/Contents 11 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/F1 6 0 R
+/F1-0 12 0 R
+/F2 8 0 R
+/F3 9 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+11 0 obj
+<<
+/Length 17908
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+.113725 .356863 .270588 rg
+n 0 780.48 612 11.52 re f*
+.784314 .819608 .8 RG
+.5 w
+n 39.6 26.64 m 572.4 26.64 l S
+BT /F1 7.4 Tf 8.88 TL ET
+.360784 .407843 .380392 rg
+BT 1 0 0 1 39.6 15.12 Tm (CropSage | Final MVP crop catalog field matrix) Tj T* ET
+BT 1 0 0 1 548.9494 15.12 Tm (Page 2) Tj T* ET
+Q
+q
+1 0 0 1 39.6 189.16 cm
+q
+.113725 .356863 .270588 rg
+n 0 558.2 532.8 -18.2 re f*
+1 1 1 rg
+n 0 540 532.8 -29 re f*
+.960784 .968627 .960784 rg
+n 0 511 532.8 -29 re f*
+1 1 1 rg
+n 0 482 532.8 -19 re f*
+.960784 .968627 .960784 rg
+n 0 463 532.8 -29 re f*
+1 1 1 rg
+n 0 434 532.8 -29 re f*
+.960784 .968627 .960784 rg
+n 0 405 532.8 -29 re f*
+1 1 1 rg
+n 0 376 532.8 -19 re f*
+.960784 .968627 .960784 rg
+n 0 357 532.8 -29 re f*
+1 1 1 rg
+n 0 328 532.8 -29 re f*
+.960784 .968627 .960784 rg
+n 0 299 532.8 -29 re f*
+1 1 1 rg
+n 0 270 532.8 -29 re f*
+.960784 .968627 .960784 rg
+n 0 241 532.8 -39 re f*
+1 1 1 rg
+n 0 202 532.8 -29 re f*
+.960784 .968627 .960784 rg
+n 0 173 532.8 -29 re f*
+1 1 1 rg
+n 0 144 532.8 -29 re f*
+.960784 .968627 .960784 rg
+n 0 115 532.8 -29 re f*
+1 1 1 rg
+n 0 86 532.8 -19 re f*
+.960784 .968627 .960784 rg
+n 0 67 532.8 -29 re f*
+1 1 1 rg
+n 0 38 532.8 -19 re f*
+.960784 .968627 .960784 rg
+n 0 19 532.8 -19 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 5 544.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.8 Tm /F2 7.4 Tf 9.2 TL (Group) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 544.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.8 Tm /F2 7.4 Tf 9.2 TL (Crop catalog field) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 544.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.8 Tm /F2 7.4 Tf 9.2 TL (Location evidence) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 544.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.8 Tm /F2 7.4 Tf 9.2 TL (Comparison or purpose) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 525.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Season) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 526.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (days_to_maturity) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 515.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Planting date and expected) Tj T* (growing-season length) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 515.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Checks whether the crop can mature before damaging) Tj T* (cold or seasonal limits.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 496.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Temperature) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 497.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (optimal_temperature_range) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 486.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (NASA climatology and recent) Tj T* (FortyGuard temperatures) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 486.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Measures whether expected baseline and recent local) Tj T* (temperatures are favorable.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 467.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Temperature) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 468.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (heat_stress_threshold) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 467.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (FortyGuard maximum temperatures) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 467.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Detects crop-specific threshold exceedance.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 448.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Temperature) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 449.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (heat_exposure_duration) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 438.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (FortyGuard consecutive hourly) Tj T* (observations) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 448.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Separates a brief spike from persistent heat exposure.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 419.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Temperature) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 420.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (heat_sensitive_stages) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 409.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Planting date, estimated crop stage,) Tj T* (and FortyGuard time period) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 409.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Applies stronger heat penalties during sensitive growth) Tj T* (stages.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 390.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Temperature) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 391.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (frost_sensitivity) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 380.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (NASA historical minimum) Tj T* (temperatures and seasonal timing) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 380.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Identifies cold or frost risk for the proposed crop) Tj T* (calendar.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 361.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Temperature) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 362.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (temperature_unit) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 361.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Provider response units) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 361.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Ensures all values are normalized before comparison.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 342.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Temperature) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 343.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (temperature_measurement_basis) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 332.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (FortyGuard and NASA parameter) Tj T* (definitions) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 332.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Prevents comparisons between incompatible) Tj T* (temperature measurements.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 313.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Soil) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 314.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (preferred_soil_textures) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 313.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (USDA SSURGO soil texture) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 303.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Measures texture compatibility for the selected point or) Tj T* (farm polygon.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 284.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Soil) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 285.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (ph_tolerable_range) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 274.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (SSURGO representative pH or) Tj T* (farmer soil test) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 274.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Detects unsuitable acidity or alkalinity; a soil test may) Tj T* (override mapped evidence.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 255.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Soil) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 256.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (drainage_requirement) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 255.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (USDA SSURGO drainage class) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 245.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Detects drainage mismatch and potential waterlogging) Tj T* (risk.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 226.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Water) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 227.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (water_demand) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 206.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 22.4 Tm /F1 7.6 Tf 10 TL (NASA growing-season precipitation,) Tj T* (SSURGO water storage, and) Tj T* (irrigation status) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 216.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Classifies whether the location is likely to meet the) Tj T* (crop's water demand.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 187.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Water) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 188.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (drought_tolerance) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 177.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Calculated rainfall and soil-storage) Tj T* (risk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 177.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Adjusts suitability when the location has a likely) Tj T* (climatic water deficit.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 158.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Water) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 159.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (irrigation_requirement) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 158.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Farmer irrigation availability) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 148.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Identifies crops that depend on irrigation at the) Tj T* (selected location.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 129.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Evidence) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 130.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (source_ids) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 129.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (None) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 119.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Links each requirement to supporting publications or) Tj T* (authoritative guidance.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 100.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Evidence) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 101.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (confidence) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 90.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Provider quality and missing location) Tj T* (evidence) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 90.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Contributes to recommendation confidence; it is not) Tj T* (crop suitability itself.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 71.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Evidence) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 72.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (last_reviewed) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 71.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (None) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 71.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Records how recently the crop profile was checked.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 52.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Evidence) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 53.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (assumptions) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 52.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Farm and scenario inputs) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 42.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 12.4 Tm /F1 7.6 Tf 10 TL (Discloses variety, regional, and data assumptions) Tj T* (used in the result.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 23.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Administration) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 24.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (catalog_version) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 23.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (None) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 23.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Supports versioned, reproducible catalog updates.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 5 4.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F2 7.6 Tf 10 TL (Administration) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.8 5.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2 Tm /F3 7 Tf 9 TL (record_status) Tj T* ET
+Q
+Q
+q
+1 0 0 1 206.6 4.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (None) Tj T* ET
+Q
+Q
+q
+1 0 0 1 343.4 4.5 cm
+q
+.094118 .129412 .113725 rg
+BT 1 0 0 1 0 2.4 Tm /F1 7.6 Tf 10 TL (Marks the record as draft, reviewed, or approved.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.784314 .819608 .8 RG
+.35 w
+n 0 558.2 m 532.8 558.2 l S
+n 0 540 m 0 558.2 l S
+n 0 0 m 0 540 l S
+n 532.8 540 m 532.8 558.2 l S
+n 532.8 0 m 532.8 540 l S
+n 0 0 m 532.8 0 l S
+n 0 540 m 532.8 540 l S
+n 64.8 540 m 64.8 558.2 l S
+n 201.6 540 m 201.6 558.2 l S
+n 338.4 540 m 338.4 558.2 l S
+n 0 511 m 532.8 511 l S
+n 0 482 m 532.8 482 l S
+n 0 463 m 532.8 463 l S
+n 0 434 m 532.8 434 l S
+n 0 405 m 532.8 405 l S
+n 0 376 m 532.8 376 l S
+n 0 357 m 532.8 357 l S
+n 0 328 m 532.8 328 l S
+n 0 299 m 532.8 299 l S
+n 0 270 m 532.8 270 l S
+n 0 241 m 532.8 241 l S
+n 0 202 m 532.8 202 l S
+n 0 173 m 532.8 173 l S
+n 0 144 m 532.8 144 l S
+n 0 115 m 532.8 115 l S
+n 0 86 m 532.8 86 l S
+n 0 67 m 532.8 67 l S
+n 0 38 m 532.8 38 l S
+n 0 19 m 532.8 19 l S
+n 64.8 0 m 64.8 540 l S
+n 201.6 0 m 201.6 540 l S
+n 338.4 0 m 338.4 540 l S
+.301961 .545098 .392157 RG
+1.1 w
+n 0 511 m 532.8 511 l S
+n 0 328 m 532.8 328 l S
+n 0 241 m 532.8 241 l S
+n 0 144 m 532.8 144 l S
+n 0 38 m 532.8 38 l S
+Q
+Q
+Q
+ 
+
+Q
+
+q
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+1 1 1 rg
+n
+241.75 700.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 707.06 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8.6 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(Planting date \053 frost\055free season length) Tj
+T*
+(\050pending\051) Tj
+T*
+ET
+Q
+Q
+0.960784 0.968627 0.960784 rg
+n
+241.75 671.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 674.26 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 16.2 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(FortyGuard local heat \053 Open\055Meteo) Tj
+T*
+(recent\057forecast \053 NASA climatology) Tj
+T*
+(\050Plainview rerun pending\051) Tj
+T*
+ET
+Q
+Q
+1 1 1 rg
+n
+241.75 652.71 135.7 17.9 re
+f*
+q
+1 0 0 1 246.2 654.66 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8 Tm
+/F1-0 6 Tf
+7 TL
+(FortyGuard threshold exceedance hours for the) Tj
+T*
+(catalog threshold) Tj
+T*
+ET
+Q
+Q
+0.960784 0.968627 0.960784 rg
+n
+241.75 623.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 630.06 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8.6 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(FortyGuard exceedance hours\054 normalized) Tj
+T*
+(exposure share\054 and persistence hours) Tj
+T*
+ET
+Q
+Q
+1 1 1 rg
+n
+241.75 594.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 601.06 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8.6 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(Planting date \053 derived crop stage) Tj
+T*
+(\050pending\051 \053 FortyGuard heat window) Tj
+T*
+ET
+Q
+Q
+0.960784 0.968627 0.960784 rg
+n
+241.75 565.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 568.26 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 16.2 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(NASA daily minimum temperature after) Tj
+T*
+(Plainview rerun\073 frost\055free derivation) Tj
+T*
+(pending) Tj
+T*
+ET
+Q
+Q
+1 1 1 rg
+n
+241.75 546.71 135.7 17.9 re
+f*
+q
+1 0 0 1 246.2 548.66 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8 Tm
+/F1-0 6 Tf
+7 TL
+(FortyGuard\054 NASA\054 and Open\055Meteo units) Tj
+T*
+(normalized to Celsius) Tj
+T*
+ET
+Q
+Q
+0.960784 0.968627 0.960784 rg
+n
+241.75 517.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 524.06 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8.6 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(2 m air temperature from FortyGuard\054) Tj
+T*
+(NASA POWER\054 and Open\055Meteo) Tj
+T*
+ET
+Q
+Q
+1 1 1 rg
+n
+241.75 488.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 498.86 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 1 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(USDA SSURGO soil texture \050not fetched\051) Tj
+T*
+ET
+Q
+Q
+0.960784 0.968627 0.960784 rg
+n
+241.75 459.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 466.06 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8.6 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(SSURGO representative pH or farmer soil) Tj
+T*
+(test \050not fetched\051) Tj
+T*
+ET
+Q
+Q
+1 1 1 rg
+n
+241.75 430.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 437.06 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8.6 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(USDA SSURGO drainage class \050not) Tj
+T*
+(fetched\051) Tj
+T*
+ET
+Q
+Q
+0.960784 0.968627 0.960784 rg
+n
+241.75 391.71 135.7 37.9 re
+f*
+q
+1 0 0 1 246.2 395.46 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 23.8 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(Open\055Meteo rainfall\054 ET0\054 and soil) Tj
+T*
+(moisture \053 NASA precipitation \050Plainview) Tj
+T*
+(rerun pending\051 \053 SSURGO storage \053) Tj
+T*
+(irrigation) Tj
+T*
+ET
+Q
+Q
+1 1 1 rg
+n
+241.75 362.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 365.26 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 16.2 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(Open\055Meteo rainfall\057ET0\057soil moisture \053) Tj
+T*
+(NASA baseline \053 SSURGO storage \053) Tj
+T*
+(irrigation) Tj
+T*
+ET
+Q
+Q
+0.960784 0.968627 0.960784 rg
+n
+241.75 333.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 340.06 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8.6 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(Farmer irrigation availability\057reliability \053) Tj
+T*
+(calculated water deficit) Tj
+T*
+ET
+Q
+Q
+0.960784 0.968627 0.960784 rg
+n
+241.75 275.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 282.06 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8.6 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(Provider resolution\054 freshness\054 live\057cache) Tj
+T*
+(status\054 missing fields\054 and warnings) Tj
+T*
+ET
+Q
+Q
+0.960784 0.968627 0.960784 rg
+n
+241.75 227.71 135.7 27.9 re
+f*
+q
+1 0 0 1 246.2 234.06 cm
+q
+0.117647 0.14902 0.133333 rg
+BT
+1 0 0 1 0 8.6 Tm
+/F1-0 6.6 Tf
+7.6 TL
+(Farm\057scenario inputs \053 disclosed manual) Tj
+T*
+(Plains assignment and data gaps) Tj
+T*
+ET
+Q
+Q
+Q
+
+
+endstream
+endobj
+12 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+13 0 obj
+<<
+/Contents 14 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font 15 0 R
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+14 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ]
+/Length 1949
+>>
+stream
+Gb!#\gMYb*&:O:Sb[\)`<Dds_JHaK!8R"%+1j6@SN't9oBi1]P-NWr$G=Y:8h:Pc@&?q't/5sue3AZFH,RM!U6d5RH"n6gJ0@'q9&*=6BJJ5is,J9RCISLkLr7DCnn\Zc3HuQaN%?gqEE`1i=ET0#F!YN.<L_G*-(bD7QS2^h&&qH1-1ia9-K^4PQ'>c?8jekiV?K=KTX<<Hb6u0ODQq]V;@dV#6&dP+6<uaGFd4.,,r]j!O`:[&)4+cp_Nf^M?6:Wh7_9!WBb8FS@p`%M(5m:NmFTiWm6:P`?j:W5uM&]R'<rDAER"'ne1Q?"7%"lJiK/BgV?>5V;p%W0Ye<UKIn"R]:gVY2A?sN3/m?cuQ8].+;Reb'J;q-36i-eH\FTo.nnZlc,<32rSQc570Nu]C0,AnD2K%V7f??jgYp8]DZ-E;:/e^s#Dh`AZ(2I*L,<9KO.R;i:#,o9gj_p/CPB/1GA/M&PM*=kKo6g7:$^2B3i,/p2RTucUCn_@GsBr@./c$D,:htpK,a00=6oT$EF%bN&Kd5K)VC>1Xj&/hdaKA*cY*CL*JmU3J7o(WV&-KsuJf8-MnZ)M69dB'gV@_E+kh$I<aD/=)]T:k"8qHXEUdaQYEfINNYM7?XM?4c-)ru,Gq)jTf_7Hf44*]odB(/#IoaMc&7#pGkNadFS,65Ic<RoEZf/>]j`*[iZ^e'\*(Ua8u6Yj>ap_[(Ks+jSa]`JV6+4DR@@.-qJ%/J"P!S4E2/N%)K\Ek5(f"dtT)a"CAul4AAf/FY1VK<di9;GaIW`=d40*o]@%r&Ib-VP)(65o#^go*W*U11&g=,uYL6c6*c?S%ln<_#49)naQQ@SXmXJVlt$B&(-BVK"GV3in@)tJl+DE`PW%s0fi:P`q/+nWqu^hTdi8pGdL*6N`WX,8WE=eWT5W\HWi.-R8jU;Gf^1+:*';\r-;J[7k6&FaT^2\:@!7_j(P)mAnS"qRshi]piM>QB[t"^/Dgp,)\:7kq]04HV1ZpjciKY/<=NunPiDM4Y!#tQ0XPmiYtZd)OujTGdrINR[5_Gj0'J:&-H:"_9aTPWcKJ]ZU\XC9b+hsmCJ<pn4#&A%3,3/aPkUNeQKi/9D'(sKiYW'fI7m9fU(n?3hJg<sTsd$$qB4+hJ1d(&MS,3k-4=+9?Yo#I!8DL[[U5")B5GhG/6@-0n656t_B8:9qn?PZ^HK'j2s%)Xs4)SILGjj+W#p5m`n[]ZqBpI@d/3X`S`mnMhR%4@")H\u`]\+m[Dq$XEP2nOa7]+;gqk?Q0!TAPKhEt%@c7q-QWUa5XG(D?>*p)$c.")iNHtWAf]a@BeO(lPmlYt@Ob5Y_I6G1'Vb))JN'ee;`b*^b<P80Zlh[NO<r#&Xi(3.1M5u[DJe5-Tdj&:cDN5$TrYPX=N][N]U%C=Q(q[/QRl\Jsqe!0c0FLY3RMSp/G]%Z-C"L$l3DfXN0fAHG?gIA$RX]7Ug<@t/+$e"IaZF@,[E"P<'5VXP\m70hY[t1#Fg)mRJ)_:%D^"e2+0Z/a[=pDB9@9if-l'8T2+,[gEo=Q3#7*:tQN:Hk+>u)#mRfeW4NKC)68@+ToP5c:D?QNdXf$C.fgjF;Hh:!f5*\;a_]a'cC2'Cq[;riWR8<dU:UH6r$XPNXX&k[t*&e`t^O/,pj%Q^%A&-[&PdR5S<H?V9(q3idEg\f]7I9\.YLBXI=P83fV0eDF;o83.S\g9@)[GTQL*Q>&Mg'5,]k+.Y:%prm!O!*5d(2JZX`;3c5F`&iYbf5g@o]p0'39Lo1j*8GBB[#_lu)&,S"m^9#j?arFYA#?l-5oYV.p-["akkm;Z/&RfK/WQe#Fj1^H-doiE&7:r^L\E3Mrb':H$1Q6Jf087MAL.-N+"T#H3PT=AR5<R@t?3Qs,&DX=?@b(NbXj68*cWV4;>fS[mtHVs`,b$r.MTDO=l9oL8CZbtj`)"51+2PQ~>
+endstream
+endobj
+15 0 obj
+<<
+/F1 6 0 R
+/F2 8 0 R
+/F3 9 0 R
+>>
+endobj
+16 0 obj
+<<
+/Annots [ 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R ]
+/Contents 23 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font 15 0 R
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+17 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057docs\055api\056fortyguard\056com\057docs)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 39.6 705.22 155.6496 713.86 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+18 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057power\056larc\056nasa\056gov\057docs\057services\057api\057temporal\057climatology\057)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 39.6 673.62 252.8784 682.26 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+19 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057www\056nrcs\056usda\056gov\057resources\057data\055and\055reports\057soil\055survey\055geographic\055database\055ssurgo)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 39.6 642.02 342.9072 650.66 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+20 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057sdmdataaccess\056sc\056egov\056usda\056gov\057webservicehelp\056aspx)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 39.6 610.42 238.0896 619.06 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+21 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057www\056climatologylab\056org\057gridmet\056html)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 39.6 578.82 178.4376 587.46 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+22 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057www\056twdb\056texas\056gov\057mapping\057data\055services\056asp)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 39.6 547.22 214.8696 555.86 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+23 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ]
+/Length 1625
+>>
+stream
+Gatm;=``=U&:W67fLIk66+i9@8WN134&+^:9(NIT&;?>o=:g^uRK!!LK%/c5Z5Q4X>9\(Rna0f[K*r0<>l1'l!1.bogpl9g0OK>LYQ3g8_"E*IpP?A_++#.b5E(cH#Nj!#QmA>_;2q(*`*kq5&ajaH(4)VW/Dc=fS-6PF!))*(EYA;(]+6,%_A[Xo.>u!"=;4"(@I0\rriLk,BWra/',HZ`<7RJTr5_1'^]O?u6i=mm;i_@'4mq6iQ0j<b4K78u]iNC:(BXSe)d2bF55og8)%K!Q%51]^$Rs4<.W2V@p]]g;@K)"g*Jb,VKV^sQ*/M9SOhnm)08S+&'4TibK+Zk)+ZrT]J5<Hu2i+:&h2TPJMeQgi8k[']>R@o,Zf+Y1KGJ\Wg.*JP28TZC7Qf+PTh7jYM@i,pUbcU@p;^$bM]8M;k!R13%WbK)6?CUa\>QgN6*@Mr&iCQ+C26cj6n=H04H9GI/<+At?RHL$dZ/Stfn'nQUkiT^ZK!T")Po0HXeS[i0YcW=@IRtlS&4RUDqB2pPnMP8@1mD_K@bG*W3t!Rj>pd.D`K>tb'H0aKjI?0nH:#'(^+)X?;;!;:/6<P7Edmr9&L1XB*%,[ltQm"mbZ8t2Z%gpiA7DIfe1jZ`FQYgZW^unle9!A7#P)gRaB.G"H7VsO0q5@%-"'n3Gppl&t<ka<2"TDPhDGTh=F[+>F[4n$*=&TKh&@fdUDEg=O#4Rr[:PuoVmPP\;+q6?OL&,=6)0H&m:\YJ\^Xb6kt?/V'm;&gZIGt-B?-pk:m;'GaLN"-A@c]a6PaIq5l?4M`0%iq3bDQ)0Bgs8q,*N/gdBn&r%u4<PIgJ(qW0&Ho`!1k:EZTn\AB(`f8>a-!$a>%@'i$<)dQ<PFkSZ6GonrHY,g89o"TbNNA';3,RbU<h+[D^Q2@JcqBD]MsKa#KfNl*\k!-4%j/HTrVu8>*e?<C6\h8<,Pnhnr`17CN>?rOJU>qt3S3h$2[l3if*P3VRP[H\6f5e#Na6u!=Ubuhr![?RB=l$%[]ChsU7@rS08AlkYTnJ*j,q:<LF%7BG<"18*_]5k*/g>r,BR-`,"TQlN1CQAPI]$$5)Cj7+Wq'jl]o\NI2msqFaRHj>4Ir-4?#dL@qc:"1m`f#)4d;=!od<fqf[G*RBpV?'*T^71=<fs$-3gXo7M;nd^4P48LWD9$E@)K>H!f)=K9ci"ka9n"R!(rn)GcL3LdI<=GoQWI1HS1)N2g$i.,qh=cZF+"4ZJLi$;4p)V625Cdfs1mBIA44nh?r]]*LXL$Su)]Q9K(s)rO1!i!$cg8.N;l$0:H\(IMeV+@AH=oeN'CP6:KS%$ad'bu!^XPoR(S%$2V;J!:S^'1?A+:BiqFY3oB2_ijNVDBT=4'NbMG]C<]-2J+m)*uI>0;KDPCoMJ`&eTian`-jYLCCL<Q^R4l#a!P>(4DgK1u$HAk7IM2s1]Yfq>1'?GA&SY:q#a!h0Nl&b')E_2!,c1gFd_O6F%\/p+iB@BXAijp7oHQeD$%1gX28,#*%AmS\d&+oiOEfR28!/!W3e&6SQIOJ)038Y5UVf?Jd"Z[CWleA'Zl-i'f?eM@Rg]kMYquWs[&`bA*q4Z)Csb2'oGA3Xjd45=p2=r<nRS0Tu~>
+endstream
+endobj
+xref
+0 24
+0000000000 65535 f 
+0000000015 00000 n 
+0000000435 00000 n 
+0000000515 00000 n 
+0000000564 00000 n 
+0000000807 00000 n 
+0000012888 00000 n 
+0000012995 00000 n 
+0000013102 00000 n 
+0000013214 00000 n 
+0000013319 00000 n 
+0000013565 00000 n 
+0000031527 00000 n 
+0000031635 00000 n 
+0000031827 00000 n 
+0000033869 00000 n 
+0000033921 00000 n 
+0000034167 00000 n 
+0000034369 00000 n 
+0000034617 00000 n 
+0000034898 00000 n 
+0000035128 00000 n 
+0000035337 00000 n 
+0000035564 00000 n 
+trailer
+<<
+/Size 24
+/Root 3 0 R
+/Info 1 0 R
+>>
+startxref
+37282
+%%EOF
