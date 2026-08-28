@@ -4,7 +4,7 @@ notebooks/
 FortyGuard APIs/
 tmp/
 scripts/*
-!scripts/build_plainview_evidence.py
+
 data/fortyguard-cache/
 data/evidence/*
 
