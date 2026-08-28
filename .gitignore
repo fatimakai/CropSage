@@ -3,6 +3,11 @@ notebooks/
 .env
 FortyGuard APIs/
 tmp/
-scripts/
+scripts/*
+!scripts/build_plainview_evidence.py
 data/fortyguard-cache/
-data/evidence
+data/evidence/*
+
+tests/
+test_gemini.py
+data/farm-profile/
