@@ -5,4 +5,7 @@ FortyGuard APIs/
 tmp/
 scripts/
 data/fortyguard-cache/
-data/evidence
+data/evidence/**
+!data/evidence/providers/
+data/evidence/providers/**
+!data/evidence/providers/ssurgo_plainview.json
