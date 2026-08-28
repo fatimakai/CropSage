@@ -11,3 +11,7 @@ data/evidence/*
 tests/
 test_gemini.py
 data/farm-profile/
+data/evidence/**
+!data/evidence/providers/
+data/evidence/providers/**
+!data/evidence/providers/ssurgo_plainview.json

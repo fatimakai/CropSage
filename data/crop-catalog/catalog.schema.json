@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://cropsage.local/schemas/crop-catalog-1.1.0.json",
   "title": "CropSage Texas crop catalog",
+  "description": "Catalog contract version 1.1.0. Every crop property is structurally required for a stable consumer contract. A property whose schema permits null contains optional numeric evidence: null means not numerically established, never zero, favorable evidence, compatibility, or safety.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -19,7 +20,10 @@
     "jurisdiction": { "type": "string", "const": "Texas, United States" },
     "last_reviewed": { "type": "string", "format": "date" },
     "record_status_definition": { "type": "object" },
-    "scoring_policy": { "type": "object" },
+    "scoring_policy": {
+      "type": "object",
+      "description": "Catalog-wide evidence interpretation rules. Runtime scoring must honor evidence_status and field-level scoring_use and must not reward missing optional evidence."
+    },
     "regions": {
       "type": "array",
       "minItems": 5,
@@ -80,10 +84,12 @@
     },
     "evidenceStatus": {
       "type": "string",
+      "description": "Strength and transferability of the supporting evidence. not_numerically_established requires non-numeric, informational treatment.",
       "enum": ["direct", "regional_transfer", "generalized", "not_numerically_established"]
     },
     "temperatureRange": {
       "type": "object",
+      "description": "Core numeric evidence used for comparable MVP temperature-fit assessment across all catalog crops.",
       "additionalProperties": false,
       "required": ["min_c", "max_c", "basis", "evidence_status", "source_ids"],
       "properties": {
@@ -96,30 +102,94 @@
     },
     "heatThreshold": {
       "type": "object",
+      "description": "Supplementary crop heat-risk evidence. The object is structurally required, but value_c and operator are optional numeric evidence and may be null when no transferable threshold is established.",
       "additionalProperties": false,
       "required": ["value_c", "operator", "basis", "severity", "scoring_use", "evidence_status", "source_ids"],
       "properties": {
-        "value_c": { "type": ["number", "null"] },
-        "operator": { "type": ["string", "null"], "enum": [">", ">=", null] },
+        "value_c": {
+          "type": ["number", "null"],
+          "description": "Optional Celsius threshold. Null means no transferable numeric threshold was established and must not be imputed from the optimal range."
+        },
+        "operator": {
+          "type": ["string", "null"],
+          "enum": [">", ">=", null],
+          "description": "Comparison operator for value_c. Must be null when value_c is null."
+        },
         "basis": { "type": "string", "minLength": 1 },
         "severity": { "type": "string", "enum": ["warning", "not_established"] },
-        "scoring_use": { "type": "string", "enum": ["soft_penalty", "informational_only"] },
+        "scoring_use": {
+          "type": "string",
+          "enum": ["soft_penalty", "informational_only"],
+          "description": "Catalog evidence capability. The MVP calculation policy may conservatively restrict numeric thresholds to risk or explanation even when soft_penalty is recorded."
+        },
         "evidence_status": { "$ref": "#/$defs/evidenceStatus" },
         "source_ids": { "type": "array", "items": { "$ref": "#/$defs/sourceId" } }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "value_c": { "type": "null" } },
+            "required": ["value_c"]
+          },
+          "then": {
+            "properties": {
+              "operator": { "type": "null" },
+              "severity": { "const": "not_established" },
+              "scoring_use": { "const": "informational_only" },
+              "evidence_status": { "const": "not_numerically_established" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "value_c": { "type": "number" } },
+            "required": ["value_c"]
+          },
+          "then": {
+            "properties": {
+              "operator": { "type": "string", "enum": [">", ">="] },
+              "severity": { "const": "warning" }
+            }
+          }
+        }
+      ]
     },
     "heatDuration": {
       "type": "object",
+      "description": "Supplementary duration evidence. The object and nullable properties are structurally required, but null duration values are valid and remain informational when no transferable biological duration was established.",
       "additionalProperties": false,
       "required": ["hours", "consecutive_days", "description", "scoring_use", "evidence_status", "source_ids"],
       "properties": {
-        "hours": { "type": ["number", "null"] },
-        "consecutive_days": { "type": ["integer", "null"] },
+        "hours": {
+          "type": ["number", "null"],
+          "description": "Optional sourced exposure duration in hours. Null must not be converted to zero or inferred from provider observations."
+        },
+        "consecutive_days": {
+          "type": ["integer", "null"],
+          "description": "Optional sourced consecutive-day duration. Null must not be converted to zero or inferred from provider observations."
+        },
         "description": { "type": "string", "minLength": 1 },
         "scoring_use": { "type": "string", "enum": ["soft_penalty", "informational_only"] },
         "evidence_status": { "$ref": "#/$defs/evidenceStatus" },
         "source_ids": { "type": "array", "items": { "$ref": "#/$defs/sourceId" } }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "hours": { "type": "null" },
+              "consecutive_days": { "type": "null" }
+            },
+            "required": ["hours", "consecutive_days"]
+          },
+          "then": {
+            "properties": {
+              "scoring_use": { "const": "informational_only" },
+              "evidence_status": { "const": "not_numerically_established" }
+            }
+          }
+        }
+      ]
     },
     "phRange": {
       "type": "object",
@@ -134,12 +204,18 @@
     },
     "rootZoneDepth": {
       "type": "object",
+      "description": "Core crop root-zone range used to select the SSURGO available-water integration depth.",
       "additionalProperties": false,
       "required": ["min", "max", "reference", "basis", "evidence_status", "source_ids"],
       "properties": {
         "min": { "type": "integer", "minimum": 1, "maximum": 500 },
         "max": { "type": "integer", "minimum": 1, "maximum": 500 },
-        "reference": { "type": ["integer", "null"], "minimum": 1, "maximum": 500 },
+        "reference": {
+          "type": ["integer", "null"],
+          "minimum": 1,
+          "maximum": 500,
+          "description": "Optional single representative depth. Null is valid when the source supports a range but not one representative value."
+        },
         "basis": { "type": "string", "minLength": 1 },
         "evidence_status": { "$ref": "#/$defs/evidenceStatus" },
         "source_ids": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceId" } }
@@ -147,11 +223,13 @@
     },
     "waterDemand": {
       "type": "object",
+      "description": "The categorical class is core comparable MVP evidence. seasonal_range_mm is optional numeric context and may be null without invalidating the crop record.",
       "additionalProperties": false,
       "required": ["class", "seasonal_range_mm", "basis", "evidence_status", "source_ids"],
       "properties": {
         "class": { "type": "string", "enum": ["low", "moderate", "high", "very_high"] },
         "seasonal_range_mm": {
+          "description": "Optional sourced seasonal crop-water range. Null is not zero demand and must not provide a ranking advantage.",
           "oneOf": [
             { "type": "null" },
             {
@@ -225,7 +303,12 @@
         "optimal_temperature_range": { "$ref": "#/$defs/temperatureRange" },
         "heat_stress_threshold": { "$ref": "#/$defs/heatThreshold" },
         "heat_exposure_duration": { "$ref": "#/$defs/heatDuration" },
-        "heat_sensitive_stages": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "heat_sensitive_stages": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" },
+          "description": "Required explanatory evidence. It does not trigger stage-specific MVP scoring unless a separately validated crop-stage resolver is available."
+        },
         "frost_sensitivity": {
           "type": "object",
           "additionalProperties": false,

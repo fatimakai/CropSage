@@ -11,8 +11,8 @@
     "direct": "May support deterministic scoring, subject to the field's scoring_use value.",
     "regional_transfer": "May support a soft score only; the source is agronomically relevant but not Texas-specific.",
     "generalized": "Informational or soft-score evidence only.",
-    "not_numerically_established": "Must never trigger a hard filter or numeric penalty.",
-    "runtime_rule": "Catalog requirements are compared with live location evidence. Weather, mapped soil values, irrigation access, and computed scores are not stored in this catalog."
+    "not_numerically_established": "The required property remains present with a null numeric value. Null means no transferable number was established; it is never zero, favorable evidence, compatibility, safety, or permission to apply a hard filter or numeric penalty.",
+    "runtime_rule": "Catalog requirements are compared with live location evidence. Core fields that are consistently populated across all crops may support MVP suitability scoring. Nullable heat thresholds, heat-exposure durations, and seasonal water ranges are supplementary evidence only and must not create a ranking advantage. Weather, mapped soil values, irrigation access, and computed scores are not stored in this catalog."
   },
   "regions": [
     {
