@@ -2,13 +2,20 @@
   "name": "cropsage",
   "version": "0.1.0",
   "private": true,
-  "description": "CropSage database migrations and local Supabase tooling",
+  "description": "CropSage application, database migrations, and local tooling",
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "db:start": "supabase start",
     "db:stop": "supabase stop",
     "db:reset": "supabase db reset",
     "db:test": "supabase test db",
-    "db:lint": "supabase db lint --schema public --fail-on error"
+    "db:lint": "supabase db lint --schema public --fail-on error",
+    "web:dev": "npm run dev --workspace @cropsage/web",
+    "web:build": "npm run build --workspace @cropsage/web",
+    "web:lint": "npm run lint --workspace @cropsage/web",
+    "web:test": "npm run test --workspace @cropsage/web"
   },
   "devDependencies": {
     "supabase": "2.116.0"
