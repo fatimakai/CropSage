@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "texas_15_representative_agricultural_sites",
+  "catalog_version": "1.1.0",
+  "last_verified": "2026-08-28",
+  "site_count": 15,
+  "selection_policy": {
+    "sites_per_parent_region": 3,
+    "purpose": "Provide fifteen geographically varied agricultural test sites for evidence collection and deterministic scenario testing.",
+    "inheritance_rule": "Each representative site inherits crop regional-suitability ratings and planting windows from its parent crop-catalog region; the provider evidence remains coordinate-specific.",
+    "location_rule": "Prefer the nearest USDA NASS 2024 Cropland Data Layer pixel classified as a named crop, hay, fallow cropland, or agricultural land cover near the selected agricultural center.",
+    "limitation": "These are representative test points, not farm parcels or region boundaries. CDL is remotely sensed land-cover evidence and does not establish ownership, current management, or field-level ground truth."
+  },
+  "sources": [
+    {
+      "source_id": "CROPSAGE_CATALOG_1_1_0",
+      "name": "CropSage crop catalog region vocabulary",
+      "publisher": "CropSage",
+      "url": "https://aggie-horticulture.tamu.edu/vegetable/guides/the-crops-of-texas/appendix-1-descriptions-of-geographic-regions-in-texas/",
+      "accessed_on": "2026-08-28",
+      "use": "Defines the five broad parent production regions used by the crop catalog."
+    },
+    {
+      "source_id": "USDA_NASS_CDL_2024",
+      "name": "2024 Cropland Data Layer",
+      "publisher": "USDA National Agricultural Statistics Service",
+      "url": "https://www.nass.usda.gov/Research_and_Science/Cropland/",
+      "accessed_on": "2026-08-28",
+      "use": "Verifies that each representative coordinate falls on a 10-m pixel classified as crop, hay, fallow cropland, or agricultural land cover."
+    }
+  ],
+  "sites": [
+    {
+      "site_id": "plains_northern_panhandle_dalhart",
+      "name": "Northern Panhandle — Dalhart",
+      "subregion_label": "Northern Panhandle",
+      "parent_region_id": "plains",
+      "nearby_agricultural_center": "Dalhart, Texas",
+      "location": { "latitude": 36.03, "longitude": -102.52 },
+      "timezone": "America/Chicago",
+      "justification": "Represents the northern High Plains' irrigated and dryland grain environment.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 27, "class_name": "Rye", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel in a systematic search grid around Dalhart.",
+        "warning": "Representative remotely sensed land cover; not a surveyed or farmer-authorized parcel."
+      }
+    },
+    {
+      "site_id": "plains_south_plainview",
+      "name": "South Plains — Plainview",
+      "subregion_label": "South Plains",
+      "parent_region_id": "plains",
+      "nearby_agricultural_center": "Plainview, Texas",
+      "location": { "latitude": 34.18, "longitude": -101.79 },
+      "timezone": "America/Chicago",
+      "justification": "Represents the South Plains row-crop and center-pivot production environment and remains close to the existing demo farm.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 2, "class_name": "Cotton", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel in a systematic search grid around Plainview.",
+        "warning": "Representative remotely sensed land cover; not a surveyed or farmer-authorized parcel."
+      }
+    },
+    {
+      "site_id": "plains_rolling_vernon",
+      "name": "Rolling Plains — Vernon",
+      "subregion_label": "Rolling Plains",
+      "parent_region_id": "plains",
+      "nearby_agricultural_center": "Vernon, Texas",
+      "location": { "latitude": 34.12, "longitude": -99.32 },
+      "timezone": "America/Chicago",
+      "justification": "Adds the eastern Rolling Plains, where rainfall and production conditions differ from the High Plains.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 24, "class_name": "Winter Wheat", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel in a systematic search grid around Vernon.",
+        "warning": "Representative remotely sensed land cover; not a surveyed or farmer-authorized parcel."
+      }
+    },
+    {
+      "site_id": "eastern_east_texas_tyler",
+      "name": "East Texas — Tyler",
+      "subregion_label": "Humid East Texas",
+      "parent_region_id": "eastern",
+      "nearby_agricultural_center": "Tyler, Texas",
+      "location": { "latitude": 32.41, "longitude": -95.30 },
+      "timezone": "America/Chicago",
+      "justification": "Represents humid eastern Texas and its pasture, forage, and smaller diversified farm systems.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 176, "class_name": "Grassland/Pasture", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest agricultural land-cover pixel in a systematic search grid; no named row-crop pixel was found in the selected search radius.",
+        "warning": "Pasture is agricultural land cover but does not prove suitability for conversion to any catalog crop."
+      }
+    },
+    {
+      "site_id": "eastern_rice_belt_eagle_lake",
+      "name": "Upper Gulf Coast Rice Belt — Eagle Lake",
+      "subregion_label": "Upper Gulf Coast rice belt",
+      "parent_region_id": "eastern",
+      "nearby_agricultural_center": "Eagle Lake, Texas",
+      "location": { "latitude": 29.56, "longitude": -96.30 },
+      "timezone": "America/Chicago",
+      "justification": "Represents the humid Gulf Coast rice-producing landscape explicitly included in the eastern catalog region.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 3, "class_name": "Rice", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel in a systematic search grid around Eagle Lake.",
+        "warning": "Representative remotely sensed land cover; not a surveyed or farmer-authorized parcel."
+      }
+    },
+    {
+      "site_id": "eastern_coastal_bend_robstown",
+      "name": "Coastal Bend — Robstown",
+      "subregion_label": "Coastal Bend",
+      "parent_region_id": "eastern",
+      "nearby_agricultural_center": "Robstown, Texas",
+      "location": { "latitude": 27.76, "longitude": -97.67 },
+      "timezone": "America/Chicago",
+      "justification": "Adds the warm, humid Coastal Bend portion of the broad eastern and Gulf Coast production region.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 2, "class_name": "Cotton", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel in a systematic search grid around Robstown.",
+        "warning": "Representative remotely sensed land cover; not a surveyed or farmer-authorized parcel."
+      }
+    },
+    {
+      "site_id": "central_blackland_temple",
+      "name": "Central Blackland — Temple",
+      "subregion_label": "Central Texas Blackland",
+      "parent_region_id": "central_south_winter_garden",
+      "nearby_agricultural_center": "Temple, Texas",
+      "location": { "latitude": 31.16, "longitude": -97.39 },
+      "timezone": "America/Chicago",
+      "justification": "Represents the central Texas portion of the catalog's combined central and southern region.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 1, "class_name": "Corn", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel in a systematic search grid around Temple.",
+        "warning": "Representative remotely sensed land cover; not a surveyed or farmer-authorized parcel."
+      }
+    },
+    {
+      "site_id": "central_winter_garden_uvalde",
+      "name": "Winter Garden — Uvalde",
+      "subregion_label": "Winter Garden",
+      "parent_region_id": "central_south_winter_garden",
+      "nearby_agricultural_center": "Uvalde, Texas",
+      "location": { "latitude": 29.24, "longitude": -99.76 },
+      "timezone": "America/Chicago",
+      "justification": "Represents the irrigated Winter Garden production district called out by the catalog region.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 23, "class_name": "Spring Wheat", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel in a systematic search grid around Uvalde.",
+        "warning": "Representative remotely sensed land cover; not a surveyed or farmer-authorized parcel."
+      }
+    },
+    {
+      "site_id": "central_south_poteet",
+      "name": "South Texas — Poteet",
+      "subregion_label": "South Texas agricultural belt",
+      "parent_region_id": "central_south_winter_garden",
+      "nearby_agricultural_center": "Poteet, Texas",
+      "location": { "latitude": 28.89, "longitude": -98.60 },
+      "timezone": "America/Chicago",
+      "justification": "Represents southern production outside the Lower Rio Grande Valley and supports the existing Poteet user scenario.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 4, "class_name": "Sorghum", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel in a systematic search grid around Poteet.",
+        "warning": "Representative remotely sensed land cover; not a surveyed or farmer-authorized parcel."
+      }
+    },
+    {
+      "site_id": "lrgv_upper_mission",
+      "name": "Upper Valley — Mission",
+      "subregion_label": "Upper Lower Rio Grande Valley",
+      "parent_region_id": "lower_rio_grande_valley",
+      "nearby_agricultural_center": "Mission, Texas",
+      "location": { "latitude": 26.32, "longitude": -98.32 },
+      "timezone": "America/Chicago",
+      "justification": "Represents the warmer and relatively drier western portion of the Lower Rio Grande Valley.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 176, "class_name": "Grassland/Pasture", "resolution_m": 10, "checked_on": "2026-08-29",
+        "method": "USDA CDL 2024 ArcGIS ImageServer point identification near Mission, followed by a complete 22-crop SSURGO contract test and successful FortyGuard TCM coverage probe.",
+        "warning": "The pixel was grassland or pasture in 2024; this confirms agricultural land-cover context, not current cultivation, ownership, or field boundaries."
+      }
+    },
+    {
+      "site_id": "lrgv_mid_weslaco",
+      "name": "Mid-Valley — Weslaco",
+      "subregion_label": "Mid Lower Rio Grande Valley",
+      "parent_region_id": "lower_rio_grande_valley",
+      "nearby_agricultural_center": "Weslaco, Texas",
+      "location": { "latitude": 26.19, "longitude": -97.99 },
+      "timezone": "America/Chicago",
+      "justification": "Represents the irrigated central portion of the Valley and a major diversified agricultural landscape.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 1, "class_name": "Corn", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel in a systematic search grid around Weslaco.",
+        "warning": "Representative remotely sensed land cover; not a surveyed or farmer-authorized parcel."
+      }
+    },
+    {
+      "site_id": "lrgv_lower_san_benito",
+      "name": "Lower Valley — San Benito",
+      "subregion_label": "Lower Lower Rio Grande Valley",
+      "parent_region_id": "lower_rio_grande_valley",
+      "nearby_agricultural_center": "San Benito, Texas",
+      "location": { "latitude": 26.13, "longitude": -97.66 },
+      "timezone": "America/Chicago",
+      "justification": "Represents the humid coastal end of the Valley's predominantly irrigated agricultural system.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 4, "class_name": "Sorghum", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel in a systematic search grid around San Benito.",
+        "warning": "Representative remotely sensed land cover; not a surveyed or farmer-authorized parcel."
+      }
+    },
+    {
+      "site_id": "far_west_el_paso_lower_valley_fabens",
+      "name": "El Paso Lower Valley — Fabens",
+      "subregion_label": "El Paso Lower Valley",
+      "parent_region_id": "far_west",
+      "nearby_agricultural_center": "Fabens, Texas",
+      "location": { "latitude": 31.50, "longitude": -106.17 },
+      "timezone": "America/Denver",
+      "justification": "Represents irrigated Rio Grande agriculture in the Mountain Time portion of Far West Texas.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 74, "class_name": "Pecans", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel in a systematic search grid around Fabens.",
+        "warning": "Representative remotely sensed land cover; not a surveyed or farmer-authorized parcel."
+      }
+    },
+    {
+      "site_id": "far_west_pecos_reeves",
+      "name": "Pecos–Reeves Irrigated Area",
+      "subregion_label": "Pecos and Reeves County agriculture",
+      "parent_region_id": "far_west",
+      "nearby_agricultural_center": "Pecos, Texas",
+      "location": { "latitude": 31.26, "longitude": -103.55 },
+      "timezone": "America/Chicago",
+      "justification": "Represents sparse but important irrigated production in the Pecos River portion of Far West Texas.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 36, "class_name": "Alfalfa", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel found in a wider search around Pecos because cropped land is sparse.",
+        "warning": "Representative remotely sensed land cover south of Pecos; not a surveyed or farmer-authorized parcel."
+      }
+    },
+    {
+      "site_id": "far_west_fort_stockton",
+      "name": "Trans-Pecos — Fort Stockton",
+      "subregion_label": "Central Trans-Pecos irrigated agriculture",
+      "parent_region_id": "far_west",
+      "nearby_agricultural_center": "Fort Stockton, Texas",
+      "location": { "latitude": 30.83, "longitude": -103.00 },
+      "timezone": "America/Chicago",
+      "justification": "Adds a high-desert Trans-Pecos location where crop feasibility depends strongly on irrigation and soil conditions.",
+      "coordinate_verification": {
+        "status": "verified_usda_cdl_2024", "source_id": "USDA_NASS_CDL_2024", "dataset_year": 2024,
+        "class_code": 74, "class_name": "Pecans", "resolution_m": 10, "checked_on": "2026-08-28",
+        "method": "Nearest qualifying CDL pixel found in a wider search around Fort Stockton because cropped land is sparse.",
+        "warning": "Representative remotely sensed land cover west of Fort Stockton; not a surveyed or farmer-authorized parcel."
+      }
+    }
+  ]
+}

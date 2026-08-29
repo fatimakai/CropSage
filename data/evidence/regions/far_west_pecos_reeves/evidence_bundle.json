@@ -1,0 +1,2546 @@
+{
+  "schema_version": "1.2.0",
+  "bundle_id": "far_west_pecos_reeves_evidence",
+  "generated_at": "2026-08-29T04:00:29.939384+00:00",
+  "status": "validated",
+  "location": {
+    "farm_id": "far_west_pecos_reeves",
+    "farm_name": "Pecos–Reeves Irrigated Area",
+    "latitude": 31.26,
+    "longitude": -103.55,
+    "texas_region_id": "far_west",
+    "timezone": "America/Chicago"
+  },
+  "catalog": {
+    "version": "1.1.0",
+    "crop_count": 22,
+    "crop_ids": [
+      "upland_cotton",
+      "corn_grain",
+      "hard_red_winter_wheat",
+      "grain_sorghum",
+      "runner_peanut",
+      "long_grain_rice",
+      "soybean",
+      "grain_oats",
+      "oilseed_sunflower",
+      "sesame",
+      "corn_silage",
+      "forage_sorghum",
+      "sorghum_sudangrass",
+      "alfalfa_hay",
+      "bermudagrass_hay",
+      "annual_ryegrass_forage",
+      "white_potato",
+      "sweet_potato",
+      "seedless_watermelon",
+      "dry_bulb_onion",
+      "fresh_market_cabbage",
+      "fresh_market_spinach"
+    ],
+    "source_path": "data/crop-catalog/catalog.json"
+  },
+  "provenance": {
+    "fortyguard": {
+      "provider": "FortyGuard Temperature API",
+      "source_path": "data/evidence/regions/far_west_pecos_reeves/fortyguard.json",
+      "generated_at": "2026-08-28T15:24:50.443852+00:00",
+      "evidence_role": "farm-scale spatial heat exposure across 1 validated time window(s)",
+      "location_match": true,
+      "freshness": {
+        "basis": "artifact_generated_at",
+        "age_hours": 12.594,
+        "max_age_hours": 168,
+        "status": "fresh",
+        "passed": true
+      },
+      "source_data_vintage": "2026-08-21 through 2026-08-27"
+    },
+    "nasa_power": {
+      "provider": "NASA POWER",
+      "source_path": "data/evidence/regions/far_west_pecos_reeves/nasa_power.json",
+      "generated_at": "2026-08-28T15:24:50.433457+00:00",
+      "evidence_role": "long_term_climate_baseline_and_daily_history",
+      "location_match": true,
+      "freshness": {
+        "basis": "artifact_generated_at",
+        "age_hours": 12.594,
+        "max_age_hours": 720,
+        "status": "fresh",
+        "passed": true
+      },
+      "source_data_vintage": "2001-2020 climatology and 2025 daily history"
+    },
+    "open_meteo": {
+      "provider": "Open-Meteo",
+      "source_path": "data/evidence/regions/far_west_pecos_reeves/open_meteo.json",
+      "generated_at": "2026-08-28T15:24:50.433457+00:00",
+      "evidence_role": "recent_and_forecast_weather",
+      "location_match": true,
+      "freshness": {
+        "basis": "artifact_generated_at",
+        "age_hours": 12.594,
+        "max_age_hours": 48,
+        "status": "fresh",
+        "passed": true
+      },
+      "source_data_vintage": "2026-08-28T10:15"
+    },
+    "ssurgo": {
+      "provider": "USDA NRCS SSURGO via Soil Data Access",
+      "source_path": "data/evidence/regions/far_west_pecos_reeves/ssurgo.json",
+      "generated_at": "2026-08-28T15:24:50.433457+00:00",
+      "evidence_role": "mapped permanent soil properties and available-water storage capacity",
+      "location_match": true,
+      "freshness": {
+        "basis": "artifact_generated_at",
+        "age_hours": 12.594,
+        "max_age_hours": 8760,
+        "status": "fresh",
+        "passed": true
+      },
+      "source_data_vintage": "9/5/2025 12:03:07 PM"
+    }
+  },
+  "units": {
+    "air_temperature": "degC",
+    "precipitation": "mm",
+    "relative_humidity": "percent",
+    "wind_speed": "m/s",
+    "solar_radiation": "MJ/m^2/day",
+    "photosynthetically_active_radiation": "MJ/m^2/day",
+    "soil_temperature": "degC",
+    "volumetric_soil_moisture": "m^3/m^3",
+    "available_water_storage": "mm",
+    "depth": "cm",
+    "heat_exposure": "hour",
+    "ph": "dimensionless"
+  },
+  "location_evidence": {
+    "fortyguard_heat": {
+      "granularity_m": 100,
+      "tile_count_per_response": 70,
+      "total_validated_responses": 13,
+      "total_null_values": 0,
+      "windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "start_date": "2026-08-21",
+          "end_date": "2026-08-27",
+          "tile_count": 70,
+          "mean_temperature_c": 31.580607142857144,
+          "minimum_tile_average_temperature_c": 31.5726,
+          "maximum_tile_average_temperature_c": 31.5877,
+          "period_minimum_temperature_c": 21.4423,
+          "period_maximum_temperature_c": 39.065,
+          "peak_hour_raw": null,
+          "peak_hour_timezone_status": "not_collected_for_mvp"
+        }
+      ],
+      "interpretation_warning": "Peak-hour values remain raw because the FortyGuard response timezone is unverified; do not label them as local time until the provider confirms the basis."
+    },
+    "nasa_power_climate": {
+      "history_start_date": "2025-01-01",
+      "history_end_date": "2025-12-31",
+      "climatology_period": "January 2001 - December 2020",
+      "annual_summary": {
+        "mean_temperature_c": 21.23,
+        "highest_temperature_c": 45.25,
+        "lowest_temperature_c": -7.42,
+        "annual_precipitation_mm": 260.36,
+        "mean_relative_humidity_percent": 36.62,
+        "mean_wind_speed_m_s": 3.01,
+        "mean_solar_radiation_mj_m2_day": 20.32,
+        "mean_par_mj_m2_day": 8.98,
+        "mean_root_zone_wetness": 0.34,
+        "mean_vpd_kpa": 1.86,
+        "gdd_base_10": 4459.65,
+        "heat_stress_days_above_35c": 106.0
+      },
+      "monthly_summary": [
+        {
+          "month": "Jan",
+          "T2M": 5.37129,
+          "T2M_MAX": 26.77,
+          "T2M_MIN": -7.42,
+          "PRECIPITATION_TOTAL_MM": 2.25,
+          "RH2M": 43.207097,
+          "ALLSKY_SFC_SW_DWN": 13.745484,
+          "WS2M": 3.051613,
+          "T2MDEW": -7.417097,
+          "ALLSKY_SFC_PAR_TOT": 5.845161,
+          "GWETROOT": 0.33129,
+          "EVPTRNS_TOTAL_MJ_M2": 0.0,
+          "VPD_KPA": 0.564552,
+          "GDD_BASE_10": 17.285,
+          "HEAT_STRESS_DAY_35C": 0
+        },
+        {
+          "month": "Feb",
+          "T2M": 13.191786,
+          "T2M_MAX": 33.44,
+          "T2M_MIN": -7.19,
+          "PRECIPITATION_TOTAL_MM": 0.02,
+          "RH2M": 28.867143,
+          "ALLSKY_SFC_SW_DWN": 17.500714,
+          "WS2M": 3.186429,
+          "T2MDEW": -6.695714,
+          "ALLSKY_SFC_PAR_TOT": 7.502857,
+          "GWETROOT": 0.33,
+          "EVPTRNS_TOTAL_MJ_M2": 0.0,
+          "VPD_KPA": 1.241054,
+          "GDD_BASE_10": 153.715,
+          "HEAT_STRESS_DAY_35C": 0
+        },
+        {
+          "month": "Mar",
+          "T2M": 17.567419,
+          "T2M_MAX": 33.63,
+          "T2M_MIN": 2.02,
+          "PRECIPITATION_TOTAL_MM": 0.89,
+          "RH2M": 22.144194,
+          "ALLSKY_SFC_SW_DWN": 21.947097,
+          "WS2M": 4.06,
+          "T2MDEW": -6.819355,
+          "ALLSKY_SFC_PAR_TOT": 9.34129,
+          "GWETROOT": 0.328065,
+          "EVPTRNS_TOTAL_MJ_M2": 0.0,
+          "VPD_KPA": 1.646499,
+          "GDD_BASE_10": 247.345,
+          "HEAT_STRESS_DAY_35C": 0
+        },
+        {
+          "month": "Apr",
+          "T2M": 21.882,
+          "T2M_MAX": 37.84,
+          "T2M_MIN": -0.5,
+          "PRECIPITATION_TOTAL_MM": 22.87,
+          "RH2M": 29.325667,
+          "ALLSKY_SFC_SW_DWN": 24.008,
+          "WS2M": 3.364333,
+          "T2MDEW": -0.016333,
+          "ALLSKY_SFC_PAR_TOT": 10.426,
+          "GWETROOT": 0.335,
+          "EVPTRNS_TOTAL_MJ_M2": 0.0,
+          "VPD_KPA": 2.087819,
+          "GDD_BASE_10": 363.54,
+          "HEAT_STRESS_DAY_35C": 9
+        },
+        {
+          "month": "May",
+          "T2M": 25.336452,
+          "T2M_MAX": 42.16,
+          "T2M_MIN": 12.15,
+          "PRECIPITATION_TOTAL_MM": 34.47,
+          "RH2M": 30.688387,
+          "ALLSKY_SFC_SW_DWN": 26.259032,
+          "WS2M": 3.280323,
+          "T2MDEW": 3.429355,
+          "ALLSKY_SFC_PAR_TOT": 11.530968,
+          "GWETROOT": 0.338387,
+          "EVPTRNS_TOTAL_MJ_M2": 0.08,
+          "VPD_KPA": 2.447395,
+          "GDD_BASE_10": 477.915,
+          "HEAT_STRESS_DAY_35C": 12
+        },
+        {
+          "month": "Jun",
+          "T2M": 30.052667,
+          "T2M_MAX": 45.25,
+          "T2M_MIN": 19.58,
+          "PRECIPITATION_TOTAL_MM": 67.82,
+          "RH2M": 43.532,
+          "ALLSKY_SFC_SW_DWN": 25.092667,
+          "WS2M": 3.262333,
+          "T2MDEW": 14.345333,
+          "ALLSKY_SFC_PAR_TOT": 11.462667,
+          "GWETROOT": 0.345,
+          "EVPTRNS_TOTAL_MJ_M2": 0.23,
+          "VPD_KPA": 2.63449,
+          "GDD_BASE_10": 604.055,
+          "HEAT_STRESS_DAY_35C": 20
+        },
+        {
+          "month": "Jul",
+          "T2M": 29.720323,
+          "T2M_MAX": 40.43,
+          "T2M_MIN": 20.02,
+          "PRECIPITATION_TOTAL_MM": 52.93,
+          "RH2M": 46.286129,
+          "ALLSKY_SFC_SW_DWN": 25.602581,
+          "WS2M": 2.69,
+          "T2MDEW": 15.57,
+          "ALLSKY_SFC_PAR_TOT": 11.691935,
+          "GWETROOT": 0.385161,
+          "EVPTRNS_TOTAL_MJ_M2": 1.64,
+          "VPD_KPA": 2.418455,
+          "GDD_BASE_10": 607.765,
+          "HEAT_STRESS_DAY_35C": 24
+        },
+        {
+          "month": "Aug",
+          "T2M": 31.128387,
+          "T2M_MAX": 42.35,
+          "T2M_MIN": 21.5,
+          "PRECIPITATION_TOTAL_MM": 36.35,
+          "RH2M": 37.19129,
+          "ALLSKY_SFC_SW_DWN": 24.523871,
+          "WS2M": 2.559032,
+          "T2MDEW": 13.478387,
+          "ALLSKY_SFC_PAR_TOT": 11.107097,
+          "GWETROOT": 0.337419,
+          "EVPTRNS_TOTAL_MJ_M2": 0.08,
+          "VPD_KPA": 2.987441,
+          "GDD_BASE_10": 654.245,
+          "HEAT_STRESS_DAY_35C": 29
+        },
+        {
+          "month": "Sep",
+          "T2M": 27.088,
+          "T2M_MAX": 38.27,
+          "T2M_MIN": 16.03,
+          "PRECIPITATION_TOTAL_MM": 20.77,
+          "RH2M": 44.666667,
+          "ALLSKY_SFC_SW_DWN": 20.239,
+          "WS2M": 2.328,
+          "T2MDEW": 12.911333,
+          "ALLSKY_SFC_PAR_TOT": 9.167,
+          "GWETROOT": 0.341333,
+          "EVPTRNS_TOTAL_MJ_M2": 0.17,
+          "VPD_KPA": 2.094132,
+          "GDD_BASE_10": 517.155,
+          "HEAT_STRESS_DAY_35C": 9
+        },
+        {
+          "month": "Oct",
+          "T2M": 23.118065,
+          "T2M_MAX": 35.84,
+          "T2M_MIN": 5.48,
+          "PRECIPITATION_TOTAL_MM": 16.83,
+          "RH2M": 38.704194,
+          "ALLSKY_SFC_SW_DWN": 17.853226,
+          "WS2M": 2.893548,
+          "T2MDEW": 6.91129,
+          "ALLSKY_SFC_PAR_TOT": 7.956129,
+          "GWETROOT": 0.335484,
+          "EVPTRNS_TOTAL_MJ_M2": 0.0,
+          "VPD_KPA": 1.823425,
+          "GDD_BASE_10": 427.595,
+          "HEAT_STRESS_DAY_35C": 3
+        },
+        {
+          "month": "Nov",
+          "T2M": 16.862667,
+          "T2M_MAX": 33.47,
+          "T2M_MIN": 2.19,
+          "PRECIPITATION_TOTAL_MM": 3.46,
+          "RH2M": 35.249,
+          "ALLSKY_SFC_SW_DWN": 14.781333,
+          "WS2M": 2.728,
+          "T2MDEW": -0.229,
+          "ALLSKY_SFC_PAR_TOT": 6.444667,
+          "GWETROOT": 0.33,
+          "EVPTRNS_TOTAL_MJ_M2": 0.0,
+          "VPD_KPA": 1.352335,
+          "GDD_BASE_10": 240.5,
+          "HEAT_STRESS_DAY_35C": 0
+        },
+        {
+          "month": "Dec",
+          "T2M": 13.024516,
+          "T2M_MAX": 30.3,
+          "T2M_MIN": -0.11,
+          "PRECIPITATION_TOTAL_MM": 1.7,
+          "RH2M": 39.043226,
+          "ALLSKY_SFC_SW_DWN": 12.050968,
+          "WS2M": 2.727419,
+          "T2MDEW": -2.169032,
+          "ALLSKY_SFC_PAR_TOT": 5.245484,
+          "GWETROOT": 0.33,
+          "EVPTRNS_TOTAL_MJ_M2": 0.0,
+          "VPD_KPA": 1.009384,
+          "GDD_BASE_10": 148.54,
+          "HEAT_STRESS_DAY_35C": 0
+        }
+      ],
+      "interpretation_warning": "NASA POWER is modeled gridded climate evidence, not an on-farm sensor measurement."
+    },
+    "open_meteo_weather": {
+      "model_time": "2026-08-28T10:15",
+      "current": {
+        "values": {
+          "time": "2026-08-28T10:15",
+          "interval": 900,
+          "temperature_2m": 29.6,
+          "relative_humidity_2m": 35,
+          "precipitation": 0.0,
+          "rain": 0.0,
+          "weather_code": 0,
+          "soil_temperature_0cm": 35.4,
+          "soil_temperature_6cm": 30.1,
+          "soil_temperature_18cm": 31.6,
+          "soil_temperature_54cm": 32.6,
+          "soil_moisture_0_to_1cm": 0.064,
+          "soil_moisture_1_to_3cm": 0.106,
+          "soil_moisture_3_to_9cm": 0.156,
+          "soil_moisture_9_to_27cm": 0.206,
+          "soil_moisture_27_to_81cm": 0.259
+        },
+        "soil_moisture_profile": [
+          {
+            "depth": "0-1 cm",
+            "soil_moisture": 0.064,
+            "units": "m³/m³"
+          },
+          {
+            "depth": "1-3 cm",
+            "soil_moisture": 0.106,
+            "units": "m³/m³"
+          },
+          {
+            "depth": "3-9 cm",
+            "soil_moisture": 0.156,
+            "units": "m³/m³"
+          },
+          {
+            "depth": "9-27 cm",
+            "soil_moisture": 0.206,
+            "units": "m³/m³"
+          },
+          {
+            "depth": "27-81 cm",
+            "soil_moisture": 0.259,
+            "units": "m³/m³"
+          }
+        ],
+        "soil_temperature_profile": [
+          {
+            "depth": "surface",
+            "soil_temperature": 35.4,
+            "units": "°C"
+          },
+          {
+            "depth": "6 cm",
+            "soil_temperature": 30.1,
+            "units": "°C"
+          },
+          {
+            "depth": "18 cm",
+            "soil_temperature": 31.6,
+            "units": "°C"
+          },
+          {
+            "depth": "54 cm",
+            "soil_temperature": 32.6,
+            "units": "°C"
+          }
+        ]
+      },
+      "recent_complete_days": [
+        {
+          "date": "2026-08-21",
+          "temperature_2m_max": 39.1,
+          "temperature_2m_min": 23.1,
+          "precipitation_sum": 0.0,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 0,
+          "et0_fao_evapotranspiration": 8.6
+        },
+        {
+          "date": "2026-08-22",
+          "temperature_2m_max": 39.3,
+          "temperature_2m_min": 21.1,
+          "precipitation_sum": 0.0,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 0,
+          "et0_fao_evapotranspiration": 8.54
+        },
+        {
+          "date": "2026-08-23",
+          "temperature_2m_max": 40.0,
+          "temperature_2m_min": 21.2,
+          "precipitation_sum": 0.0,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 0,
+          "et0_fao_evapotranspiration": 8.24
+        },
+        {
+          "date": "2026-08-24",
+          "temperature_2m_max": 40.8,
+          "temperature_2m_min": 22.5,
+          "precipitation_sum": 0.0,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 0,
+          "et0_fao_evapotranspiration": 8.77
+        },
+        {
+          "date": "2026-08-25",
+          "temperature_2m_max": 40.8,
+          "temperature_2m_min": 21.0,
+          "precipitation_sum": 0.0,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 0,
+          "et0_fao_evapotranspiration": 8.88
+        },
+        {
+          "date": "2026-08-26",
+          "temperature_2m_max": 38.3,
+          "temperature_2m_min": 24.5,
+          "precipitation_sum": 0.0,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 1,
+          "et0_fao_evapotranspiration": 8.09
+        },
+        {
+          "date": "2026-08-27",
+          "temperature_2m_max": 36.5,
+          "temperature_2m_min": 24.5,
+          "precipitation_sum": 0.0,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 7,
+          "et0_fao_evapotranspiration": 8.04
+        }
+      ],
+      "forecast_daily": [
+        {
+          "date": "2026-08-28",
+          "temperature_2m_max": 37.5,
+          "temperature_2m_min": 23.2,
+          "precipitation_sum": 0.0,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 1,
+          "et0_fao_evapotranspiration": 7.99,
+          "RAIN_MINUS_ET0_MM": -7.99
+        },
+        {
+          "date": "2026-08-29",
+          "temperature_2m_max": 38.7,
+          "temperature_2m_min": 24.0,
+          "precipitation_sum": 0.0,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 2,
+          "et0_fao_evapotranspiration": 8.28,
+          "RAIN_MINUS_ET0_MM": -8.28
+        },
+        {
+          "date": "2026-08-30",
+          "temperature_2m_max": 37.5,
+          "temperature_2m_min": 25.5,
+          "precipitation_sum": 0.0,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 0,
+          "et0_fao_evapotranspiration": 8.7,
+          "RAIN_MINUS_ET0_MM": -8.7
+        },
+        {
+          "date": "2026-08-31",
+          "temperature_2m_max": 38.1,
+          "temperature_2m_min": 26.4,
+          "precipitation_sum": 0.0,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 1,
+          "et0_fao_evapotranspiration": 10.53,
+          "RAIN_MINUS_ET0_MM": -10.53
+        },
+        {
+          "date": "2026-09-01",
+          "temperature_2m_max": 37.6,
+          "temperature_2m_min": 26.6,
+          "precipitation_sum": 0.0,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 6,
+          "et0_fao_evapotranspiration": 8.19,
+          "RAIN_MINUS_ET0_MM": -8.19
+        },
+        {
+          "date": "2026-09-02",
+          "temperature_2m_max": 37.8,
+          "temperature_2m_min": 27.5,
+          "precipitation_sum": 1.4,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 6,
+          "et0_fao_evapotranspiration": 8.42,
+          "RAIN_MINUS_ET0_MM": -7.02
+        },
+        {
+          "date": "2026-09-03",
+          "temperature_2m_max": 35.0,
+          "temperature_2m_min": 25.6,
+          "precipitation_sum": 0.4,
+          "rain_sum": 0.0,
+          "precipitation_probability_max": 5,
+          "et0_fao_evapotranspiration": 5.39,
+          "RAIN_MINUS_ET0_MM": -4.99
+        }
+      ],
+      "operational_summary": {
+        "recent_7_day_rainfall_mm": 0.0,
+        "forecast_7_day_rainfall_mm": 1.8,
+        "forecast_7_day_et0_mm": 57.5,
+        "forecast_rain_minus_et0_mm": -55.7,
+        "forecast_wet_days": 1.0,
+        "forecast_heat_days_at_or_above_35c": 7.0,
+        "forecast_frost_risk_days_at_or_below_0c": 0.0,
+        "forecast_min_temperature_c": 23.2,
+        "forecast_max_temperature_c": 38.7
+      },
+      "interpretation_warnings": [
+        "Modeled weather-grid evidence; not an on-farm sensor measurement.",
+        "Modeled soil moisture and temperature; permanent soil properties come from SSURGO or a soil test.",
+        "Rain minus ET0 is a screening indicator, not an irrigation prescription."
+      ]
+    },
+    "ssurgo_soil": {
+      "map_unit": "Reeves clay loam, 0 to 1 percent slopes",
+      "farmland_classification": "Not prime farmland",
+      "surface_texture": "clay loam",
+      "surface_fractions_percent": {
+        "sand": 35.4,
+        "silt": 33.6,
+        "clay": 31.0
+      },
+      "mapped_ph_0_30cm": 8.5,
+      "drainage_class": "Well drained",
+      "hydric_rating": "No",
+      "soil_root_limit_cm": 150.0,
+      "soil_root_limit_basis": "SSURGO reported no restriction; gSSURGO 150 cm fallback",
+      "available_water_storage_mm": 114.8,
+      "available_water_coverage_cm": 84.0,
+      "horizons": [
+        {
+          "areasymbol": "TX389",
+          "saverest": "9/5/2025 12:03:07 PM",
+          "mukey": "58555",
+          "musym": "34",
+          "muname": "Reeves clay loam, 0 to 1 percent slopes",
+          "farmlndcl": "Not prime farmland",
+          "cokey": "27188834",
+          "compname": "Reeves",
+          "comppct_r": 100.0,
+          "majcompflag": "Yes",
+          "drainagecl": "Well drained",
+          "hydricrating": "No",
+          "restrictive_depth_cm": null,
+          "chkey": "81206350",
+          "hzname": "H1",
+          "hzdept_r": 0.0,
+          "hzdepb_r": 28.0,
+          "awc_r": 0.15,
+          "ph1to1h2o_r": 8.5,
+          "sandtotal_r": 35.4,
+          "silttotal_r": 33.6,
+          "claytotal_r": 31.0,
+          "texture": "CL"
+        },
+        {
+          "areasymbol": "TX389",
+          "saverest": "9/5/2025 12:03:07 PM",
+          "mukey": "58555",
+          "musym": "34",
+          "muname": "Reeves clay loam, 0 to 1 percent slopes",
+          "farmlndcl": "Not prime farmland",
+          "cokey": "27188834",
+          "compname": "Reeves",
+          "comppct_r": 100.0,
+          "majcompflag": "Yes",
+          "drainagecl": "Well drained",
+          "hydricrating": "No",
+          "restrictive_depth_cm": null,
+          "chkey": "81206351",
+          "hzname": "H2",
+          "hzdept_r": 28.0,
+          "hzdepb_r": 84.0,
+          "awc_r": 0.13,
+          "ph1to1h2o_r": 8.5,
+          "sandtotal_r": 34.4,
+          "silttotal_r": 37.6,
+          "claytotal_r": 28.0,
+          "texture": "CL"
+        },
+        {
+          "areasymbol": "TX389",
+          "saverest": "9/5/2025 12:03:07 PM",
+          "mukey": "58555",
+          "musym": "34",
+          "muname": "Reeves clay loam, 0 to 1 percent slopes",
+          "farmlndcl": "Not prime farmland",
+          "cokey": "27188834",
+          "compname": "Reeves",
+          "comppct_r": 100.0,
+          "majcompflag": "Yes",
+          "drainagecl": "Well drained",
+          "hydricrating": "No",
+          "restrictive_depth_cm": null,
+          "chkey": "81206349",
+          "hzname": "H3",
+          "hzdept_r": 84.0,
+          "hzdepb_r": 152.0,
+          "awc_r": null,
+          "ph1to1h2o_r": null,
+          "sandtotal_r": null,
+          "silttotal_r": null,
+          "claytotal_r": null,
+          "texture": "GYP"
+        }
+      ],
+      "interpretation_warnings": [
+        "SSURGO is mapped survey evidence, not a field or laboratory measurement.",
+        "Available-water capacity is storage context, not current soil moisture, rainfall, irrigation, or seasonal supply.",
+        "Valid farmer measurements or laboratory soil tests override mapped values while preserving both sources."
+      ]
+    }
+  },
+  "crop_evidence": [
+    {
+      "crop_id": "upland_cotton",
+      "crop_name": "Upland cotton",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 26.7,
+          "max": 32.2
+        },
+        "heat_stress_threshold_c": 37.8,
+        "heat_threshold_scoring_use": "soft_penalty",
+        "heat_threshold_evidence_status": "regional_transfer",
+        "heat_threshold_basis": "Daily maximum air temperature; temperatures above 100 F are challenging and 100 F is the DD60 cap.",
+        "temperature_measurement_basis": "Air temperature for optimum and heat warning; soil temperature and DD60 accumulation remain planting and maturity checks.",
+        "heat_sensitive_stages": [
+          "flowering",
+          "boll set",
+          "boll development"
+        ],
+        "preferred_soil_textures": [
+          "loam",
+          "sandy loam",
+          "clay loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.7,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 100,
+          "max": 170
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "high",
+        "seasonal_water_demand_mm": {
+          "min": 700,
+          "max": 1300
+        },
+        "drought_tolerance": "high",
+        "irrigation_requirement": "conditional",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Suitable where irrigation water and season length are adequate."
+        },
+        "planting_windows": [
+          "Apr-May"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Warm-soil and frost-risk guidance for irrigated production.",
+        "days_to_maturity": {
+          "min": 150,
+          "max": 180
+        },
+        "frost_sensitivity": "very_high",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "within_optimal_mean",
+          "distance_from_optimum_c": 0.0,
+          "heat_threshold_c": 37.8,
+          "threshold_scoring_use": "soft_penalty",
+          "exceedance_hours": 27.971922857142857,
+          "persistence_hours": 6.0,
+          "exceedance_fraction_of_window": 0.16649954081632654,
+          "heat_action": "soft_penalty_candidate"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "100-150",
+        "accessible_water_storage_mm": "114.8-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "corn_grain",
+      "crop_name": "Corn grown for grain",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 24.0,
+          "max": 30.0
+        },
+        "heat_stress_threshold_c": 35.0,
+        "heat_threshold_scoring_use": "soft_penalty",
+        "heat_threshold_evidence_status": "regional_transfer",
+        "heat_threshold_basis": "Daily maximum air temperature around pollination; risk rises above about 95 F and is moisture dependent.",
+        "temperature_measurement_basis": "Daily air temperature; the heat warning is meaningful only with growth-stage and soil-moisture context.",
+        "heat_sensitive_stages": [
+          "tasseling",
+          "pollen shed",
+          "silking",
+          "early kernel set"
+        ],
+        "preferred_soil_textures": [
+          "loam",
+          "silt loam",
+          "clay loam",
+          "sandy loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.5,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 100,
+          "max": 170
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": 500,
+          "max": 800
+        },
+        "drought_tolerance": "low",
+        "irrigation_requirement": "conditional",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Generally dependent on irrigation."
+        },
+        "planting_windows": [
+          "Mar-Apr"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Irrigated regional guidance.",
+        "days_to_maturity": {
+          "min": 110,
+          "max": 140
+        },
+        "frost_sensitivity": "very_high",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 1.5806071428571435,
+          "heat_threshold_c": 35.0,
+          "threshold_scoring_use": "soft_penalty",
+          "exceedance_hours": 60.94383857142857,
+          "persistence_hours": 8.0,
+          "exceedance_fraction_of_window": 0.36276094387755103,
+          "heat_action": "soft_penalty_candidate"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "100-150",
+        "accessible_water_storage_mm": "114.8-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "hard_red_winter_wheat",
+      "crop_name": "Hard red winter wheat",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 23.9,
+          "max": 25.0
+        },
+        "heat_stress_threshold_c": 30.0,
+        "heat_threshold_scoring_use": "soft_penalty",
+        "heat_threshold_evidence_status": "regional_transfer",
+        "heat_threshold_basis": "Canopy temperature during reproductive development; pollen viability risk rises above about 86 F.",
+        "temperature_measurement_basis": "Canopy or near-canopy air temperature is preferred for reproductive heat assessment.",
+        "heat_sensitive_stages": [
+          "five to seven days before flowering",
+          "anthesis",
+          "grain fill"
+        ],
+        "preferred_soil_textures": [
+          "loam",
+          "clay loam",
+          "silt loam",
+          "sandy loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.5,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 150,
+          "max": 180
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": 450,
+          "max": 650
+        },
+        "drought_tolerance": "moderate",
+        "irrigation_requirement": "conditional",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Suitable with adequate stored moisture or irrigation."
+        },
+        "planting_windows": [
+          "Sep-Nov"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Regionalized statewide window for irrigated or stored-moisture systems.",
+        "days_to_maturity": {
+          "min": 210,
+          "max": 270
+        },
+        "frost_sensitivity": "dormant_hardy",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 6.5806071428571435,
+          "heat_threshold_c": 30.0,
+          "threshold_scoring_use": "soft_penalty",
+          "exceedance_hours": 99.0,
+          "persistence_hours": 8.0,
+          "exceedance_fraction_of_window": 0.5892857142857143,
+          "heat_action": "soft_penalty_candidate"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "150-150",
+        "accessible_water_storage_mm": "114.8-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "grain_sorghum",
+      "crop_name": "Grain sorghum",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 26.0,
+          "max": 32.0
+        },
+        "heat_stress_threshold_c": 37.2,
+        "heat_threshold_scoring_use": "soft_penalty",
+        "heat_threshold_evidence_status": "regional_transfer",
+        "heat_threshold_basis": "Daily mean air temperature near flowering; approximately 99 F mean is associated with severe reproductive failure risk.",
+        "temperature_measurement_basis": "Daily air temperature; distinguish daily mean from daily maximum when evaluating heat.",
+        "heat_sensitive_stages": [
+          "boot",
+          "flowering",
+          "early grain set"
+        ],
+        "preferred_soil_textures": [
+          "loam",
+          "clay loam",
+          "sandy loam",
+          "silty clay loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.5,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 100,
+          "max": 200
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": 450,
+          "max": 650
+        },
+        "drought_tolerance": "high",
+        "irrigation_requirement": "often_rainfed",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Suitable with stored moisture or irrigation."
+        },
+        "planting_windows": [
+          "Apr-May"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Regionalized irrigated guidance.",
+        "days_to_maturity": {
+          "min": 90,
+          "max": 120
+        },
+        "frost_sensitivity": "very_high",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "within_optimal_mean",
+          "distance_from_optimum_c": 0.0,
+          "heat_threshold_c": 37.2,
+          "threshold_scoring_use": "soft_penalty",
+          "exceedance_hours": 32.91576428571429,
+          "persistence_hours": 6.0,
+          "exceedance_fraction_of_window": 0.19592716836734697,
+          "heat_action": "soft_penalty_candidate"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "100-150",
+        "accessible_water_storage_mm": "114.8-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "runner_peanut",
+      "crop_name": "Runner-type peanut",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 25.0,
+          "max": 30.0
+        },
+        "heat_stress_threshold_c": null,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "not_numerically_established",
+        "heat_threshold_basis": "A transferable air-temperature injury threshold was not established from the selected extension sources.",
+        "temperature_measurement_basis": "Air temperature for crop screening; average soil temperature at planting should also be checked.",
+        "heat_sensitive_stages": [
+          "flowering",
+          "pegging",
+          "pod set",
+          "pod fill"
+        ],
+        "preferred_soil_textures": [
+          "loamy sand",
+          "sandy loam",
+          "fine sandy loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.8,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 50,
+          "max": 100
+        },
+        "drainage_requirement": "very_well_drained",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": 500,
+          "max": 700
+        },
+        "drought_tolerance": "moderate",
+        "irrigation_requirement": "conditional",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "limited",
+          "basis": "Water supply and suitable friable soil constrain production."
+        },
+        "planting_windows": [],
+        "planting_window_evidence_status": "not_available",
+        "planting_window_basis": "No catalog planting window for this region.",
+        "days_to_maturity": {
+          "min": 130,
+          "max": 160
+        },
+        "frost_sensitivity": "very_high",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 1.5806071428571435,
+          "heat_threshold_c": null,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "excluded_for_region"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "not listed as preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "50-100",
+        "accessible_water_storage_mm": "70.6-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "long_grain_rice",
+      "crop_name": "Long-grain rice",
+      "regionally_eligible": false,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 25.0,
+          "max": 30.0
+        },
+        "heat_stress_threshold_c": null,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "not_numerically_established",
+        "heat_threshold_basis": "No single extension threshold was selected that is transferable across long-grain cultivars, humidity, and flowering time.",
+        "temperature_measurement_basis": "Daily air temperature; canopy microclimate and flood-water management can modify stress.",
+        "heat_sensitive_stages": [
+          "panicle initiation",
+          "booting",
+          "flowering",
+          "grain fill"
+        ],
+        "preferred_soil_textures": [
+          "clay",
+          "clay loam",
+          "silty clay loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.5,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 50,
+          "max": 100
+        },
+        "drainage_requirement": "poorly_drained_tolerant",
+        "water_demand_class": "very_high",
+        "seasonal_water_demand_mm": {
+          "min": 450,
+          "max": 700
+        },
+        "drought_tolerance": "very_low",
+        "irrigation_requirement": "usually_required",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "not_supported",
+          "basis": "Flood-irrigation water demand is incompatible with normal arid-region production."
+        },
+        "planting_windows": [],
+        "planting_window_evidence_status": "not_available",
+        "planting_window_basis": "No catalog planting window for this region.",
+        "days_to_maturity": {
+          "min": 100,
+          "max": 150
+        },
+        "frost_sensitivity": "very_high",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 1.5806071428571435,
+          "heat_threshold_c": null,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "excluded_for_region"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "50-100",
+        "accessible_water_storage_mm": "70.6-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "soybean",
+      "crop_name": "Soybean",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 24.0,
+          "max": 29.4
+        },
+        "heat_stress_threshold_c": 29.4,
+        "heat_threshold_scoring_use": "soft_penalty",
+        "heat_threshold_evidence_status": "regional_transfer",
+        "heat_threshold_basis": "Daily air temperature above about 85 F for subsequent days can cause stress; this is a warning, not an exclusion limit.",
+        "temperature_measurement_basis": "Daily maximum and nighttime air temperature; stage and soil moisture must be included.",
+        "heat_sensitive_stages": [
+          "flowering",
+          "pod set",
+          "R5 seed fill"
+        ],
+        "preferred_soil_textures": [
+          "loam",
+          "silt loam",
+          "clay loam",
+          "sandy loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.8,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 60,
+          "max": 130
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": 450,
+          "max": 700
+        },
+        "drought_tolerance": "moderate",
+        "irrigation_requirement": "conditional",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "limited",
+          "basis": "Irrigation requirement and heat constrain production."
+        },
+        "planting_windows": [],
+        "planting_window_evidence_status": "not_available",
+        "planting_window_basis": "No catalog planting window for this region.",
+        "days_to_maturity": {
+          "min": 100,
+          "max": 150
+        },
+        "frost_sensitivity": "very_high",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 2.180607142857145,
+          "heat_threshold_c": 29.4,
+          "threshold_scoring_use": "soft_penalty",
+          "exceedance_hours": 102.0,
+          "persistence_hours": 8.0,
+          "exceedance_fraction_of_window": 0.6071428571428571,
+          "heat_action": "excluded_for_region"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "60-130",
+        "accessible_water_storage_mm": "83.6-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "grain_oats",
+      "crop_name": "Grain oats",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 20.0,
+          "max": 21.1
+        },
+        "heat_stress_threshold_c": 27.8,
+        "heat_threshold_scoring_use": "soft_penalty",
+        "heat_threshold_evidence_status": "regional_transfer",
+        "heat_threshold_basis": "Canopy temperature; 82-86 F is reported as the upper growth range and oats are heat sensitive during reproduction.",
+        "temperature_measurement_basis": "Canopy or near-canopy air temperature for heat assessment.",
+        "heat_sensitive_stages": [
+          "five to seven days before flowering",
+          "pollination",
+          "grain fill"
+        ],
+        "preferred_soil_textures": [
+          "loam",
+          "clay loam",
+          "silt loam",
+          "sandy loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.5,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 100,
+          "max": 150
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": 450,
+          "max": 650
+        },
+        "drought_tolerance": "moderate",
+        "irrigation_requirement": "conditional",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Requires irrigation or adequate stored moisture."
+        },
+        "planting_windows": [],
+        "planting_window_evidence_status": "not_available",
+        "planting_window_basis": "No catalog planting window for this region.",
+        "days_to_maturity": {
+          "min": 180,
+          "max": 240
+        },
+        "frost_sensitivity": "low",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 10.480607142857142,
+          "heat_threshold_c": 27.8,
+          "threshold_scoring_use": "soft_penalty",
+          "exceedance_hours": 109.0,
+          "persistence_hours": 8.0,
+          "exceedance_fraction_of_window": 0.6488095238095238,
+          "heat_action": "excluded_for_region"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "100-150",
+        "accessible_water_storage_mm": "114.8-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "oilseed_sunflower",
+      "crop_name": "Oilseed sunflower",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 15.0,
+          "max": 25.0
+        },
+        "heat_stress_threshold_c": 35.0,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "regional_transfer",
+        "heat_threshold_basis": "Soil temperature for germination; germination rate declines above about 95 F. Not a whole-season air-temperature injury threshold.",
+        "temperature_measurement_basis": "The numeric optimum and warning are soil-temperature establishment values; air-temperature heat duration is not established.",
+        "heat_sensitive_stages": [
+          "germination",
+          "flowering",
+          "seed fill"
+        ],
+        "preferred_soil_textures": [
+          "loam",
+          "silt loam",
+          "clay loam",
+          "sandy loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.5,
+          "max": 7.5
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 80,
+          "max": 150
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "high",
+        "seasonal_water_demand_mm": {
+          "min": 600,
+          "max": 1000
+        },
+        "drought_tolerance": "high",
+        "irrigation_requirement": "often_rainfed",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Suitable with adequate establishment moisture or irrigation."
+        },
+        "planting_windows": [
+          "Apr-May"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Regionalized irrigated guidance.",
+        "days_to_maturity": {
+          "min": 90,
+          "max": 120
+        },
+        "frost_sensitivity": "high",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 6.5806071428571435,
+          "heat_threshold_c": 35.0,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "no_scoreable_threshold_do_not_invent"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "80-150",
+        "accessible_water_storage_mm": "109.6-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "sesame",
+      "crop_name": "Sesame",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 25.0,
+          "max": 32.0
+        },
+        "heat_stress_threshold_c": null,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "not_numerically_established",
+        "heat_threshold_basis": "No defensible Texas commercial-cultivar heat threshold was established.",
+        "temperature_measurement_basis": "Daily air temperature for screening; warm soil and a frost-free maturity period are required.",
+        "heat_sensitive_stages": [
+          "emergence",
+          "flowering",
+          "capsule fill"
+        ],
+        "preferred_soil_textures": [
+          "sandy loam",
+          "loam",
+          "silt loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.5,
+          "max": 8.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 100,
+          "max": 150
+        },
+        "drainage_requirement": "very_well_drained",
+        "water_demand_class": "low",
+        "seasonal_water_demand_mm": {
+          "min": null,
+          "max": null
+        },
+        "drought_tolerance": "very_high",
+        "irrigation_requirement": "often_rainfed",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Low water need helps, but establishment moisture remains necessary."
+        },
+        "planting_windows": [
+          "May-Jun"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Warm-soil irrigated or stored-moisture guidance.",
+        "days_to_maturity": {
+          "min": 90,
+          "max": 120
+        },
+        "frost_sensitivity": "very_high",
+        "confidence": "low",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "within_optimal_mean",
+          "distance_from_optimum_c": 0.0,
+          "heat_threshold_c": null,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "no_scoreable_threshold_do_not_invent"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "not listed as preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "100-150",
+        "accessible_water_storage_mm": "114.8-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "corn_silage",
+      "crop_name": "Corn grown for silage",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 24.0,
+          "max": 30.0
+        },
+        "heat_stress_threshold_c": 35.0,
+        "heat_threshold_scoring_use": "soft_penalty",
+        "heat_threshold_evidence_status": "regional_transfer",
+        "heat_threshold_basis": "Daily maximum air temperature around pollination; risk rises above about 95 F and is moisture dependent.",
+        "temperature_measurement_basis": "Daily air temperature with soil-moisture and growth-stage context.",
+        "heat_sensitive_stages": [
+          "tasseling",
+          "silking",
+          "kernel set",
+          "early milk stage"
+        ],
+        "preferred_soil_textures": [
+          "loam",
+          "silt loam",
+          "clay loam",
+          "sandy loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.5,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 100,
+          "max": 170
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": 500,
+          "max": 800
+        },
+        "drought_tolerance": "low",
+        "irrigation_requirement": "recommended",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Usually dependent on irrigation and nearby livestock demand."
+        },
+        "planting_windows": [
+          "Mar-Apr"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Irrigated regional guidance.",
+        "days_to_maturity": {
+          "min": 80,
+          "max": 110
+        },
+        "frost_sensitivity": "very_high",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 1.5806071428571435,
+          "heat_threshold_c": 35.0,
+          "threshold_scoring_use": "soft_penalty",
+          "exceedance_hours": 60.94383857142857,
+          "persistence_hours": 8.0,
+          "exceedance_fraction_of_window": 0.36276094387755103,
+          "heat_action": "soft_penalty_candidate"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "100-150",
+        "accessible_water_storage_mm": "114.8-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "forage_sorghum",
+      "crop_name": "Forage sorghum",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 26.0,
+          "max": 32.0
+        },
+        "heat_stress_threshold_c": null,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "not_numerically_established",
+        "heat_threshold_basis": "No forage-endpoint heat injury threshold was established; grain-flowering thresholds are not directly transferable.",
+        "temperature_measurement_basis": "Daily air temperature for screening; warm soil is required at establishment.",
+        "heat_sensitive_stages": [
+          "emergence",
+          "rapid vegetative growth",
+          "boot stage for silage quality"
+        ],
+        "preferred_soil_textures": [
+          "loam",
+          "clay loam",
+          "sandy loam",
+          "silty clay loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.5,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 100,
+          "max": 200
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": 450,
+          "max": 650
+        },
+        "drought_tolerance": "high",
+        "irrigation_requirement": "often_rainfed",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Suitable under limited irrigation or adequate stored moisture."
+        },
+        "planting_windows": [
+          "May-Jun"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Warm-soil irrigated guidance.",
+        "days_to_maturity": {
+          "min": 60,
+          "max": 90
+        },
+        "frost_sensitivity": "very_high",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "within_optimal_mean",
+          "distance_from_optimum_c": 0.0,
+          "heat_threshold_c": null,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "no_scoreable_threshold_do_not_invent"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "100-150",
+        "accessible_water_storage_mm": "114.8-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "sorghum_sudangrass",
+      "crop_name": "Sorghum-sudangrass",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 26.0,
+          "max": 32.0
+        },
+        "heat_stress_threshold_c": null,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "not_numerically_established",
+        "heat_threshold_basis": "No forage-endpoint numeric heat threshold was established.",
+        "temperature_measurement_basis": "Daily air temperature for screening; planting also requires warm soil.",
+        "heat_sensitive_stages": [
+          "emergence",
+          "rapid vegetative growth",
+          "post-cut regrowth"
+        ],
+        "preferred_soil_textures": [
+          "loam",
+          "clay loam",
+          "sandy loam",
+          "silt loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.5,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 100,
+          "max": 150
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": 450,
+          "max": 650
+        },
+        "drought_tolerance": "high",
+        "irrigation_requirement": "often_rainfed",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Suitable with irrigation or adequate stored moisture."
+        },
+        "planting_windows": [
+          "May-Jun"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Warm-soil irrigated guidance.",
+        "days_to_maturity": {
+          "min": 50,
+          "max": 80
+        },
+        "frost_sensitivity": "very_high",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "within_optimal_mean",
+          "distance_from_optimum_c": 0.0,
+          "heat_threshold_c": null,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "no_scoreable_threshold_do_not_invent"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "100-150",
+        "accessible_water_storage_mm": "114.8-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "alfalfa_hay",
+      "crop_name": "Alfalfa grown for hay",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 18.0,
+          "max": 30.0
+        },
+        "heat_stress_threshold_c": null,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "not_numerically_established",
+        "heat_threshold_basis": "No Texas-wide numeric threshold was established for hay yield across dormancy classes and irrigation regimes.",
+        "temperature_measurement_basis": "Daily air temperature interpreted with cultivar dormancy class and irrigation availability.",
+        "heat_sensitive_stages": [
+          "seedling establishment",
+          "post-cut regrowth",
+          "bud to early bloom"
+        ],
+        "preferred_soil_textures": [
+          "deep loam",
+          "silt loam",
+          "clay loam",
+          "well-drained sandy loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 6.3,
+          "max": 7.5
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 100,
+          "max": 200
+        },
+        "drainage_requirement": "very_well_drained",
+        "water_demand_class": "very_high",
+        "seasonal_water_demand_mm": {
+          "min": 800,
+          "max": 1600
+        },
+        "drought_tolerance": "moderate",
+        "irrigation_requirement": "usually_required",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "primary",
+          "basis": "Dry harvest climate is favorable where irrigation is reliable."
+        },
+        "planting_windows": [
+          "Sep-Oct",
+          "Feb-Mar"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Irrigated dry-region establishment guidance.",
+        "days_to_maturity": {
+          "min": 60,
+          "max": 90
+        },
+        "frost_sensitivity": "dormant_hardy",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 1.5806071428571435,
+          "heat_threshold_c": null,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "no_scoreable_threshold_do_not_invent"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "100-150",
+        "accessible_water_storage_mm": "114.8-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "bermudagrass_hay",
+      "crop_name": "Bermudagrass grown for hay",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 21.1,
+          "max": 35.0
+        },
+        "heat_stress_threshold_c": null,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "not_numerically_established",
+        "heat_threshold_basis": "Bermudagrass is highly heat tolerant; no hay-yield threshold was established.",
+        "temperature_measurement_basis": "Soil temperature for spring green-up and establishment; air temperature for active-season screening.",
+        "heat_sensitive_stages": [
+          "new stand establishment",
+          "post-cut regrowth under drought"
+        ],
+        "preferred_soil_textures": [
+          "sandy loam",
+          "loam",
+          "clay loam",
+          "silt loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.7,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 100,
+          "max": 150
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "high",
+        "seasonal_water_demand_mm": {
+          "min": null,
+          "max": null
+        },
+        "drought_tolerance": "very_high",
+        "irrigation_requirement": "conditional",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Heat fit is strong but productive hay generally depends on irrigation."
+        },
+        "planting_windows": [
+          "Apr-Jun"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Irrigated establishment guidance.",
+        "days_to_maturity": {
+          "min": 60,
+          "max": 90
+        },
+        "frost_sensitivity": "moderate",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "within_optimal_mean",
+          "distance_from_optimum_c": 0.0,
+          "heat_threshold_c": null,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "no_scoreable_threshold_do_not_invent"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "100-150",
+        "accessible_water_storage_mm": "114.8-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "annual_ryegrass_forage",
+      "crop_name": "Annual ryegrass grown for forage",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 10.0,
+          "max": 21.0
+        },
+        "heat_stress_threshold_c": null,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "not_numerically_established",
+        "heat_threshold_basis": "Spring heat ends productive growth, but no transferable numeric threshold was established.",
+        "temperature_measurement_basis": "Daily air temperature interpreted as a cool-season forage response.",
+        "heat_sensitive_stages": [
+          "seedling establishment",
+          "spring vegetative growth",
+          "heading"
+        ],
+        "preferred_soil_textures": [
+          "loam",
+          "silt loam",
+          "clay loam",
+          "sandy loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.5,
+          "max": 7.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 60,
+          "max": 100
+        },
+        "drainage_requirement": "moderate",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": null,
+          "max": null
+        },
+        "drought_tolerance": "low",
+        "irrigation_requirement": "conditional",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "limited",
+          "basis": "Irrigation and winter temperature constraints limit normal use."
+        },
+        "planting_windows": [],
+        "planting_window_evidence_status": "not_available",
+        "planting_window_basis": "No catalog planting window for this region.",
+        "days_to_maturity": {
+          "min": 60,
+          "max": 90
+        },
+        "frost_sensitivity": "low",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 10.580607142857144,
+          "heat_threshold_c": null,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "excluded_for_region"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "60-100",
+        "accessible_water_storage_mm": "83.6-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "white_potato",
+      "crop_name": "White potato",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 15.0,
+          "max": 24.0
+        },
+        "heat_stress_threshold_c": null,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "not_numerically_established",
+        "heat_threshold_basis": "No Texas crop-guide numeric whole-season heat threshold was established.",
+        "temperature_measurement_basis": "Air and root-zone soil temperature; planting guidance uses soil temperature near 4-inch depth.",
+        "heat_sensitive_stages": [
+          "tuber initiation",
+          "tuber bulking",
+          "late-season skin set"
+        ],
+        "preferred_soil_textures": [
+          "sandy loam",
+          "loam",
+          "fine sandy loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.0,
+          "max": 7.8
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 40,
+          "max": 60
+        },
+        "drainage_requirement": "very_well_drained",
+        "water_demand_class": "high",
+        "seasonal_water_demand_mm": {
+          "min": 508,
+          "max": 1016
+        },
+        "drought_tolerance": "very_low",
+        "irrigation_requirement": "recommended",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Suitable under irrigation with salinity and heat management."
+        },
+        "planting_windows": [
+          "Feb-Mar",
+          "Jul-Aug"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Irrigated cool-season guidance.",
+        "days_to_maturity": {
+          "min": 90,
+          "max": 120
+        },
+        "frost_sensitivity": "high",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 7.5806071428571435,
+          "heat_threshold_c": null,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "no_scoreable_threshold_do_not_invent"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "not listed as preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "40-60",
+        "accessible_water_storage_mm": "57.6-83.6",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "sweet_potato",
+      "crop_name": "Sweet potato",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 24.0,
+          "max": 32.0
+        },
+        "heat_stress_threshold_c": null,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "not_numerically_established",
+        "heat_threshold_basis": "Texas guidance describes strong heat tolerance but does not establish a numeric injury threshold.",
+        "temperature_measurement_basis": "Daily air temperature with root-zone soil temperature at establishment.",
+        "heat_sensitive_stages": [
+          "slip establishment",
+          "storage-root initiation",
+          "storage-root bulking"
+        ],
+        "preferred_soil_textures": [
+          "fine sandy loam",
+          "sandy loam",
+          "loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.0,
+          "max": 7.5
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 100,
+          "max": 150
+        },
+        "drainage_requirement": "very_well_drained",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": 254,
+          "max": 508
+        },
+        "drought_tolerance": "moderate",
+        "irrigation_requirement": "conditional",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "limited",
+          "basis": "Irrigation and suitable soil constrain production."
+        },
+        "planting_windows": [],
+        "planting_window_evidence_status": "not_available",
+        "planting_window_basis": "No catalog planting window for this region.",
+        "days_to_maturity": {
+          "min": 90,
+          "max": 150
+        },
+        "frost_sensitivity": "very_high",
+        "confidence": "medium",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "within_optimal_mean",
+          "distance_from_optimum_c": 0.0,
+          "heat_threshold_c": null,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "excluded_for_region"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "not listed as preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "100-150",
+        "accessible_water_storage_mm": "114.8-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "seedless_watermelon",
+      "crop_name": "Seedless watermelon",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 26.7,
+          "max": 35.0
+        },
+        "heat_stress_threshold_c": null,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "not_numerically_established",
+        "heat_threshold_basis": "The upper end of the optimum range is not treated as an injury threshold.",
+        "temperature_measurement_basis": "Daytime air temperature; nighttime air temperature should be checked separately against 15.6-21.1 C.",
+        "heat_sensitive_stages": [
+          "transplant establishment",
+          "flowering and pollination",
+          "fruit set",
+          "fruit enlargement"
+        ],
+        "preferred_soil_textures": [
+          "loamy sand",
+          "sandy loam",
+          "light-textured loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 5.5,
+          "max": 8.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 80,
+          "max": 150
+        },
+        "drainage_requirement": "very_well_drained",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": 254,
+          "max": 381
+        },
+        "drought_tolerance": "low",
+        "irrigation_requirement": "recommended",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "High-quality production is feasible with irrigation and suitable soil."
+        },
+        "planting_windows": [
+          "Apr-May"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Post-frost irrigated guidance.",
+        "days_to_maturity": {
+          "min": 65,
+          "max": 75
+        },
+        "frost_sensitivity": "very_high",
+        "confidence": "high",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "within_optimal_mean",
+          "distance_from_optimum_c": 0.0,
+          "heat_threshold_c": null,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "no_scoreable_threshold_do_not_invent"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "not listed as preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "80-150",
+        "accessible_water_storage_mm": "109.6-114.8",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "dry_bulb_onion",
+      "crop_name": "Dry-bulb onion",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 15.6,
+          "max": 26.7
+        },
+        "heat_stress_threshold_c": 35.0,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "direct",
+        "heat_threshold_basis": "Seed-zone temperature for fall establishment; sowing is recommended below 95 F. This is not a mature-crop injury threshold.",
+        "temperature_measurement_basis": "Mean air temperature for growth and seed-zone soil temperature for establishment; day length is a separate required cultivar check.",
+        "heat_sensitive_stages": [
+          "seed germination",
+          "seedling establishment",
+          "bulb initiation",
+          "bulb enlargement"
+        ],
+        "preferred_soil_textures": [
+          "sandy loam",
+          "loam",
+          "silt loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 6.0,
+          "max": 8.4
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 30,
+          "max": 60
+        },
+        "drainage_requirement": "very_well_drained",
+        "water_demand_class": "high",
+        "seasonal_water_demand_mm": {
+          "min": 635,
+          "max": 762
+        },
+        "drought_tolerance": "very_low",
+        "irrigation_requirement": "usually_required",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "suitable",
+          "basis": "Dry climate favors curing where irrigation and salinity are managed."
+        },
+        "planting_windows": [
+          "Jan-Mar"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Irrigated spring guidance with day-length matching.",
+        "days_to_maturity": {
+          "min": 150,
+          "max": 210
+        },
+        "frost_sensitivity": "moderate",
+        "confidence": "high",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 4.880607142857144,
+          "heat_threshold_c": 35.0,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "no_scoreable_threshold_do_not_invent"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "not listed as preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "30-60",
+        "accessible_water_storage_mm": "44.6-83.6",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "fresh_market_cabbage",
+      "crop_name": "Fresh-market cabbage",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 15.6,
+          "max": 21.1
+        },
+        "heat_stress_threshold_c": null,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "not_numerically_established",
+        "heat_threshold_basis": "No numeric Texas whole-season threshold was established; high temperature impairs cool-season head development.",
+        "temperature_measurement_basis": "Daytime air temperature; nighttime temperature and acclimation affect frost and head development.",
+        "heat_sensitive_stages": [
+          "transplant establishment",
+          "head initiation",
+          "head filling"
+        ],
+        "preferred_soil_textures": [
+          "loam",
+          "silt loam",
+          "clay loam",
+          "sandy loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 6.0,
+          "max": 7.5
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 50,
+          "max": 80
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "high",
+        "seasonal_water_demand_mm": {
+          "min": 508,
+          "max": 762
+        },
+        "drought_tolerance": "very_low",
+        "irrigation_requirement": "recommended",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "conditional",
+          "basis": "Suitable in cool seasons with irrigation."
+        },
+        "planting_windows": [
+          "Feb-Mar",
+          "Aug-Sep"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Irrigated cool-season guidance.",
+        "days_to_maturity": {
+          "min": 70,
+          "max": 120
+        },
+        "frost_sensitivity": "low",
+        "confidence": "high",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 10.480607142857142,
+          "heat_threshold_c": null,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "no_scoreable_threshold_do_not_invent"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "50-80",
+        "accessible_water_storage_mm": "70.6-109.6",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    },
+    {
+      "crop_id": "fresh_market_spinach",
+      "crop_name": "Fresh-market spinach",
+      "regionally_eligible": true,
+      "profile": {
+        "optimal_temperature_range_c": {
+          "min": 18.3,
+          "max": 23.9
+        },
+        "heat_stress_threshold_c": 23.9,
+        "heat_threshold_scoring_use": "informational_only",
+        "heat_threshold_evidence_status": "direct",
+        "heat_threshold_basis": "Daytime soil temperature at planting; seed-zone temperature above about 75 F reduces establishment. This is not a mature-leaf injury threshold.",
+        "temperature_measurement_basis": "Daytime air temperature for optimum growth; daytime seed-zone soil temperature for the heat warning; nights are assessed separately.",
+        "heat_sensitive_stages": [
+          "germination",
+          "stand establishment",
+          "leaf expansion",
+          "pre-bolting vegetative growth"
+        ],
+        "preferred_soil_textures": [
+          "clay loam",
+          "loam",
+          "silt loam"
+        ],
+        "ph_tolerable_range": {
+          "min": 6.5,
+          "max": 8.0
+        },
+        "effective_root_zone_depth_cm": {
+          "min": 30,
+          "max": 50
+        },
+        "drainage_requirement": "well_drained",
+        "water_demand_class": "moderate",
+        "seasonal_water_demand_mm": {
+          "min": 254,
+          "max": 381
+        },
+        "drought_tolerance": "very_low",
+        "irrigation_requirement": "recommended",
+        "regional_suitability": {
+          "region_id": "far_west",
+          "rating": "suitable",
+          "basis": "Dry climate can favor leaf quality under irrigation."
+        },
+        "planting_windows": [
+          "Feb-Mar",
+          "Sep-Oct"
+        ],
+        "planting_window_evidence_status": "generalized",
+        "planting_window_basis": "Irrigated cool-season guidance.",
+        "days_to_maturity": {
+          "min": 35,
+          "max": 50
+        },
+        "frost_sensitivity": "low",
+        "confidence": "high",
+        "record_status": "provisional"
+      },
+      "heat_windows": [
+        {
+          "window_name": "one_week",
+          "window_days": 7,
+          "temperature_fit": "above_optimal_mean",
+          "distance_from_optimum_c": 7.680607142857145,
+          "heat_threshold_c": 23.9,
+          "threshold_scoring_use": "informational_only",
+          "exceedance_hours": null,
+          "persistence_hours": null,
+          "exceedance_fraction_of_window": null,
+          "heat_action": "no_scoreable_threshold_do_not_invent"
+        }
+      ],
+      "soil_fit": {
+        "texture_fit": "preferred",
+        "ph_fit": "above range",
+        "drainage_fit": "compatible",
+        "usable_root_zone_cm": "30-50",
+        "accessible_water_storage_mm": "44.6-70.6",
+        "water_use_rule": "storage context only; not rainfall or irrigation supply"
+      }
+    }
+  ],
+  "validation": {
+    "all_passed": true,
+    "coordinate_tolerance_degrees": 1e-06,
+    "invalid_numeric_value_count": 0,
+    "checks": [
+      {
+        "name": "schema_loaded",
+        "passed": true,
+        "details": "Draft 2020-12 schema is present."
+      },
+      {
+        "name": "provider_coordinate_alignment",
+        "passed": true,
+        "details": "All four providers match 31.26, -103.55 within 1e-06 degrees."
+      },
+      {
+        "name": "source_freshness",
+        "passed": true,
+        "details": "All provider artifacts satisfy source-specific freshness limits."
+      },
+      {
+        "name": "catalog_crop_count",
+        "passed": true,
+        "details": "Catalog contains 22 unique crop IDs."
+      },
+      {
+        "name": "fortyguard_crop_coverage",
+        "passed": true,
+        "details": "All 1 heat window(s) contain 22 crop results."
+      },
+      {
+        "name": "ssurgo_crop_coverage",
+        "passed": true,
+        "details": "SSURGO comparison contains 22 crops."
+      },
+      {
+        "name": "required_provider_fields",
+        "passed": true,
+        "details": "NASA parameters and SSURGO normalized summary fields are complete."
+      },
+      {
+        "name": "provider_null_checks",
+        "passed": true,
+        "details": "FortyGuard tiles and Open-Meteo current fields have no reported nulls."
+      },
+      {
+        "name": "finite_numbers",
+        "passed": true,
+        "details": "No NaN or infinite numeric values are present."
+      },
+      {
+        "name": "normalized_units",
+        "passed": true,
+        "details": "Temperatures, water, radiation, depth, humidity, wind and heat duration use bundle units."
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "poteet_spinach_oct_2026",
+  "captured_at": "2026-08-28T00:00:00-05:00",
+  "location": {
+    "latitude": 28.89,
+    "longitude": -98.57,
+    "farm_name": null,
+    "location_label": "Near Poteet, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-10",
+    "flexibility_days": null
+  },
+  "requested_crop_id": "fresh_market_spinach",
+  "irrigation": {
+    "availability": "yes",
+    "reliability": "unknown",
+    "method": "drip",
+    "water_source": "unknown",
+    "well_pumping_capacity_gpm": null,
+    "canal_allocation_or_capacity": null,
+    "notes": "The farmer reported drip irrigation but did not provide supply reliability or capacity."
+  },
+  "farmer_goal": {
+    "primary_goal": "market_crop",
+    "preferred_crop_ids": ["fresh_market_spinach"],
+    "excluded_crop_ids": [],
+    "notes": null
+  }
+}

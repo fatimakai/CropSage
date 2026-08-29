@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cropsage.local/schemas/texas_region_sites.schema.json",
+  "title": "CropSage Texas representative agricultural site manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "manifest_id", "catalog_version", "last_verified", "site_count", "selection_policy", "sources", "sites"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "manifest_id": { "const": "texas_15_representative_agricultural_sites" },
+    "catalog_version": { "type": "string", "minLength": 1 },
+    "last_verified": { "type": "string", "format": "date" },
+    "site_count": { "const": 15 },
+    "selection_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sites_per_parent_region", "purpose", "inheritance_rule", "location_rule", "limitation"],
+      "properties": {
+        "sites_per_parent_region": { "const": 3 },
+        "purpose": { "type": "string", "minLength": 1 },
+        "inheritance_rule": { "type": "string", "minLength": 1 },
+        "location_rule": { "type": "string", "minLength": 1 },
+        "limitation": { "type": "string", "minLength": 1 }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "sites": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "items": { "$ref": "#/$defs/site" }
+    }
+  },
+  "$defs": {
+    "parentRegionId": {
+      "enum": ["plains", "eastern", "central_south_winter_garden", "lower_rio_grande_valley", "far_west"]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "name", "publisher", "url", "accessed_on", "use"],
+      "properties": {
+        "source_id": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+        "name": { "type": "string", "minLength": 1 },
+        "publisher": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "accessed_on": { "type": "string", "format": "date" },
+        "use": { "type": "string", "minLength": 1 }
+      }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["latitude", "longitude"],
+      "properties": {
+        "latitude": { "type": "number", "minimum": 25.8, "maximum": 36.5 },
+        "longitude": { "type": "number", "minimum": -106.65, "maximum": -93.5 }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "source_id", "dataset_year", "class_code", "class_name", "resolution_m", "checked_on", "method", "warning"],
+      "properties": {
+        "status": { "const": "verified_usda_cdl_2024" },
+        "source_id": { "const": "USDA_NASS_CDL_2024" },
+        "dataset_year": { "const": 2024 },
+        "class_code": { "type": "integer", "minimum": 1, "maximum": 255 },
+        "class_name": { "type": "string", "minLength": 1 },
+        "resolution_m": { "const": 10 },
+        "checked_on": { "type": "string", "format": "date" },
+        "method": { "type": "string", "minLength": 1 },
+        "warning": { "type": "string", "minLength": 1 }
+      }
+    },
+    "site": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["site_id", "name", "subregion_label", "parent_region_id", "nearby_agricultural_center", "location", "timezone", "justification", "coordinate_verification"],
+      "properties": {
+        "site_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_]{2,79}$" },
+        "name": { "type": "string", "minLength": 1 },
+        "subregion_label": { "type": "string", "minLength": 1 },
+        "parent_region_id": { "$ref": "#/$defs/parentRegionId" },
+        "nearby_agricultural_center": { "type": "string", "minLength": 1 },
+        "location": { "$ref": "#/$defs/location" },
+        "timezone": { "enum": ["America/Chicago", "America/Denver"] },
+        "justification": { "type": "string", "minLength": 1 },
+        "coordinate_verification": { "$ref": "#/$defs/verification" }
+      }
+    }
+  }
+}

@@ -33,6 +33,11 @@ data/evidence/providers/**
 !data/evidence/
 !data/evidence/evidence_bundle.schema.json
 !data/evidence/plainview_evidence_bundle.json
+!data/evidence/regions/
+data/evidence/regions/**
+!data/evidence/regions/collection_summary.json
+!data/evidence/regions/*/
+!data/evidence/regions/*/evidence_bundle.json
 !data/farm-profile/
 !data/farm-profile/farm_profile.schema.json
 !data/farm-profile/*.sample.json

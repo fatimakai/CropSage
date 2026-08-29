@@ -3,7 +3,7 @@
   "sample": "plainview",
   "evidence_bundle_id": "plainview_demo_evidence",
   "profile_id": "plainview_aug_2026_demo",
-  "scoring_version": "1.0.0-provisional",
+  "scoring_version": "1.0.0",
   "status": "validated",
   "evidence_bundle_validation": {
     "all_passed": true,

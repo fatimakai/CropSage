@@ -1,0 +1,101 @@
+﻿{
+    "started_at":  "2026-08-29T03:35:14.0630372Z",
+    "updated_at":  "2026-08-29T03:35:14.0630372Z",
+    "completed_at":  "2026-08-29T03:35:14.0630372Z",
+    "requested_site_count":  15,
+    "validated_site_count":  15,
+    "failed_site_count":  0,
+    "audit":  "post_collection_schema_and_contract_rebuild",
+    "sites":  {
+                  "plains_northern_panhandle_dalhart":  {
+                                                            "status":  "validated",
+                                                            "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\plains_northern_panhandle_dalhart\\evidence_bundle.json",
+                                                            "crop_count":  22,
+                                                            "validation_passed":  true
+                                                        },
+                  "plains_south_plainview":  {
+                                                 "status":  "validated",
+                                                 "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\plains_south_plainview\\evidence_bundle.json",
+                                                 "crop_count":  22,
+                                                 "validation_passed":  true
+                                             },
+                  "plains_rolling_vernon":  {
+                                                "status":  "validated",
+                                                "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\plains_rolling_vernon\\evidence_bundle.json",
+                                                "crop_count":  22,
+                                                "validation_passed":  true
+                                            },
+                  "eastern_east_texas_tyler":  {
+                                                   "status":  "validated",
+                                                   "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\eastern_east_texas_tyler\\evidence_bundle.json",
+                                                   "crop_count":  22,
+                                                   "validation_passed":  true
+                                               },
+                  "eastern_rice_belt_eagle_lake":  {
+                                                       "status":  "validated",
+                                                       "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\eastern_rice_belt_eagle_lake\\evidence_bundle.json",
+                                                       "crop_count":  22,
+                                                       "validation_passed":  true
+                                                   },
+                  "eastern_coastal_bend_robstown":  {
+                                                        "status":  "validated",
+                                                        "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\eastern_coastal_bend_robstown\\evidence_bundle.json",
+                                                        "crop_count":  22,
+                                                        "validation_passed":  true
+                                                    },
+                  "central_blackland_temple":  {
+                                                   "status":  "validated",
+                                                   "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\central_blackland_temple\\evidence_bundle.json",
+                                                   "crop_count":  22,
+                                                   "validation_passed":  true
+                                               },
+                  "central_winter_garden_uvalde":  {
+                                                       "status":  "validated",
+                                                       "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\central_winter_garden_uvalde\\evidence_bundle.json",
+                                                       "crop_count":  22,
+                                                       "validation_passed":  true
+                                                   },
+                  "central_south_poteet":  {
+                                               "status":  "validated",
+                                               "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\central_south_poteet\\evidence_bundle.json",
+                                               "crop_count":  22,
+                                               "validation_passed":  true
+                                           },
+                  "lrgv_upper_mission":  {
+                                             "status":  "validated",
+                                             "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\lrgv_upper_mission\\evidence_bundle.json",
+                                             "crop_count":  22,
+                                             "validation_passed":  true
+                                         },
+                  "lrgv_mid_weslaco":  {
+                                           "status":  "validated",
+                                           "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\lrgv_mid_weslaco\\evidence_bundle.json",
+                                           "crop_count":  22,
+                                           "validation_passed":  true
+                                       },
+                  "lrgv_lower_san_benito":  {
+                                                "status":  "validated",
+                                                "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\lrgv_lower_san_benito\\evidence_bundle.json",
+                                                "crop_count":  22,
+                                                "validation_passed":  true
+                                            },
+                  "far_west_el_paso_lower_valley_fabens":  {
+                                                               "status":  "validated",
+                                                               "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\far_west_el_paso_lower_valley_fabens\\evidence_bundle.json",
+                                                               "crop_count":  22,
+                                                               "validation_passed":  true
+                                                           },
+                  "far_west_pecos_reeves":  {
+                                                "status":  "validated",
+                                                "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\far_west_pecos_reeves\\evidence_bundle.json",
+                                                "crop_count":  22,
+                                                "validation_passed":  true
+                                            },
+                  "far_west_fort_stockton":  {
+                                                 "status":  "validated",
+                                                 "bundle_path":  "C:\\Users\\sumai\\OneDrive\\Documents\\ChatGPT\\CropSage\\data\\evidence\\regions\\far_west_fort_stockton\\evidence_bundle.json",
+                                                 "crop_count":  22,
+                                                 "validation_passed":  true
+                                             }
+              }
+}

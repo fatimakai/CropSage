@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "plainview_aug_2026_demo",
+  "captured_at": "2026-08-28T02:00:00Z",
+  "location": {
+    "latitude": 34.18,
+    "longitude": -101.76,
+    "farm_name": "Plainview demonstration farm",
+    "location_label": "Plainview, Texas",
+    "source": "demo_farm"
+  },
+  "planting": {
+    "planned_month": "2026-08",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": null,
+  "irrigation": {
+    "availability": "yes",
+    "reliability": "reliable",
+    "method": "center_pivot",
+    "water_source": "well",
+    "notes": "Hackathon demonstration assumption, not a measured fact about a real farm."
+  }
+}
