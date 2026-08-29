@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "bundle_id": "plainview_demo_evidence",
-  "generated_at": "2026-08-28T07:19:06.895853+00:00",
+  "generated_at": "2026-08-29T04:00:45.295889+00:00",
   "status": "validated",
   "location": {
     "farm_id": "plainview_demo",
@@ -49,7 +49,7 @@
       "location_match": true,
       "freshness": {
         "basis": "artifact_generated_at",
-        "age_hours": 26.015,
+        "age_hours": 46.709,
         "max_age_hours": 168,
         "status": "fresh",
         "passed": true
@@ -64,7 +64,7 @@
       "location_match": true,
       "freshness": {
         "basis": "artifact_generated_at",
-        "age_hours": 9.908,
+        "age_hours": 30.602,
         "max_age_hours": 720,
         "status": "fresh",
         "passed": true
@@ -79,7 +79,7 @@
       "location_match": true,
       "freshness": {
         "basis": "artifact_generated_at",
-        "age_hours": 9.498,
+        "age_hours": 30.192,
         "max_age_hours": 48,
         "status": "fresh",
         "passed": true
@@ -94,7 +94,7 @@
       "location_match": true,
       "freshness": {
         "basis": "artifact_generated_at",
-        "age_hours": 5.433,
+        "age_hours": 26.127,
         "max_age_hours": 8760,
         "status": "fresh",
         "passed": true
@@ -130,8 +130,10 @@
           "end_date": "2026-08-25",
           "tile_count": 68,
           "mean_temperature_c": 29.914445588235292,
-          "minimum_temperature_c": 20.4795,
-          "maximum_temperature_c": 39.2,
+          "minimum_tile_average_temperature_c": 29.9143,
+          "maximum_tile_average_temperature_c": 29.9146,
+          "period_minimum_temperature_c": 20.4795,
+          "period_maximum_temperature_c": 39.2,
           "peak_hour_raw": 15.0,
           "peak_hour_timezone_status": "unverified"
         },
@@ -142,8 +144,10 @@
           "end_date": "2026-08-25",
           "tile_count": 68,
           "mean_temperature_c": 29.709914705882355,
-          "minimum_temperature_c": 19.77,
-          "maximum_temperature_c": 39.2,
+          "minimum_tile_average_temperature_c": 29.7098,
+          "maximum_tile_average_temperature_c": 29.71,
+          "period_minimum_temperature_c": 19.77,
+          "period_maximum_temperature_c": 39.2,
           "peak_hour_raw": 15.0,
           "peak_hour_timezone_status": "unverified"
         },
@@ -154,8 +158,10 @@
           "end_date": "2026-08-25",
           "tile_count": 68,
           "mean_temperature_c": 29.424711764705883,
-          "minimum_temperature_c": 19.77,
-          "maximum_temperature_c": 39.2,
+          "minimum_tile_average_temperature_c": 29.4246,
+          "maximum_tile_average_temperature_c": 29.4248,
+          "period_minimum_temperature_c": 19.77,
+          "period_maximum_temperature_c": 39.2,
           "peak_hour_raw": 15.0,
           "peak_hour_timezone_status": "unverified"
         },
@@ -166,8 +172,10 @@
           "end_date": "2026-08-25",
           "tile_count": 68,
           "mean_temperature_c": 29.43298823529412,
-          "minimum_temperature_c": 19.4,
-          "maximum_temperature_c": 39.2,
+          "minimum_tile_average_temperature_c": 29.4329,
+          "maximum_tile_average_temperature_c": 29.4331,
+          "period_minimum_temperature_c": 19.4,
+          "period_maximum_temperature_c": 39.2,
           "peak_hour_raw": 15.0,
           "peak_hour_timezone_status": "unverified"
         }

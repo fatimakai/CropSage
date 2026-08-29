@@ -19,7 +19,7 @@
     "validation"
   ],
   "properties": {
-    "schema_version": { "const": "1.1.0" },
+    "schema_version": { "const": "1.2.0" },
     "bundle_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{2,99}_evidence$" },
     "generated_at": { "type": "string", "format": "date-time" },
     "status": { "const": "validated" },
@@ -151,7 +151,9 @@
       "additionalProperties": false,
       "required": [
         "window_name", "window_days", "start_date", "end_date", "tile_count",
-        "mean_temperature_c", "minimum_temperature_c", "maximum_temperature_c",
+        "mean_temperature_c", "minimum_tile_average_temperature_c",
+        "maximum_tile_average_temperature_c", "period_minimum_temperature_c",
+        "period_maximum_temperature_c",
         "peak_hour_raw", "peak_hour_timezone_status"
       ],
       "properties": {
@@ -161,8 +163,22 @@
         "end_date": { "type": "string", "format": "date" },
         "tile_count": { "type": "integer", "minimum": 1 },
         "mean_temperature_c": { "type": "number" },
-        "minimum_temperature_c": { "type": "number" },
-        "maximum_temperature_c": { "type": "number" },
+        "minimum_tile_average_temperature_c": {
+          "type": "number",
+          "description": "Lowest average_temperature among returned spatial tiles. This is not a daily or period minimum."
+        },
+        "maximum_tile_average_temperature_c": {
+          "type": "number",
+          "description": "Highest average_temperature among returned spatial tiles. This is not a daily or period maximum."
+        },
+        "period_minimum_temperature_c": {
+          "type": "number",
+          "description": "Lowest min_temperature reported across returned tiles for the complete request window."
+        },
+        "period_maximum_temperature_c": {
+          "type": "number",
+          "description": "Highest max_temperature reported across returned tiles for the complete request window."
+        },
         "peak_hour_raw": { "$ref": "#/$defs/nullableNumber" },
         "peak_hour_timezone_status": { "type": "string" }
       }
