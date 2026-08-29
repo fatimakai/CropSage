@@ -78,10 +78,13 @@
     "cropResult": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["crop_id", "crop_name", "status", "suitability_score", "recommendation", "confidence_score", "confidence_band", "evidence_coverage_percent", "applied_caps", "factors", "key_strengths", "key_risks", "warnings", "rank"],
+      "required": ["crop_id", "crop_name", "regionally_eligible", "overall_rank", "eligible_rank", "status", "suitability_score", "recommendation", "confidence_score", "confidence_band", "evidence_coverage_percent", "applied_caps", "applied_gates", "factors", "key_strengths", "key_risks", "warnings"],
       "properties": {
         "crop_id": { "type": "string" },
         "crop_name": { "type": "string" },
+        "regionally_eligible": { "type": "boolean" },
+        "overall_rank": { "type": "integer", "minimum": 1, "maximum": 22 },
+        "eligible_rank": { "type": ["integer", "null"], "minimum": 1, "maximum": 22 },
         "status": { "enum": ["scored", "insufficient_evidence"] },
         "suitability_score": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
         "recommendation": { "enum": ["recommended", "conditional", "not_recommended", "insufficient_evidence"] },
@@ -89,11 +92,11 @@
         "confidence_band": { "enum": ["high", "medium", "low"] },
         "evidence_coverage_percent": { "type": "number", "minimum": 0, "maximum": 100 },
         "applied_caps": { "type": "array", "items": { "$ref": "#/$defs/gate" } },
+        "applied_gates": { "type": "array", "items": { "$ref": "#/$defs/gate" } },
         "factors": { "type": "array", "minItems": 18, "maxItems": 18, "items": { "$ref": "#/$defs/factor" } },
         "key_strengths": { "type": "array", "maxItems": 3, "items": { "$ref": "#/$defs/highlight" } },
         "key_risks": { "type": "array", "maxItems": 3, "items": { "$ref": "#/$defs/highlight" } },
-        "warnings": { "type": "array", "items": { "type": "string" } },
-        "rank": { "type": "integer", "minimum": 1, "maximum": 22 }
+        "warnings": { "type": "array", "items": { "type": "string" } }
       }
     }
   }
