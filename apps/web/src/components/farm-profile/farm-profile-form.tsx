@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
@@ -399,19 +400,25 @@ export function FarmProfileForm() {
             <div><dt>Planting</dt><dd>{form.plantingMode === "month" ? form.plannedMonth : form.plannedDate}</dd></div>
             <div><dt>Assessment</dt><dd>{savedSessionId.slice(0, 8).toUpperCase()}</dd></div>
           </dl>
-          <button
-            className="button button-secondary"
-            type="button"
-            onClick={() => {
-              setForm(initialForm);
-              setStep(0);
-              setHighestStep(0);
-              setSavedSessionId(null);
-            }}
-          >
-            <MapPinned size={17} aria-hidden="true" />
-            Add another farm
-          </button>
+          <div className="complete-actions">
+            <Link className="button button-primary" href={`/assessments/${savedSessionId}/progress`}>
+              Collect evidence
+              <ArrowRight size={17} aria-hidden="true" />
+            </Link>
+            <button
+              className="button button-secondary"
+              type="button"
+              onClick={() => {
+                setForm(initialForm);
+                setStep(0);
+                setHighestStep(0);
+                setSavedSessionId(null);
+              }}
+            >
+              <MapPinned size={17} aria-hidden="true" />
+              Add another farm
+            </button>
+          </div>
         </section>
       </main>
     );

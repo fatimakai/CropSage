@@ -4,6 +4,7 @@ notebooks/
 FortyGuard APIs/
 tmp/
 scripts/*
+!scripts/generate-handoff-db-test.mjs
 node_modules/
 .next/
 apps/web/.env.local

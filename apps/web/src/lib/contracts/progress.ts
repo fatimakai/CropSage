@@ -17,5 +17,17 @@ export const validationStateSchema = z.object({
   warnings: z.array(z.string()),
 });
 
+export const analysisProgressModeSchema = z.enum(["success", "fallback", "failure"]);
+
+export const analysisProgressSnapshotSchema = z.object({
+  assessmentSessionId: z.uuid(),
+  status: z.enum(["running", "completed", "failed"]),
+  outcome: z.enum(["success", "fallback", "failure"]).nullable(),
+  terminal: z.boolean(),
+  events: z.array(progressEventSchema),
+});
+
 export type ProgressEvent = z.infer<typeof progressEventSchema>;
 export type ValidationState = z.infer<typeof validationStateSchema>;
+export type AnalysisProgressMode = z.infer<typeof analysisProgressModeSchema>;
+export type AnalysisProgressSnapshot = z.infer<typeof analysisProgressSnapshotSchema>;
