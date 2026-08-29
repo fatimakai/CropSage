@@ -2,7 +2,7 @@ begin;
 
 set local search_path = public, extensions;
 
-select plan(46);
+select plan(49);
 
 select has_table('public', 'evidence_records', 'evidence records table exists');
 select has_table('public', 'evidence_bundles', 'evidence bundles table exists');
@@ -119,6 +119,90 @@ insert into public.provider_fetches (
   'provider_unavailable',
   'Synthetic provider failure.'
 );
+
+insert into public.provider_fetches (
+  id,
+  farm_profile_id,
+  provider,
+  endpoint,
+  http_method,
+  request_schema_version,
+  sanitization_version,
+  requested_variables,
+  request_point,
+  cache_key_material_jsonb,
+  status,
+  produced_evidence,
+  result_mode,
+  submitted_at,
+  completed_at,
+  fetched_at,
+  expires_at,
+  artifacts_jsonb
+) values
+  (
+    '40000000-0000-4000-8000-000000000003',
+    '00000000-0000-4000-8000-000000000101',
+    'fortyguard',
+    '/v1/status/activity-id',
+    'GET',
+    'fortyguard-status-v1.2',
+    '1.0.0',
+    array[
+      'minimum_tile_average_temperature_c',
+      'maximum_tile_average_temperature_c',
+      'period_minimum_temperature_c',
+      'period_maximum_temperature_c'
+    ],
+    extensions.st_setsrid(extensions.st_makepoint(-101.76, 34.18), 4326)::extensions.geography,
+    '{"provider":"fortyguard","coordinate":"34.1800,-101.7600","analysis":"tcm","schema_version":"1.2.0"}'::jsonb,
+    'succeeded',
+    true,
+    'live',
+    statement_timestamp() - interval '1 minute',
+    statement_timestamp() - interval '50 seconds',
+    statement_timestamp() - interval '50 seconds',
+    statement_timestamp() + interval '1 day',
+    jsonb_build_array(jsonb_build_object(
+      'bucket_name', 'provider-artifacts',
+      'object_path', 'fortyguard/plainview/temperature-summary-v1.2.json',
+      'sha256', repeat('f', 64),
+      'content_type', 'application/json',
+      'size_bytes', 1024,
+      'provider_timestamp', '2026-08-28T00:00:00Z',
+      'sanitization_version', '1.0.0',
+      'schema_version', 'fortyguard-status-v1.2'
+    ))
+  ),
+  (
+    '40000000-0000-4000-8000-000000000004',
+    '00000000-0000-4000-8000-000000000101',
+    'ssurgo',
+    '/Tabular/post.rest',
+    'POST',
+    'ssurgo-sda-v1',
+    '1.0.0',
+    array['texture_name'],
+    extensions.st_setsrid(extensions.st_makepoint(-101.76, 34.18), 4326)::extensions.geography,
+    '{"provider":"ssurgo","coordinate":"34.1800,-101.7600","attributes":["texture_name"]}'::jsonb,
+    'succeeded',
+    true,
+    'live',
+    statement_timestamp() - interval '1 minute',
+    statement_timestamp() - interval '50 seconds',
+    statement_timestamp() - interval '50 seconds',
+    statement_timestamp() + interval '30 days',
+    jsonb_build_array(jsonb_build_object(
+      'bucket_name', 'provider-artifacts',
+      'object_path', 'ssurgo/plainview/texture-summary.json',
+      'sha256', repeat('a', 64),
+      'content_type', 'application/json',
+      'size_bytes', 1024,
+      'provider_timestamp', '2026-08-28T00:00:00Z',
+      'sanitization_version', '1.0.0',
+      'schema_version', 'ssurgo-sda-v1'
+    ))
+  );
 
 select lives_ok(
   $$
@@ -419,6 +503,105 @@ select is(
   'derived evidence retains every input evidence-record ID'
 );
 
+select lives_ok(
+  $$
+    insert into public.evidence_records (
+      id, farm_profile_id, provider_fetch_id, source_type, source_name, source_field,
+      canonical_variable, availability, freshness, value_kind, value_text, value_jsonb,
+      fetched_at, expires_at, evidence_point, evidence_snapshot
+    ) values
+      (
+        '41000000-0000-4000-8000-000000000006',
+        '00000000-0000-4000-8000-000000000101',
+        '40000000-0000-4000-8000-000000000003',
+        'provider',
+        'FortyGuard',
+        'temperature_summary',
+        'air_temperature.fortyguard_extrema_c',
+        'available',
+        'fresh',
+        'json',
+        null,
+        '{"minimum_tile_average_temperature_c":11.2,"maximum_tile_average_temperature_c":34.8,"period_minimum_temperature_c":8.1,"period_maximum_temperature_c":38.4}'::jsonb,
+        statement_timestamp() - interval '50 seconds',
+        statement_timestamp() + interval '1 day',
+        extensions.st_setsrid(extensions.st_makepoint(-101.76, 34.18), 4326)::extensions.geography,
+        '{"provider":"fortyguard","field":"temperature_summary","minimum_tile_average_temperature_c":11.2,"maximum_tile_average_temperature_c":34.8,"period_minimum_temperature_c":8.1,"period_maximum_temperature_c":38.4}'::jsonb
+      ),
+      (
+        '41000000-0000-4000-8000-000000000007',
+        '00000000-0000-4000-8000-000000000101',
+        '40000000-0000-4000-8000-000000000004',
+        'provider',
+        'USDA SSURGO',
+        'texture_name',
+        'soil.texture_class',
+        'available',
+        'fresh',
+        'text',
+        'fine sandy loam',
+        null,
+        statement_timestamp() - interval '50 seconds',
+        statement_timestamp() + interval '30 days',
+        extensions.st_setsrid(extensions.st_makepoint(-101.76, 34.18), 4326)::extensions.geography,
+        '{"provider":"ssurgo","field":"texture_name","value":"fine sandy loam"}'::jsonb
+      ),
+      (
+        '41000000-0000-4000-8000-000000000008',
+        '00000000-0000-4000-8000-000000000101',
+        '40000000-0000-4000-8000-000000000004',
+        'provider',
+        'USDA SSURGO',
+        'texture_name',
+        'soil.texture_class',
+        'available',
+        'fresh',
+        'text',
+        'loamy fine sand',
+        null,
+        statement_timestamp() - interval '50 seconds',
+        statement_timestamp() + interval '30 days',
+        extensions.st_setsrid(extensions.st_makepoint(-101.76, 34.18), 4326)::extensions.geography,
+        '{"provider":"ssurgo","field":"texture_name","value":"loamy fine sand"}'::jsonb
+      )
+  $$,
+  'corrected FortyGuard temperature fields and expanded SSURGO textures can be stored'
+);
+
+select results_eq(
+  $$
+    select key
+    from public.evidence_records,
+      lateral jsonb_object_keys(value_jsonb) as key
+    where id = '41000000-0000-4000-8000-000000000006'
+    order by key
+  $$,
+  $$ values
+    ('maximum_tile_average_temperature_c'::text),
+    ('minimum_tile_average_temperature_c'::text),
+    ('period_maximum_temperature_c'::text),
+    ('period_minimum_temperature_c'::text)
+  $$,
+  'FortyGuard evidence preserves every corrected temperature field name'
+);
+
+select results_eq(
+  $$
+    select value_text as texture_name
+    from public.evidence_records
+    where id in (
+      '41000000-0000-4000-8000-000000000007',
+      '41000000-0000-4000-8000-000000000008'
+    )
+    order by texture_name
+  $$,
+  $$ values
+    ('fine sandy loam'::text),
+    ('loamy fine sand'::text)
+  $$,
+  'SSURGO evidence accepts expanded multi-word texture names'
+);
+
 select throws_ok(
   $$
     insert into public.evidence_records (
@@ -674,7 +857,7 @@ insert into public.evidence_bundles (
     '52000000-0000-4000-8000-000000000001',
     'evidence_owner_one_bundle',
     1,
-    '1.1.0',
+    '1.2.0',
     '1.1.0',
     '{"latitude":32.7767,"longitude":-96.7970}'::jsonb
   ),
@@ -683,7 +866,7 @@ insert into public.evidence_bundles (
     '52000000-0000-4000-8000-000000000002',
     'evidence_owner_two_bundle',
     1,
-    '1.1.0',
+    '1.2.0',
     '1.1.0',
     '{"latitude":29.7604,"longitude":-95.3698}'::jsonb
   );
@@ -725,12 +908,12 @@ select lives_ok(
       '00000000-0000-4000-8000-000000000101',
       'plainview_test_bundle',
       1,
-      '1.1.0',
+      '1.2.0',
       '1.1.0',
       'data/crop-catalog/catalog.json',
       '{"latitude":34.18,"longitude":-101.76,"texas_region_id":"plains","timezone":"America/Chicago"}'::jsonb,
-      '{"nasa_power":"available","farmer":"partial","laboratory":"available"}'::jsonb,
-      '{"fresh":3,"stale":1,"unknown":1}'::jsonb
+      '{"nasa_power":"available","fortyguard":"available","ssurgo":"available","farmer":"partial","laboratory":"available"}'::jsonb,
+      '{"fresh":5,"not_applicable":2}'::jsonb
     )
   $$,
   'an evidence bundle begins in assembling state'
@@ -748,7 +931,10 @@ select lives_ok(
       ('42000000-0000-4000-8000-000000000001', '41000000-0000-4000-8000-000000000001', 'required', 1, 'Climate baseline'),
       ('42000000-0000-4000-8000-000000000001', '41000000-0000-4000-8000-000000000002', 'required', 2, 'Explicit missing farmer input'),
       ('42000000-0000-4000-8000-000000000001', '41000000-0000-4000-8000-000000000003', 'supplementary', 3, 'Laboratory override'),
-      ('42000000-0000-4000-8000-000000000001', '41000000-0000-4000-8000-000000000004', 'contextual', 4, 'Derived normalized metric')
+      ('42000000-0000-4000-8000-000000000001', '41000000-0000-4000-8000-000000000004', 'contextual', 4, 'Derived normalized metric'),
+      ('42000000-0000-4000-8000-000000000001', '41000000-0000-4000-8000-000000000006', 'required', 5, 'FortyGuard temperature extrema'),
+      ('42000000-0000-4000-8000-000000000001', '41000000-0000-4000-8000-000000000007', 'supplementary', 6, 'SSURGO component texture'),
+      ('42000000-0000-4000-8000-000000000001', '41000000-0000-4000-8000-000000000008', 'supplementary', 7, 'SSURGO component texture')
   $$,
   'ordered evidence records can be assembled into a bundle'
 );
@@ -759,7 +945,7 @@ select is(
     from public.evidence_bundles
     where id = '42000000-0000-4000-8000-000000000001'
   ),
-  4,
+  7,
   'bundle record_count follows membership automatically'
 );
 
@@ -789,7 +975,7 @@ select lives_ok(
         assembled_at = statement_timestamp() - interval '2 seconds',
         validated_at = statement_timestamp(),
         validation_summary_jsonb = '{"all_passed":true,"checks":["schema","location","freshness"]}'::jsonb,
-        bundle_snapshot = '{"schema_version":"1.1.0","bundle_id":"plainview_test_bundle","status":"validated","location":{"latitude":34.18,"longitude":-101.76,"texas_region_id":"plains","timezone":"America/Chicago"},"catalog":{"version":"1.1.0"},"record_ids":["41000000-0000-4000-8000-000000000001","41000000-0000-4000-8000-000000000002","41000000-0000-4000-8000-000000000003","41000000-0000-4000-8000-000000000004"]}'::jsonb
+        bundle_snapshot = '{"schema_version":"1.2.0","bundle_id":"plainview_test_bundle","status":"validated","location":{"latitude":34.18,"longitude":-101.76,"texas_region_id":"plains","timezone":"America/Chicago"},"catalog":{"version":"1.1.0"},"record_ids":["41000000-0000-4000-8000-000000000001","41000000-0000-4000-8000-000000000002","41000000-0000-4000-8000-000000000003","41000000-0000-4000-8000-000000000004","41000000-0000-4000-8000-000000000006","41000000-0000-4000-8000-000000000007","41000000-0000-4000-8000-000000000008"]}'::jsonb
     where id = '42000000-0000-4000-8000-000000000001'
   $$,
   'a non-empty assembled bundle can transition to validated'
@@ -815,7 +1001,7 @@ select is(
     from public.evidence_bundles
     where id = '42000000-0000-4000-8000-000000000001'
   ),
-  '{"schema_version":"1.1.0","bundle_id":"plainview_test_bundle","status":"validated","location":{"latitude":34.18,"longitude":-101.76,"texas_region_id":"plains","timezone":"America/Chicago"},"catalog":{"version":"1.1.0"},"record_ids":["41000000-0000-4000-8000-000000000001","41000000-0000-4000-8000-000000000002","41000000-0000-4000-8000-000000000003","41000000-0000-4000-8000-000000000004"]}'::jsonb,
+  '{"schema_version":"1.2.0","bundle_id":"plainview_test_bundle","status":"validated","location":{"latitude":34.18,"longitude":-101.76,"texas_region_id":"plains","timezone":"America/Chicago"},"catalog":{"version":"1.1.0"},"record_ids":["41000000-0000-4000-8000-000000000001","41000000-0000-4000-8000-000000000002","41000000-0000-4000-8000-000000000003","41000000-0000-4000-8000-000000000004","41000000-0000-4000-8000-000000000006","41000000-0000-4000-8000-000000000007","41000000-0000-4000-8000-000000000008"]}'::jsonb,
   'an EvidenceBundle snapshot round-trips without structural loss'
 );
 
@@ -829,7 +1015,10 @@ select is(
     '41000000-0000-4000-8000-000000000001'::uuid,
     '41000000-0000-4000-8000-000000000002'::uuid,
     '41000000-0000-4000-8000-000000000003'::uuid,
-    '41000000-0000-4000-8000-000000000004'::uuid
+    '41000000-0000-4000-8000-000000000004'::uuid,
+    '41000000-0000-4000-8000-000000000006'::uuid,
+    '41000000-0000-4000-8000-000000000007'::uuid,
+    '41000000-0000-4000-8000-000000000008'::uuid
   ],
   'bundle membership preserves deterministic inclusion order'
 );
@@ -869,7 +1058,7 @@ select lives_ok(
       'plainview_test_bundle_v2',
       2,
       '42000000-0000-4000-8000-000000000001',
-      '1.1.0',
+      '1.2.0',
       '1.1.0',
       '{"latitude":34.18,"longitude":-101.76,"texas_region_id":"plains"}'::jsonb
     )
@@ -884,7 +1073,7 @@ select throws_ok(
         completeness_percent = 100,
         assembled_at = statement_timestamp() - interval '1 second',
         validated_at = statement_timestamp(),
-        bundle_snapshot = '{"schema_version":"1.1.0","bundle_id":"plainview_test_bundle_v2","status":"validated"}'::jsonb
+        bundle_snapshot = '{"schema_version":"1.2.0","bundle_id":"plainview_test_bundle_v2","status":"validated"}'::jsonb
     where id = '42000000-0000-4000-8000-000000000002'
   $$,
   'Validated bundle record_count must match non-empty bundle membership.',
@@ -906,7 +1095,7 @@ select throws_ok(
       'plainview_test_bundle_v4',
       4,
       '42000000-0000-4000-8000-000000000002',
-      '1.1.0',
+      '1.2.0',
       '1.1.0',
       '{"latitude":34.18,"longitude":-101.76}'::jsonb
     )
