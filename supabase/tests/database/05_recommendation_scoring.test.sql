@@ -2,7 +2,7 @@ begin;
 
 set local search_path = public, extensions;
 
-select plan(49);
+select plan(52);
 
 select has_type('public', 'recommendation_run_kind', 'recommendation run kind enum exists');
 select has_type('public', 'validation_outcome', 'validation outcome enum exists');
@@ -74,7 +74,7 @@ insert into public.evidence_bundles (
   '00000000-0000-4000-8000-000000000101',
   'scoring_test_bundle',
   1,
-  '1.1.0',
+  '1.2.0',
   '1.1.0',
   repeat('b', 64),
   'data/crop-catalog/catalog.json',
@@ -99,7 +99,7 @@ set status = 'validated',
     assembled_at = statement_timestamp() - interval '1 second',
     validated_at = statement_timestamp(),
     validation_summary_jsonb = '{"all_passed":true}'::jsonb,
-    bundle_snapshot = '{"schema_version":"1.1.0","bundle_id":"scoring_test_bundle","status":"validated","record_ids":["61000000-0000-4000-8000-000000000001"]}'::jsonb
+    bundle_snapshot = '{"schema_version":"1.2.0","bundle_id":"scoring_test_bundle","status":"validated","record_ids":["61000000-0000-4000-8000-000000000001"]}'::jsonb
 where id = '62000000-0000-4000-8000-000000000001';
 
 select lives_ok(
@@ -272,6 +272,26 @@ select throws_ok(
   'an ineligible crop cannot receive an uncapped favorable recommendation'
 );
 
+select throws_ok(
+  $$
+    insert into public.crop_score_results (
+      recommendation_run_id, crop_id, crop_name, status, regionally_eligible,
+      overall_rank, eligible_rank, suitability_score, recommendation,
+      confidence_score, confidence_band, evidence_coverage_percent, factors_jsonb,
+      evidence_record_ids, result_snapshot
+    ) values (
+      '63000000-0000-4000-8000-000000000001', 'missing_region_gate',
+      'Missing region gate', 'scored', false, 1, null, 54, 'not_recommended',
+      80, 'high', 100, '[{"factor_id":"test"}]',
+      array['61000000-0000-4000-8000-000000000001'::uuid],
+      '{"crop_id":"missing_region_gate","regionally_eligible":false,"overall_rank":1,"eligible_rank":null,"applied_gates":[]}'
+    )
+  $$,
+  '23514',
+  'new row for relation "crop_score_results" violates check constraint "crop_score_results_ineligible_policy"',
+  'an ineligible crop cannot omit the unsupported_region gate'
+);
+
 select lives_ok(
   $$
     insert into public.crop_score_results (
@@ -295,14 +315,29 @@ select lives_ok(
       case when n <= 5 then 'high' when n <= 15 then 'medium' else 'low' end::public.confidence_band,
       100,
       jsonb_build_array(jsonb_build_object('factor_id', 'deterministic_test', 'score', 90 - n)),
-      '[]'::jsonb,
-      '[]'::jsonb,
+      case
+        when n <= 18 then '[]'::jsonb
+        else '[{"gate":"unsupported_region","cap":54,"reason":"Catalog marks this crop unsupported in the selected Texas region."}]'::jsonb
+      end,
+      case
+        when n <= 18 then '[]'::jsonb
+        else '[{"gate":"unsupported_region","cap":54,"reason":"Catalog marks this crop unsupported in the selected Texas region."}]'::jsonb
+      end,
       '[]'::jsonb,
       '[]'::jsonb,
       '{}'::text[],
       array['TEST_RESULT'],
       array['61000000-0000-4000-8000-000000000001'::uuid],
-      jsonb_build_object('crop_id', 'crop_' || lpad(n::text, 2, '0'), 'rank', n)
+      jsonb_build_object(
+        'crop_id', 'crop_' || lpad(n::text, 2, '0'),
+        'regionally_eligible', n <= 18,
+        'overall_rank', n,
+        'eligible_rank', case when n <= 18 then n else null end,
+        'applied_gates', case
+          when n <= 18 then '[]'::jsonb
+          else '[{"gate":"unsupported_region","cap":54,"reason":"Catalog marks this crop unsupported in the selected Texas region."}]'::jsonb
+        end
+      )
     from generate_series(1, 22) as series(n)
   $$,
   'all 22 crop results can be persisted before run finalization'
@@ -324,6 +359,35 @@ select is(
   (select count(*) from public.crop_score_results where recommendation_run_id = '63000000-0000-4000-8000-000000000001' and not regionally_eligible and eligible_rank is null),
   4::bigint,
   'ineligible crops retain overall rank and no eligible rank'
+);
+
+select is(
+  (
+    select count(*)
+    from public.crop_score_results
+    where recommendation_run_id = '63000000-0000-4000-8000-000000000001'
+      and not regionally_eligible
+      and public.applied_gates_include(applied_gates_jsonb, 'unsupported_region')
+  ),
+  4::bigint,
+  'every regionally ineligible crop retains the unsupported_region gate'
+);
+
+select is(
+  (
+    select count(*)
+    from public.crop_score_results
+    where recommendation_run_id = '63000000-0000-4000-8000-000000000001'
+      and result_snapshot ?& array[
+        'crop_id',
+        'regionally_eligible',
+        'overall_rank',
+        'eligible_rank',
+        'applied_gates'
+      ]
+  ),
+  22::bigint,
+  'result snapshots use the eligibility-aware ranking contract'
 );
 
 select lives_ok(

@@ -197,7 +197,7 @@ insert into public.evidence_bundles (
   '00000000-0000-4000-8000-000000000101',
   'operations_test_bundle',
   1,
-  '1.1.0',
+  '1.2.0',
   '1.1.0',
   'data/crop-catalog/catalog.json',
   '{"latitude":34.18,"longitude":-101.76,"texas_region_id":"plains"}'::jsonb
@@ -220,7 +220,7 @@ set status = 'validated',
     completeness_percent = 100,
     assembled_at = statement_timestamp() - interval '1 second',
     validated_at = statement_timestamp(),
-    bundle_snapshot = '{"schema_version":"1.1.0","bundle_id":"operations_test_bundle","status":"validated","record_ids":["71000000-0000-4000-8000-000000000001"]}'::jsonb
+    bundle_snapshot = '{"schema_version":"1.2.0","bundle_id":"operations_test_bundle","status":"validated","record_ids":["71000000-0000-4000-8000-000000000001"]}'::jsonb
 where id = '72000000-0000-4000-8000-000000000001';
 
 select throws_ok(
@@ -444,7 +444,7 @@ insert into public.evidence_bundles (
   'operations_test_bundle_v2',
   2,
   '72000000-0000-4000-8000-000000000001',
-  '1.1.0',
+  '1.2.0',
   '1.1.0',
   '{"latitude":34.18,"longitude":-101.76}'
 );
