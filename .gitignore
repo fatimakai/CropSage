@@ -21,3 +21,21 @@ data/evidence/**
 !data/evidence/providers/
 data/evidence/providers/**
 !data/evidence/providers/ssurgo_plainview.json
+
+# Versioned CropSage contracts, builders, samples, and tests
+!scripts/build_location_evidence.py
+!scripts/__init__.py
+!scripts/collect_location_evidence.py
+!scripts/collect_all_region_evidence.py
+!providers/
+!providers/*.py
+!data/evidence/
+!data/evidence/evidence_bundle.schema.json
+!data/evidence/plainview_evidence_bundle.json
+!data/farm-profile/
+!data/farm-profile/farm_profile.schema.json
+!data/farm-profile/*.sample.json
+!tests/
+!tests/*.py
+__pycache__/
+*.py[cod]

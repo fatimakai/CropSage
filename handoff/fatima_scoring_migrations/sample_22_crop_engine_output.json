@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "scoring_version": "1.0.0-provisional",
-  "generated_at": "2026-08-28T07:19:06.895853+00:00",
+  "generated_at": "2026-08-29T04:00:45.295889+00:00",
   "status": "validated",
   "evaluation_mode": "planting_readiness",
   "profile_id": "plainview_aug_2026_demo",
@@ -20,6 +20,7 @@
     {
       "crop_id": "alfalfa_hay",
       "crop_name": "Alfalfa grown for hay",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 76.63,
       "recommendation": "recommended",
@@ -27,6 +28,7 @@
       "confidence_band": "low",
       "evidence_coverage_percent": 83.0,
       "applied_caps": [],
+      "applied_gates": [],
       "factors": [
         {
           "factor_id": "nasa_seasonal_temperature",
@@ -460,11 +462,13 @@
       "warnings": [
         "Alfalfa grown for hay heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 1
+      "overall_rank": 1,
+      "eligible_rank": 1
     },
     {
       "crop_id": "fresh_market_spinach",
       "crop_name": "Fresh-market spinach",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 72.38,
       "recommendation": "conditional",
@@ -472,6 +476,7 @@
       "confidence_band": "medium",
       "evidence_coverage_percent": 83.0,
       "applied_caps": [],
+      "applied_gates": [],
       "factors": [
         {
           "factor_id": "nasa_seasonal_temperature",
@@ -904,11 +909,13 @@
       "warnings": [
         "Fresh-market spinach heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 2
+      "overall_rank": 2,
+      "eligible_rank": 2
     },
     {
       "crop_id": "oilseed_sunflower",
       "crop_name": "Oilseed sunflower",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 68.4,
       "recommendation": "conditional",
@@ -916,6 +923,7 @@
       "confidence_band": "low",
       "evidence_coverage_percent": 83.0,
       "applied_caps": [],
+      "applied_gates": [],
       "factors": [
         {
           "factor_id": "nasa_seasonal_temperature",
@@ -1348,11 +1356,13 @@
       "warnings": [
         "Oilseed sunflower heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 3
+      "overall_rank": 3,
+      "eligible_rank": 3
     },
     {
       "crop_id": "fresh_market_cabbage",
       "crop_name": "Fresh-market cabbage",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 68.34,
       "recommendation": "conditional",
@@ -1360,6 +1370,7 @@
       "confidence_band": "medium",
       "evidence_coverage_percent": 83.0,
       "applied_caps": [],
+      "applied_gates": [],
       "factors": [
         {
           "factor_id": "nasa_seasonal_temperature",
@@ -1793,11 +1804,13 @@
       "warnings": [
         "Fresh-market cabbage heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 4
+      "overall_rank": 4,
+      "eligible_rank": 4
     },
     {
       "crop_id": "white_potato",
       "crop_name": "White potato",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 68.22,
       "recommendation": "conditional",
@@ -1805,6 +1818,7 @@
       "confidence_band": "low",
       "evidence_coverage_percent": 83.0,
       "applied_caps": [],
+      "applied_gates": [],
       "factors": [
         {
           "factor_id": "nasa_seasonal_temperature",
@@ -2237,11 +2251,13 @@
       "warnings": [
         "White potato heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 5
+      "overall_rank": 5,
+      "eligible_rank": 5
     },
     {
       "crop_id": "annual_ryegrass_forage",
       "crop_name": "Annual ryegrass grown for forage",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 57.84,
       "recommendation": "conditional",
@@ -2249,6 +2265,7 @@
       "confidence_band": "low",
       "evidence_coverage_percent": 80.0,
       "applied_caps": [],
+      "applied_gates": [],
       "factors": [
         {
           "factor_id": "nasa_seasonal_temperature",
@@ -2678,11 +2695,13 @@
       "warnings": [
         "Annual ryegrass grown for forage heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 6
+      "overall_rank": 6,
+      "eligible_rank": 6
     },
     {
       "crop_id": "hard_red_winter_wheat",
       "crop_name": "Hard red winter wheat",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 56.9,
       "recommendation": "conditional",
@@ -2690,6 +2709,7 @@
       "confidence_band": "medium",
       "evidence_coverage_percent": 100.0,
       "applied_caps": [],
+      "applied_gates": [],
       "factors": [
         {
           "factor_id": "nasa_seasonal_temperature",
@@ -3120,11 +3140,13 @@
         }
       ],
       "warnings": [],
-      "rank": 7
+      "overall_rank": 7,
+      "eligible_rank": 7
     },
     {
-      "crop_id": "upland_cotton",
-      "crop_name": "Upland cotton",
+      "crop_id": "corn_grain",
+      "crop_name": "Corn grown for grain",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
@@ -3138,447 +3160,7 @@
           "reason": "Requested month is far outside all catalog planting windows for the region."
         }
       ],
-      "factors": [
-        {
-          "factor_id": "nasa_seasonal_temperature",
-          "category": "thermal_heat",
-          "weight_percent": 8.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.765,
-          "weighted_points": 8.0,
-          "scoring_use": "scored",
-          "reason": "NASA monthly historical temperature is compared with the crop optimum.",
-          "evidence": {
-            "sources": [
-              "nasa_power",
-              "crop_catalog"
-            ],
-            "values": {
-              "month": "Aug",
-              "temperature_c": 28.016129,
-              "distance_from_optimum_c": 0.0,
-              "optimal_range_c": {
-                "min": 26.7,
-                "max": 32.2
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_temperature_fit",
-          "category": "thermal_heat",
-          "weight_percent": 7.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.765,
-          "weighted_points": 7.0,
-          "scoring_use": "scored",
-          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "mean_temperature_c": 29.914445588235292,
-              "optimal_range_c": {
-                "min": 26.7,
-                "max": 32.2
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_threshold_exceedance",
-          "category": "thermal_heat",
-          "weight_percent": 12.0,
-          "available": true,
-          "score": 70.0,
-          "evidence_confidence": 0.612,
-          "weighted_points": 8.4,
-          "scoring_use": "scored",
-          "reason": "Percentage of hours above the crop's scoreable heat threshold.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "threshold_c": 37.8,
-              "exceedance_hours": 6.0,
-              "exceedance_fraction": 0.03571428571428571
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_heat_persistence",
-          "category": "thermal_heat",
-          "weight_percent": 5.0,
-          "available": true,
-          "score": 90.0,
-          "evidence_confidence": 0.612,
-          "weighted_points": 4.5,
-          "scoring_use": "scored",
-          "reason": "Longest continuous exposure above the scoreable crop heat threshold.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "persistence_hours": 2.0
-            }
-          }
-        },
-        {
-          "factor_id": "open_meteo_heat_frost",
-          "category": "thermal_heat",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 87.5,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 2.625,
-          "scoring_use": "scored",
-          "reason": "Short-range heat and frost forecast for planting readiness.",
-          "evidence": {
-            "sources": [
-              "open_meteo",
-              "crop_catalog"
-            ],
-            "values": {
-              "forecast_max_temperature_c": 37.9,
-              "frost_risk_days": 0.0,
-              "heat_threshold_c": 37.8
-            }
-          }
-        },
-        {
-          "factor_id": "soil_texture",
-          "category": "soil",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 6.0,
-          "scoring_use": "scored",
-          "reason": "Mapped SSURGO surface texture is compared with catalog preferences.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "texture": "clay loam",
-              "preferred_textures": [
-                "loam",
-                "sandy loam",
-                "clay loam"
-              ]
-            }
-          }
-        },
-        {
-          "factor_id": "soil_ph",
-          "category": "soil",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 45.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 2.7,
-          "scoring_use": "scored",
-          "reason": "Mapped SSURGO pH is compared with the catalog tolerable range.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "ph": 7.7,
-              "distance_from_range": 0.7000000000000002,
-              "tolerable_range": {
-                "min": 5.7,
-                "max": 7.0
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "soil_drainage",
-          "category": "soil",
-          "weight_percent": 5.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 5.0,
-          "scoring_use": "scored",
-          "reason": "Mapped drainage class is compared with the crop requirement.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "mapped_drainage": "Well drained",
-              "requirement": "well_drained",
-              "fit": "compatible"
-            }
-          }
-        },
-        {
-          "factor_id": "soil_root_zone",
-          "category": "soil",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Usable mapped soil depth is compared with the minimum crop root-zone requirement.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "usable_root_zone_cm": "100-150",
-              "required_root_zone_cm": {
-                "min": 100,
-                "max": 170
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "soil_water_storage",
-          "category": "soil",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.75,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Mapped available-water storage is capacity context, not current water supply.",
-          "evidence": {
-            "sources": [
-              "ssurgo"
-            ],
-            "values": {
-              "accessible_storage_range_mm": "186.8-266.4",
-              "representative_storage_mm": 226.6
-            }
-          }
-        },
-        {
-          "factor_id": "recent_rainfall",
-          "category": "water",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 15.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 0.45,
-          "scoring_use": "scored",
-          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand.",
-          "evidence": {
-            "sources": [
-              "open_meteo",
-              "crop_catalog"
-            ],
-            "values": {
-              "recent_rainfall_mm": 0.5,
-              "approximate_weekly_demand_mm": 42.42424242424242
-            }
-          }
-        },
-        {
-          "factor_id": "forecast_water_balance",
-          "category": "water",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 10.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 0.6,
-          "scoring_use": "scored",
-          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit.",
-          "evidence": {
-            "sources": [
-              "open_meteo"
-            ],
-            "values": {
-              "rain_minus_et0_mm": -60.16
-            }
-          }
-        },
-        {
-          "factor_id": "current_soil_moisture",
-          "category": "water",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 80.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 3.2,
-          "scoring_use": "scored",
-          "reason": "Modeled root-profile soil moisture is used as a current screening signal.",
-          "evidence": {
-            "sources": [
-              "open_meteo"
-            ],
-            "values": {
-              "volumetric_soil_moisture_m3_m3": 0.1844567901234568
-            }
-          }
-        },
-        {
-          "factor_id": "crop_water_resilience",
-          "category": "water",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 67.5,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 2.025,
-          "scoring_use": "scored",
-          "reason": "Catalog water demand and drought tolerance are combined without using missing weather as a zero.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "water_demand_class": "high",
-              "drought_tolerance": "high"
-            }
-          }
-        },
-        {
-          "factor_id": "irrigation_availability",
-          "category": "water",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.68,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Farmer irrigation availability is compared with the catalog requirement.",
-          "evidence": {
-            "sources": [
-              "farmer_report",
-              "crop_catalog"
-            ],
-            "values": {
-              "availability": "yes",
-              "reliability": "reliable",
-              "crop_requirement": "conditional"
-            }
-          }
-        },
-        {
-          "factor_id": "texas_regional_suitability",
-          "category": "location_season",
-          "weight_percent": 7.5,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 7.5,
-          "scoring_use": "scored",
-          "reason": "Major irrigated and dryland cotton region.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "region_id": "plains",
-              "rating": "primary"
-            }
-          }
-        },
-        {
-          "factor_id": "planting_window",
-          "category": "location_season",
-          "weight_percent": 12.5,
-          "available": true,
-          "score": 0.0,
-          "evidence_confidence": 0.6141,
-          "weighted_points": 0.0,
-          "scoring_use": "scored",
-          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "requested_month": 8,
-              "regional_windows": [
-                "May-Jun"
-              ],
-              "month_distance": 2
-            }
-          }
-        },
-        {
-          "factor_id": "frost_free_season",
-          "category": "location_season",
-          "weight_percent": 0.0,
-          "available": false,
-          "score": null,
-          "evidence_confidence": 0.0,
-          "weighted_points": null,
-          "scoring_use": "inactive",
-          "reason": "Inactive limitation: frost-free-season evidence has not been added.",
-          "evidence": {
-            "sources": [],
-            "values": {}
-          }
-        }
-      ],
-      "key_strengths": [
-        {
-          "factor_id": "nasa_seasonal_temperature",
-          "score": 100.0,
-          "reason": "NASA monthly historical temperature is compared with the crop optimum."
-        },
-        {
-          "factor_id": "texas_regional_suitability",
-          "score": 100.0,
-          "reason": "Major irrigated and dryland cotton region."
-        },
-        {
-          "factor_id": "fortyguard_temperature_fit",
-          "score": 100.0,
-          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum."
-        }
-      ],
-      "key_risks": [
-        {
-          "factor_id": "planting_window",
-          "score": 0.0,
-          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable."
-        },
-        {
-          "factor_id": "forecast_water_balance",
-          "score": 10.0,
-          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit."
-        },
-        {
-          "factor_id": "recent_rainfall",
-          "score": 15.0,
-          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand."
-        }
-      ],
-      "warnings": [],
-      "rank": 8
-    },
-    {
-      "crop_id": "corn_grain",
-      "crop_name": "Corn grown for grain",
-      "status": "scored",
-      "suitability_score": 54.0,
-      "recommendation": "not_recommended",
-      "confidence_score": 69.08,
-      "confidence_band": "medium",
-      "evidence_coverage_percent": 100.0,
-      "applied_caps": [
+      "applied_gates": [
         {
           "gate": "far_outside_planting_window",
           "cap": 54.0,
@@ -4015,907 +3597,13 @@
         }
       ],
       "warnings": [],
-      "rank": 9
-    },
-    {
-      "crop_id": "grain_sorghum",
-      "crop_name": "Grain sorghum",
-      "status": "scored",
-      "suitability_score": 54.0,
-      "recommendation": "not_recommended",
-      "confidence_score": 69.08,
-      "confidence_band": "medium",
-      "evidence_coverage_percent": 100.0,
-      "applied_caps": [
-        {
-          "gate": "far_outside_planting_window",
-          "cap": 54.0,
-          "reason": "Requested month is far outside all catalog planting windows for the region."
-        }
-      ],
-      "factors": [
-        {
-          "factor_id": "nasa_seasonal_temperature",
-          "category": "thermal_heat",
-          "weight_percent": 8.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.765,
-          "weighted_points": 8.0,
-          "scoring_use": "scored",
-          "reason": "NASA monthly historical temperature is compared with the crop optimum.",
-          "evidence": {
-            "sources": [
-              "nasa_power",
-              "crop_catalog"
-            ],
-            "values": {
-              "month": "Aug",
-              "temperature_c": 28.016129,
-              "distance_from_optimum_c": 0.0,
-              "optimal_range_c": {
-                "min": 26.0,
-                "max": 32.0
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_temperature_fit",
-          "category": "thermal_heat",
-          "weight_percent": 7.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.765,
-          "weighted_points": 7.0,
-          "scoring_use": "scored",
-          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "mean_temperature_c": 29.914445588235292,
-              "optimal_range_c": {
-                "min": 26.0,
-                "max": 32.0
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_threshold_exceedance",
-          "category": "thermal_heat",
-          "weight_percent": 12.0,
-          "available": true,
-          "score": 40.0,
-          "evidence_confidence": 0.612,
-          "weighted_points": 4.8,
-          "scoring_use": "scored",
-          "reason": "Percentage of hours above the crop's scoreable heat threshold.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "threshold_c": 37.2,
-              "exceedance_hours": 20.0,
-              "exceedance_fraction": 0.11904761904761904
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_heat_persistence",
-          "category": "thermal_heat",
-          "weight_percent": 5.0,
-          "available": true,
-          "score": 70.0,
-          "evidence_confidence": 0.612,
-          "weighted_points": 3.5,
-          "scoring_use": "scored",
-          "reason": "Longest continuous exposure above the scoreable crop heat threshold.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "persistence_hours": 3.0
-            }
-          }
-        },
-        {
-          "factor_id": "open_meteo_heat_frost",
-          "category": "thermal_heat",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 87.5,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 2.625,
-          "scoring_use": "scored",
-          "reason": "Short-range heat and frost forecast for planting readiness.",
-          "evidence": {
-            "sources": [
-              "open_meteo",
-              "crop_catalog"
-            ],
-            "values": {
-              "forecast_max_temperature_c": 37.9,
-              "frost_risk_days": 0.0,
-              "heat_threshold_c": 37.2
-            }
-          }
-        },
-        {
-          "factor_id": "soil_texture",
-          "category": "soil",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 6.0,
-          "scoring_use": "scored",
-          "reason": "Mapped SSURGO surface texture is compared with catalog preferences.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "texture": "clay loam",
-              "preferred_textures": [
-                "loam",
-                "clay loam",
-                "sandy loam",
-                "silty clay loam"
-              ]
-            }
-          }
-        },
-        {
-          "factor_id": "soil_ph",
-          "category": "soil",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 45.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 2.7,
-          "scoring_use": "scored",
-          "reason": "Mapped SSURGO pH is compared with the catalog tolerable range.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "ph": 7.7,
-              "distance_from_range": 0.7000000000000002,
-              "tolerable_range": {
-                "min": 5.5,
-                "max": 7.0
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "soil_drainage",
-          "category": "soil",
-          "weight_percent": 5.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 5.0,
-          "scoring_use": "scored",
-          "reason": "Mapped drainage class is compared with the crop requirement.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "mapped_drainage": "Well drained",
-              "requirement": "well_drained",
-              "fit": "compatible"
-            }
-          }
-        },
-        {
-          "factor_id": "soil_root_zone",
-          "category": "soil",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Usable mapped soil depth is compared with the minimum crop root-zone requirement.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "usable_root_zone_cm": "100-150",
-              "required_root_zone_cm": {
-                "min": 100,
-                "max": 200
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "soil_water_storage",
-          "category": "soil",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.75,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Mapped available-water storage is capacity context, not current water supply.",
-          "evidence": {
-            "sources": [
-              "ssurgo"
-            ],
-            "values": {
-              "accessible_storage_range_mm": "186.8-266.4",
-              "representative_storage_mm": 226.6
-            }
-          }
-        },
-        {
-          "factor_id": "recent_rainfall",
-          "category": "water",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 15.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 0.45,
-          "scoring_use": "scored",
-          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand.",
-          "evidence": {
-            "sources": [
-              "open_meteo",
-              "crop_catalog"
-            ],
-            "values": {
-              "recent_rainfall_mm": 0.5,
-              "approximate_weekly_demand_mm": 36.666666666666664
-            }
-          }
-        },
-        {
-          "factor_id": "forecast_water_balance",
-          "category": "water",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 10.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 0.6,
-          "scoring_use": "scored",
-          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit.",
-          "evidence": {
-            "sources": [
-              "open_meteo"
-            ],
-            "values": {
-              "rain_minus_et0_mm": -60.16
-            }
-          }
-        },
-        {
-          "factor_id": "current_soil_moisture",
-          "category": "water",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 80.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 3.2,
-          "scoring_use": "scored",
-          "reason": "Modeled root-profile soil moisture is used as a current screening signal.",
-          "evidence": {
-            "sources": [
-              "open_meteo"
-            ],
-            "values": {
-              "volumetric_soil_moisture_m3_m3": 0.1844567901234568
-            }
-          }
-        },
-        {
-          "factor_id": "crop_water_resilience",
-          "category": "water",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 82.5,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 2.475,
-          "scoring_use": "scored",
-          "reason": "Catalog water demand and drought tolerance are combined without using missing weather as a zero.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "water_demand_class": "moderate",
-              "drought_tolerance": "high"
-            }
-          }
-        },
-        {
-          "factor_id": "irrigation_availability",
-          "category": "water",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.68,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Farmer irrigation availability is compared with the catalog requirement.",
-          "evidence": {
-            "sources": [
-              "farmer_report",
-              "crop_catalog"
-            ],
-            "values": {
-              "availability": "yes",
-              "reliability": "reliable",
-              "crop_requirement": "often_rainfed"
-            }
-          }
-        },
-        {
-          "factor_id": "texas_regional_suitability",
-          "category": "location_season",
-          "weight_percent": 7.5,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 7.5,
-          "scoring_use": "scored",
-          "reason": "Well adapted to dryland and limited-irrigation systems.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "region_id": "plains",
-              "rating": "primary"
-            }
-          }
-        },
-        {
-          "factor_id": "planting_window",
-          "category": "location_season",
-          "weight_percent": 12.5,
-          "available": true,
-          "score": 0.0,
-          "evidence_confidence": 0.6141,
-          "weighted_points": 0.0,
-          "scoring_use": "scored",
-          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "requested_month": 8,
-              "regional_windows": [
-                "Apr-Jun"
-              ],
-              "month_distance": 2
-            }
-          }
-        },
-        {
-          "factor_id": "frost_free_season",
-          "category": "location_season",
-          "weight_percent": 0.0,
-          "available": false,
-          "score": null,
-          "evidence_confidence": 0.0,
-          "weighted_points": null,
-          "scoring_use": "inactive",
-          "reason": "Inactive limitation: frost-free-season evidence has not been added.",
-          "evidence": {
-            "sources": [],
-            "values": {}
-          }
-        }
-      ],
-      "key_strengths": [
-        {
-          "factor_id": "nasa_seasonal_temperature",
-          "score": 100.0,
-          "reason": "NASA monthly historical temperature is compared with the crop optimum."
-        },
-        {
-          "factor_id": "texas_regional_suitability",
-          "score": 100.0,
-          "reason": "Well adapted to dryland and limited-irrigation systems."
-        },
-        {
-          "factor_id": "fortyguard_temperature_fit",
-          "score": 100.0,
-          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum."
-        }
-      ],
-      "key_risks": [
-        {
-          "factor_id": "planting_window",
-          "score": 0.0,
-          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable."
-        },
-        {
-          "factor_id": "forecast_water_balance",
-          "score": 10.0,
-          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit."
-        },
-        {
-          "factor_id": "recent_rainfall",
-          "score": 15.0,
-          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand."
-        }
-      ],
-      "warnings": [],
-      "rank": 10
-    },
-    {
-      "crop_id": "soybean",
-      "crop_name": "Soybean",
-      "status": "scored",
-      "suitability_score": 54.0,
-      "recommendation": "not_recommended",
-      "confidence_score": 69.08,
-      "confidence_band": "medium",
-      "evidence_coverage_percent": 100.0,
-      "applied_caps": [
-        {
-          "gate": "far_outside_planting_window",
-          "cap": 54.0,
-          "reason": "Requested month is far outside all catalog planting windows for the region."
-        }
-      ],
-      "factors": [
-        {
-          "factor_id": "nasa_seasonal_temperature",
-          "category": "thermal_heat",
-          "weight_percent": 8.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.765,
-          "weighted_points": 8.0,
-          "scoring_use": "scored",
-          "reason": "NASA monthly historical temperature is compared with the crop optimum.",
-          "evidence": {
-            "sources": [
-              "nasa_power",
-              "crop_catalog"
-            ],
-            "values": {
-              "month": "Aug",
-              "temperature_c": 28.016129,
-              "distance_from_optimum_c": 0.0,
-              "optimal_range_c": {
-                "min": 24.0,
-                "max": 29.4
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_temperature_fit",
-          "category": "thermal_heat",
-          "weight_percent": 7.0,
-          "available": true,
-          "score": 80.0,
-          "evidence_confidence": 0.765,
-          "weighted_points": 5.6,
-          "scoring_use": "scored",
-          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "mean_temperature_c": 29.914445588235292,
-              "optimal_range_c": {
-                "min": 24.0,
-                "max": 29.4
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_threshold_exceedance",
-          "category": "thermal_heat",
-          "weight_percent": 12.0,
-          "available": true,
-          "score": 10.0,
-          "evidence_confidence": 0.612,
-          "weighted_points": 1.2,
-          "scoring_use": "scored",
-          "reason": "Percentage of hours above the crop's scoreable heat threshold.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "threshold_c": 29.4,
-              "exceedance_hours": 71.0,
-              "exceedance_fraction": 0.4226190476190476
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_heat_persistence",
-          "category": "thermal_heat",
-          "weight_percent": 5.0,
-          "available": true,
-          "score": 40.0,
-          "evidence_confidence": 0.612,
-          "weighted_points": 2.0,
-          "scoring_use": "scored",
-          "reason": "Longest continuous exposure above the scoreable crop heat threshold.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "persistence_hours": 8.0
-            }
-          }
-        },
-        {
-          "factor_id": "open_meteo_heat_frost",
-          "category": "thermal_heat",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 55.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 1.65,
-          "scoring_use": "scored",
-          "reason": "Short-range heat and frost forecast for planting readiness.",
-          "evidence": {
-            "sources": [
-              "open_meteo",
-              "crop_catalog"
-            ],
-            "values": {
-              "forecast_max_temperature_c": 37.9,
-              "frost_risk_days": 0.0,
-              "heat_threshold_c": 29.4
-            }
-          }
-        },
-        {
-          "factor_id": "soil_texture",
-          "category": "soil",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 6.0,
-          "scoring_use": "scored",
-          "reason": "Mapped SSURGO surface texture is compared with catalog preferences.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "texture": "clay loam",
-              "preferred_textures": [
-                "loam",
-                "silt loam",
-                "clay loam",
-                "sandy loam"
-              ]
-            }
-          }
-        },
-        {
-          "factor_id": "soil_ph",
-          "category": "soil",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 45.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 2.7,
-          "scoring_use": "scored",
-          "reason": "Mapped SSURGO pH is compared with the catalog tolerable range.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "ph": 7.7,
-              "distance_from_range": 0.7000000000000002,
-              "tolerable_range": {
-                "min": 5.8,
-                "max": 7.0
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "soil_drainage",
-          "category": "soil",
-          "weight_percent": 5.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 5.0,
-          "scoring_use": "scored",
-          "reason": "Mapped drainage class is compared with the crop requirement.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "mapped_drainage": "Well drained",
-              "requirement": "well_drained",
-              "fit": "compatible"
-            }
-          }
-        },
-        {
-          "factor_id": "soil_root_zone",
-          "category": "soil",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Usable mapped soil depth is compared with the minimum crop root-zone requirement.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "usable_root_zone_cm": "60-130",
-              "required_root_zone_cm": {
-                "min": 60,
-                "max": 130
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "soil_water_storage",
-          "category": "soil",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.75,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Mapped available-water storage is capacity context, not current water supply.",
-          "evidence": {
-            "sources": [
-              "ssurgo"
-            ],
-            "values": {
-              "accessible_storage_range_mm": "114.0-237.8",
-              "representative_storage_mm": 175.9
-            }
-          }
-        },
-        {
-          "factor_id": "recent_rainfall",
-          "category": "water",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 15.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 0.45,
-          "scoring_use": "scored",
-          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand.",
-          "evidence": {
-            "sources": [
-              "open_meteo",
-              "crop_catalog"
-            ],
-            "values": {
-              "recent_rainfall_mm": 0.5,
-              "approximate_weekly_demand_mm": 32.199999999999996
-            }
-          }
-        },
-        {
-          "factor_id": "forecast_water_balance",
-          "category": "water",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 10.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 0.6,
-          "scoring_use": "scored",
-          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit.",
-          "evidence": {
-            "sources": [
-              "open_meteo"
-            ],
-            "values": {
-              "rain_minus_et0_mm": -60.16
-            }
-          }
-        },
-        {
-          "factor_id": "current_soil_moisture",
-          "category": "water",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 80.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 3.2,
-          "scoring_use": "scored",
-          "reason": "Modeled root-profile soil moisture is used as a current screening signal.",
-          "evidence": {
-            "sources": [
-              "open_meteo"
-            ],
-            "values": {
-              "volumetric_soil_moisture_m3_m3": 0.1844567901234568
-            }
-          }
-        },
-        {
-          "factor_id": "crop_water_resilience",
-          "category": "water",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 70.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 2.1,
-          "scoring_use": "scored",
-          "reason": "Catalog water demand and drought tolerance are combined without using missing weather as a zero.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "water_demand_class": "moderate",
-              "drought_tolerance": "moderate"
-            }
-          }
-        },
-        {
-          "factor_id": "irrigation_availability",
-          "category": "water",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.68,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Farmer irrigation availability is compared with the catalog requirement.",
-          "evidence": {
-            "sources": [
-              "farmer_report",
-              "crop_catalog"
-            ],
-            "values": {
-              "availability": "yes",
-              "reliability": "reliable",
-              "crop_requirement": "conditional"
-            }
-          }
-        },
-        {
-          "factor_id": "texas_regional_suitability",
-          "category": "location_season",
-          "weight_percent": 7.5,
-          "available": true,
-          "score": 55.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 4.125,
-          "scoring_use": "scored",
-          "reason": "Irrigation and maturity-group fit are often required.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "region_id": "plains",
-              "rating": "conditional"
-            }
-          }
-        },
-        {
-          "factor_id": "planting_window",
-          "category": "location_season",
-          "weight_percent": 12.5,
-          "available": true,
-          "score": 0.0,
-          "evidence_confidence": 0.6141,
-          "weighted_points": 0.0,
-          "scoring_use": "scored",
-          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "requested_month": 8,
-              "regional_windows": [
-                "May-Jun"
-              ],
-              "month_distance": 2
-            }
-          }
-        },
-        {
-          "factor_id": "frost_free_season",
-          "category": "location_season",
-          "weight_percent": 0.0,
-          "available": false,
-          "score": null,
-          "evidence_confidence": 0.0,
-          "weighted_points": null,
-          "scoring_use": "inactive",
-          "reason": "Inactive limitation: frost-free-season evidence has not been added.",
-          "evidence": {
-            "sources": [],
-            "values": {}
-          }
-        }
-      ],
-      "key_strengths": [
-        {
-          "factor_id": "nasa_seasonal_temperature",
-          "score": 100.0,
-          "reason": "NASA monthly historical temperature is compared with the crop optimum."
-        },
-        {
-          "factor_id": "soil_texture",
-          "score": 100.0,
-          "reason": "Mapped SSURGO surface texture is compared with catalog preferences."
-        },
-        {
-          "factor_id": "fortyguard_temperature_fit",
-          "score": 80.0,
-          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum."
-        }
-      ],
-      "key_risks": [
-        {
-          "factor_id": "planting_window",
-          "score": 0.0,
-          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable."
-        },
-        {
-          "factor_id": "fortyguard_threshold_exceedance",
-          "score": 10.0,
-          "reason": "Percentage of hours above the crop's scoreable heat threshold."
-        },
-        {
-          "factor_id": "forecast_water_balance",
-          "score": 10.0,
-          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit."
-        }
-      ],
-      "warnings": [],
-      "rank": 11
+      "overall_rank": 8,
+      "eligible_rank": 8
     },
     {
       "crop_id": "corn_silage",
       "crop_name": "Corn grown for silage",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
@@ -4923,6 +3611,13 @@
       "confidence_band": "medium",
       "evidence_coverage_percent": 100.0,
       "applied_caps": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
         {
           "gate": "far_outside_planting_window",
           "cap": 54.0,
@@ -5359,18 +4054,27 @@
         }
       ],
       "warnings": [],
-      "rank": 12
+      "overall_rank": 9,
+      "eligible_rank": 9
     },
     {
-      "crop_id": "seedless_watermelon",
-      "crop_name": "Seedless watermelon",
+      "crop_id": "grain_sorghum",
+      "crop_name": "Grain sorghum",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
-      "confidence_score": 67.01,
+      "confidence_score": 69.08,
       "confidence_band": "medium",
-      "evidence_coverage_percent": 83.0,
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
         {
           "gate": "far_outside_planting_window",
           "cap": 54.0,
@@ -5384,7 +4088,7 @@
           "weight_percent": 8.0,
           "available": true,
           "score": 100.0,
-          "evidence_confidence": 0.9,
+          "evidence_confidence": 0.765,
           "weighted_points": 8.0,
           "scoring_use": "scored",
           "reason": "NASA monthly historical temperature is compared with the crop optimum.",
@@ -5398,8 +4102,8 @@
               "temperature_c": 28.016129,
               "distance_from_optimum_c": 0.0,
               "optimal_range_c": {
-                "min": 26.7,
-                "max": 35.0
+                "min": 26.0,
+                "max": 32.0
               }
             }
           }
@@ -5410,7 +4114,7 @@
           "weight_percent": 7.0,
           "available": true,
           "score": 100.0,
-          "evidence_confidence": 0.9,
+          "evidence_confidence": 0.765,
           "weighted_points": 7.0,
           "scoring_use": "scored",
           "reason": "Farm-scale one-week mean temperature is compared with the crop optimum.",
@@ -5423,8 +4127,8 @@
               "window": "one_week",
               "mean_temperature_c": 29.914445588235292,
               "optimal_range_c": {
-                "min": 26.7,
-                "max": 35.0
+                "min": 26.0,
+                "max": 32.0
               }
             }
           }
@@ -5433,12 +4137,12 @@
           "factor_id": "fortyguard_threshold_exceedance",
           "category": "thermal_heat",
           "weight_percent": 12.0,
-          "available": false,
-          "score": null,
-          "evidence_confidence": 0.0,
-          "weighted_points": null,
-          "scoring_use": "informational_only",
-          "reason": "Catalog policy makes this heat threshold informational only.",
+          "available": true,
+          "score": 40.0,
+          "evidence_confidence": 0.612,
+          "weighted_points": 4.8,
+          "scoring_use": "scored",
+          "reason": "Percentage of hours above the crop's scoreable heat threshold.",
           "evidence": {
             "sources": [
               "fortyguard",
@@ -5446,9 +4150,9 @@
             ],
             "values": {
               "window": "one_week",
-              "threshold_c": null,
-              "exceedance_hours": null,
-              "exceedance_fraction": null
+              "threshold_c": 37.2,
+              "exceedance_hours": 20.0,
+              "exceedance_fraction": 0.11904761904761904
             }
           }
         },
@@ -5456,12 +4160,12 @@
           "factor_id": "fortyguard_heat_persistence",
           "category": "thermal_heat",
           "weight_percent": 5.0,
-          "available": false,
-          "score": null,
-          "evidence_confidence": 0.0,
-          "weighted_points": null,
-          "scoring_use": "informational_only",
-          "reason": "Catalog policy makes this heat threshold informational only.",
+          "available": true,
+          "score": 70.0,
+          "evidence_confidence": 0.612,
+          "weighted_points": 3.5,
+          "scoring_use": "scored",
+          "reason": "Longest continuous exposure above the scoreable crop heat threshold.",
           "evidence": {
             "sources": [
               "fortyguard",
@@ -5469,7 +4173,7 @@
             ],
             "values": {
               "window": "one_week",
-              "persistence_hours": null
+              "persistence_hours": 3.0
             }
           }
         },
@@ -5478,9 +4182,9 @@
           "category": "thermal_heat",
           "weight_percent": 3.0,
           "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 3.0,
+          "score": 87.5,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 2.625,
           "scoring_use": "scored",
           "reason": "Short-range heat and frost forecast for planting readiness.",
           "evidence": {
@@ -5491,7 +4195,7 @@
             "values": {
               "forecast_max_temperature_c": 37.9,
               "frost_risk_days": 0.0,
-              "heat_threshold_c": null
+              "heat_threshold_c": 37.2
             }
           }
         },
@@ -5500,9 +4204,9 @@
           "category": "soil",
           "weight_percent": 6.0,
           "available": true,
-          "score": 50.0,
-          "evidence_confidence": 0.75,
-          "weighted_points": 3.0,
+          "score": 100.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 6.0,
           "scoring_use": "scored",
           "reason": "Mapped SSURGO surface texture is compared with catalog preferences.",
           "evidence": {
@@ -5513,9 +4217,10 @@
             "values": {
               "texture": "clay loam",
               "preferred_textures": [
-                "loamy sand",
+                "loam",
+                "clay loam",
                 "sandy loam",
-                "light-textured loam"
+                "silty clay loam"
               ]
             }
           }
@@ -5525,9 +4230,9 @@
           "category": "soil",
           "weight_percent": 6.0,
           "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.75,
-          "weighted_points": 6.0,
+          "score": 45.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 2.7,
           "scoring_use": "scored",
           "reason": "Mapped SSURGO pH is compared with the catalog tolerable range.",
           "evidence": {
@@ -5537,10 +4242,10 @@
             ],
             "values": {
               "ph": 7.7,
-              "distance_from_range": 0.0,
+              "distance_from_range": 0.7000000000000002,
               "tolerable_range": {
                 "min": 5.5,
-                "max": 8.0
+                "max": 7.0
               }
             }
           }
@@ -5551,7 +4256,7 @@
           "weight_percent": 5.0,
           "available": true,
           "score": 100.0,
-          "evidence_confidence": 0.75,
+          "evidence_confidence": 0.6375,
           "weighted_points": 5.0,
           "scoring_use": "scored",
           "reason": "Mapped drainage class is compared with the crop requirement.",
@@ -5562,7 +4267,7 @@
             ],
             "values": {
               "mapped_drainage": "Well drained",
-              "requirement": "very_well_drained",
+              "requirement": "well_drained",
               "fit": "compatible"
             }
           }
@@ -5573,7 +4278,7 @@
           "weight_percent": 4.0,
           "available": true,
           "score": 100.0,
-          "evidence_confidence": 0.75,
+          "evidence_confidence": 0.6375,
           "weighted_points": 4.0,
           "scoring_use": "scored",
           "reason": "Usable mapped soil depth is compared with the minimum crop root-zone requirement.",
@@ -5583,10 +4288,10 @@
               "crop_catalog"
             ],
             "values": {
-              "usable_root_zone_cm": "80-150",
+              "usable_root_zone_cm": "100-150",
               "required_root_zone_cm": {
-                "min": 80,
-                "max": 150
+                "min": 100,
+                "max": 200
               }
             }
           }
@@ -5606,8 +4311,8 @@
               "ssurgo"
             ],
             "values": {
-              "accessible_storage_range_mm": "152.0-266.4",
-              "representative_storage_mm": 209.2
+              "accessible_storage_range_mm": "186.8-266.4",
+              "representative_storage_mm": 226.6
             }
           }
         },
@@ -5617,7 +4322,7 @@
           "weight_percent": 3.0,
           "available": true,
           "score": 15.0,
-          "evidence_confidence": 0.85,
+          "evidence_confidence": 0.7225,
           "weighted_points": 0.45,
           "scoring_use": "scored",
           "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand.",
@@ -5628,7 +4333,7 @@
             ],
             "values": {
               "recent_rainfall_mm": 0.5,
-              "approximate_weekly_demand_mm": 31.75
+              "approximate_weekly_demand_mm": 36.666666666666664
             }
           }
         },
@@ -5675,9 +4380,9 @@
           "category": "water",
           "weight_percent": 3.0,
           "available": true,
-          "score": 55.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 1.65,
+          "score": 82.5,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 2.475,
           "scoring_use": "scored",
           "reason": "Catalog water demand and drought tolerance are combined without using missing weather as a zero.",
           "evidence": {
@@ -5686,7 +4391,7 @@
             ],
             "values": {
               "water_demand_class": "moderate",
-              "drought_tolerance": "low"
+              "drought_tolerance": "high"
             }
           }
         },
@@ -5696,7 +4401,7 @@
           "weight_percent": 4.0,
           "available": true,
           "score": 100.0,
-          "evidence_confidence": 0.8,
+          "evidence_confidence": 0.68,
           "weighted_points": 4.0,
           "scoring_use": "scored",
           "reason": "Farmer irrigation availability is compared with the catalog requirement.",
@@ -5708,7 +4413,7 @@
             "values": {
               "availability": "yes",
               "reliability": "reliable",
-              "crop_requirement": "recommended"
+              "crop_requirement": "often_rainfed"
             }
           }
         },
@@ -5717,18 +4422,18 @@
           "category": "location_season",
           "weight_percent": 7.5,
           "available": true,
-          "score": 85.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 6.375,
+          "score": 100.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 7.5,
           "scoring_use": "scored",
-          "reason": "Commercial production is feasible after frost on light soils.",
+          "reason": "Well adapted to dryland and limited-irrigation systems.",
           "evidence": {
             "sources": [
               "crop_catalog"
             ],
             "values": {
               "region_id": "plains",
-              "rating": "suitable"
+              "rating": "primary"
             }
           }
         },
@@ -5738,7 +4443,464 @@
           "weight_percent": 12.5,
           "available": true,
           "score": 0.0,
+          "evidence_confidence": 0.6141,
+          "weighted_points": 0.0,
+          "scoring_use": "scored",
+          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "requested_month": 8,
+              "regional_windows": [
+                "Apr-Jun"
+              ],
+              "month_distance": 2
+            }
+          }
+        },
+        {
+          "factor_id": "frost_free_season",
+          "category": "location_season",
+          "weight_percent": 0.0,
+          "available": false,
+          "score": null,
+          "evidence_confidence": 0.0,
+          "weighted_points": null,
+          "scoring_use": "inactive",
+          "reason": "Inactive limitation: frost-free-season evidence has not been added.",
+          "evidence": {
+            "sources": [],
+            "values": {}
+          }
+        }
+      ],
+      "key_strengths": [
+        {
+          "factor_id": "nasa_seasonal_temperature",
+          "score": 100.0,
+          "reason": "NASA monthly historical temperature is compared with the crop optimum."
+        },
+        {
+          "factor_id": "texas_regional_suitability",
+          "score": 100.0,
+          "reason": "Well adapted to dryland and limited-irrigation systems."
+        },
+        {
+          "factor_id": "fortyguard_temperature_fit",
+          "score": 100.0,
+          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum."
+        }
+      ],
+      "key_risks": [
+        {
+          "factor_id": "planting_window",
+          "score": 0.0,
+          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable."
+        },
+        {
+          "factor_id": "forecast_water_balance",
+          "score": 10.0,
+          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit."
+        },
+        {
+          "factor_id": "recent_rainfall",
+          "score": 15.0,
+          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand."
+        }
+      ],
+      "warnings": [],
+      "overall_rank": 10,
+      "eligible_rank": 10
+    },
+    {
+      "crop_id": "soybean",
+      "crop_name": "Soybean",
+      "regionally_eligible": true,
+      "status": "scored",
+      "suitability_score": 54.0,
+      "recommendation": "not_recommended",
+      "confidence_score": 69.08,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
+      "applied_caps": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "factors": [
+        {
+          "factor_id": "nasa_seasonal_temperature",
+          "category": "thermal_heat",
+          "weight_percent": 8.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.765,
+          "weighted_points": 8.0,
+          "scoring_use": "scored",
+          "reason": "NASA monthly historical temperature is compared with the crop optimum.",
+          "evidence": {
+            "sources": [
+              "nasa_power",
+              "crop_catalog"
+            ],
+            "values": {
+              "month": "Aug",
+              "temperature_c": 28.016129,
+              "distance_from_optimum_c": 0.0,
+              "optimal_range_c": {
+                "min": 24.0,
+                "max": 29.4
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_temperature_fit",
+          "category": "thermal_heat",
+          "weight_percent": 7.0,
+          "available": true,
+          "score": 80.0,
+          "evidence_confidence": 0.765,
+          "weighted_points": 5.6,
+          "scoring_use": "scored",
+          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "mean_temperature_c": 29.914445588235292,
+              "optimal_range_c": {
+                "min": 24.0,
+                "max": 29.4
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_threshold_exceedance",
+          "category": "thermal_heat",
+          "weight_percent": 12.0,
+          "available": true,
+          "score": 10.0,
+          "evidence_confidence": 0.612,
+          "weighted_points": 1.2,
+          "scoring_use": "scored",
+          "reason": "Percentage of hours above the crop's scoreable heat threshold.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "threshold_c": 29.4,
+              "exceedance_hours": 71.0,
+              "exceedance_fraction": 0.4226190476190476
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_heat_persistence",
+          "category": "thermal_heat",
+          "weight_percent": 5.0,
+          "available": true,
+          "score": 40.0,
+          "evidence_confidence": 0.612,
+          "weighted_points": 2.0,
+          "scoring_use": "scored",
+          "reason": "Longest continuous exposure above the scoreable crop heat threshold.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "persistence_hours": 8.0
+            }
+          }
+        },
+        {
+          "factor_id": "open_meteo_heat_frost",
+          "category": "thermal_heat",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 55.0,
           "evidence_confidence": 0.7225,
+          "weighted_points": 1.65,
+          "scoring_use": "scored",
+          "reason": "Short-range heat and frost forecast for planting readiness.",
+          "evidence": {
+            "sources": [
+              "open_meteo",
+              "crop_catalog"
+            ],
+            "values": {
+              "forecast_max_temperature_c": 37.9,
+              "frost_risk_days": 0.0,
+              "heat_threshold_c": 29.4
+            }
+          }
+        },
+        {
+          "factor_id": "soil_texture",
+          "category": "soil",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 6.0,
+          "scoring_use": "scored",
+          "reason": "Mapped SSURGO surface texture is compared with catalog preferences.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "texture": "clay loam",
+              "preferred_textures": [
+                "loam",
+                "silt loam",
+                "clay loam",
+                "sandy loam"
+              ]
+            }
+          }
+        },
+        {
+          "factor_id": "soil_ph",
+          "category": "soil",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 45.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 2.7,
+          "scoring_use": "scored",
+          "reason": "Mapped SSURGO pH is compared with the catalog tolerable range.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "ph": 7.7,
+              "distance_from_range": 0.7000000000000002,
+              "tolerable_range": {
+                "min": 5.8,
+                "max": 7.0
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "soil_drainage",
+          "category": "soil",
+          "weight_percent": 5.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 5.0,
+          "scoring_use": "scored",
+          "reason": "Mapped drainage class is compared with the crop requirement.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "mapped_drainage": "Well drained",
+              "requirement": "well_drained",
+              "fit": "compatible"
+            }
+          }
+        },
+        {
+          "factor_id": "soil_root_zone",
+          "category": "soil",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Usable mapped soil depth is compared with the minimum crop root-zone requirement.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "usable_root_zone_cm": "60-130",
+              "required_root_zone_cm": {
+                "min": 60,
+                "max": 130
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "soil_water_storage",
+          "category": "soil",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.75,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Mapped available-water storage is capacity context, not current water supply.",
+          "evidence": {
+            "sources": [
+              "ssurgo"
+            ],
+            "values": {
+              "accessible_storage_range_mm": "114.0-237.8",
+              "representative_storage_mm": 175.9
+            }
+          }
+        },
+        {
+          "factor_id": "recent_rainfall",
+          "category": "water",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 15.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 0.45,
+          "scoring_use": "scored",
+          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand.",
+          "evidence": {
+            "sources": [
+              "open_meteo",
+              "crop_catalog"
+            ],
+            "values": {
+              "recent_rainfall_mm": 0.5,
+              "approximate_weekly_demand_mm": 32.199999999999996
+            }
+          }
+        },
+        {
+          "factor_id": "forecast_water_balance",
+          "category": "water",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 10.0,
+          "evidence_confidence": 0.85,
+          "weighted_points": 0.6,
+          "scoring_use": "scored",
+          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit.",
+          "evidence": {
+            "sources": [
+              "open_meteo"
+            ],
+            "values": {
+              "rain_minus_et0_mm": -60.16
+            }
+          }
+        },
+        {
+          "factor_id": "current_soil_moisture",
+          "category": "water",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 80.0,
+          "evidence_confidence": 0.85,
+          "weighted_points": 3.2,
+          "scoring_use": "scored",
+          "reason": "Modeled root-profile soil moisture is used as a current screening signal.",
+          "evidence": {
+            "sources": [
+              "open_meteo"
+            ],
+            "values": {
+              "volumetric_soil_moisture_m3_m3": 0.1844567901234568
+            }
+          }
+        },
+        {
+          "factor_id": "crop_water_resilience",
+          "category": "water",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 70.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 2.1,
+          "scoring_use": "scored",
+          "reason": "Catalog water demand and drought tolerance are combined without using missing weather as a zero.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "water_demand_class": "moderate",
+              "drought_tolerance": "moderate"
+            }
+          }
+        },
+        {
+          "factor_id": "irrigation_availability",
+          "category": "water",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.68,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Farmer irrigation availability is compared with the catalog requirement.",
+          "evidence": {
+            "sources": [
+              "farmer_report",
+              "crop_catalog"
+            ],
+            "values": {
+              "availability": "yes",
+              "reliability": "reliable",
+              "crop_requirement": "conditional"
+            }
+          }
+        },
+        {
+          "factor_id": "texas_regional_suitability",
+          "category": "location_season",
+          "weight_percent": 7.5,
+          "available": true,
+          "score": 55.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 4.125,
+          "scoring_use": "scored",
+          "reason": "Irrigation and maturity-group fit are often required.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "region_id": "plains",
+              "rating": "conditional"
+            }
+          }
+        },
+        {
+          "factor_id": "planting_window",
+          "category": "location_season",
+          "weight_percent": 12.5,
+          "available": true,
+          "score": 0.0,
+          "evidence_confidence": 0.6141,
           "weighted_points": 0.0,
           "scoring_use": "scored",
           "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable.",
@@ -5778,14 +4940,470 @@
           "reason": "NASA monthly historical temperature is compared with the crop optimum."
         },
         {
-          "factor_id": "fortyguard_temperature_fit",
+          "factor_id": "soil_texture",
           "score": 100.0,
+          "reason": "Mapped SSURGO surface texture is compared with catalog preferences."
+        },
+        {
+          "factor_id": "fortyguard_temperature_fit",
+          "score": 80.0,
           "reason": "Farm-scale one-week mean temperature is compared with the crop optimum."
+        }
+      ],
+      "key_risks": [
+        {
+          "factor_id": "planting_window",
+          "score": 0.0,
+          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable."
+        },
+        {
+          "factor_id": "fortyguard_threshold_exceedance",
+          "score": 10.0,
+          "reason": "Percentage of hours above the crop's scoreable heat threshold."
+        },
+        {
+          "factor_id": "forecast_water_balance",
+          "score": 10.0,
+          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit."
+        }
+      ],
+      "warnings": [],
+      "overall_rank": 11,
+      "eligible_rank": 11
+    },
+    {
+      "crop_id": "upland_cotton",
+      "crop_name": "Upland cotton",
+      "regionally_eligible": true,
+      "status": "scored",
+      "suitability_score": 54.0,
+      "recommendation": "not_recommended",
+      "confidence_score": 69.08,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
+      "applied_caps": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "factors": [
+        {
+          "factor_id": "nasa_seasonal_temperature",
+          "category": "thermal_heat",
+          "weight_percent": 8.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.765,
+          "weighted_points": 8.0,
+          "scoring_use": "scored",
+          "reason": "NASA monthly historical temperature is compared with the crop optimum.",
+          "evidence": {
+            "sources": [
+              "nasa_power",
+              "crop_catalog"
+            ],
+            "values": {
+              "month": "Aug",
+              "temperature_c": 28.016129,
+              "distance_from_optimum_c": 0.0,
+              "optimal_range_c": {
+                "min": 26.7,
+                "max": 32.2
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_temperature_fit",
+          "category": "thermal_heat",
+          "weight_percent": 7.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.765,
+          "weighted_points": 7.0,
+          "scoring_use": "scored",
+          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "mean_temperature_c": 29.914445588235292,
+              "optimal_range_c": {
+                "min": 26.7,
+                "max": 32.2
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_threshold_exceedance",
+          "category": "thermal_heat",
+          "weight_percent": 12.0,
+          "available": true,
+          "score": 70.0,
+          "evidence_confidence": 0.612,
+          "weighted_points": 8.4,
+          "scoring_use": "scored",
+          "reason": "Percentage of hours above the crop's scoreable heat threshold.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "threshold_c": 37.8,
+              "exceedance_hours": 6.0,
+              "exceedance_fraction": 0.03571428571428571
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_heat_persistence",
+          "category": "thermal_heat",
+          "weight_percent": 5.0,
+          "available": true,
+          "score": 90.0,
+          "evidence_confidence": 0.612,
+          "weighted_points": 4.5,
+          "scoring_use": "scored",
+          "reason": "Longest continuous exposure above the scoreable crop heat threshold.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "persistence_hours": 2.0
+            }
+          }
+        },
+        {
+          "factor_id": "open_meteo_heat_frost",
+          "category": "thermal_heat",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 87.5,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 2.625,
+          "scoring_use": "scored",
+          "reason": "Short-range heat and frost forecast for planting readiness.",
+          "evidence": {
+            "sources": [
+              "open_meteo",
+              "crop_catalog"
+            ],
+            "values": {
+              "forecast_max_temperature_c": 37.9,
+              "frost_risk_days": 0.0,
+              "heat_threshold_c": 37.8
+            }
+          }
+        },
+        {
+          "factor_id": "soil_texture",
+          "category": "soil",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 6.0,
+          "scoring_use": "scored",
+          "reason": "Mapped SSURGO surface texture is compared with catalog preferences.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "texture": "clay loam",
+              "preferred_textures": [
+                "loam",
+                "sandy loam",
+                "clay loam"
+              ]
+            }
+          }
+        },
+        {
+          "factor_id": "soil_ph",
+          "category": "soil",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 45.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 2.7,
+          "scoring_use": "scored",
+          "reason": "Mapped SSURGO pH is compared with the catalog tolerable range.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "ph": 7.7,
+              "distance_from_range": 0.7000000000000002,
+              "tolerable_range": {
+                "min": 5.7,
+                "max": 7.0
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "soil_drainage",
+          "category": "soil",
+          "weight_percent": 5.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 5.0,
+          "scoring_use": "scored",
+          "reason": "Mapped drainage class is compared with the crop requirement.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "mapped_drainage": "Well drained",
+              "requirement": "well_drained",
+              "fit": "compatible"
+            }
+          }
+        },
+        {
+          "factor_id": "soil_root_zone",
+          "category": "soil",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Usable mapped soil depth is compared with the minimum crop root-zone requirement.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "usable_root_zone_cm": "100-150",
+              "required_root_zone_cm": {
+                "min": 100,
+                "max": 170
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "soil_water_storage",
+          "category": "soil",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.75,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Mapped available-water storage is capacity context, not current water supply.",
+          "evidence": {
+            "sources": [
+              "ssurgo"
+            ],
+            "values": {
+              "accessible_storage_range_mm": "186.8-266.4",
+              "representative_storage_mm": 226.6
+            }
+          }
+        },
+        {
+          "factor_id": "recent_rainfall",
+          "category": "water",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 15.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 0.45,
+          "scoring_use": "scored",
+          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand.",
+          "evidence": {
+            "sources": [
+              "open_meteo",
+              "crop_catalog"
+            ],
+            "values": {
+              "recent_rainfall_mm": 0.5,
+              "approximate_weekly_demand_mm": 42.42424242424242
+            }
+          }
+        },
+        {
+          "factor_id": "forecast_water_balance",
+          "category": "water",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 10.0,
+          "evidence_confidence": 0.85,
+          "weighted_points": 0.6,
+          "scoring_use": "scored",
+          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit.",
+          "evidence": {
+            "sources": [
+              "open_meteo"
+            ],
+            "values": {
+              "rain_minus_et0_mm": -60.16
+            }
+          }
+        },
+        {
+          "factor_id": "current_soil_moisture",
+          "category": "water",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 80.0,
+          "evidence_confidence": 0.85,
+          "weighted_points": 3.2,
+          "scoring_use": "scored",
+          "reason": "Modeled root-profile soil moisture is used as a current screening signal.",
+          "evidence": {
+            "sources": [
+              "open_meteo"
+            ],
+            "values": {
+              "volumetric_soil_moisture_m3_m3": 0.1844567901234568
+            }
+          }
+        },
+        {
+          "factor_id": "crop_water_resilience",
+          "category": "water",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 67.5,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 2.025,
+          "scoring_use": "scored",
+          "reason": "Catalog water demand and drought tolerance are combined without using missing weather as a zero.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "water_demand_class": "high",
+              "drought_tolerance": "high"
+            }
+          }
+        },
+        {
+          "factor_id": "irrigation_availability",
+          "category": "water",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.68,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Farmer irrigation availability is compared with the catalog requirement.",
+          "evidence": {
+            "sources": [
+              "farmer_report",
+              "crop_catalog"
+            ],
+            "values": {
+              "availability": "yes",
+              "reliability": "reliable",
+              "crop_requirement": "conditional"
+            }
+          }
         },
         {
           "factor_id": "texas_regional_suitability",
-          "score": 85.0,
-          "reason": "Commercial production is feasible after frost on light soils."
+          "category": "location_season",
+          "weight_percent": 7.5,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 7.5,
+          "scoring_use": "scored",
+          "reason": "Major irrigated and dryland cotton region.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "region_id": "plains",
+              "rating": "primary"
+            }
+          }
+        },
+        {
+          "factor_id": "planting_window",
+          "category": "location_season",
+          "weight_percent": 12.5,
+          "available": true,
+          "score": 0.0,
+          "evidence_confidence": 0.6141,
+          "weighted_points": 0.0,
+          "scoring_use": "scored",
+          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "requested_month": 8,
+              "regional_windows": [
+                "May-Jun"
+              ],
+              "month_distance": 2
+            }
+          }
+        },
+        {
+          "factor_id": "frost_free_season",
+          "category": "location_season",
+          "weight_percent": 0.0,
+          "available": false,
+          "score": null,
+          "evidence_confidence": 0.0,
+          "weighted_points": null,
+          "scoring_use": "inactive",
+          "reason": "Inactive limitation: frost-free-season evidence has not been added.",
+          "evidence": {
+            "sources": [],
+            "values": {}
+          }
+        }
+      ],
+      "key_strengths": [
+        {
+          "factor_id": "nasa_seasonal_temperature",
+          "score": 100.0,
+          "reason": "NASA monthly historical temperature is compared with the crop optimum."
+        },
+        {
+          "factor_id": "texas_regional_suitability",
+          "score": 100.0,
+          "reason": "Major irrigated and dryland cotton region."
+        },
+        {
+          "factor_id": "fortyguard_temperature_fit",
+          "score": 100.0,
+          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum."
         }
       ],
       "key_risks": [
@@ -5805,14 +5423,14 @@
           "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand."
         }
       ],
-      "warnings": [
-        "Seedless watermelon heat threshold is informational only and does not reduce suitability."
-      ],
-      "rank": 13
+      "warnings": [],
+      "overall_rank": 12,
+      "eligible_rank": 12
     },
     {
       "crop_id": "dry_bulb_onion",
       "crop_name": "Dry-bulb onion",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
@@ -5820,6 +5438,13 @@
       "confidence_band": "medium",
       "evidence_coverage_percent": 83.0,
       "applied_caps": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
         {
           "gate": "far_outside_planting_window",
           "cap": 54.0,
@@ -6257,18 +5882,27 @@
       "warnings": [
         "Dry-bulb onion heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 14
+      "overall_rank": 13,
+      "eligible_rank": 13
     },
     {
-      "crop_id": "runner_peanut",
-      "crop_name": "Runner-type peanut",
+      "crop_id": "seedless_watermelon",
+      "crop_name": "Seedless watermelon",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
-      "confidence_score": 58.68,
-      "confidence_band": "low",
+      "confidence_score": 67.01,
+      "confidence_band": "medium",
       "evidence_coverage_percent": 83.0,
       "applied_caps": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
         {
           "gate": "far_outside_planting_window",
           "cap": 54.0,
@@ -6282,7 +5916,7 @@
           "weight_percent": 8.0,
           "available": true,
           "score": 100.0,
-          "evidence_confidence": 0.765,
+          "evidence_confidence": 0.9,
           "weighted_points": 8.0,
           "scoring_use": "scored",
           "reason": "NASA monthly historical temperature is compared with the crop optimum.",
@@ -6296,8 +5930,8 @@
               "temperature_c": 28.016129,
               "distance_from_optimum_c": 0.0,
               "optimal_range_c": {
-                "min": 25.0,
-                "max": 30.0
+                "min": 26.7,
+                "max": 35.0
               }
             }
           }
@@ -6308,7 +5942,7 @@
           "weight_percent": 7.0,
           "available": true,
           "score": 100.0,
-          "evidence_confidence": 0.765,
+          "evidence_confidence": 0.9,
           "weighted_points": 7.0,
           "scoring_use": "scored",
           "reason": "Farm-scale one-week mean temperature is compared with the crop optimum.",
@@ -6321,8 +5955,8 @@
               "window": "one_week",
               "mean_temperature_c": 29.914445588235292,
               "optimal_range_c": {
-                "min": 25.0,
-                "max": 30.0
+                "min": 26.7,
+                "max": 35.0
               }
             }
           }
@@ -6377,7 +6011,7 @@
           "weight_percent": 3.0,
           "available": true,
           "score": 100.0,
-          "evidence_confidence": 0.7225,
+          "evidence_confidence": 0.85,
           "weighted_points": 3.0,
           "scoring_use": "scored",
           "reason": "Short-range heat and frost forecast for planting readiness.",
@@ -6399,7 +6033,7 @@
           "weight_percent": 6.0,
           "available": true,
           "score": 50.0,
-          "evidence_confidence": 0.6375,
+          "evidence_confidence": 0.75,
           "weighted_points": 3.0,
           "scoring_use": "scored",
           "reason": "Mapped SSURGO surface texture is compared with catalog preferences.",
@@ -6413,7 +6047,7 @@
               "preferred_textures": [
                 "loamy sand",
                 "sandy loam",
-                "fine sandy loam"
+                "light-textured loam"
               ]
             }
           }
@@ -6423,9 +6057,9 @@
           "category": "soil",
           "weight_percent": 6.0,
           "available": true,
-          "score": 45.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 2.7,
+          "score": 100.0,
+          "evidence_confidence": 0.75,
+          "weighted_points": 6.0,
           "scoring_use": "scored",
           "reason": "Mapped SSURGO pH is compared with the catalog tolerable range.",
           "evidence": {
@@ -6435,10 +6069,10 @@
             ],
             "values": {
               "ph": 7.7,
-              "distance_from_range": 0.7000000000000002,
+              "distance_from_range": 0.0,
               "tolerable_range": {
-                "min": 5.8,
-                "max": 7.0
+                "min": 5.5,
+                "max": 8.0
               }
             }
           }
@@ -6449,7 +6083,7 @@
           "weight_percent": 5.0,
           "available": true,
           "score": 100.0,
-          "evidence_confidence": 0.6375,
+          "evidence_confidence": 0.75,
           "weighted_points": 5.0,
           "scoring_use": "scored",
           "reason": "Mapped drainage class is compared with the crop requirement.",
@@ -6471,7 +6105,7 @@
           "weight_percent": 4.0,
           "available": true,
           "score": 100.0,
-          "evidence_confidence": 0.6375,
+          "evidence_confidence": 0.75,
           "weighted_points": 4.0,
           "scoring_use": "scored",
           "reason": "Usable mapped soil depth is compared with the minimum crop root-zone requirement.",
@@ -6481,10 +6115,10 @@
               "crop_catalog"
             ],
             "values": {
-              "usable_root_zone_cm": "50-100",
+              "usable_root_zone_cm": "80-150",
               "required_root_zone_cm": {
-                "min": 50,
-                "max": 100
+                "min": 80,
+                "max": 150
               }
             }
           }
@@ -6494,9 +6128,9 @@
           "category": "soil",
           "weight_percent": 4.0,
           "available": true,
-          "score": 80.0,
+          "score": 100.0,
           "evidence_confidence": 0.75,
-          "weighted_points": 3.2,
+          "weighted_points": 4.0,
           "scoring_use": "scored",
           "reason": "Mapped available-water storage is capacity context, not current water supply.",
           "evidence": {
@@ -6504,8 +6138,8 @@
               "ssurgo"
             ],
             "values": {
-              "accessible_storage_range_mm": "95.0-186.8",
-              "representative_storage_mm": 140.9
+              "accessible_storage_range_mm": "152.0-266.4",
+              "representative_storage_mm": 209.2
             }
           }
         },
@@ -6515,7 +6149,7 @@
           "weight_percent": 3.0,
           "available": true,
           "score": 15.0,
-          "evidence_confidence": 0.7225,
+          "evidence_confidence": 0.85,
           "weighted_points": 0.45,
           "scoring_use": "scored",
           "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand.",
@@ -6526,7 +6160,7 @@
             ],
             "values": {
               "recent_rainfall_mm": 0.5,
-              "approximate_weekly_demand_mm": 28.965517241379313
+              "approximate_weekly_demand_mm": 31.75
             }
           }
         },
@@ -6573,9 +6207,9 @@
           "category": "water",
           "weight_percent": 3.0,
           "available": true,
-          "score": 70.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 2.1,
+          "score": 55.0,
+          "evidence_confidence": 0.85,
+          "weighted_points": 1.65,
           "scoring_use": "scored",
           "reason": "Catalog water demand and drought tolerance are combined without using missing weather as a zero.",
           "evidence": {
@@ -6584,7 +6218,7 @@
             ],
             "values": {
               "water_demand_class": "moderate",
-              "drought_tolerance": "moderate"
+              "drought_tolerance": "low"
             }
           }
         },
@@ -6594,7 +6228,7 @@
           "weight_percent": 4.0,
           "available": true,
           "score": 100.0,
-          "evidence_confidence": 0.68,
+          "evidence_confidence": 0.8,
           "weighted_points": 4.0,
           "scoring_use": "scored",
           "reason": "Farmer irrigation availability is compared with the catalog requirement.",
@@ -6606,7 +6240,7 @@
             "values": {
               "availability": "yes",
               "reliability": "reliable",
-              "crop_requirement": "conditional"
+              "crop_requirement": "recommended"
             }
           }
         },
@@ -6615,18 +6249,18 @@
           "category": "location_season",
           "weight_percent": 7.5,
           "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 7.5,
+          "score": 85.0,
+          "evidence_confidence": 0.85,
+          "weighted_points": 6.375,
           "scoring_use": "scored",
-          "reason": "Commercial production fits sandy soils with irrigation or adequate rainfall.",
+          "reason": "Commercial production is feasible after frost on light soils.",
           "evidence": {
             "sources": [
               "crop_catalog"
             ],
             "values": {
               "region_id": "plains",
-              "rating": "primary"
+              "rating": "suitable"
             }
           }
         },
@@ -6636,7 +6270,7 @@
           "weight_percent": 12.5,
           "available": true,
           "score": 0.0,
-          "evidence_confidence": 0.6141,
+          "evidence_confidence": 0.7225,
           "weighted_points": 0.0,
           "scoring_use": "scored",
           "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable.",
@@ -6676,14 +6310,14 @@
           "reason": "NASA monthly historical temperature is compared with the crop optimum."
         },
         {
-          "factor_id": "texas_regional_suitability",
-          "score": 100.0,
-          "reason": "Commercial production fits sandy soils with irrigation or adequate rainfall."
-        },
-        {
           "factor_id": "fortyguard_temperature_fit",
           "score": 100.0,
           "reason": "Farm-scale one-week mean temperature is compared with the crop optimum."
+        },
+        {
+          "factor_id": "texas_regional_suitability",
+          "score": 85.0,
+          "reason": "Commercial production is feasible after frost on light soils."
         }
       ],
       "key_risks": [
@@ -6704,13 +6338,15 @@
         }
       ],
       "warnings": [
-        "Runner-type peanut heat threshold is informational only and does not reduce suitability."
+        "Seedless watermelon heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 15
+      "overall_rank": 14,
+      "eligible_rank": 14
     },
     {
       "crop_id": "forage_sorghum",
       "crop_name": "Forage sorghum",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
@@ -6718,6 +6354,13 @@
       "confidence_band": "low",
       "evidence_coverage_percent": 83.0,
       "applied_caps": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
         {
           "gate": "far_outside_planting_window",
           "cap": 54.0,
@@ -7156,11 +6799,13 @@
       "warnings": [
         "Forage sorghum heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 16
+      "overall_rank": 15,
+      "eligible_rank": 15
     },
     {
-      "crop_id": "sorghum_sudangrass",
-      "crop_name": "Sorghum-sudangrass",
+      "crop_id": "runner_peanut",
+      "crop_name": "Runner-type peanut",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
@@ -7168,6 +6813,471 @@
       "confidence_band": "low",
       "evidence_coverage_percent": 83.0,
       "applied_caps": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "factors": [
+        {
+          "factor_id": "nasa_seasonal_temperature",
+          "category": "thermal_heat",
+          "weight_percent": 8.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.765,
+          "weighted_points": 8.0,
+          "scoring_use": "scored",
+          "reason": "NASA monthly historical temperature is compared with the crop optimum.",
+          "evidence": {
+            "sources": [
+              "nasa_power",
+              "crop_catalog"
+            ],
+            "values": {
+              "month": "Aug",
+              "temperature_c": 28.016129,
+              "distance_from_optimum_c": 0.0,
+              "optimal_range_c": {
+                "min": 25.0,
+                "max": 30.0
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_temperature_fit",
+          "category": "thermal_heat",
+          "weight_percent": 7.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.765,
+          "weighted_points": 7.0,
+          "scoring_use": "scored",
+          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "mean_temperature_c": 29.914445588235292,
+              "optimal_range_c": {
+                "min": 25.0,
+                "max": 30.0
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_threshold_exceedance",
+          "category": "thermal_heat",
+          "weight_percent": 12.0,
+          "available": false,
+          "score": null,
+          "evidence_confidence": 0.0,
+          "weighted_points": null,
+          "scoring_use": "informational_only",
+          "reason": "Catalog policy makes this heat threshold informational only.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "threshold_c": null,
+              "exceedance_hours": null,
+              "exceedance_fraction": null
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_heat_persistence",
+          "category": "thermal_heat",
+          "weight_percent": 5.0,
+          "available": false,
+          "score": null,
+          "evidence_confidence": 0.0,
+          "weighted_points": null,
+          "scoring_use": "informational_only",
+          "reason": "Catalog policy makes this heat threshold informational only.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "persistence_hours": null
+            }
+          }
+        },
+        {
+          "factor_id": "open_meteo_heat_frost",
+          "category": "thermal_heat",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 3.0,
+          "scoring_use": "scored",
+          "reason": "Short-range heat and frost forecast for planting readiness.",
+          "evidence": {
+            "sources": [
+              "open_meteo",
+              "crop_catalog"
+            ],
+            "values": {
+              "forecast_max_temperature_c": 37.9,
+              "frost_risk_days": 0.0,
+              "heat_threshold_c": null
+            }
+          }
+        },
+        {
+          "factor_id": "soil_texture",
+          "category": "soil",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 50.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 3.0,
+          "scoring_use": "scored",
+          "reason": "Mapped SSURGO surface texture is compared with catalog preferences.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "texture": "clay loam",
+              "preferred_textures": [
+                "loamy sand",
+                "sandy loam",
+                "fine sandy loam"
+              ]
+            }
+          }
+        },
+        {
+          "factor_id": "soil_ph",
+          "category": "soil",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 45.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 2.7,
+          "scoring_use": "scored",
+          "reason": "Mapped SSURGO pH is compared with the catalog tolerable range.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "ph": 7.7,
+              "distance_from_range": 0.7000000000000002,
+              "tolerable_range": {
+                "min": 5.8,
+                "max": 7.0
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "soil_drainage",
+          "category": "soil",
+          "weight_percent": 5.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 5.0,
+          "scoring_use": "scored",
+          "reason": "Mapped drainage class is compared with the crop requirement.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "mapped_drainage": "Well drained",
+              "requirement": "very_well_drained",
+              "fit": "compatible"
+            }
+          }
+        },
+        {
+          "factor_id": "soil_root_zone",
+          "category": "soil",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Usable mapped soil depth is compared with the minimum crop root-zone requirement.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "usable_root_zone_cm": "50-100",
+              "required_root_zone_cm": {
+                "min": 50,
+                "max": 100
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "soil_water_storage",
+          "category": "soil",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 80.0,
+          "evidence_confidence": 0.75,
+          "weighted_points": 3.2,
+          "scoring_use": "scored",
+          "reason": "Mapped available-water storage is capacity context, not current water supply.",
+          "evidence": {
+            "sources": [
+              "ssurgo"
+            ],
+            "values": {
+              "accessible_storage_range_mm": "95.0-186.8",
+              "representative_storage_mm": 140.9
+            }
+          }
+        },
+        {
+          "factor_id": "recent_rainfall",
+          "category": "water",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 15.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 0.45,
+          "scoring_use": "scored",
+          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand.",
+          "evidence": {
+            "sources": [
+              "open_meteo",
+              "crop_catalog"
+            ],
+            "values": {
+              "recent_rainfall_mm": 0.5,
+              "approximate_weekly_demand_mm": 28.965517241379313
+            }
+          }
+        },
+        {
+          "factor_id": "forecast_water_balance",
+          "category": "water",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 10.0,
+          "evidence_confidence": 0.85,
+          "weighted_points": 0.6,
+          "scoring_use": "scored",
+          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit.",
+          "evidence": {
+            "sources": [
+              "open_meteo"
+            ],
+            "values": {
+              "rain_minus_et0_mm": -60.16
+            }
+          }
+        },
+        {
+          "factor_id": "current_soil_moisture",
+          "category": "water",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 80.0,
+          "evidence_confidence": 0.85,
+          "weighted_points": 3.2,
+          "scoring_use": "scored",
+          "reason": "Modeled root-profile soil moisture is used as a current screening signal.",
+          "evidence": {
+            "sources": [
+              "open_meteo"
+            ],
+            "values": {
+              "volumetric_soil_moisture_m3_m3": 0.1844567901234568
+            }
+          }
+        },
+        {
+          "factor_id": "crop_water_resilience",
+          "category": "water",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 70.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 2.1,
+          "scoring_use": "scored",
+          "reason": "Catalog water demand and drought tolerance are combined without using missing weather as a zero.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "water_demand_class": "moderate",
+              "drought_tolerance": "moderate"
+            }
+          }
+        },
+        {
+          "factor_id": "irrigation_availability",
+          "category": "water",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.68,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Farmer irrigation availability is compared with the catalog requirement.",
+          "evidence": {
+            "sources": [
+              "farmer_report",
+              "crop_catalog"
+            ],
+            "values": {
+              "availability": "yes",
+              "reliability": "reliable",
+              "crop_requirement": "conditional"
+            }
+          }
+        },
+        {
+          "factor_id": "texas_regional_suitability",
+          "category": "location_season",
+          "weight_percent": 7.5,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 7.5,
+          "scoring_use": "scored",
+          "reason": "Commercial production fits sandy soils with irrigation or adequate rainfall.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "region_id": "plains",
+              "rating": "primary"
+            }
+          }
+        },
+        {
+          "factor_id": "planting_window",
+          "category": "location_season",
+          "weight_percent": 12.5,
+          "available": true,
+          "score": 0.0,
+          "evidence_confidence": 0.6141,
+          "weighted_points": 0.0,
+          "scoring_use": "scored",
+          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "requested_month": 8,
+              "regional_windows": [
+                "May-Jun"
+              ],
+              "month_distance": 2
+            }
+          }
+        },
+        {
+          "factor_id": "frost_free_season",
+          "category": "location_season",
+          "weight_percent": 0.0,
+          "available": false,
+          "score": null,
+          "evidence_confidence": 0.0,
+          "weighted_points": null,
+          "scoring_use": "inactive",
+          "reason": "Inactive limitation: frost-free-season evidence has not been added.",
+          "evidence": {
+            "sources": [],
+            "values": {}
+          }
+        }
+      ],
+      "key_strengths": [
+        {
+          "factor_id": "nasa_seasonal_temperature",
+          "score": 100.0,
+          "reason": "NASA monthly historical temperature is compared with the crop optimum."
+        },
+        {
+          "factor_id": "texas_regional_suitability",
+          "score": 100.0,
+          "reason": "Commercial production fits sandy soils with irrigation or adequate rainfall."
+        },
+        {
+          "factor_id": "fortyguard_temperature_fit",
+          "score": 100.0,
+          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum."
+        }
+      ],
+      "key_risks": [
+        {
+          "factor_id": "planting_window",
+          "score": 0.0,
+          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable."
+        },
+        {
+          "factor_id": "forecast_water_balance",
+          "score": 10.0,
+          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit."
+        },
+        {
+          "factor_id": "recent_rainfall",
+          "score": 15.0,
+          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand."
+        }
+      ],
+      "warnings": [
+        "Runner-type peanut heat threshold is informational only and does not reduce suitability."
+      ],
+      "overall_rank": 16,
+      "eligible_rank": 16
+    },
+    {
+      "crop_id": "sorghum_sudangrass",
+      "crop_name": "Sorghum-sudangrass",
+      "regionally_eligible": true,
+      "status": "scored",
+      "suitability_score": 54.0,
+      "recommendation": "not_recommended",
+      "confidence_score": 58.68,
+      "confidence_band": "low",
+      "evidence_coverage_percent": 83.0,
+      "applied_caps": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
         {
           "gate": "far_outside_planting_window",
           "cap": 54.0,
@@ -7606,11 +7716,13 @@
       "warnings": [
         "Sorghum-sudangrass heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 17
+      "overall_rank": 17,
+      "eligible_rank": 17
     },
     {
       "crop_id": "sweet_potato",
       "crop_name": "Sweet potato",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
@@ -7618,6 +7730,13 @@
       "confidence_band": "low",
       "evidence_coverage_percent": 83.0,
       "applied_caps": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
         {
           "gate": "far_outside_planting_window",
           "cap": 54.0,
@@ -8055,11 +8174,13 @@
       "warnings": [
         "Sweet potato heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 18
+      "overall_rank": 18,
+      "eligible_rank": 18
     },
     {
       "crop_id": "bermudagrass_hay",
       "crop_name": "Bermudagrass grown for hay",
+      "regionally_eligible": true,
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
@@ -8067,6 +8188,13 @@
       "confidence_band": "low",
       "evidence_coverage_percent": 80.0,
       "applied_caps": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
         {
           "gate": "far_outside_planting_window",
           "cap": 54.0,
@@ -8502,11 +8630,913 @@
       "warnings": [
         "Bermudagrass grown for hay heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 19
+      "overall_rank": 19,
+      "eligible_rank": 19
+    },
+    {
+      "crop_id": "sesame",
+      "crop_name": "Sesame",
+      "regionally_eligible": true,
+      "status": "scored",
+      "suitability_score": 54.0,
+      "recommendation": "not_recommended",
+      "confidence_score": 48.2,
+      "confidence_band": "low",
+      "evidence_coverage_percent": 80.0,
+      "applied_caps": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "factors": [
+        {
+          "factor_id": "nasa_seasonal_temperature",
+          "category": "thermal_heat",
+          "weight_percent": 8.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.63,
+          "weighted_points": 8.0,
+          "scoring_use": "scored",
+          "reason": "NASA monthly historical temperature is compared with the crop optimum.",
+          "evidence": {
+            "sources": [
+              "nasa_power",
+              "crop_catalog"
+            ],
+            "values": {
+              "month": "Aug",
+              "temperature_c": 28.016129,
+              "distance_from_optimum_c": 0.0,
+              "optimal_range_c": {
+                "min": 25.0,
+                "max": 32.0
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_temperature_fit",
+          "category": "thermal_heat",
+          "weight_percent": 7.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.63,
+          "weighted_points": 7.0,
+          "scoring_use": "scored",
+          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "mean_temperature_c": 29.914445588235292,
+              "optimal_range_c": {
+                "min": 25.0,
+                "max": 32.0
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_threshold_exceedance",
+          "category": "thermal_heat",
+          "weight_percent": 12.0,
+          "available": false,
+          "score": null,
+          "evidence_confidence": 0.0,
+          "weighted_points": null,
+          "scoring_use": "informational_only",
+          "reason": "Catalog policy makes this heat threshold informational only.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "threshold_c": null,
+              "exceedance_hours": null,
+              "exceedance_fraction": null
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_heat_persistence",
+          "category": "thermal_heat",
+          "weight_percent": 5.0,
+          "available": false,
+          "score": null,
+          "evidence_confidence": 0.0,
+          "weighted_points": null,
+          "scoring_use": "informational_only",
+          "reason": "Catalog policy makes this heat threshold informational only.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "persistence_hours": null
+            }
+          }
+        },
+        {
+          "factor_id": "open_meteo_heat_frost",
+          "category": "thermal_heat",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.595,
+          "weighted_points": 3.0,
+          "scoring_use": "scored",
+          "reason": "Short-range heat and frost forecast for planting readiness.",
+          "evidence": {
+            "sources": [
+              "open_meteo",
+              "crop_catalog"
+            ],
+            "values": {
+              "forecast_max_temperature_c": 37.9,
+              "frost_risk_days": 0.0,
+              "heat_threshold_c": null
+            }
+          }
+        },
+        {
+          "factor_id": "soil_texture",
+          "category": "soil",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 50.0,
+          "evidence_confidence": 0.525,
+          "weighted_points": 3.0,
+          "scoring_use": "scored",
+          "reason": "Mapped SSURGO surface texture is compared with catalog preferences.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "texture": "clay loam",
+              "preferred_textures": [
+                "sandy loam",
+                "loam",
+                "silt loam"
+              ]
+            }
+          }
+        },
+        {
+          "factor_id": "soil_ph",
+          "category": "soil",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.525,
+          "weighted_points": 6.0,
+          "scoring_use": "scored",
+          "reason": "Mapped SSURGO pH is compared with the catalog tolerable range.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "ph": 7.7,
+              "distance_from_range": 0.0,
+              "tolerable_range": {
+                "min": 5.5,
+                "max": 8.0
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "soil_drainage",
+          "category": "soil",
+          "weight_percent": 5.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.525,
+          "weighted_points": 5.0,
+          "scoring_use": "scored",
+          "reason": "Mapped drainage class is compared with the crop requirement.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "mapped_drainage": "Well drained",
+              "requirement": "very_well_drained",
+              "fit": "compatible"
+            }
+          }
+        },
+        {
+          "factor_id": "soil_root_zone",
+          "category": "soil",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.525,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Usable mapped soil depth is compared with the minimum crop root-zone requirement.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "usable_root_zone_cm": "100-150",
+              "required_root_zone_cm": {
+                "min": 100,
+                "max": 150
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "soil_water_storage",
+          "category": "soil",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.75,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Mapped available-water storage is capacity context, not current water supply.",
+          "evidence": {
+            "sources": [
+              "ssurgo"
+            ],
+            "values": {
+              "accessible_storage_range_mm": "186.8-266.4",
+              "representative_storage_mm": 226.6
+            }
+          }
+        },
+        {
+          "factor_id": "recent_rainfall",
+          "category": "water",
+          "weight_percent": 3.0,
+          "available": false,
+          "score": null,
+          "evidence_confidence": 0.0,
+          "weighted_points": null,
+          "scoring_use": "scored",
+          "reason": "Recent rainfall is unavailable or the requested period is outside current observations.",
+          "evidence": {
+            "sources": [],
+            "values": {
+              "recent_rainfall_mm": 0.5,
+              "approximate_weekly_demand_mm": null
+            }
+          }
+        },
+        {
+          "factor_id": "forecast_water_balance",
+          "category": "water",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 10.0,
+          "evidence_confidence": 0.85,
+          "weighted_points": 0.6,
+          "scoring_use": "scored",
+          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit.",
+          "evidence": {
+            "sources": [
+              "open_meteo"
+            ],
+            "values": {
+              "rain_minus_et0_mm": -60.16
+            }
+          }
+        },
+        {
+          "factor_id": "current_soil_moisture",
+          "category": "water",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 80.0,
+          "evidence_confidence": 0.85,
+          "weighted_points": 3.2,
+          "scoring_use": "scored",
+          "reason": "Modeled root-profile soil moisture is used as a current screening signal.",
+          "evidence": {
+            "sources": [
+              "open_meteo"
+            ],
+            "values": {
+              "volumetric_soil_moisture_m3_m3": 0.1844567901234568
+            }
+          }
+        },
+        {
+          "factor_id": "crop_water_resilience",
+          "category": "water",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.595,
+          "weighted_points": 3.0,
+          "scoring_use": "scored",
+          "reason": "Catalog water demand and drought tolerance are combined without using missing weather as a zero.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "water_demand_class": "low",
+              "drought_tolerance": "very_high"
+            }
+          }
+        },
+        {
+          "factor_id": "irrigation_availability",
+          "category": "water",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.56,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Farmer irrigation availability is compared with the catalog requirement.",
+          "evidence": {
+            "sources": [
+              "farmer_report",
+              "crop_catalog"
+            ],
+            "values": {
+              "availability": "yes",
+              "reliability": "reliable",
+              "crop_requirement": "often_rainfed"
+            }
+          }
+        },
+        {
+          "factor_id": "texas_regional_suitability",
+          "category": "location_season",
+          "weight_percent": 7.5,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.595,
+          "weighted_points": 7.5,
+          "scoring_use": "scored",
+          "reason": "Warm, relatively dry production environment fits commercial sesame.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "region_id": "plains",
+              "rating": "primary"
+            }
+          }
+        },
+        {
+          "factor_id": "planting_window",
+          "category": "location_season",
+          "weight_percent": 12.5,
+          "available": true,
+          "score": 0.0,
+          "evidence_confidence": 0.476,
+          "weighted_points": 0.0,
+          "scoring_use": "scored",
+          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "requested_month": 8,
+              "regional_windows": [
+                "May-Jun"
+              ],
+              "month_distance": 2
+            }
+          }
+        },
+        {
+          "factor_id": "frost_free_season",
+          "category": "location_season",
+          "weight_percent": 0.0,
+          "available": false,
+          "score": null,
+          "evidence_confidence": 0.0,
+          "weighted_points": null,
+          "scoring_use": "inactive",
+          "reason": "Inactive limitation: frost-free-season evidence has not been added.",
+          "evidence": {
+            "sources": [],
+            "values": {}
+          }
+        }
+      ],
+      "key_strengths": [
+        {
+          "factor_id": "nasa_seasonal_temperature",
+          "score": 100.0,
+          "reason": "NASA monthly historical temperature is compared with the crop optimum."
+        },
+        {
+          "factor_id": "texas_regional_suitability",
+          "score": 100.0,
+          "reason": "Warm, relatively dry production environment fits commercial sesame."
+        },
+        {
+          "factor_id": "fortyguard_temperature_fit",
+          "score": 100.0,
+          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum."
+        }
+      ],
+      "key_risks": [
+        {
+          "factor_id": "planting_window",
+          "score": 0.0,
+          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable."
+        },
+        {
+          "factor_id": "forecast_water_balance",
+          "score": 10.0,
+          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit."
+        },
+        {
+          "factor_id": "soil_texture",
+          "score": 50.0,
+          "reason": "Mapped SSURGO surface texture is compared with catalog preferences."
+        }
+      ],
+      "warnings": [
+        "Sesame heat threshold is informational only and does not reduce suitability."
+      ],
+      "overall_rank": 20,
+      "eligible_rank": 20
+    },
+    {
+      "crop_id": "grain_oats",
+      "crop_name": "Grain oats",
+      "regionally_eligible": true,
+      "status": "scored",
+      "suitability_score": 51.27,
+      "recommendation": "not_recommended",
+      "confidence_score": 69.08,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
+      "applied_caps": [],
+      "applied_gates": [],
+      "factors": [
+        {
+          "factor_id": "nasa_seasonal_temperature",
+          "category": "thermal_heat",
+          "weight_percent": 8.0,
+          "available": true,
+          "score": 20.0,
+          "evidence_confidence": 0.765,
+          "weighted_points": 1.6,
+          "scoring_use": "scored",
+          "reason": "NASA monthly historical temperature is compared with the crop optimum.",
+          "evidence": {
+            "sources": [
+              "nasa_power",
+              "crop_catalog"
+            ],
+            "values": {
+              "month": "Aug",
+              "temperature_c": 28.016129,
+              "distance_from_optimum_c": 6.916128999999998,
+              "optimal_range_c": {
+                "min": 20.0,
+                "max": 21.1
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_temperature_fit",
+          "category": "thermal_heat",
+          "weight_percent": 7.0,
+          "available": true,
+          "score": 20.0,
+          "evidence_confidence": 0.765,
+          "weighted_points": 1.4,
+          "scoring_use": "scored",
+          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "mean_temperature_c": 29.914445588235292,
+              "optimal_range_c": {
+                "min": 20.0,
+                "max": 21.1
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_threshold_exceedance",
+          "category": "thermal_heat",
+          "weight_percent": 12.0,
+          "available": true,
+          "score": 10.0,
+          "evidence_confidence": 0.612,
+          "weighted_points": 1.2,
+          "scoring_use": "scored",
+          "reason": "Percentage of hours above the crop's scoreable heat threshold.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "threshold_c": 27.8,
+              "exceedance_hours": 78.0,
+              "exceedance_fraction": 0.4642857142857143
+            }
+          }
+        },
+        {
+          "factor_id": "fortyguard_heat_persistence",
+          "category": "thermal_heat",
+          "weight_percent": 5.0,
+          "available": true,
+          "score": 40.0,
+          "evidence_confidence": 0.612,
+          "weighted_points": 2.0,
+          "scoring_use": "scored",
+          "reason": "Longest continuous exposure above the scoreable crop heat threshold.",
+          "evidence": {
+            "sources": [
+              "fortyguard",
+              "crop_catalog"
+            ],
+            "values": {
+              "window": "one_week",
+              "persistence_hours": 8.0
+            }
+          }
+        },
+        {
+          "factor_id": "open_meteo_heat_frost",
+          "category": "thermal_heat",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 55.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 1.65,
+          "scoring_use": "scored",
+          "reason": "Short-range heat and frost forecast for planting readiness.",
+          "evidence": {
+            "sources": [
+              "open_meteo",
+              "crop_catalog"
+            ],
+            "values": {
+              "forecast_max_temperature_c": 37.9,
+              "frost_risk_days": 0.0,
+              "heat_threshold_c": 27.8
+            }
+          }
+        },
+        {
+          "factor_id": "soil_texture",
+          "category": "soil",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 6.0,
+          "scoring_use": "scored",
+          "reason": "Mapped SSURGO surface texture is compared with catalog preferences.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "texture": "clay loam",
+              "preferred_textures": [
+                "loam",
+                "clay loam",
+                "silt loam",
+                "sandy loam"
+              ]
+            }
+          }
+        },
+        {
+          "factor_id": "soil_ph",
+          "category": "soil",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 45.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 2.7,
+          "scoring_use": "scored",
+          "reason": "Mapped SSURGO pH is compared with the catalog tolerable range.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "ph": 7.7,
+              "distance_from_range": 0.7000000000000002,
+              "tolerable_range": {
+                "min": 5.5,
+                "max": 7.0
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "soil_drainage",
+          "category": "soil",
+          "weight_percent": 5.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 5.0,
+          "scoring_use": "scored",
+          "reason": "Mapped drainage class is compared with the crop requirement.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "mapped_drainage": "Well drained",
+              "requirement": "well_drained",
+              "fit": "compatible"
+            }
+          }
+        },
+        {
+          "factor_id": "soil_root_zone",
+          "category": "soil",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.6375,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Usable mapped soil depth is compared with the minimum crop root-zone requirement.",
+          "evidence": {
+            "sources": [
+              "ssurgo",
+              "crop_catalog"
+            ],
+            "values": {
+              "usable_root_zone_cm": "100-150",
+              "required_root_zone_cm": {
+                "min": 100,
+                "max": 150
+              }
+            }
+          }
+        },
+        {
+          "factor_id": "soil_water_storage",
+          "category": "soil",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.75,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Mapped available-water storage is capacity context, not current water supply.",
+          "evidence": {
+            "sources": [
+              "ssurgo"
+            ],
+            "values": {
+              "accessible_storage_range_mm": "186.8-266.4",
+              "representative_storage_mm": 226.6
+            }
+          }
+        },
+        {
+          "factor_id": "recent_rainfall",
+          "category": "water",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 15.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 0.45,
+          "scoring_use": "scored",
+          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand.",
+          "evidence": {
+            "sources": [
+              "open_meteo",
+              "crop_catalog"
+            ],
+            "values": {
+              "recent_rainfall_mm": 0.5,
+              "approximate_weekly_demand_mm": 18.333333333333332
+            }
+          }
+        },
+        {
+          "factor_id": "forecast_water_balance",
+          "category": "water",
+          "weight_percent": 6.0,
+          "available": true,
+          "score": 10.0,
+          "evidence_confidence": 0.85,
+          "weighted_points": 0.6,
+          "scoring_use": "scored",
+          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit.",
+          "evidence": {
+            "sources": [
+              "open_meteo"
+            ],
+            "values": {
+              "rain_minus_et0_mm": -60.16
+            }
+          }
+        },
+        {
+          "factor_id": "current_soil_moisture",
+          "category": "water",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 80.0,
+          "evidence_confidence": 0.85,
+          "weighted_points": 3.2,
+          "scoring_use": "scored",
+          "reason": "Modeled root-profile soil moisture is used as a current screening signal.",
+          "evidence": {
+            "sources": [
+              "open_meteo"
+            ],
+            "values": {
+              "volumetric_soil_moisture_m3_m3": 0.1844567901234568
+            }
+          }
+        },
+        {
+          "factor_id": "crop_water_resilience",
+          "category": "water",
+          "weight_percent": 3.0,
+          "available": true,
+          "score": 70.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 2.1,
+          "scoring_use": "scored",
+          "reason": "Catalog water demand and drought tolerance are combined without using missing weather as a zero.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "water_demand_class": "moderate",
+              "drought_tolerance": "moderate"
+            }
+          }
+        },
+        {
+          "factor_id": "irrigation_availability",
+          "category": "water",
+          "weight_percent": 4.0,
+          "available": true,
+          "score": 100.0,
+          "evidence_confidence": 0.68,
+          "weighted_points": 4.0,
+          "scoring_use": "scored",
+          "reason": "Farmer irrigation availability is compared with the catalog requirement.",
+          "evidence": {
+            "sources": [
+              "farmer_report",
+              "crop_catalog"
+            ],
+            "values": {
+              "availability": "yes",
+              "reliability": "reliable",
+              "crop_requirement": "conditional"
+            }
+          }
+        },
+        {
+          "factor_id": "texas_regional_suitability",
+          "category": "location_season",
+          "weight_percent": 7.5,
+          "available": true,
+          "score": 85.0,
+          "evidence_confidence": 0.7225,
+          "weighted_points": 6.375,
+          "scoring_use": "scored",
+          "reason": "Cool-season grain production is feasible with winter-hardy cultivars.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "region_id": "plains",
+              "rating": "suitable"
+            }
+          }
+        },
+        {
+          "factor_id": "planting_window",
+          "category": "location_season",
+          "weight_percent": 12.5,
+          "available": true,
+          "score": 40.0,
+          "evidence_confidence": 0.6141,
+          "weighted_points": 5.0,
+          "scoring_use": "scored",
+          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable.",
+          "evidence": {
+            "sources": [
+              "crop_catalog"
+            ],
+            "values": {
+              "requested_month": 8,
+              "regional_windows": [
+                "Sep-Oct"
+              ],
+              "month_distance": 1
+            }
+          }
+        },
+        {
+          "factor_id": "frost_free_season",
+          "category": "location_season",
+          "weight_percent": 0.0,
+          "available": false,
+          "score": null,
+          "evidence_confidence": 0.0,
+          "weighted_points": null,
+          "scoring_use": "inactive",
+          "reason": "Inactive limitation: frost-free-season evidence has not been added.",
+          "evidence": {
+            "sources": [],
+            "values": {}
+          }
+        }
+      ],
+      "key_strengths": [
+        {
+          "factor_id": "texas_regional_suitability",
+          "score": 85.0,
+          "reason": "Cool-season grain production is feasible with winter-hardy cultivars."
+        },
+        {
+          "factor_id": "soil_texture",
+          "score": 100.0,
+          "reason": "Mapped SSURGO surface texture is compared with catalog preferences."
+        },
+        {
+          "factor_id": "soil_drainage",
+          "score": 100.0,
+          "reason": "Mapped drainage class is compared with the crop requirement."
+        }
+      ],
+      "key_risks": [
+        {
+          "factor_id": "fortyguard_threshold_exceedance",
+          "score": 10.0,
+          "reason": "Percentage of hours above the crop's scoreable heat threshold."
+        },
+        {
+          "factor_id": "forecast_water_balance",
+          "score": 10.0,
+          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit."
+        },
+        {
+          "factor_id": "recent_rainfall",
+          "score": 15.0,
+          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand."
+        }
+      ],
+      "warnings": [],
+      "overall_rank": 21,
+      "eligible_rank": 21
     },
     {
       "crop_id": "long_grain_rice",
       "crop_name": "Long-grain rice",
+      "regionally_eligible": false,
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
@@ -8514,6 +9544,18 @@
       "confidence_band": "low",
       "evidence_coverage_percent": 83.0,
       "applied_caps": [
+        {
+          "gate": "unsupported_region",
+          "cap": 54.0,
+          "reason": "Catalog marks this crop unsupported in the selected Texas region."
+        },
+        {
+          "gate": "far_outside_planting_window",
+          "cap": 54.0,
+          "reason": "Requested month is far outside all catalog planting windows for the region."
+        }
+      ],
+      "applied_gates": [
         {
           "gate": "unsupported_region",
           "cap": 54.0,
@@ -8954,895 +9996,8 @@
       "warnings": [
         "Long-grain rice heat threshold is informational only and does not reduce suitability."
       ],
-      "rank": 20
-    },
-    {
-      "crop_id": "sesame",
-      "crop_name": "Sesame",
-      "status": "scored",
-      "suitability_score": 54.0,
-      "recommendation": "not_recommended",
-      "confidence_score": 48.2,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 80.0,
-      "applied_caps": [
-        {
-          "gate": "far_outside_planting_window",
-          "cap": 54.0,
-          "reason": "Requested month is far outside all catalog planting windows for the region."
-        }
-      ],
-      "factors": [
-        {
-          "factor_id": "nasa_seasonal_temperature",
-          "category": "thermal_heat",
-          "weight_percent": 8.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.63,
-          "weighted_points": 8.0,
-          "scoring_use": "scored",
-          "reason": "NASA monthly historical temperature is compared with the crop optimum.",
-          "evidence": {
-            "sources": [
-              "nasa_power",
-              "crop_catalog"
-            ],
-            "values": {
-              "month": "Aug",
-              "temperature_c": 28.016129,
-              "distance_from_optimum_c": 0.0,
-              "optimal_range_c": {
-                "min": 25.0,
-                "max": 32.0
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_temperature_fit",
-          "category": "thermal_heat",
-          "weight_percent": 7.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.63,
-          "weighted_points": 7.0,
-          "scoring_use": "scored",
-          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "mean_temperature_c": 29.914445588235292,
-              "optimal_range_c": {
-                "min": 25.0,
-                "max": 32.0
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_threshold_exceedance",
-          "category": "thermal_heat",
-          "weight_percent": 12.0,
-          "available": false,
-          "score": null,
-          "evidence_confidence": 0.0,
-          "weighted_points": null,
-          "scoring_use": "informational_only",
-          "reason": "Catalog policy makes this heat threshold informational only.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "threshold_c": null,
-              "exceedance_hours": null,
-              "exceedance_fraction": null
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_heat_persistence",
-          "category": "thermal_heat",
-          "weight_percent": 5.0,
-          "available": false,
-          "score": null,
-          "evidence_confidence": 0.0,
-          "weighted_points": null,
-          "scoring_use": "informational_only",
-          "reason": "Catalog policy makes this heat threshold informational only.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "persistence_hours": null
-            }
-          }
-        },
-        {
-          "factor_id": "open_meteo_heat_frost",
-          "category": "thermal_heat",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.595,
-          "weighted_points": 3.0,
-          "scoring_use": "scored",
-          "reason": "Short-range heat and frost forecast for planting readiness.",
-          "evidence": {
-            "sources": [
-              "open_meteo",
-              "crop_catalog"
-            ],
-            "values": {
-              "forecast_max_temperature_c": 37.9,
-              "frost_risk_days": 0.0,
-              "heat_threshold_c": null
-            }
-          }
-        },
-        {
-          "factor_id": "soil_texture",
-          "category": "soil",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 50.0,
-          "evidence_confidence": 0.525,
-          "weighted_points": 3.0,
-          "scoring_use": "scored",
-          "reason": "Mapped SSURGO surface texture is compared with catalog preferences.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "texture": "clay loam",
-              "preferred_textures": [
-                "sandy loam",
-                "loam",
-                "silt loam"
-              ]
-            }
-          }
-        },
-        {
-          "factor_id": "soil_ph",
-          "category": "soil",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.525,
-          "weighted_points": 6.0,
-          "scoring_use": "scored",
-          "reason": "Mapped SSURGO pH is compared with the catalog tolerable range.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "ph": 7.7,
-              "distance_from_range": 0.0,
-              "tolerable_range": {
-                "min": 5.5,
-                "max": 8.0
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "soil_drainage",
-          "category": "soil",
-          "weight_percent": 5.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.525,
-          "weighted_points": 5.0,
-          "scoring_use": "scored",
-          "reason": "Mapped drainage class is compared with the crop requirement.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "mapped_drainage": "Well drained",
-              "requirement": "very_well_drained",
-              "fit": "compatible"
-            }
-          }
-        },
-        {
-          "factor_id": "soil_root_zone",
-          "category": "soil",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.525,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Usable mapped soil depth is compared with the minimum crop root-zone requirement.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "usable_root_zone_cm": "100-150",
-              "required_root_zone_cm": {
-                "min": 100,
-                "max": 150
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "soil_water_storage",
-          "category": "soil",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.75,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Mapped available-water storage is capacity context, not current water supply.",
-          "evidence": {
-            "sources": [
-              "ssurgo"
-            ],
-            "values": {
-              "accessible_storage_range_mm": "186.8-266.4",
-              "representative_storage_mm": 226.6
-            }
-          }
-        },
-        {
-          "factor_id": "recent_rainfall",
-          "category": "water",
-          "weight_percent": 3.0,
-          "available": false,
-          "score": null,
-          "evidence_confidence": 0.0,
-          "weighted_points": null,
-          "scoring_use": "scored",
-          "reason": "Recent rainfall is unavailable or the requested period is outside current observations.",
-          "evidence": {
-            "sources": [],
-            "values": {
-              "recent_rainfall_mm": 0.5,
-              "approximate_weekly_demand_mm": null
-            }
-          }
-        },
-        {
-          "factor_id": "forecast_water_balance",
-          "category": "water",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 10.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 0.6,
-          "scoring_use": "scored",
-          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit.",
-          "evidence": {
-            "sources": [
-              "open_meteo"
-            ],
-            "values": {
-              "rain_minus_et0_mm": -60.16
-            }
-          }
-        },
-        {
-          "factor_id": "current_soil_moisture",
-          "category": "water",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 80.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 3.2,
-          "scoring_use": "scored",
-          "reason": "Modeled root-profile soil moisture is used as a current screening signal.",
-          "evidence": {
-            "sources": [
-              "open_meteo"
-            ],
-            "values": {
-              "volumetric_soil_moisture_m3_m3": 0.1844567901234568
-            }
-          }
-        },
-        {
-          "factor_id": "crop_water_resilience",
-          "category": "water",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.595,
-          "weighted_points": 3.0,
-          "scoring_use": "scored",
-          "reason": "Catalog water demand and drought tolerance are combined without using missing weather as a zero.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "water_demand_class": "low",
-              "drought_tolerance": "very_high"
-            }
-          }
-        },
-        {
-          "factor_id": "irrigation_availability",
-          "category": "water",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.56,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Farmer irrigation availability is compared with the catalog requirement.",
-          "evidence": {
-            "sources": [
-              "farmer_report",
-              "crop_catalog"
-            ],
-            "values": {
-              "availability": "yes",
-              "reliability": "reliable",
-              "crop_requirement": "often_rainfed"
-            }
-          }
-        },
-        {
-          "factor_id": "texas_regional_suitability",
-          "category": "location_season",
-          "weight_percent": 7.5,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.595,
-          "weighted_points": 7.5,
-          "scoring_use": "scored",
-          "reason": "Warm, relatively dry production environment fits commercial sesame.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "region_id": "plains",
-              "rating": "primary"
-            }
-          }
-        },
-        {
-          "factor_id": "planting_window",
-          "category": "location_season",
-          "weight_percent": 12.5,
-          "available": true,
-          "score": 0.0,
-          "evidence_confidence": 0.476,
-          "weighted_points": 0.0,
-          "scoring_use": "scored",
-          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "requested_month": 8,
-              "regional_windows": [
-                "May-Jun"
-              ],
-              "month_distance": 2
-            }
-          }
-        },
-        {
-          "factor_id": "frost_free_season",
-          "category": "location_season",
-          "weight_percent": 0.0,
-          "available": false,
-          "score": null,
-          "evidence_confidence": 0.0,
-          "weighted_points": null,
-          "scoring_use": "inactive",
-          "reason": "Inactive limitation: frost-free-season evidence has not been added.",
-          "evidence": {
-            "sources": [],
-            "values": {}
-          }
-        }
-      ],
-      "key_strengths": [
-        {
-          "factor_id": "nasa_seasonal_temperature",
-          "score": 100.0,
-          "reason": "NASA monthly historical temperature is compared with the crop optimum."
-        },
-        {
-          "factor_id": "texas_regional_suitability",
-          "score": 100.0,
-          "reason": "Warm, relatively dry production environment fits commercial sesame."
-        },
-        {
-          "factor_id": "fortyguard_temperature_fit",
-          "score": 100.0,
-          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum."
-        }
-      ],
-      "key_risks": [
-        {
-          "factor_id": "planting_window",
-          "score": 0.0,
-          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable."
-        },
-        {
-          "factor_id": "forecast_water_balance",
-          "score": 10.0,
-          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit."
-        },
-        {
-          "factor_id": "soil_texture",
-          "score": 50.0,
-          "reason": "Mapped SSURGO surface texture is compared with catalog preferences."
-        }
-      ],
-      "warnings": [
-        "Sesame heat threshold is informational only and does not reduce suitability."
-      ],
-      "rank": 21
-    },
-    {
-      "crop_id": "grain_oats",
-      "crop_name": "Grain oats",
-      "status": "scored",
-      "suitability_score": 51.27,
-      "recommendation": "not_recommended",
-      "confidence_score": 69.08,
-      "confidence_band": "medium",
-      "evidence_coverage_percent": 100.0,
-      "applied_caps": [],
-      "factors": [
-        {
-          "factor_id": "nasa_seasonal_temperature",
-          "category": "thermal_heat",
-          "weight_percent": 8.0,
-          "available": true,
-          "score": 20.0,
-          "evidence_confidence": 0.765,
-          "weighted_points": 1.6,
-          "scoring_use": "scored",
-          "reason": "NASA monthly historical temperature is compared with the crop optimum.",
-          "evidence": {
-            "sources": [
-              "nasa_power",
-              "crop_catalog"
-            ],
-            "values": {
-              "month": "Aug",
-              "temperature_c": 28.016129,
-              "distance_from_optimum_c": 6.916128999999998,
-              "optimal_range_c": {
-                "min": 20.0,
-                "max": 21.1
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_temperature_fit",
-          "category": "thermal_heat",
-          "weight_percent": 7.0,
-          "available": true,
-          "score": 20.0,
-          "evidence_confidence": 0.765,
-          "weighted_points": 1.4,
-          "scoring_use": "scored",
-          "reason": "Farm-scale one-week mean temperature is compared with the crop optimum.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "mean_temperature_c": 29.914445588235292,
-              "optimal_range_c": {
-                "min": 20.0,
-                "max": 21.1
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_threshold_exceedance",
-          "category": "thermal_heat",
-          "weight_percent": 12.0,
-          "available": true,
-          "score": 10.0,
-          "evidence_confidence": 0.612,
-          "weighted_points": 1.2,
-          "scoring_use": "scored",
-          "reason": "Percentage of hours above the crop's scoreable heat threshold.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "threshold_c": 27.8,
-              "exceedance_hours": 78.0,
-              "exceedance_fraction": 0.4642857142857143
-            }
-          }
-        },
-        {
-          "factor_id": "fortyguard_heat_persistence",
-          "category": "thermal_heat",
-          "weight_percent": 5.0,
-          "available": true,
-          "score": 40.0,
-          "evidence_confidence": 0.612,
-          "weighted_points": 2.0,
-          "scoring_use": "scored",
-          "reason": "Longest continuous exposure above the scoreable crop heat threshold.",
-          "evidence": {
-            "sources": [
-              "fortyguard",
-              "crop_catalog"
-            ],
-            "values": {
-              "window": "one_week",
-              "persistence_hours": 8.0
-            }
-          }
-        },
-        {
-          "factor_id": "open_meteo_heat_frost",
-          "category": "thermal_heat",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 55.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 1.65,
-          "scoring_use": "scored",
-          "reason": "Short-range heat and frost forecast for planting readiness.",
-          "evidence": {
-            "sources": [
-              "open_meteo",
-              "crop_catalog"
-            ],
-            "values": {
-              "forecast_max_temperature_c": 37.9,
-              "frost_risk_days": 0.0,
-              "heat_threshold_c": 27.8
-            }
-          }
-        },
-        {
-          "factor_id": "soil_texture",
-          "category": "soil",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 6.0,
-          "scoring_use": "scored",
-          "reason": "Mapped SSURGO surface texture is compared with catalog preferences.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "texture": "clay loam",
-              "preferred_textures": [
-                "loam",
-                "clay loam",
-                "silt loam",
-                "sandy loam"
-              ]
-            }
-          }
-        },
-        {
-          "factor_id": "soil_ph",
-          "category": "soil",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 45.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 2.7,
-          "scoring_use": "scored",
-          "reason": "Mapped SSURGO pH is compared with the catalog tolerable range.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "ph": 7.7,
-              "distance_from_range": 0.7000000000000002,
-              "tolerable_range": {
-                "min": 5.5,
-                "max": 7.0
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "soil_drainage",
-          "category": "soil",
-          "weight_percent": 5.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 5.0,
-          "scoring_use": "scored",
-          "reason": "Mapped drainage class is compared with the crop requirement.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "mapped_drainage": "Well drained",
-              "requirement": "well_drained",
-              "fit": "compatible"
-            }
-          }
-        },
-        {
-          "factor_id": "soil_root_zone",
-          "category": "soil",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.6375,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Usable mapped soil depth is compared with the minimum crop root-zone requirement.",
-          "evidence": {
-            "sources": [
-              "ssurgo",
-              "crop_catalog"
-            ],
-            "values": {
-              "usable_root_zone_cm": "100-150",
-              "required_root_zone_cm": {
-                "min": 100,
-                "max": 150
-              }
-            }
-          }
-        },
-        {
-          "factor_id": "soil_water_storage",
-          "category": "soil",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.75,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Mapped available-water storage is capacity context, not current water supply.",
-          "evidence": {
-            "sources": [
-              "ssurgo"
-            ],
-            "values": {
-              "accessible_storage_range_mm": "186.8-266.4",
-              "representative_storage_mm": 226.6
-            }
-          }
-        },
-        {
-          "factor_id": "recent_rainfall",
-          "category": "water",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 15.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 0.45,
-          "scoring_use": "scored",
-          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand.",
-          "evidence": {
-            "sources": [
-              "open_meteo",
-              "crop_catalog"
-            ],
-            "values": {
-              "recent_rainfall_mm": 0.5,
-              "approximate_weekly_demand_mm": 18.333333333333332
-            }
-          }
-        },
-        {
-          "factor_id": "forecast_water_balance",
-          "category": "water",
-          "weight_percent": 6.0,
-          "available": true,
-          "score": 10.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 0.6,
-          "scoring_use": "scored",
-          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit.",
-          "evidence": {
-            "sources": [
-              "open_meteo"
-            ],
-            "values": {
-              "rain_minus_et0_mm": -60.16
-            }
-          }
-        },
-        {
-          "factor_id": "current_soil_moisture",
-          "category": "water",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 80.0,
-          "evidence_confidence": 0.85,
-          "weighted_points": 3.2,
-          "scoring_use": "scored",
-          "reason": "Modeled root-profile soil moisture is used as a current screening signal.",
-          "evidence": {
-            "sources": [
-              "open_meteo"
-            ],
-            "values": {
-              "volumetric_soil_moisture_m3_m3": 0.1844567901234568
-            }
-          }
-        },
-        {
-          "factor_id": "crop_water_resilience",
-          "category": "water",
-          "weight_percent": 3.0,
-          "available": true,
-          "score": 70.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 2.1,
-          "scoring_use": "scored",
-          "reason": "Catalog water demand and drought tolerance are combined without using missing weather as a zero.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "water_demand_class": "moderate",
-              "drought_tolerance": "moderate"
-            }
-          }
-        },
-        {
-          "factor_id": "irrigation_availability",
-          "category": "water",
-          "weight_percent": 4.0,
-          "available": true,
-          "score": 100.0,
-          "evidence_confidence": 0.68,
-          "weighted_points": 4.0,
-          "scoring_use": "scored",
-          "reason": "Farmer irrigation availability is compared with the catalog requirement.",
-          "evidence": {
-            "sources": [
-              "farmer_report",
-              "crop_catalog"
-            ],
-            "values": {
-              "availability": "yes",
-              "reliability": "reliable",
-              "crop_requirement": "conditional"
-            }
-          }
-        },
-        {
-          "factor_id": "texas_regional_suitability",
-          "category": "location_season",
-          "weight_percent": 7.5,
-          "available": true,
-          "score": 85.0,
-          "evidence_confidence": 0.7225,
-          "weighted_points": 6.375,
-          "scoring_use": "scored",
-          "reason": "Cool-season grain production is feasible with winter-hardy cultivars.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "region_id": "plains",
-              "rating": "suitable"
-            }
-          }
-        },
-        {
-          "factor_id": "planting_window",
-          "category": "location_season",
-          "weight_percent": 12.5,
-          "available": true,
-          "score": 40.0,
-          "evidence_confidence": 0.6141,
-          "weighted_points": 5.0,
-          "scoring_use": "scored",
-          "reason": "Requested month is compared with month-level regional planting windows; exact two-week scoring is unavailable.",
-          "evidence": {
-            "sources": [
-              "crop_catalog"
-            ],
-            "values": {
-              "requested_month": 8,
-              "regional_windows": [
-                "Sep-Oct"
-              ],
-              "month_distance": 1
-            }
-          }
-        },
-        {
-          "factor_id": "frost_free_season",
-          "category": "location_season",
-          "weight_percent": 0.0,
-          "available": false,
-          "score": null,
-          "evidence_confidence": 0.0,
-          "weighted_points": null,
-          "scoring_use": "inactive",
-          "reason": "Inactive limitation: frost-free-season evidence has not been added.",
-          "evidence": {
-            "sources": [],
-            "values": {}
-          }
-        }
-      ],
-      "key_strengths": [
-        {
-          "factor_id": "texas_regional_suitability",
-          "score": 85.0,
-          "reason": "Cool-season grain production is feasible with winter-hardy cultivars."
-        },
-        {
-          "factor_id": "soil_texture",
-          "score": 100.0,
-          "reason": "Mapped SSURGO surface texture is compared with catalog preferences."
-        },
-        {
-          "factor_id": "soil_drainage",
-          "score": 100.0,
-          "reason": "Mapped drainage class is compared with the crop requirement."
-        }
-      ],
-      "key_risks": [
-        {
-          "factor_id": "fortyguard_threshold_exceedance",
-          "score": 10.0,
-          "reason": "Percentage of hours above the crop's scoreable heat threshold."
-        },
-        {
-          "factor_id": "forecast_water_balance",
-          "score": 10.0,
-          "reason": "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit."
-        },
-        {
-          "factor_id": "recent_rainfall",
-          "score": 15.0,
-          "reason": "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand."
-        }
-      ],
-      "warnings": [],
-      "rank": 22
+      "overall_rank": 22,
+      "eligible_rank": null
     }
   ],
   "limitations": [
