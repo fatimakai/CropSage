@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "scoring_version": "1.0.0-provisional",
+  "status": "provisional",
+  "active_heat_window": "one_week",
+  "weights_percent": {
+    "nasa_seasonal_temperature": 8.0,
+    "fortyguard_temperature_fit": 7.0,
+    "fortyguard_threshold_exceedance": 12.0,
+    "fortyguard_heat_persistence": 5.0,
+    "open_meteo_heat_frost": 3.0,
+    "soil_texture": 6.0,
+    "soil_ph": 6.0,
+    "soil_drainage": 5.0,
+    "soil_root_zone": 4.0,
+    "soil_water_storage": 4.0,
+    "recent_rainfall": 3.0,
+    "forecast_water_balance": 6.0,
+    "current_soil_moisture": 4.0,
+    "crop_water_resilience": 3.0,
+    "irrigation_availability": 4.0,
+    "texas_regional_suitability": 7.5,
+    "planting_window": 12.5,
+    "frost_free_season": 0.0
+  },
+  "temperature_distance_tiers": [
+    { "max_distance_c": 0.0, "score": 100.0 },
+    { "max_distance_c": 2.0, "score": 80.0 },
+    { "max_distance_c": 5.0, "score": 50.0 },
+    { "max_distance_c": 10.0, "score": 20.0 },
+    { "max_distance_c": null, "score": 0.0 }
+  ],
+  "heat_exceedance_fraction_tiers": [
+    { "max_fraction": 0.0, "score": 100.0 },
+    { "max_fraction": 0.01, "score": 90.0 },
+    { "max_fraction": 0.05, "score": 70.0 },
+    { "max_fraction": 0.15, "score": 40.0 },
+    { "max_fraction": null, "score": 10.0 }
+  ],
+  "persistence_hour_tiers": [
+    { "max_hours": 0.0, "score": 100.0 },
+    { "max_hours": 2.0, "score": 90.0 },
+    { "max_hours": 6.0, "score": 70.0 },
+    { "max_hours": 12.0, "score": 40.0 },
+    { "max_hours": null, "score": 10.0 }
+  ],
+  "mapping_scores": {
+    "region": { "primary": 100.0, "suitable": 85.0, "conditional": 55.0, "limited": 25.0, "not_supported": 0.0 },
+    "texture": { "preferred": 100.0, "compatible": 70.0, "not listed": 50.0, "unknown": 50.0, "poorly_compatible": 25.0, "incompatible": 0.0 },
+    "drainage": { "compatible": 100.0, "conditional": 60.0, "unknown": 50.0, "incompatible": 0.0 },
+    "water_demand": { "low": 100.0, "moderate": 75.0, "high": 45.0, "very_high": 25.0, "not_available": 50.0 },
+    "drought_tolerance": { "very_high": 100.0, "high": 90.0, "moderate": 65.0, "low": 35.0, "very_low": 15.0, "not_available": 50.0 },
+    "catalog_confidence": { "high": 1.0, "medium": 0.85, "low": 0.7 },
+    "evidence_status_confidence": { "direct": 1.0, "generalized": 0.85, "regional_transfer": 0.8, "not_numerically_established": 0.0, "not_available": 0.0 }
+  },
+  "source_reliability": {
+    "fortyguard": 0.9,
+    "nasa_power": 0.9,
+    "open_meteo": 0.85,
+    "ssurgo": 0.75,
+    "crop_catalog": 0.85,
+    "farmer_report": 0.8,
+    "farmer_measurement": 0.95,
+    "laboratory_measurement": 1.0
+  },
+  "recommendation_bands": [
+    { "minimum": 75.0, "label": "recommended" },
+    { "minimum": 55.0, "label": "conditional" },
+    { "minimum": 0.0, "label": "not_recommended" }
+  ],
+  "confidence_bands": [
+    { "minimum": 85.0, "label": "high" },
+    { "minimum": 65.0, "label": "medium" },
+    { "minimum": 0.0, "label": "low" }
+  ],
+  "hard_caps": {
+    "unsupported_region": 54.0,
+    "far_outside_planting_window": 54.0,
+    "required_irrigation_unavailable": 54.0,
+    "severe_drainage_incompatibility": 54.0
+  },
+  "limitations": [
+    "Frost-free-season evidence is not yet available, so its weight is zero and it does not affect suitability.",
+    "Planting windows are month-level catalog guidance; the engine cannot apply an exact two-week boundary without day-level windows.",
+    "FortyGuard one-week heat evidence is used only when the requested planting period overlaps that evidence month.",
+    "Version-one weights and thresholds are transparent provisional rules, not statistically optimized agronomic coefficients."
+  ]
+}

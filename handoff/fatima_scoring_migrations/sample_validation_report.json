@@ -1,0 +1,78 @@
+﻿{
+    "report_version":  "1.0.0",
+    "sample":  "plainview",
+    "evidence_bundle_id":  "plainview_demo_evidence",
+    "profile_id":  "plainview_aug_2026_demo",
+    "scoring_version":  "1.0.0-provisional",
+    "status":  "validated",
+    "evidence_bundle_validation":  {
+                                       "all_passed":  true,
+                                       "coordinate_tolerance_degrees":  1E-06,
+                                       "invalid_numeric_value_count":  0,
+                                       "checks":  [
+                                                      {
+                                                          "name":  "schema_loaded",
+                                                          "passed":  true,
+                                                          "details":  "Draft 2020-12 schema is present."
+                                                      },
+                                                      {
+                                                          "name":  "provider_coordinate_alignment",
+                                                          "passed":  true,
+                                                          "details":  "All four providers match 34.18, -101.76 within 1e-06 degrees."
+                                                      },
+                                                      {
+                                                          "name":  "source_freshness",
+                                                          "passed":  true,
+                                                          "details":  "All provider artifacts satisfy source-specific freshness limits."
+                                                      },
+                                                      {
+                                                          "name":  "catalog_crop_count",
+                                                          "passed":  true,
+                                                          "details":  "Catalog contains 22 unique crop IDs."
+                                                      },
+                                                      {
+                                                          "name":  "fortyguard_crop_coverage",
+                                                          "passed":  true,
+                                                          "details":  "All 4 heat window(s) contain 22 crop results."
+                                                      },
+                                                      {
+                                                          "name":  "ssurgo_crop_coverage",
+                                                          "passed":  true,
+                                                          "details":  "SSURGO comparison contains 22 crops."
+                                                      },
+                                                      {
+                                                          "name":  "required_provider_fields",
+                                                          "passed":  true,
+                                                          "details":  "NASA parameters and SSURGO normalized summary fields are complete."
+                                                      },
+                                                      {
+                                                          "name":  "provider_null_checks",
+                                                          "passed":  true,
+                                                          "details":  "FortyGuard tiles and Open-Meteo current fields have no reported nulls."
+                                                      },
+                                                      {
+                                                          "name":  "finite_numbers",
+                                                          "passed":  true,
+                                                          "details":  "No NaN or infinite numeric values are present."
+                                                      },
+                                                      {
+                                                          "name":  "normalized_units",
+                                                          "passed":  true,
+                                                          "details":  "Temperatures, water, radiation, depth, humidity, wind and heat duration use bundle units."
+                                                      }
+                                                  ]
+                                   },
+    "engine_output_validation":  {
+                                     "schema":  "schemas/recommendation.schema.json",
+                                     "passed":  true,
+                                     "ranking_count":  22,
+                                     "unique_crop_count":  22,
+                                     "expected_crop_count":  22,
+                                     "rank_sequence_valid":  false,
+                                     "invalid_numeric_value_count":  0
+                                 },
+    "notes":  [
+                  "The saved recommendation output is validated by the automated test suite against the recommendation schema.",
+                  "This report is a database handoff sample, not an agronomic approval."
+              ]
+}
