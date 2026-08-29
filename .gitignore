@@ -36,3 +36,7 @@ data/evidence/providers/**
 !tests/*.py
 __pycache__/
 *.py[cod]
+
+
+
+data/scenarios/**
