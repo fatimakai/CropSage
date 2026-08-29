@@ -1,0 +1,353 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cropsage.local/schemas/evidence_bundle.schema.json",
+  "title": "CropSage location EvidenceBundle",
+  "description": "Normalized, provenance-preserving evidence supplied to CropSage scoring and agent explanation layers.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "generated_at",
+    "status",
+    "location",
+    "catalog",
+    "provenance",
+    "units",
+    "location_evidence",
+    "crop_evidence",
+    "validation"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.1.0" },
+    "bundle_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{2,99}_evidence$" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "status": { "const": "validated" },
+    "location": { "$ref": "#/$defs/location" },
+    "catalog": { "$ref": "#/$defs/catalog" },
+    "provenance": { "$ref": "#/$defs/provenance" },
+    "units": { "$ref": "#/$defs/units" },
+    "location_evidence": { "$ref": "#/$defs/locationEvidence" },
+    "crop_evidence": {
+      "type": "array",
+      "minItems": 22,
+      "maxItems": 22,
+      "items": { "$ref": "#/$defs/cropEvidence" }
+    },
+    "validation": { "$ref": "#/$defs/validation" }
+  },
+  "$defs": {
+    "nullableNumber": { "type": ["number", "null"] },
+    "numberRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "max"],
+      "properties": {
+        "min": { "$ref": "#/$defs/nullableNumber" },
+        "max": { "$ref": "#/$defs/nullableNumber" }
+      }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["farm_id", "farm_name", "latitude", "longitude", "texas_region_id", "timezone"],
+      "properties": {
+        "farm_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{2,79}$" },
+        "farm_name": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "latitude": { "type": "number", "minimum": 25.8, "maximum": 36.5 },
+        "longitude": { "type": "number", "minimum": -106.65, "maximum": -93.5 },
+        "texas_region_id": { "enum": ["plains", "eastern", "central_south_winter_garden", "lower_rio_grande_valley", "far_west"] },
+        "timezone": { "enum": ["America/Chicago", "America/Denver"] }
+      }
+    },
+    "catalog": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "crop_count", "crop_ids", "source_path"],
+      "properties": {
+        "version": { "type": "string", "minLength": 1 },
+        "crop_count": { "const": 22 },
+        "crop_ids": {
+          "type": "array",
+          "minItems": 22,
+          "maxItems": 22,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "source_path": { "const": "data/crop-catalog/catalog.json" }
+      }
+    },
+    "freshness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["basis", "age_hours", "max_age_hours", "status", "passed"],
+      "properties": {
+        "basis": { "const": "artifact_generated_at" },
+        "age_hours": { "type": "number", "minimum": 0 },
+        "max_age_hours": { "type": "number", "exclusiveMinimum": 0 },
+        "status": { "const": "fresh" },
+        "passed": { "const": true }
+      }
+    },
+    "sourceProvenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "source_path", "generated_at", "evidence_role", "location_match", "freshness"],
+      "properties": {
+        "provider": { "type": "string", "minLength": 1 },
+        "source_path": { "type": "string", "minLength": 1 },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "evidence_role": { "type": "string", "minLength": 1 },
+        "location_match": { "const": true },
+        "freshness": { "$ref": "#/$defs/freshness" },
+        "source_data_vintage": { "type": ["string", "null"] }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fortyguard", "nasa_power", "open_meteo", "ssurgo"],
+      "properties": {
+        "fortyguard": { "$ref": "#/$defs/sourceProvenance" },
+        "nasa_power": { "$ref": "#/$defs/sourceProvenance" },
+        "open_meteo": { "$ref": "#/$defs/sourceProvenance" },
+        "ssurgo": { "$ref": "#/$defs/sourceProvenance" }
+      }
+    },
+    "units": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "air_temperature",
+        "precipitation",
+        "relative_humidity",
+        "wind_speed",
+        "solar_radiation",
+        "photosynthetically_active_radiation",
+        "soil_temperature",
+        "volumetric_soil_moisture",
+        "available_water_storage",
+        "depth",
+        "heat_exposure",
+        "ph"
+      ],
+      "properties": {
+        "air_temperature": { "const": "degC" },
+        "precipitation": { "const": "mm" },
+        "relative_humidity": { "const": "percent" },
+        "wind_speed": { "const": "m/s" },
+        "solar_radiation": { "const": "MJ/m^2/day" },
+        "photosynthetically_active_radiation": { "const": "MJ/m^2/day" },
+        "soil_temperature": { "const": "degC" },
+        "volumetric_soil_moisture": { "const": "m^3/m^3" },
+        "available_water_storage": { "const": "mm" },
+        "depth": { "const": "cm" },
+        "heat_exposure": { "const": "hour" },
+        "ph": { "const": "dimensionless" }
+      }
+    },
+    "heatWindow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "window_name", "window_days", "start_date", "end_date", "tile_count",
+        "mean_temperature_c", "minimum_temperature_c", "maximum_temperature_c",
+        "peak_hour_raw", "peak_hour_timezone_status"
+      ],
+      "properties": {
+        "window_name": { "type": "string" },
+        "window_days": { "type": "integer", "minimum": 1 },
+        "start_date": { "type": "string", "format": "date" },
+        "end_date": { "type": "string", "format": "date" },
+        "tile_count": { "type": "integer", "minimum": 1 },
+        "mean_temperature_c": { "type": "number" },
+        "minimum_temperature_c": { "type": "number" },
+        "maximum_temperature_c": { "type": "number" },
+        "peak_hour_raw": { "$ref": "#/$defs/nullableNumber" },
+        "peak_hour_timezone_status": { "type": "string" }
+      }
+    },
+    "fortyGuardHeat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["granularity_m", "tile_count_per_response", "total_validated_responses", "total_null_values", "windows", "interpretation_warning"],
+      "properties": {
+        "granularity_m": { "type": "integer", "minimum": 1 },
+        "tile_count_per_response": { "type": "integer", "minimum": 1 },
+        "total_validated_responses": { "type": "integer", "minimum": 1 },
+        "total_null_values": { "const": 0 },
+        "windows": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/heatWindow" }
+        },
+        "interpretation_warning": { "type": "string", "minLength": 1 }
+      }
+    },
+    "nasaClimate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["history_start_date", "history_end_date", "climatology_period", "annual_summary", "monthly_summary", "interpretation_warning"],
+      "properties": {
+        "history_start_date": { "type": "string", "format": "date" },
+        "history_end_date": { "type": "string", "format": "date" },
+        "climatology_period": { "type": "string" },
+        "annual_summary": { "type": "object", "minProperties": 12 },
+        "monthly_summary": { "type": "array", "minItems": 12, "maxItems": 12, "items": { "type": "object" } },
+        "interpretation_warning": { "type": "string", "minLength": 1 }
+      }
+    },
+    "openMeteoWeather": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_time", "current", "recent_complete_days", "forecast_daily", "operational_summary", "interpretation_warnings"],
+      "properties": {
+        "model_time": { "type": "string" },
+        "current": { "type": "object", "minProperties": 3 },
+        "recent_complete_days": { "type": "array", "minItems": 7, "items": { "type": "object" } },
+        "forecast_daily": { "type": "array", "minItems": 7, "items": { "type": "object" } },
+        "operational_summary": { "type": "object", "minProperties": 8 },
+        "interpretation_warnings": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    },
+    "ssurgoSoil": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["map_unit", "farmland_classification", "surface_texture", "surface_fractions_percent", "mapped_ph_0_30cm", "drainage_class", "hydric_rating", "soil_root_limit_cm", "available_water_storage_mm", "horizons", "interpretation_warnings"],
+      "properties": {
+        "map_unit": { "type": "string", "minLength": 1 },
+        "farmland_classification": { "type": "string", "minLength": 1 },
+        "surface_texture": { "type": "string", "minLength": 1 },
+        "surface_fractions_percent": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["sand", "silt", "clay"],
+          "properties": { "sand": { "type": "number" }, "silt": { "type": "number" }, "clay": { "type": "number" } }
+        },
+        "mapped_ph_0_30cm": { "type": "number", "minimum": 0, "maximum": 14 },
+        "drainage_class": { "type": "string", "minLength": 1 },
+        "hydric_rating": { "type": "string", "minLength": 1 },
+        "soil_root_limit_cm": { "type": "number", "exclusiveMinimum": 0 },
+        "soil_root_limit_basis": { "type": "string", "minLength": 1 },
+        "available_water_storage_mm": { "type": "number", "minimum": 0 },
+        "available_water_coverage_cm": { "type": "number", "exclusiveMinimum": 0 },
+        "horizons": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+        "interpretation_warnings": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    },
+    "locationEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fortyguard_heat", "nasa_power_climate", "open_meteo_weather", "ssurgo_soil"],
+      "properties": {
+        "fortyguard_heat": { "$ref": "#/$defs/fortyGuardHeat" },
+        "nasa_power_climate": { "$ref": "#/$defs/nasaClimate" },
+        "open_meteo_weather": { "$ref": "#/$defs/openMeteoWeather" },
+        "ssurgo_soil": { "$ref": "#/$defs/ssurgoSoil" }
+      }
+    },
+    "cropHeatWindow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["window_name", "window_days", "temperature_fit", "distance_from_optimum_c", "heat_threshold_c", "threshold_scoring_use", "exceedance_hours", "persistence_hours", "exceedance_fraction_of_window", "heat_action"],
+      "properties": {
+        "window_name": { "type": "string" },
+        "window_days": { "type": "integer", "minimum": 1 },
+        "temperature_fit": { "type": "string" },
+        "distance_from_optimum_c": { "$ref": "#/$defs/nullableNumber" },
+        "heat_threshold_c": { "$ref": "#/$defs/nullableNumber" },
+        "threshold_scoring_use": { "type": "string" },
+        "exceedance_hours": { "$ref": "#/$defs/nullableNumber" },
+        "persistence_hours": { "$ref": "#/$defs/nullableNumber" },
+        "exceedance_fraction_of_window": { "$ref": "#/$defs/nullableNumber" },
+        "heat_action": { "type": "string" }
+      }
+    },
+    "cropProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["optimal_temperature_range_c", "heat_stress_threshold_c", "heat_threshold_scoring_use", "heat_threshold_evidence_status", "heat_threshold_basis", "temperature_measurement_basis", "heat_sensitive_stages", "preferred_soil_textures", "ph_tolerable_range", "effective_root_zone_depth_cm", "drainage_requirement", "water_demand_class", "seasonal_water_demand_mm", "drought_tolerance", "irrigation_requirement", "regional_suitability", "planting_windows", "planting_window_evidence_status", "planting_window_basis", "days_to_maturity", "frost_sensitivity", "confidence", "record_status"],
+      "properties": {
+        "optimal_temperature_range_c": { "$ref": "#/$defs/numberRange" },
+        "heat_stress_threshold_c": { "$ref": "#/$defs/nullableNumber" },
+        "heat_threshold_scoring_use": { "type": "string" },
+        "heat_threshold_evidence_status": { "type": "string" },
+        "heat_threshold_basis": { "type": "string" },
+        "temperature_measurement_basis": { "type": "string" },
+        "heat_sensitive_stages": { "type": "array", "items": { "type": "string" } },
+        "preferred_soil_textures": { "type": "array", "items": { "type": "string" } },
+        "ph_tolerable_range": { "$ref": "#/$defs/numberRange" },
+        "effective_root_zone_depth_cm": { "$ref": "#/$defs/numberRange" },
+        "drainage_requirement": { "type": "string" },
+        "water_demand_class": { "type": "string" },
+        "seasonal_water_demand_mm": { "$ref": "#/$defs/numberRange" },
+        "drought_tolerance": { "type": "string" },
+        "irrigation_requirement": { "type": "string" },
+        "regional_suitability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["region_id", "rating", "basis"],
+          "properties": {
+            "region_id": { "type": "string" },
+            "rating": { "type": "string" },
+            "basis": { "type": "string" }
+          }
+        },
+        "planting_windows": { "type": "array", "items": { "type": "string" } },
+        "planting_window_evidence_status": { "type": "string" },
+        "planting_window_basis": { "type": "string" },
+        "days_to_maturity": { "$ref": "#/$defs/numberRange" },
+        "frost_sensitivity": { "type": "string" },
+        "confidence": { "type": "string" },
+        "record_status": { "type": "string" }
+      }
+    },
+    "soilFit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["texture_fit", "ph_fit", "drainage_fit", "usable_root_zone_cm", "accessible_water_storage_mm", "water_use_rule"],
+      "properties": {
+        "texture_fit": { "type": "string" },
+        "ph_fit": { "type": "string" },
+        "drainage_fit": { "type": "string" },
+        "usable_root_zone_cm": { "type": "string" },
+        "accessible_water_storage_mm": { "type": "string" },
+        "water_use_rule": { "type": "string" }
+      }
+    },
+    "cropEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["crop_id", "crop_name", "regionally_eligible", "profile", "heat_windows", "soil_fit"],
+      "properties": {
+        "crop_id": { "type": "string", "minLength": 1 },
+        "crop_name": { "type": "string", "minLength": 1 },
+        "regionally_eligible": { "type": "boolean" },
+        "profile": { "$ref": "#/$defs/cropProfile" },
+        "heat_windows": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/cropHeatWindow" } },
+        "soil_fit": { "$ref": "#/$defs/soilFit" }
+      }
+    },
+    "validationCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "passed", "details"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "passed": { "const": true },
+        "details": { "type": "string", "minLength": 1 }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["all_passed", "coordinate_tolerance_degrees", "invalid_numeric_value_count", "checks"],
+      "properties": {
+        "all_passed": { "const": true },
+        "coordinate_tolerance_degrees": { "type": "number", "exclusiveMinimum": 0 },
+        "invalid_numeric_value_count": { "const": 0 },
+        "checks": { "type": "array", "minItems": 7, "items": { "$ref": "#/$defs/validationCheck" } }
+      }
+    }
+  }
+}

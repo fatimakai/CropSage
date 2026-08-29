@@ -1,0 +1,371 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cropsage.local/schemas/farm_profile.schema.json",
+  "title": "CropSage Farm Profile",
+  "description": "Farmer-provided inputs used alongside an EvidenceBundle. Only location and planting time are mandatory. Unknown optional values lower recommendation confidence and are never treated as matches.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "profile_id", "location", "planting"],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "profile_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]{2,79}$"
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "location": {
+      "$ref": "#/$defs/location"
+    },
+    "planting": {
+      "$ref": "#/$defs/planting"
+    },
+    "requested_crop_id": {
+      "type": ["string", "null"],
+      "pattern": "^[a-z0-9][a-z0-9_]*$",
+      "description": "Null means rank all catalog crops. A value requests an assessment of one catalog crop while alternatives may still be returned."
+    },
+    "irrigation": {
+      "$ref": "#/$defs/irrigation"
+    },
+    "soil_overrides": {
+      "$ref": "#/$defs/soilOverrides"
+    },
+    "current_soil_moisture": {
+      "$ref": "#/$defs/soilMoisture"
+    },
+    "recent_rainfall": {
+      "$ref": "#/$defs/recentRainfall"
+    },
+    "farm_boundary": {
+      "$ref": "#/$defs/farmBoundary"
+    },
+    "farmer_goal": {
+      "$ref": "#/$defs/farmerGoal"
+    }
+  },
+  "$defs": {
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["latitude", "longitude"],
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "longitude": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        },
+        "farm_name": {
+          "type": ["string", "null"],
+          "maxLength": 120
+        },
+        "location_label": {
+          "type": ["string", "null"],
+          "maxLength": 200,
+          "description": "Farmer-readable address or place label. Coordinates remain authoritative."
+        },
+        "source": {
+          "type": "string",
+          "enum": ["map_pin", "gps", "address_geocoding", "demo_farm", "manual_coordinates"]
+        }
+      }
+    },
+    "planting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "planned_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "planned_month": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$"
+        },
+        "flexibility_days": {
+          "type": ["integer", "null"],
+          "minimum": 0,
+          "maximum": 120
+        }
+      },
+      "oneOf": [
+        {
+          "required": ["planned_date"],
+          "not": { "required": ["planned_month"] }
+        },
+        {
+          "required": ["planned_month"],
+          "not": { "required": ["planned_date"] }
+        }
+      ]
+    },
+    "irrigation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["availability"],
+      "properties": {
+        "availability": {
+          "type": "string",
+          "enum": ["yes", "no", "unknown"]
+        },
+        "reliability": {
+          "type": "string",
+          "enum": ["reliable", "limited", "seasonal", "unreliable", "unknown", "not_applicable"],
+          "default": "unknown"
+        },
+        "method": {
+          "type": "string",
+          "enum": ["drip", "center_pivot", "sprinkler", "furrow", "flood", "subsurface", "other", "unknown"]
+        },
+        "water_source": {
+          "type": "string",
+          "enum": ["well", "canal", "pond", "municipal", "captured_rainwater", "multiple", "other", "unknown"]
+        },
+        "well_pumping_capacity_gpm": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "description": "Only collect when a well is relevant and the farmer knows the documented capacity."
+        },
+        "canal_allocation_or_capacity": {
+          "$ref": "#/$defs/waterCapacity"
+        },
+        "notes": {
+          "type": ["string", "null"],
+          "maxLength": 1000
+        }
+      }
+    },
+    "waterCapacity": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["value", "unit"],
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["gpm", "cfs", "liters_per_second", "cubic_meters_per_hour", "gallons_per_day", "acre_feet_per_year"]
+        },
+        "source": {
+          "type": "string",
+          "enum": ["farmer", "irrigation_district", "system_documentation", "unknown"]
+        }
+      }
+    },
+    "soilOverrides": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "known_texture": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "source"],
+          "properties": {
+            "value": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "source": {
+              "type": "string",
+              "enum": ["farmer", "soil_test_report"]
+            },
+            "observed_or_tested_at": {
+              "type": ["string", "null"],
+              "format": "date"
+            }
+          }
+        },
+        "laboratory_ph": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "tested_at"],
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 14
+            },
+            "tested_at": {
+              "type": "string",
+              "format": "date"
+            },
+            "laboratory_name": {
+              "type": ["string", "null"],
+              "maxLength": 200
+            },
+            "report_reference": {
+              "type": ["string", "null"],
+              "maxLength": 300
+            }
+          },
+          "description": "A valid laboratory pH overrides mapped SSURGO pH during scoring."
+        }
+      }
+    },
+    "soilMoisture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source"],
+      "properties": {
+        "qualitative": {
+          "type": "string",
+          "enum": ["very_dry", "dry", "adequate", "wet", "saturated", "unknown"]
+        },
+        "measurement": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "unit"],
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0
+            },
+            "unit": {
+              "type": "string",
+              "enum": ["m3_per_m3", "percent"]
+            },
+            "depth_cm": {
+              "type": ["number", "null"],
+              "minimum": 0
+            },
+            "measured_at": {
+              "type": ["string", "null"],
+              "format": "date-time"
+            }
+          }
+        },
+        "source": {
+          "type": "string",
+          "enum": ["farmer_observation", "sensor", "other", "unknown"]
+        },
+        "notes": {
+          "type": ["string", "null"],
+          "maxLength": 1000
+        }
+      },
+      "anyOf": [
+        { "required": ["qualitative"] },
+        { "required": ["measurement"] }
+      ]
+    },
+    "recentRainfall": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["amount_mm", "period_days", "source"],
+      "properties": {
+        "amount_mm": {
+          "type": "number",
+          "minimum": 0
+        },
+        "period_days": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 90
+        },
+        "period_end_date": {
+          "type": ["string", "null"],
+          "format": "date"
+        },
+        "source": {
+          "type": "string",
+          "enum": ["farmer", "farm_rain_gauge"]
+        }
+      }
+    },
+    "farmBoundary": {
+      "oneOf": [
+        { "$ref": "#/$defs/polygon" },
+        { "$ref": "#/$defs/multiPolygon" }
+      ]
+    },
+    "polygon": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "coordinates"],
+      "properties": {
+        "type": { "const": "Polygon" },
+        "coordinates": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/linearRing" }
+        }
+      }
+    },
+    "multiPolygon": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "coordinates"],
+      "properties": {
+        "type": { "const": "MultiPolygon" },
+        "coordinates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/linearRing" }
+          }
+        }
+      }
+    },
+    "linearRing": {
+      "type": "array",
+      "minItems": 4,
+      "items": { "$ref": "#/$defs/position" }
+    },
+    "position": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [
+        { "type": "number", "minimum": -180, "maximum": 180 },
+        { "type": "number", "minimum": -90, "maximum": 90 }
+      ],
+      "items": false
+    },
+    "farmerGoal": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "primary_goal": {
+          "type": "string",
+          "enum": ["maximize_yield", "reduce_water_use", "heat_resilience", "lower_input_cost", "market_crop", "household_use", "soil_health", "other"]
+        },
+        "preferred_crop_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_]*$"
+          }
+        },
+        "excluded_crop_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_]*$"
+          }
+        },
+        "notes": {
+          "type": ["string", "null"],
+          "maxLength": 1500
+        }
+      }
+    }
+  }
+}
