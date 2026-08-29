@@ -1,0 +1,1 @@
+-- Seed data is added with the owning migration group. Bootstrap has no rows.

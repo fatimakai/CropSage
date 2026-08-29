@@ -4,11 +4,14 @@ notebooks/
 FortyGuard APIs/
 tmp/
 scripts/*
+node_modules/
 
 data/fortyguard-cache/
 data/evidence/*
 
 tests/
+!supabase/tests/
+!supabase/tests/**
 test_gemini.py
 data/farm-profile/
 data/evidence/**
