@@ -15,6 +15,7 @@ import {
   Satellite,
   ShieldCheck,
 } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 import {
@@ -316,6 +317,7 @@ export function AnalysisProgress({ assessmentSessionId, mode }: AnalysisProgress
         <section className={`terminal-message terminal-${outcome}`} aria-live="polite">
           <Check size={21} aria-hidden="true" />
           <div><h2>Analysis complete</h2><p>{outcome === "fallback" ? "The assessment completed with approved fallback heat evidence. Source labels remain attached to the result." : "Evidence, scoring and validation completed successfully."}</p></div>
+          <Link className="button button-primary" href={`/assessments/${assessmentSessionId}/results`}>View results</Link>
         </section>
       ) : null}
 
@@ -333,7 +335,7 @@ export function AnalysisProgress({ assessmentSessionId, mode }: AnalysisProgress
           {events.map((event) => (
             <li key={event.sequenceNumber}>
               <span className={`activity-dot activity-${event.status}`} aria-hidden="true" />
-              <div><strong>{event.safeSummary}</strong><span>{new Date(event.occurredAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" })}{event.cacheState ? ` · ${event.cacheState}` : ""}</span></div>
+              <div><strong>{event.safeSummary}</strong><span>{new Date(event.occurredAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" })}{event.cacheState ? ` | ${event.cacheState}` : ""}</span></div>
             </li>
           ))}
         </ol>

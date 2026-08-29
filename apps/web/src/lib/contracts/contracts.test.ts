@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import correctedEngineOutput from "../../../../../handoff/fatima_scoring_migrations/sample_22_crop_engine_output.json";
+
 import {
   farmProfileDraftSchema,
   progressEventSchema,
@@ -59,30 +61,7 @@ describe("frontend contracts", () => {
   });
 
   it("requires all 22 corrected eligibility-aware ranking rows", () => {
-    const rankings = Array.from({ length: 22 }, (_, index) => ({
-      crop_id: `crop_${String(index + 1).padStart(2, "0")}`,
-      crop_name: `Crop ${index + 1}`,
-      status: "scored",
-      regionally_eligible: index < 21,
-      overall_rank: index + 1,
-      eligible_rank: index < 21 ? index + 1 : null,
-      suitability_score: index < 21 ? 90 - index : 54,
-      recommendation: index < 21 ? "recommended" : "not_recommended",
-      confidence_score: 80,
-      confidence_band: "high",
-      evidence_coverage_percent: 100,
-      factors: [],
-    }));
-
-    const result = recommendationOutputSchema.safeParse({
-      schema_version: "1.1.0",
-      scoring_version: "1.0.0-provisional",
-      status: "validated",
-      evaluation_mode: "planning",
-      profile_id: "plainview_demo",
-      evidence_bundle_id: "plainview_evidence",
-      rankings,
-    });
+    const result = recommendationOutputSchema.safeParse(correctedEngineOutput);
 
     expect(result.success).toBe(true);
   });
