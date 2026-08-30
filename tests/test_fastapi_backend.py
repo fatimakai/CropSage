@@ -110,6 +110,26 @@ class FastApiBackendTests(unittest.TestCase):
         self.assertEqual(len(result["recommendation"]["rankings"]), 22)
         self.assertEqual(result["recommendation"]["requested_crop_id"], "fresh_market_spinach")
 
+    def test_execution_package_contains_exact_persistence_contracts(self) -> None:
+        profile = load_json(HANDOFF / "sample_engine_input.json")
+        response = self.client.post(
+            "/v1/recommendations/execute",
+            json={"farm_profile": profile},
+        )
+        self.assertEqual(response.status_code, 200, response.text)
+        result = response.json()
+        self.assertEqual(result["status"], "validated")
+        self.assertEqual(result["evidence_bundle"]["schema_version"], "1.2.0")
+        self.assertEqual(result["scoring_config"]["status"], "frozen")
+        self.assertEqual(len(result["recommendation"]["rankings"]), 22)
+        self.assertTrue(result["validation_report"]["render_allowed"])
+        self.assertEqual(result["validation_report"]["errors"], [])
+        self.assertIn("source_coordinates", result["location_resolution"])
+        self.assertEqual(
+            result["farm_profile"]["location"]["latitude"],
+            result["evidence_bundle"]["location"]["latitude"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

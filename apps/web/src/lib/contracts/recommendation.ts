@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import { executionValidationReportSchema } from "@/lib/contracts/validation";
+
 export const recommendationClassSchema = z.enum([
   "recommended",
   "conditional",
@@ -144,8 +146,20 @@ export const scoringRequestSchema = z.object({
   scoring_config: z.record(z.string(), z.unknown()),
 });
 
+export const recommendationExecutionSchema = z.object({
+  service_version: z.string().min(1),
+  status: z.literal("validated"),
+  farm_profile: z.record(z.string(), z.unknown()),
+  evidence_bundle: z.record(z.string(), z.unknown()),
+  scoring_config: z.record(z.string(), z.unknown()),
+  location_resolution: z.record(z.string(), z.unknown()),
+  recommendation: recommendationOutputSchema,
+  validation_report: executionValidationReportSchema,
+});
+
 export type CropScoreResult = z.infer<typeof cropScoreResultSchema>;
 export type RecommendationOutput = z.infer<typeof recommendationOutputSchema>;
 export type ScoreExplanation = z.infer<typeof scoreExplanationSchema>;
 export type ScoreFactor = z.infer<typeof scoreFactorSchema>;
 export type ScoringRequest = z.infer<typeof scoringRequestSchema>;
+export type RecommendationExecution = z.infer<typeof recommendationExecutionSchema>;

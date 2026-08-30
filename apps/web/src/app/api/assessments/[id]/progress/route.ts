@@ -1,11 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { userOwnsAssessment } from "@/lib/assessments/access";
-import {
-  getMockProgressSnapshot,
-  normalizeProgressStart,
-  parseProgressMode,
-} from "@/lib/assessments/mock-progress";
+import { getAssessmentProgress } from "@/lib/assessments/runtime";
 
 export const dynamic = "force-dynamic";
 
@@ -29,11 +25,7 @@ export async function GET(request: Request, context: RouteContext) {
     );
   }
 
-  const url = new URL(request.url);
-  const now = Date.now();
-  const startedAt = normalizeProgressStart(url.searchParams.get("startedAt"), now);
-  const mode = parseProgressMode(url.searchParams.get("mode"));
-  const snapshot = getMockProgressSnapshot(id, startedAt, now, mode);
+  const snapshot = await getAssessmentProgress(id);
 
   return NextResponse.json(snapshot, {
     headers: { "cache-control": "no-store" },

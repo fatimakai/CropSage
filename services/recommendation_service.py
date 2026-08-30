@@ -11,6 +11,7 @@ import hashlib
 import json
 import math
 import re
+from copy import deepcopy
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -19,6 +20,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 from scoring.score_crops import load_json, score_crops, validate
+from scoring.validate_recommendations import validate_ranking_contract
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -303,6 +305,137 @@ def _profile_id(payload: dict[str, Any]) -> str:
     canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
     digest = hashlib.sha256(canonical.encode("utf-8")).hexdigest()[:16]
     return f"service_request_{digest}"
+
+
+def prepare_recommendation_inputs(farm_profile: dict[str, Any]) -> dict[str, Any]:
+    """Resolve an intake FarmProfile to the exact cached inputs used by scoring."""
+    validate(farm_profile, load_json(FARM_PROFILE_SCHEMA_PATH), "Farm profile")
+    farmer_location = farm_profile["location"]
+    farmer_latitude, farmer_longitude = _validate_farmer_location(
+        farmer_location["latitude"], farmer_location["longitude"]
+    )
+
+    site, evidence_path, distance_km = _resolve_cached_site(farmer_latitude, farmer_longitude)
+    evidence = load_json(evidence_path)
+    validate(evidence, load_json(EVIDENCE_SCHEMA_PATH), "Cached EvidenceBundle")
+    config = load_json(CONFIG_PATH)
+    if config.get("scoring_version") != REQUIRED_SCORING_VERSION:
+        raise RecommendationServiceError(
+            f"Recommendation service requires scoring engine {REQUIRED_SCORING_VERSION}; "
+            f"found {config.get('scoring_version')}"
+        )
+
+    requested_crop_id = farm_profile.get("requested_crop_id")
+    if requested_crop_id is not None and requested_crop_id not in set(evidence["catalog"]["crop_ids"]):
+        raise RecommendationServiceError(f"Unknown crop_id {requested_crop_id!r}")
+
+    resolved_profile = deepcopy(farm_profile)
+    resolution_identity = {
+        "source_profile_id": farm_profile["profile_id"],
+        "site_id": site["site_id"],
+        "evidence_bundle_id": evidence["bundle_id"],
+    }
+    resolved_profile["profile_id"] = _profile_id(resolution_identity)
+    resolved_profile.pop("farm_boundary", None)
+    evidence_location = evidence["location"]
+    resolved_profile["location"] = {
+        "latitude": float(evidence_location["latitude"]),
+        "longitude": float(evidence_location["longitude"]),
+        "farm_name": evidence_location["farm_name"],
+        "location_label": site["nearby_agricultural_center"],
+        "source": "demo_farm",
+    }
+    validate(resolved_profile, load_json(FARM_PROFILE_SCHEMA_PATH), "Resolved scoring profile")
+
+    rounded_distance = round(distance_km, 2)
+    quality = _proxy_quality(distance_km)
+    limitations = [
+        "Texas membership currently uses a coarse coordinate envelope, not an official state-boundary polygon.",
+        "Provider evidence comes from the nearest cached representative site, not the farmer's exact parcel.",
+        "Use live location-specific provider collection before treating the result as field-specific advice.",
+    ]
+    if quality == "distant_proxy":
+        limitations.append(
+            "The nearest cached site is more than 150 km away; treat this result as exploratory only."
+        )
+
+    return {
+        "farm_profile": resolved_profile,
+        "evidence_bundle": evidence,
+        "scoring_config": config,
+        "location_resolution": {
+            "method": "nearest_cached_representative_site",
+            "source_profile_id": farm_profile["profile_id"],
+            "source_coordinates": {
+                "latitude": farmer_latitude,
+                "longitude": farmer_longitude,
+            },
+            "site_id": site["site_id"],
+            "site_name": site["name"],
+            "parent_catalog_region_id": site["parent_region_id"],
+            "evidence_region_id": evidence_location["texas_region_id"],
+            "timezone": site["timezone"],
+            "distance_km": rounded_distance,
+            "proxy_quality": quality,
+            "exact_cached_location_match": distance_km <= 0.01,
+            "coordinate_verification_status": site["coordinate_verification"]["status"],
+            "evidence_coordinates": {
+                "latitude": float(evidence_location["latitude"]),
+                "longitude": float(evidence_location["longitude"]),
+            },
+            "limitations": limitations,
+        },
+    }
+
+
+def execute_recommendation(farm_profile: dict[str, Any]) -> dict[str, Any]:
+    """Prepare, score, and validate one persistence-ready recommendation run."""
+    prepared = prepare_recommendation_inputs(farm_profile)
+    recommendation = score_crops(
+        prepared["evidence_bundle"], prepared["farm_profile"], prepared["scoring_config"]
+    )
+    validate(recommendation, load_json(RECOMMENDATION_SCHEMA_PATH), "Recommendation output")
+    engine_checks = validate_ranking_contract(recommendation)
+    evidence_validation = prepared["evidence_bundle"]["validation"]
+    errors: list[str] = []
+    if evidence_validation.get("all_passed") is not True:
+        errors.append("The EvidenceBundle did not pass required validation checks.")
+    if engine_checks.get("eligibility_ranking_policy_passed") is not True:
+        errors.append("The recommendation output failed deterministic ranking validation.")
+
+    validation_report = {
+        "report_version": "1.0.0",
+        "report_schema_version": "1.0.0",
+        "validator_version": "cropsage-ranking-validator-1.0.0",
+        "status": "passed" if not errors else "rejected",
+        "render_allowed": not errors,
+        "profile_id": recommendation["profile_id"],
+        "evidence_bundle_id": recommendation["evidence_bundle_id"],
+        "scoring_version": recommendation["scoring_version"],
+        "evidence_bundle_validation": evidence_validation,
+        "engine_output_validation": engine_checks,
+        "checks": [
+            {
+                "name": "evidence_bundle_valid",
+                "passed": evidence_validation.get("all_passed") is True,
+                "details": "The cached EvidenceBundle passed its finalized validation contract.",
+            },
+            {
+                "name": "deterministic_ranking_valid",
+                "passed": engine_checks.get("eligibility_ranking_policy_passed") is True,
+                "details": "All 22 crop ranks, eligibility gates, and score caps were checked.",
+            },
+        ],
+        "errors": errors,
+        "warnings": prepared["location_resolution"]["limitations"],
+    }
+    return {
+        "service_version": SERVICE_VERSION,
+        "status": "validated" if not errors else "rejected",
+        **prepared,
+        "recommendation": recommendation,
+        "validation_report": validation_report,
+    }
 
 
 def recommend_crops(

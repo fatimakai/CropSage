@@ -26,6 +26,7 @@ from agent.cropsage_agent import CropSageAgent
 from scoring.score_crops import load_json, score_crops, validate
 from services.recommendation_service import (
     RecommendationServiceError,
+    execute_recommendation,
     get_planting_guidance,
     recommend_crops,
 )
@@ -58,6 +59,10 @@ class ScoreRequest(StrictModel):
     farm_profile: dict[str, Any]
     evidence_bundle: dict[str, Any]
     scoring_config: dict[str, Any]
+
+
+class ExecuteRecommendationRequest(StrictModel):
+    farm_profile: dict[str, Any]
 
 
 class RecommendationRequest(StrictModel):
@@ -228,6 +233,18 @@ async def score_recommendations(payload: ScoreRequest) -> dict[str, Any]:
         raise HTTPException(
             status_code=422,
             detail="The scoring inputs failed finalized contract validation",
+        ) from None
+
+
+@app.post("/v1/recommendations/execute")
+async def execute_recommendation_run(payload: ExecuteRecommendationRequest) -> dict[str, Any]:
+    try:
+        return await asyncio.to_thread(execute_recommendation, payload.farm_profile)
+    except (RecommendationServiceError, ValueError, JsonSchemaValidationError) as exc:
+        LOGGER.info("recommendation_execution_rejected exception_type=%s", type(exc).__name__)
+        raise HTTPException(
+            status_code=422,
+            detail="The farm profile could not be prepared for deterministic scoring",
         ) from None
 
 

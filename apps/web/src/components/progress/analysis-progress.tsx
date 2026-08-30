@@ -21,13 +21,11 @@ import { useEffect, useMemo, useState } from "react";
 import {
   analysisProgressSnapshotSchema,
   progressEventSchema,
-  type AnalysisProgressMode,
   type ProgressEvent,
 } from "@/lib/contracts";
 
 type AnalysisProgressProps = {
   assessmentSessionId: string;
-  mode: AnalysisProgressMode;
 };
 
 type DeliveryState = "connecting" | "streaming" | "polling" | "complete" | "failed";
@@ -89,22 +87,42 @@ function addProgressEvent(current: ProgressEvent[], next: ProgressEvent) {
   return [...current, next].sort((left, right) => left.sequenceNumber - right.sequenceNumber);
 }
 
-export function AnalysisProgress({ assessmentSessionId, mode }: AnalysisProgressProps) {
+export function AnalysisProgress({ assessmentSessionId }: AnalysisProgressProps) {
   const [events, setEvents] = useState<ProgressEvent[]>([]);
   const [delivery, setDelivery] = useState<DeliveryState>("connecting");
-  const [outcome, setOutcome] = useState<AnalysisProgressMode | null>(null);
+  const [outcome, setOutcome] = useState<"success" | "fallback" | "failure" | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [startedAt, setStartedAt] = useState(() => Date.now());
 
   useEffect(() => {
     let disposed = false;
     let finished = false;
+    let usedFallback = false;
     let pollingTimer: ReturnType<typeof setTimeout> | null = null;
     let pollingFailures = 0;
-    const query = new URLSearchParams({ startedAt: String(startedAt), mode });
-    const stream = new EventSource(
-      `/api/assessments/${assessmentSessionId}/events?${query.toString()}`,
-    );
+    const stream = new EventSource(`/api/assessments/${assessmentSessionId}/events`);
+
+    void fetch(`/api/assessments/${assessmentSessionId}/run`, {
+      method: "POST",
+      headers: { accept: "application/json" },
+    }).then(async (response) => {
+      if (disposed || response.ok) return;
+      const body = (await response.json().catch(() => null)) as
+        | { error?: { message?: string } }
+        | null;
+      finished = true;
+      stream.close();
+      setDelivery("failed");
+      setOutcome("failure");
+      setError(body?.error?.message ?? "The analysis could not be completed.");
+    }).catch(() => {
+      if (disposed) return;
+      finished = true;
+      stream.close();
+      setDelivery("failed");
+      setOutcome("failure");
+      setError("The analysis service is unavailable. Try again.");
+    });
 
     const deadline = setTimeout(() => {
       if (disposed || finished) return;
@@ -114,14 +132,14 @@ export function AnalysisProgress({ assessmentSessionId, mode }: AnalysisProgress
       setDelivery("failed");
       setOutcome("failure");
       setError("The analysis did not finish within the allowed time. Try again.");
-    }, 30000);
+    }, 60000);
 
     async function poll() {
       if (disposed || finished) return;
 
       try {
         const response = await fetch(
-          `/api/assessments/${assessmentSessionId}/progress?${query.toString()}`,
+          `/api/assessments/${assessmentSessionId}/progress`,
           { cache: "no-store", headers: { accept: "application/json" } },
         );
 
@@ -177,6 +195,7 @@ export function AnalysisProgress({ assessmentSessionId, mode }: AnalysisProgress
 
       try {
         const event = progressEventSchema.parse(JSON.parse((message as MessageEvent).data));
+        usedFallback ||= event.cacheState === "fallback";
         setEvents((current) => addProgressEvent(current, event));
 
         if (event.name === "system.analysis.completed" || event.name === "system.analysis.failed") {
@@ -184,7 +203,7 @@ export function AnalysisProgress({ assessmentSessionId, mode }: AnalysisProgress
           clearTimeout(deadline);
           stream.close();
           const failed = event.name === "system.analysis.failed";
-          setOutcome(failed ? "failure" : mode);
+          setOutcome(failed ? "failure" : usedFallback ? "fallback" : "success");
           setDelivery(failed ? "failed" : "complete");
           if (failed) setError(event.safeSummary);
         }
@@ -211,7 +230,7 @@ export function AnalysisProgress({ assessmentSessionId, mode }: AnalysisProgress
       clearTimeout(deadline);
       if (pollingTimer) clearTimeout(pollingTimer);
     };
-  }, [assessmentSessionId, mode, startedAt]);
+  }, [assessmentSessionId, startedAt]);
 
   const stageStates = useMemo(() => {
     const providerStates = providers.map((provider) =>

@@ -1,12 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { userOwnsAssessment } from "@/lib/assessments/access";
-import {
-  getMockProgressSchedule,
-  normalizeProgressStart,
-  parseProgressMode,
-} from "@/lib/assessments/mock-progress";
-import { progressEventSchema } from "@/lib/contracts";
+import { getAssessmentProgress } from "@/lib/assessments/runtime";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -31,10 +26,6 @@ export async function GET(request: Request, context: RouteContext) {
     );
   }
 
-  const url = new URL(request.url);
-  const startedAt = normalizeProgressStart(url.searchParams.get("startedAt"));
-  const mode = parseProgressMode(url.searchParams.get("mode"));
-  const schedule = getMockProgressSchedule(mode);
   const encoder = new TextEncoder();
 
   const stream = new ReadableStream<Uint8Array>({
@@ -46,22 +37,22 @@ export async function GET(request: Request, context: RouteContext) {
       });
 
       async function sendEvents() {
+        let lastSequence = 0;
+        const deadline = Date.now() + 25_000;
         controller.enqueue(encoder.encode("retry: 1500\n\n"));
 
-        for (const scheduled of schedule) {
-          const waitMs = Math.max(0, startedAt + scheduled.offsetMs - Date.now());
-          if (waitMs > 0) {
-            await new Promise((resolve) => setTimeout(resolve, waitMs));
+        while (!cancelled && Date.now() < deadline) {
+          const snapshot = await getAssessmentProgress(id);
+          for (const event of snapshot.events.filter(
+            (candidate) => candidate.sequenceNumber > lastSequence,
+          )) {
+            lastSequence = event.sequenceNumber;
+            controller.enqueue(
+              encoder.encode(`event: progress\ndata: ${JSON.stringify(event)}\n\n`),
+            );
           }
-          if (cancelled) return;
-
-          const event = progressEventSchema.parse({
-            ...scheduled.event,
-            occurredAt: new Date(startedAt + scheduled.offsetMs).toISOString(),
-          });
-          controller.enqueue(
-            encoder.encode(`event: progress\ndata: ${JSON.stringify(event)}\n\n`),
-          );
+          if (snapshot.terminal) break;
+          await new Promise((resolve) => setTimeout(resolve, 750));
         }
 
         if (!cancelled) controller.close();

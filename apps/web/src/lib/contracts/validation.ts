@@ -54,5 +54,22 @@ export const validationGateSchema = z.object({
   errors: z.array(z.string()),
 });
 
+export const executionValidationReportSchema = z.object({
+  report_version: z.string().min(1),
+  report_schema_version: z.string().min(1),
+  validator_version: z.string().min(1),
+  status: z.enum(["passed", "rejected"]),
+  render_allowed: z.boolean(),
+  profile_id: z.string().min(1),
+  evidence_bundle_id: z.string().min(1),
+  scoring_version: z.string().min(1),
+  evidence_bundle_validation: z.record(z.string(), z.unknown()),
+  engine_output_validation: z.record(z.string(), z.unknown()),
+  checks: z.array(z.record(z.string(), z.unknown())),
+  errors: z.array(z.string()),
+  warnings: z.array(z.string()),
+});
+
 export type HandoffValidationReport = z.infer<typeof handoffValidationReportSchema>;
 export type ValidationGate = z.infer<typeof validationGateSchema>;
+export type ExecutionValidationReport = z.infer<typeof executionValidationReportSchema>;
