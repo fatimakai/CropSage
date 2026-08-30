@@ -11,9 +11,13 @@
     "db:stop": "supabase stop",
     "db:reset": "supabase db reset",
     "db:fixtures": "node scripts/generate-handoff-db-test.mjs",
+    "db:csb:import": "node scripts/import-usda-csb.mjs",
+    "db:csb:demo": "node scripts/import-usda-csb.mjs --local --input data/usda-csb/plainview-2018-2025.geojson --coverage-id plainview-demo --coverage-label \"Plainview official sample\" --coverage-status partial --coverage-bbox -101.80,34.15,-101.72,34.22 --county-fips 189 --county-name Hale",
+    "db:csb:test": "node --test scripts/import-usda-csb.test.mjs",
     "db:test": "npm run db:fixtures && supabase test db",
     "db:lint": "supabase db lint --schema public --fail-on error",
     "web:dev": "npm run dev --workspace @cropsage/web",
+    "web:dev:local": "node scripts/start-local-web.mjs",
     "web:build": "npm run build --workspace @cropsage/web",
     "web:lint": "npm run lint --workspace @cropsage/web",
     "web:test": "npm run test --workspace @cropsage/web"

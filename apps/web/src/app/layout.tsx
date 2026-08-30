@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "maplibre-gl/dist/maplibre-gl.css";
+import "@watergis/maplibre-gl-terradraw/dist/maplibre-gl-terradraw.css";
 import "./globals.css";
 
 export const metadata: Metadata = {

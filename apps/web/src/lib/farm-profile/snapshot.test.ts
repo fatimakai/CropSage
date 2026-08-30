@@ -44,4 +44,24 @@ describe("farm profile snapshots", () => {
       "farmer_goal",
     ]);
   });
+
+  it("does not mark a supplied farm boundary as missing", () => {
+    const profileWithBoundary = {
+      ...profile,
+      farm_boundary: {
+        type: "Polygon" as const,
+        coordinates: [
+          [
+            [-101.77, 34.17] as [number, number],
+            [-101.75, 34.17] as [number, number],
+            [-101.75, 34.19] as [number, number],
+            [-101.77, 34.19] as [number, number],
+            [-101.77, 34.17] as [number, number],
+          ],
+        ],
+      },
+    };
+
+    expect(getMissingFarmProfileFields(profileWithBoundary)).not.toContain("farm_boundary");
+  });
 });
