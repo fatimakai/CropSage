@@ -79,14 +79,18 @@ function FactorTable({ factors }: { factors: ScoreFactor[] }) {
 }
 
 export function CropDetail({ assessmentSessionId, detail }: CropDetailProps) {
-  const { crop, catalog, comparisons, providers, references } = detail;
-  const regional = catalog.regional_suitability.find((item) => item.region_id === "plains");
-  const planting = catalog.planting_windows_by_region.find((item) => item.region_id === "plains");
+  const { crop, catalog, comparisons, providers, references, location } = detail;
+  const regional = catalog.regional_suitability.find(
+    (item) => item.region_id === location.texasRegionId,
+  );
+  const planting = catalog.planting_windows_by_region.find(
+    (item) => item.region_id === location.texasRegionId,
+  );
 
   return (
     <main className="workspace crop-detail-workspace">
       <nav className="context-navigation" aria-label="Assessment navigation">
-        <Link href={`/assessments/${assessmentSessionId}/results`}><ArrowLeft size={16} aria-hidden="true" />All recommendations</Link>
+        <Link href={`/assessments/${assessmentSessionId}/results`}><ArrowLeft size={16} aria-hidden="true" />Back to results</Link>
         <Link href={`/assessments/${assessmentSessionId}/scenarios`}>Compare scenarios<ArrowRight size={16} aria-hidden="true" /></Link>
       </nav>
 
@@ -137,7 +141,7 @@ export function CropDetail({ assessmentSessionId, detail }: CropDetailProps) {
             <div className="provider-evidence-list">
               {providers.map((provider) => (
                 <article key={provider.id}>
-                  <header><h3>{provider.name}</h3><span className="source-mode source-cache">Prepared artifact</span></header>
+                  <header><h3>{provider.name}</h3><span className="source-mode source-cache">Assessment evidence</span></header>
                   <p>{provider.role}</p>
                   <dl>
                     <div><dt>Generated</dt><dd>{new Date(provider.generatedAt).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" })} UTC</dd></div>
@@ -155,7 +159,7 @@ export function CropDetail({ assessmentSessionId, detail }: CropDetailProps) {
           <section>
             <h2>Catalog profile</h2>
             <dl className="catalog-profile-list">
-              <div><dt>Texas Plains rating</dt><dd>{regional ? titleCaseIdentifier(regional.rating) : "Not supported"}</dd></div>
+              <div><dt>{titleCaseIdentifier(location.texasRegionId)} rating</dt><dd>{regional ? titleCaseIdentifier(regional.rating) : "Not supported"}</dd></div>
               <div><dt>Planting windows</dt><dd>{planting?.windows.join(", ") ?? "Unknown"}</dd></div>
               <div><dt>Days to maturity</dt><dd>{catalog.days_to_maturity.min}-{catalog.days_to_maturity.max} days</dd></div>
               <div><dt>Drought tolerance</dt><dd>{titleCaseIdentifier(catalog.drought_tolerance)}</dd></div>
@@ -191,7 +195,7 @@ export function CropDetail({ assessmentSessionId, detail }: CropDetailProps) {
         </div>
       </section>
 
-      <section className="crop-detail-disclaimer"><MapPin size={17} aria-hidden="true" /><p>This detail explains the validated Plainview demonstration result. It is preliminary suitability, not a yield guarantee, planting instruction, or irrigation prescription.</p></section>
+      <section className="crop-detail-disclaimer"><MapPin size={17} aria-hidden="true" /><p>This detail explains the validated result for {location.farmName}. It is preliminary suitability, not a yield guarantee, planting instruction, or irrigation prescription.</p></section>
     </main>
   );
 }

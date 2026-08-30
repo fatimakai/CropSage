@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
 import { CropDetail } from "@/components/crops/crop-detail";
 import { userOwnsAssessment } from "@/lib/assessments/access";
-import { getPreparedCropDetail } from "@/lib/crops/prepared-crop-details";
+import { getPersistedCropDetail } from "@/lib/crops/prepared-crop-details";
 
 export const dynamic = "force-dynamic";
 
@@ -16,7 +16,7 @@ export default async function CropDetailPage({ params }: CropDetailPageProps) {
 
   if (!(await userOwnsAssessment(id))) notFound();
 
-  const detail = getPreparedCropDetail(cropId);
+  const detail = await getPersistedCropDetail(id, cropId);
   if (detail.state !== "ready") notFound();
 
   return <AppShell><CropDetail assessmentSessionId={id} detail={detail} /></AppShell>;

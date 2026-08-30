@@ -19,23 +19,30 @@ const unavailableValidation: ValidationGate = {
   errors: ["A completed, validated recommendation is not available for this assessment."],
 };
 
-export async function getPersistedRecommendationResult(
+export type PersistedRecommendationContext = {
+  result: PreparedRecommendationResult;
+  recommendationRunId: string | null;
+  evidenceBundleId: string | null;
+};
+
+export async function getPersistedRecommendationContext(
   assessmentSessionId: string,
-): Promise<PreparedRecommendationResult> {
+): Promise<PersistedRecommendationContext> {
   const supabase = createAdminSupabaseClient();
   const { data: run, error: runError } = await supabase
     .from("recommendation_runs")
-    .select("id,engine_output_jsonb")
+    .select("id,evidence_bundle_id,engine_output_jsonb")
     .eq("assessment_session_id", assessmentSessionId)
     .eq("status", "completed")
     .order("created_at", { ascending: false })
     .limit(1)
     .maybeSingle();
   if (runError || !run?.engine_output_jsonb) {
-    return prepareRecommendationResult(
-      {} as never,
-      unavailableValidation,
-    );
+    return {
+      result: prepareRecommendationResult({} as never, unavailableValidation),
+      recommendationRunId: null,
+      evidenceBundleId: null,
+    };
   }
 
   const { data: report, error: reportError } = await supabase
@@ -44,7 +51,11 @@ export async function getPersistedRecommendationResult(
     .eq("recommendation_run_id", run.id)
     .maybeSingle();
   if (reportError || !report) {
-    return prepareRecommendationResult({} as never, unavailableValidation);
+    return {
+      result: prepareRecommendationResult({} as never, unavailableValidation),
+      recommendationRunId: run.id,
+      evidenceBundleId: run.evidence_bundle_id,
+    };
   }
 
   const recommendation = recommendationOutputSchema.parse(run.engine_output_jsonb);
@@ -55,5 +66,15 @@ export async function getPersistedRecommendationResult(
     warnings: report.warnings,
     errors: report.errors,
   });
-  return prepareRecommendationResult(recommendation, validation);
+  return {
+    result: prepareRecommendationResult(recommendation, validation),
+    recommendationRunId: run.id,
+    evidenceBundleId: run.evidence_bundle_id,
+  };
+}
+
+export async function getPersistedRecommendationResult(
+  assessmentSessionId: string,
+): Promise<PreparedRecommendationResult> {
+  return (await getPersistedRecommendationContext(assessmentSessionId)).result;
 }

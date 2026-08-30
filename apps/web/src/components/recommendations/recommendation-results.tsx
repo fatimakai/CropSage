@@ -170,10 +170,10 @@ export function RecommendationResults(props: RecommendationResultsProps) {
   const location = recommendation.location;
   const isRequestedCropAssessment = recommendation.requested_crop_id !== null;
   const requestedCrop = isRequestedCropAssessment
-    ? recommendation.requested_crop_result
-      ?? recommendation.rankings.find(
+    ? recommendation.rankings.find(
         (crop) => crop.crop_id === recommendation.requested_crop_id,
       )
+      ?? recommendation.requested_crop_result
       ?? null
     : null;
   const requestedCropName = requestedCrop?.crop_name

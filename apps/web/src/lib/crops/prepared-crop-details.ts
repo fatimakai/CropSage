@@ -1,7 +1,6 @@
 import "server-only";
 
 import catalogFixture from "../../../../../data/crop-catalog/catalog.json";
-import evidenceFixture from "../../../../../handoff/fatima_scoring_migrations/sample_evidence_bundle.json";
 
 import {
   cropCatalogSchema,
@@ -14,7 +13,8 @@ import {
   buildRequirementComparisons,
   type RequirementEvidenceRow,
 } from "@/lib/crops/presentation";
-import { getPreparedRecommendationResult } from "@/lib/recommendations/prepared-results";
+import { getPersistedRecommendationContext } from "@/lib/recommendations/persisted-results";
+import { createAdminSupabaseClient } from "@/lib/supabase/admin";
 import type { ValidationGate } from "@/lib/contracts";
 
 export type { RequirementEvidenceRow } from "@/lib/crops/presentation";
@@ -28,7 +28,7 @@ export type ProviderEvidenceSummary = {
   ageHours: number;
   sourceDataVintage: string;
   spatialResolution: string;
-  sourceMode: "prepared_artifact";
+  sourceMode: "persisted_artifact";
 };
 
 export type PreparedCropDetail = {
@@ -40,6 +40,10 @@ export type PreparedCropDetail = {
   providers: ProviderEvidenceSummary[];
   limitations: string[];
   validation: ValidationGate;
+  location: {
+    farmName: string;
+    texasRegionId: string;
+  };
 };
 
 type PreparedCropDetailResult =
@@ -47,8 +51,24 @@ type PreparedCropDetailResult =
   | { state: "blocked"; validation: ValidationGate }
   | { state: "not_found" };
 
-export function getPreparedCropDetail(cropId: string): PreparedCropDetailResult {
-  const recommendationResult = getPreparedRecommendationResult();
+function unavailableEvidenceValidation(validation: ValidationGate): ValidationGate {
+  return {
+    ...validation,
+    outcome: "incomplete",
+    render_allowed: false,
+    errors: [
+      ...validation.errors,
+      "The validated EvidenceBundle for this assessment is unavailable.",
+    ],
+  };
+}
+
+export async function getPersistedCropDetail(
+  assessmentSessionId: string,
+  cropId: string,
+): Promise<PreparedCropDetailResult> {
+  const context = await getPersistedRecommendationContext(assessmentSessionId);
+  const recommendationResult = context.result;
   if (recommendationResult.state === "blocked") return recommendationResult;
 
   const crop = recommendationResult.recommendation.rankings.find(
@@ -60,7 +80,31 @@ export function getPreparedCropDetail(cropId: string): PreparedCropDetailResult 
   const catalogCrop = catalog.crops.find((record) => record.crop_id === cropId);
   if (!catalogCrop) return { state: "not_found" };
 
-  const evidence = evidenceDetailBundleSchema.parse(evidenceFixture);
+  if (!context.evidenceBundleId) {
+    return {
+      state: "blocked",
+      validation: unavailableEvidenceValidation(recommendationResult.validation),
+    };
+  }
+
+  const supabase = createAdminSupabaseClient();
+  const { data: evidenceRecord, error: evidenceError } = await supabase
+    .from("evidence_bundles")
+    .select("bundle_snapshot")
+    .eq("id", context.evidenceBundleId)
+    .eq("status", "validated")
+    .maybeSingle();
+  const parsedEvidence = evidenceDetailBundleSchema.safeParse(
+    evidenceRecord?.bundle_snapshot,
+  );
+  if (evidenceError || !parsedEvidence.success) {
+    return {
+      state: "blocked",
+      validation: unavailableEvidenceValidation(recommendationResult.validation),
+    };
+  }
+
+  const evidence = parsedEvidence.data;
   const references = catalog.references.filter((reference) =>
     catalogCrop.source_ids.includes(reference.source_id),
   );
@@ -85,10 +129,14 @@ export function getPreparedCropDetail(cropId: string): PreparedCropDetailResult 
       spatialResolution:
         id === "fortyguard"
           ? `${evidence.location_evidence.fortyguard_heat.granularity_m} m grid`
-          : "Not reported in prepared artifact",
-      sourceMode: "prepared_artifact",
+          : "Not reported in assessment evidence",
+      sourceMode: "persisted_artifact",
     })),
     limitations: recommendationResult.recommendation.limitations,
     validation: recommendationResult.validation,
+    location: {
+      farmName: recommendationResult.recommendation.location.farm_name,
+      texasRegionId: recommendationResult.recommendation.location.texas_region_id,
+    },
   };
 }
