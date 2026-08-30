@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "scoring_version": "1.0.0",
+  "scoring_version": "1.0.1",
   "generated_at": "2026-08-29T04:00:14.290547+00:00",
   "status": "validated",
   "evaluation_mode": "planning",
@@ -22,9 +22,9 @@
     "status": "scored",
     "suitability_score": 54.0,
     "recommendation": "not_recommended",
-    "confidence_score": 40.49,
-    "confidence_band": "low",
-    "evidence_coverage_percent": 60.0,
+    "confidence_score": 67.48,
+    "confidence_band": "medium",
+    "evidence_coverage_percent": 100.0,
     "applied_caps": [
       {
         "gate": "far_outside_planting_window",
@@ -475,9 +475,9 @@
       "status": "scored",
       "suitability_score": 95.96,
       "recommendation": "recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -899,9 +899,9 @@
       "status": "scored",
       "suitability_score": 95.96,
       "recommendation": "recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -1321,9 +1321,9 @@
       "status": "scored",
       "suitability_score": 95.96,
       "recommendation": "recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -1745,9 +1745,9 @@
       "status": "scored",
       "suitability_score": 94.33,
       "recommendation": "recommended",
-      "confidence_score": 33.87,
+      "confidence_score": 56.46,
       "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -2174,9 +2174,9 @@
       "status": "scored",
       "suitability_score": 94.12,
       "recommendation": "recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -2598,9 +2598,9 @@
       "status": "scored",
       "suitability_score": 93.88,
       "recommendation": "recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -3019,9 +3019,9 @@
       "status": "scored",
       "suitability_score": 92.12,
       "recommendation": "recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -3441,9 +3441,9 @@
       "status": "scored",
       "suitability_score": 90.75,
       "recommendation": "recommended",
-      "confidence_score": 47.11,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 78.51,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -3870,9 +3870,9 @@
       "status": "scored",
       "suitability_score": 89.62,
       "recommendation": "recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -4299,9 +4299,9 @@
       "status": "scored",
       "suitability_score": 89.17,
       "recommendation": "recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -4729,9 +4729,9 @@
       "status": "scored",
       "suitability_score": 85.79,
       "recommendation": "recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -5158,9 +5158,9 @@
       "status": "scored",
       "suitability_score": 80.75,
       "recommendation": "recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -5586,9 +5586,9 @@
       "status": "scored",
       "suitability_score": 78.88,
       "recommendation": "recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [],
       "applied_gates": [],
       "factors": [
@@ -6014,9 +6014,9 @@
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
-      "confidence_score": 47.11,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 78.51,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [
         {
           "gate": "far_outside_planting_window",
@@ -6465,9 +6465,9 @@
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
-      "confidence_score": 47.11,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 78.51,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [
         {
           "gate": "far_outside_planting_window",
@@ -6918,9 +6918,9 @@
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
-      "confidence_score": 47.11,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 78.51,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [
         {
           "gate": "far_outside_planting_window",
@@ -7369,9 +7369,9 @@
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [
         {
           "gate": "far_outside_planting_window",
@@ -7817,9 +7817,9 @@
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [
         {
           "gate": "far_outside_planting_window",
@@ -8264,9 +8264,9 @@
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [
         {
           "gate": "far_outside_planting_window",
@@ -8709,9 +8709,9 @@
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [
         {
           "gate": "far_outside_planting_window",
@@ -9154,9 +9154,9 @@
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
-      "confidence_score": 40.49,
-      "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "confidence_score": 67.48,
+      "confidence_band": "medium",
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [
         {
           "gate": "far_outside_planting_window",
@@ -9606,9 +9606,9 @@
       "status": "scored",
       "suitability_score": 54.0,
       "recommendation": "not_recommended",
-      "confidence_score": 32.81,
+      "confidence_score": 54.69,
       "confidence_band": "low",
-      "evidence_coverage_percent": 60.0,
+      "evidence_coverage_percent": 100.0,
       "applied_caps": [
         {
           "gate": "far_outside_planting_window",
@@ -10057,7 +10057,7 @@
   ],
   "method": {
     "suitability": "Weighted mean of available scoreable factors, followed by explicit hard caps. Missing values are excluded, never scored as zero.",
-    "confidence": "Weighted evidence reliability across all active factors; missing factors contribute no confidence.",
+    "confidence": "Weighted evidence reliability across factors applicable to the evaluation mode and crop policy. Non-applicable factors are excluded; missing expected evidence contributes no confidence.",
     "active_weight_percent": 100.0
   }
 }

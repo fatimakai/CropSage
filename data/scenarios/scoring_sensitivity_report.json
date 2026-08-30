@@ -1,6 +1,6 @@
 {
   "report_version": "1.0.0",
-  "scoring_version_reviewed": "1.0.0",
+  "scoring_version_reviewed": "1.0.1",
   "scenario_manifest_id": "texas_15_sites_five_scenarios",
   "weight_perturbation": "+20% for one active factor while proportionally rescaling all other active factors to retain a 100% total",
   "run_count_per_weight_test": 75,
@@ -13,8 +13,8 @@
       "recommended": 133
     },
     "confidence_band_counts": {
-      "low": 1026,
-      "medium": 624
+      "medium": 1395,
+      "low": 255
     },
     "gate_counts": {
       "far_outside_planting_window": 1131,
@@ -49,7 +49,7 @@
       "mean_absolute_score_change": 0.3379,
       "maximum_absolute_score_change": 2.23,
       "recommendation_class_changes": 7,
-      "rank_changes": 355,
+      "rank_changes": 322,
       "maximum_absolute_rank_change": 13,
       "top_crop_changes": 1
     },
@@ -60,7 +60,7 @@
       "mean_absolute_score_change": 0.2336,
       "maximum_absolute_score_change": 1.23,
       "recommendation_class_changes": 10,
-      "rank_changes": 218,
+      "rank_changes": 215,
       "maximum_absolute_rank_change": 13,
       "top_crop_changes": 1
     },
@@ -71,7 +71,7 @@
       "mean_absolute_score_change": 0.1668,
       "maximum_absolute_score_change": 1.73,
       "recommendation_class_changes": 4,
-      "rank_changes": 262,
+      "rank_changes": 190,
       "maximum_absolute_rank_change": 12,
       "top_crop_changes": 0
     },
@@ -79,21 +79,21 @@
       "factor_id": "fortyguard_heat_persistence",
       "baseline_weight_percent": 5.0,
       "perturbed_weight_percent": 6.0,
-      "mean_absolute_score_change": 0.0148,
+      "mean_absolute_score_change": 0.0149,
       "maximum_absolute_score_change": 0.37,
       "recommendation_class_changes": 1,
-      "rank_changes": 41,
-      "maximum_absolute_rank_change": 12,
+      "rank_changes": 26,
+      "maximum_absolute_rank_change": 6,
       "top_crop_changes": 0
     },
     {
       "factor_id": "open_meteo_heat_frost",
       "baseline_weight_percent": 3.0,
       "perturbed_weight_percent": 3.6,
-      "mean_absolute_score_change": 0.1019,
+      "mean_absolute_score_change": 0.102,
       "maximum_absolute_score_change": 0.48,
       "recommendation_class_changes": 3,
-      "rank_changes": 129,
+      "rank_changes": 156,
       "maximum_absolute_rank_change": 14,
       "top_crop_changes": 0
     },
@@ -104,8 +104,8 @@
       "mean_absolute_score_change": 0.1552,
       "maximum_absolute_score_change": 1.32,
       "recommendation_class_changes": 9,
-      "rank_changes": 93,
-      "maximum_absolute_rank_change": 9,
+      "rank_changes": 85,
+      "maximum_absolute_rank_change": 6,
       "top_crop_changes": 4
     },
     {
@@ -115,7 +115,7 @@
       "mean_absolute_score_change": 0.2731,
       "maximum_absolute_score_change": 1.43,
       "recommendation_class_changes": 10,
-      "rank_changes": 341,
+      "rank_changes": 345,
       "maximum_absolute_rank_change": 14,
       "top_crop_changes": 0
     },
@@ -126,7 +126,7 @@
       "mean_absolute_score_change": 0.2908,
       "maximum_absolute_score_change": 1.09,
       "recommendation_class_changes": 4,
-      "rank_changes": 238,
+      "rank_changes": 242,
       "maximum_absolute_rank_change": 14,
       "top_crop_changes": 0
     },
@@ -137,7 +137,7 @@
       "mean_absolute_score_change": 0.2406,
       "maximum_absolute_score_change": 0.86,
       "recommendation_class_changes": 4,
-      "rank_changes": 209,
+      "rank_changes": 215,
       "maximum_absolute_rank_change": 14,
       "top_crop_changes": 0
     },
@@ -148,7 +148,7 @@
       "mean_absolute_score_change": 0.1476,
       "maximum_absolute_score_change": 0.76,
       "recommendation_class_changes": 0,
-      "rank_changes": 120,
+      "rank_changes": 112,
       "maximum_absolute_rank_change": 11,
       "top_crop_changes": 0
     },
@@ -159,8 +159,8 @@
       "mean_absolute_score_change": 0.1179,
       "maximum_absolute_score_change": 0.52,
       "recommendation_class_changes": 10,
-      "rank_changes": 100,
-      "maximum_absolute_rank_change": 12,
+      "rank_changes": 72,
+      "maximum_absolute_rank_change": 8,
       "top_crop_changes": 0
     },
     {
@@ -170,7 +170,7 @@
       "mean_absolute_score_change": 0.2449,
       "maximum_absolute_score_change": 1.15,
       "recommendation_class_changes": 18,
-      "rank_changes": 173,
+      "rank_changes": 145,
       "maximum_absolute_rank_change": 12,
       "top_crop_changes": 0
     },
@@ -181,7 +181,7 @@
       "mean_absolute_score_change": 0.1028,
       "maximum_absolute_score_change": 0.57,
       "recommendation_class_changes": 5,
-      "rank_changes": 126,
+      "rank_changes": 124,
       "maximum_absolute_rank_change": 14,
       "top_crop_changes": 0
     },
@@ -192,7 +192,7 @@
       "mean_absolute_score_change": 0.0816,
       "maximum_absolute_score_change": 0.73,
       "recommendation_class_changes": 2,
-      "rank_changes": 134,
+      "rank_changes": 128,
       "maximum_absolute_rank_change": 8,
       "top_crop_changes": 1
     },
@@ -203,7 +203,7 @@
       "mean_absolute_score_change": 0.1144,
       "maximum_absolute_score_change": 0.64,
       "recommendation_class_changes": 2,
-      "rank_changes": 113,
+      "rank_changes": 123,
       "maximum_absolute_rank_change": 14,
       "top_crop_changes": 1
     },
@@ -214,7 +214,7 @@
       "mean_absolute_score_change": 0.2432,
       "maximum_absolute_score_change": 1.32,
       "recommendation_class_changes": 10,
-      "rank_changes": 336,
+      "rank_changes": 349,
       "maximum_absolute_rank_change": 14,
       "top_crop_changes": 0
     },
@@ -225,15 +225,16 @@
       "mean_absolute_score_change": 0.769,
       "maximum_absolute_score_change": 2.52,
       "recommendation_class_changes": 21,
-      "rank_changes": 533,
+      "rank_changes": 488,
       "maximum_absolute_rank_change": 12,
       "top_crop_changes": 8
     }
   ],
   "review_notes": [
     "The audit corrected one monotonicity defect: limited irrigation previously scored below no irrigation in 34 site-crop comparisons.",
-    "Low-confidence future-planning recommendations remain allowed because suitability and evidence confidence are intentionally separate outputs.",
-    "Crops without scoreable numeric heat thresholds keep lower confidence; the engine does not invent a heat penalty.",
+    "Confidence is normalized over evidence factors applicable to the evaluation mode and crop policy; non-applicable short-range or informational factors do not create false missingness.",
+    "Missing expected evidence still lowers confidence, while suitability and evidence confidence remain separate outputs.",
+    "Crops without scoreable numeric heat thresholds receive an informational warning; the engine does not invent a heat penalty.",
     "Forage sorghum and sorghum-sudangrass ties reflect materially similar scoreable catalog fields, not nondeterministic sorting."
   ]
 }

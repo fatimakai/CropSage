@@ -2,7 +2,7 @@
   "report_version": "1.0.0",
   "scenario_manifest_id": "texas_15_sites_five_scenarios",
   "generated_at": "2026-08-29T04:00:00Z",
-  "scoring_version": "1.0.0",
+  "scoring_version": "1.0.1",
   "status": "validated",
   "expected_run_count": 75,
   "actual_run_count": 75,
@@ -26,7 +26,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_northern_panhandle_dalhart/in_season_baseline.json",
-      "output_sha256": "d0f1c18386ee103b78503362e809528afe10bf8612722a096bb611ac04dcc9d8",
+      "output_sha256": "2c21cba0bd5736bdfdc2060cc552e8ed07dc96e53bedf65d5088ef199e4fa01a",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -48,7 +48,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_northern_panhandle_dalhart/out_of_season.json",
-      "output_sha256": "6bdbeabfcf4c28bcd72403a11b177c9682a524190c981477830a7315cd40c161",
+      "output_sha256": "5a6fe6f98b26730b789fbe7ca88ce4c4da9aee5c7fdd83a74c183cac3f0a6d52",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -72,7 +72,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_northern_panhandle_dalhart/no_irrigation.json",
-      "output_sha256": "41d4d1120df515fa4d5247d53ce8b0694d3cdd7ce27b35fd67690853f9136b05",
+      "output_sha256": "e290dded6323adfdfcb6d740d1bf6c9cc8cce4bf8adfb3fb9d803e22f5359b11",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -95,7 +95,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_northern_panhandle_dalhart/reliable_irrigation.json",
-      "output_sha256": "f6ed36090aa5fd6704c71bf9da0263e73a7cdbdda7e52b54af7d7fc18ae35f94",
+      "output_sha256": "45e37658ef077d0f65b007129cde4519b4c2f2a5cd6001488ded430b63d63059",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -118,7 +118,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_northern_panhandle_dalhart/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "83888454c74a16f04dd401fd43d24d32d93f9c5a8d54761bb6b5682dea5b7f8a",
+      "output_sha256": "73d533104a1d8fce07f07286378f2fded03b2f23ad79fa9eaf8e44ed7c6858a6",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -142,7 +142,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_south_plainview/in_season_baseline.json",
-      "output_sha256": "ee56a5c2f2dc9b33c3ef440f207b777ed7339d6ea15f89dcd79b5b9abd98e3d3",
+      "output_sha256": "90bbda1ea2a5958848eba2e6c7483b62aca10a76ee149dead92b100f62db5651",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -164,7 +164,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_south_plainview/out_of_season.json",
-      "output_sha256": "1192bcd9f7ff290b92bad9d7cb33e3ab44e5f0b12d01f5c47cec6dd08579aeaa",
+      "output_sha256": "67819555c66ca4def6b0e42c5a3790c4d1bb93f707c350f7a9ba8947d5f0833f",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -188,7 +188,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_south_plainview/no_irrigation.json",
-      "output_sha256": "8e361fbf5014eb85cd41186a3e7a7de636c676e130bb89dc513633f4fbe1aa46",
+      "output_sha256": "c37fec4ac49801739d44763486562d23f3cd860dbb186be522521d68aa4d0adb",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -211,7 +211,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_south_plainview/reliable_irrigation.json",
-      "output_sha256": "8d257c783718c05b444fd92e12af312b6502b65bf1cf9cdf1054f205726e8c59",
+      "output_sha256": "863e9a13187c17b3527ba9ef04807c5e3aea8197524203ddf4b8d790b37cc23b",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -234,7 +234,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_south_plainview/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "6b134a3856675d11859fd08aecf66174544078423e9c7bb777528b15ef4977ed",
+      "output_sha256": "b6fcfceb6f0d0dfbed06217f909c581a903093e85e332009cd60cf976381cc05",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -258,7 +258,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_rolling_vernon/in_season_baseline.json",
-      "output_sha256": "1e63a63e2507c1346957c984100b1b1e24f8b623a9d67b5446b4d5f57ebd02f7",
+      "output_sha256": "820283260421666905f42bcaa922f8420afc20de1ca58711af8d923f852e27b1",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -280,7 +280,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_rolling_vernon/out_of_season.json",
-      "output_sha256": "daa4f02c6383940bce3dc602c5e6bf58f317fcdd69a1de01d5f505485885f15a",
+      "output_sha256": "d329f72b6929d02f72f45833099d87da4f7f2ae4a97510a303c0209183b63076",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -304,7 +304,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_rolling_vernon/no_irrigation.json",
-      "output_sha256": "c207682118a034c2b72bb79d73af9436c4caace16643e8bcd4616371e6141dcf",
+      "output_sha256": "6743f8582742bc56e47c8665c4b7b67c95e67a1cb873bdcd38fea7db80c20caf",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -327,7 +327,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_rolling_vernon/reliable_irrigation.json",
-      "output_sha256": "17a23d362a0fb5ca1467f98440187beb09bb7118691b71918f9c0afee6096617",
+      "output_sha256": "29ce094bb5f3703c4051400b960d23deab5a0dbea7b465d10b195d321a2d59d4",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -350,7 +350,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/plains_rolling_vernon/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "6ca7071b23231c59964ada64456763b791aa1c1392bdee3d2d3147e9f9cb23dc",
+      "output_sha256": "a666eea49d872db4886d714b97d9de18509fbea6346cb9d6e7fa51a2f1c3bfbc",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -374,7 +374,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_east_texas_tyler/in_season_baseline.json",
-      "output_sha256": "ae476dccc3a01a24c71f416bc13eacf24c881be8f70cace2322ab0cd09a521c7",
+      "output_sha256": "66934f73f30e574787fe7789fe3649cc1fdd3989b782930e41b62715decd65fa",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -396,7 +396,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_east_texas_tyler/out_of_season.json",
-      "output_sha256": "b179f880b47360bd72143cff3291a56f6e1081d6059a2d43f9969c3ae136c88f",
+      "output_sha256": "3dbb28ed79a49e899db4287005ff1cdb9ecde3ce37a34da29f3e2657a0a54baa",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -420,7 +420,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_east_texas_tyler/no_irrigation.json",
-      "output_sha256": "3197e426177005552fbd127d0827c8a841b9e8a4cdeac317038058bc77489781",
+      "output_sha256": "67e4d757085e529f6a8aa1378885eb7f1d5041dae58ca758397db5fc0da71e33",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -443,7 +443,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_east_texas_tyler/reliable_irrigation.json",
-      "output_sha256": "cfaf19faddbb3826b3ab5482bc50f6af8b53ff9820cd75c08fee1f2dcc7be51d",
+      "output_sha256": "3671c6b0b646c22e026b8275e607feacf6de430be689fa7b6670415f3d8a6528",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -466,7 +466,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_east_texas_tyler/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "acf822db05fd39071c97e7d05b86922da316b9936014f81e9b084a0be50e3449",
+      "output_sha256": "3c6b47b2d3b1142af8c99e8c214b5d866f69fd110cdd0bede4888bbd57e68997",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -490,7 +490,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_rice_belt_eagle_lake/in_season_baseline.json",
-      "output_sha256": "e3dda60304dc8ccaff539dbdc87f7c38ff3862559df5848ce20b30d99c985c47",
+      "output_sha256": "251999a3e7099fd5b9caf7b708e40f3bc304598e6255a9db89d066f1edbca713",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -512,7 +512,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_rice_belt_eagle_lake/out_of_season.json",
-      "output_sha256": "8978531c8cd8023a8fb2071950c2aa850c892c5c4314b8296075f9817aa6b412",
+      "output_sha256": "081c73a6d190554fa0d700385f03808a56465239e06152e4b99244c53bacf538",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -536,7 +536,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_rice_belt_eagle_lake/no_irrigation.json",
-      "output_sha256": "bea25889aa6c4a8a71205611cbf8c7273cb7d600a1b0c6e228a0137e0df4dee7",
+      "output_sha256": "17ee9d4da79b61c72d05c141ed8e0bcc1e73caf941a8861e8c6464a9f7616269",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -559,7 +559,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_rice_belt_eagle_lake/reliable_irrigation.json",
-      "output_sha256": "a13b20ddc5360e9c06cce2a4911f2ec12a5e80ff605c0c9e67e958ff06d1a607",
+      "output_sha256": "8ab8fd450a981d81f605ce150e4236634ae2b49781650ecea63d9a8ed6ffcce8",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -582,7 +582,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_rice_belt_eagle_lake/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "8383ca8bee9b3031a1ec23dcc03f75275096f7fe67450c61fe45a8a9b0616c5c",
+      "output_sha256": "16d0bd0bdc53ca914317cccfdcf4ebfd499a8b4db11383ca1ed663f4dc327069",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -606,7 +606,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_coastal_bend_robstown/in_season_baseline.json",
-      "output_sha256": "41f15d0193e4f8d52d5dfe0f6519ef424d00d161a39d21f47bc77725f4a1068f",
+      "output_sha256": "77466f5c02122bab6c5c7ecd1cbbb7c9711416f80f348e1631ba5e4487551c1f",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -628,7 +628,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_coastal_bend_robstown/out_of_season.json",
-      "output_sha256": "ffd2adc77a27eddb196ce641fc63ad0532523c7b2937cd72aa0726860ca8def1",
+      "output_sha256": "ea788c8e657218fb1a705d0e0ad2abb013c5723b05fb759ab2b208f3ee586c1d",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -652,7 +652,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_coastal_bend_robstown/no_irrigation.json",
-      "output_sha256": "e5ef8757c25c32289bb754c94c306ccb47b99eeef04d2bad6beed57a2564a126",
+      "output_sha256": "279a665410ebc700924f837e0be631b63e047a2c6ba9b623c1581ea84e7f21f4",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -675,7 +675,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_coastal_bend_robstown/reliable_irrigation.json",
-      "output_sha256": "48dec0f117d1189dd0d29f6e3595fe541512eb8e16ca6a7859500c66c107d128",
+      "output_sha256": "3f2d3d116e49557e9698fc4fdbe995c70ca6f27d673b6703b37797787524505f",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -698,7 +698,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "fresh_market_cabbage",
       "output_path": "data/scenarios/results/eastern_coastal_bend_robstown/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "0705491ab22636d3a1de969a5cdaca615a821aef797de4576aba4ee25662f535",
+      "output_sha256": "e3392e5926d936d1a7b0175d48312a68235e317d6f87fcbeb1915daf58f81911",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -722,7 +722,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_blackland_temple/in_season_baseline.json",
-      "output_sha256": "4cc4e475321d19f3c68b0cbbd5a8344ddde70814e34fd3210fb39751a5ccb71e",
+      "output_sha256": "ccd03140eb9484316cfaa6aa80fd55ef3f4f3e820ec99935fd2544343df86163",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -744,7 +744,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_blackland_temple/out_of_season.json",
-      "output_sha256": "792bea95dbb99ab6979b01645e1126c261ccfdda18064c77e1fe184dda849a38",
+      "output_sha256": "4357d78daa46ec0a7babe85f89a56af76866b499899a29e8f171aee6d149a54c",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -768,7 +768,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_blackland_temple/no_irrigation.json",
-      "output_sha256": "c81c19e531db59b5ceab4be67c075cdc3b734aa67126f908166f01170c209cd9",
+      "output_sha256": "790f466cd3c702980dac21eb3b08bebc65f904bcf7cffc23a48b9d833c74aab9",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -791,7 +791,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_blackland_temple/reliable_irrigation.json",
-      "output_sha256": "05cbaaa9da92426d0987e8e5315ece1f556e3275fca2db70737edec7721db55c",
+      "output_sha256": "06b24950fdf49bf7f8c32d0601598ac26cb455cad9be12f0c47bd761b1641ba2",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -814,7 +814,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_blackland_temple/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "dbe1aeb55739c8334a1d993ec6314d6ba4eec53714320d04ee841e768839a707",
+      "output_sha256": "98c09f2e307989103066ff2d38f59a6bde55d468c35ca3c906b7aa696a242942",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -838,7 +838,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_winter_garden_uvalde/in_season_baseline.json",
-      "output_sha256": "4f887e6b17074ae6490acebfa9a2522759b07bd89637e4c8b36783f2e6fb04aa",
+      "output_sha256": "e0452808307ab9d099d8d004ccfbef14f430b008acb455678493936c254d99fb",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -860,7 +860,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_winter_garden_uvalde/out_of_season.json",
-      "output_sha256": "b028640e1b87afa2402cce22da8b02ba71a4e3d4513419ebb76e23f152dee9b4",
+      "output_sha256": "a6b410d0a7f339eca8d009b33bee73ae907cc527fa351b8828e8cc84933e1a39",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -884,7 +884,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_winter_garden_uvalde/no_irrigation.json",
-      "output_sha256": "7c635bbe9629a0708dd0f653680cca63ca29606bff88b9e0227e4e6abac5a188",
+      "output_sha256": "5db6cf573078b00c14d9906ccb2c4e33ffddb54c24ff8ee6187f0efe89890ec3",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -907,7 +907,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_winter_garden_uvalde/reliable_irrigation.json",
-      "output_sha256": "7b36327f41de583c98a4cb789a7f3bc09d4316d02dd794303a0f612873faab99",
+      "output_sha256": "7b5fb78491cd73a54dd684ed34da76f6672f6ceb7f92566faed1604165a64617",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -930,7 +930,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_winter_garden_uvalde/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "c26c31d79430ad7d90124719a08d60aada8eede590b82e6421a1616da850b8bf",
+      "output_sha256": "5afbb48d563f454649066bc75e457fcc908b9cbb6c317c5a84bd6d8a0349975d",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -954,7 +954,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_south_poteet/in_season_baseline.json",
-      "output_sha256": "13fb292ff32b63c242b9a0da97008e5b812a5f67a568f870781114b5f97c80b3",
+      "output_sha256": "f43f668336a2bcacc568321a46b2cacf4c74f0a77c50a0c5aa9be3c7cb707f3d",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -976,7 +976,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_south_poteet/out_of_season.json",
-      "output_sha256": "f66a697baaba3fda04039747df8eac6efb13a6eaa572a68d89f2edc4dae7067b",
+      "output_sha256": "86be23f63fb1d9e3fe38980e7d1dd352a14c99241023008ea5f788ceafff4ace",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1000,7 +1000,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_south_poteet/no_irrigation.json",
-      "output_sha256": "87532a0e078af9323329c0bc7bbe1bc83b93d82d9d68c74830d674ffd8e286b5",
+      "output_sha256": "8961a4fdf30af49bba7f48b4c225034c70e7f39ee53c4fc11febfc7e5a662dc8",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1023,7 +1023,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_south_poteet/reliable_irrigation.json",
-      "output_sha256": "76e65804cd5a1284e9031215fad8d6767aa26ffbbede5fe41a2e70226a8c8580",
+      "output_sha256": "20941b3ee02154f527ff191b14e859f681bcf98fb948146d2c50b4e7cdad698a",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1046,7 +1046,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/central_south_poteet/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "942a2cee9cbfbb8459508c613a8699eca0a6a92fcda6fbc80d07ebbb1f8d6934",
+      "output_sha256": "a55dba4efb60c69fccc2033086d1ee7d8d430155333cceae70a50652a251f74d",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1070,7 +1070,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_upper_mission/in_season_baseline.json",
-      "output_sha256": "44d2504beb46752481eed3972e39a6dd917f38b045fb74030a5212df77474cae",
+      "output_sha256": "10b555b5f37d0ab59223d29229944f1a3ded2ea9c5de11bebb4a257ecf6f386f",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1092,7 +1092,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_upper_mission/out_of_season.json",
-      "output_sha256": "6dd3e3b29f4c24e9e758b37e90493d64748e1d319e7d6a4b952d13c877a94998",
+      "output_sha256": "00ecd9dceedc056e3710c9c2ec1a6c2a8042a7b278be6ad5d8ea684eca866992",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1116,7 +1116,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_upper_mission/no_irrigation.json",
-      "output_sha256": "160fefcd33a1619d5618847701f682c38a0fd7577b6f6fc176fa9abb7dc88e0d",
+      "output_sha256": "cce5997cd0e4d88a8ec6d402a22b054a6ac954e1f8c2a2cf2b87871b18f85d56",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1139,7 +1139,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_upper_mission/reliable_irrigation.json",
-      "output_sha256": "5ee5f2892b41dd4069dba99322a0183e34e5487e349a20c066b840ef0650ef2c",
+      "output_sha256": "70659a6b527e2175bb162db2c43362a5537beefd85895e25d4ee628784e6fd01",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1162,7 +1162,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_upper_mission/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "4855a3de43224e2eb7a125afcc6aa2e270fa22a5c29acb2f2c6dfe8492693b33",
+      "output_sha256": "25c3f90a1c640cef9fbb930c2b20a14ecce64a1279bf1360356cd5000ba7ecab",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1186,7 +1186,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_mid_weslaco/in_season_baseline.json",
-      "output_sha256": "fb402e59ef95a28c79eb99d2efd4527d6f79730a0302bb11c5a9deae47dd1eca",
+      "output_sha256": "9683b2aa1ec0dd9d0af2e2531317eef74d4e94d6999e25b23d06b00292409f47",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1208,7 +1208,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_mid_weslaco/out_of_season.json",
-      "output_sha256": "4fcceb51b633c1372509b9c5beaa582a19ed150bf1405935d485b7e3dbd4119b",
+      "output_sha256": "8cc22ddae936a6c3476ce9d783bdc34fbb2af94d0141eec3dc47946bcb1c41ca",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1232,7 +1232,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_mid_weslaco/no_irrigation.json",
-      "output_sha256": "be2af18abbd284262b34bdf920bae2bf8606d8218cfe51778d0e2759076faca4",
+      "output_sha256": "8cb5a82dad3b5cc4e0a8980c34ace66449e46439d14a1ed723411594c787aec3",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1255,7 +1255,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_mid_weslaco/reliable_irrigation.json",
-      "output_sha256": "2871bd416a93bca74be30a039dbf3a92f837690933d78f14007946685dc371e4",
+      "output_sha256": "57cc9f1d7863800719d299691a43cc6ce9f99c7623d2808d7355d59723533b05",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1278,7 +1278,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_mid_weslaco/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "77ce5dc38411aa441b55f1a73ee5acd1bd5f22fd6f3609dea62b58a7a7a71bcd",
+      "output_sha256": "aae94e7a11037e1972eeaa4a233c6b4a0c7fa598e451cbf6a8f1e730c43260df",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1302,7 +1302,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_lower_san_benito/in_season_baseline.json",
-      "output_sha256": "f8b2fd8d33a0bc3186f0643979cd29b335c289f42af47abd3e8c2b31230e5970",
+      "output_sha256": "639266603186000df95d5b3033b9ddb7435e80ace83ecd730a3240977b3cf579",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1324,7 +1324,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_lower_san_benito/out_of_season.json",
-      "output_sha256": "d07488025bfaae5a6e5c5f9ec3da2259bb484fc87862d056395bb61157004cf1",
+      "output_sha256": "aea5064db1a2da056126e1975653c97431f8c8a816e0e94f8cdde1f731b61b89",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1348,7 +1348,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_lower_san_benito/no_irrigation.json",
-      "output_sha256": "5c54e652678247ba49b83300b036e85611a8652c13573c10a6172faea845af8f",
+      "output_sha256": "ed376f273dfbe68f4c240a1da35e083a7ede4ca450c27949d6fc28ddcadc7395",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1371,7 +1371,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_lower_san_benito/reliable_irrigation.json",
-      "output_sha256": "979b96ed454cfe52254ad65e94954454c77ac2c22adfd7b1fe9ff5ab1b224f0c",
+      "output_sha256": "518e8284e0a9fe201b18e376370e5954bc040db91f6cb46de266e0c96136b98f",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1394,7 +1394,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "grain_sorghum",
       "output_path": "data/scenarios/results/lrgv_lower_san_benito/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "cfbe880202145d66a0c32f7aed48b3dcbf6c19fe8f835a0d489a81ff5dc50a71",
+      "output_sha256": "cccab0e8ff38799fd9665461ec9160e03a6021c6e0cea0e048008055d2578d4c",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1418,7 +1418,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_el_paso_lower_valley_fabens/in_season_baseline.json",
-      "output_sha256": "4bfb17633544fc0b42f59014ee4f3b0639e50a70eabf8968391713b8560fcdd4",
+      "output_sha256": "5cc9ea3d8c982641500e38853921e1c5639a40307173ecfdabc79877c4d97a1a",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1440,7 +1440,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_el_paso_lower_valley_fabens/out_of_season.json",
-      "output_sha256": "92a9ec3392c0b73ef0c8d0507943c73663941d3ae943e3e08d6ce2378c87286b",
+      "output_sha256": "fd6e48007d07d1c79e880b50530b4c31a76505a310b78f01d7e952b22a8dafe7",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1464,7 +1464,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_el_paso_lower_valley_fabens/no_irrigation.json",
-      "output_sha256": "e60d156ffdda63ce33d928dc5d576939603fbd733b7d704d43722a41a8f62055",
+      "output_sha256": "51a10beb9bb6746366f0352f16fcada03e6e06de06ce8c0493716909ea972eda",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1487,7 +1487,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_el_paso_lower_valley_fabens/reliable_irrigation.json",
-      "output_sha256": "a6daed186904fb192cd818a31e9c59dfeabe6c6b75cd645fe9ecd7fc2430518f",
+      "output_sha256": "eec021fe31e78b84c124ebec2cea2783799ff5f3b180c24b1c0a0070cdd79747",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1510,7 +1510,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_el_paso_lower_valley_fabens/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "970b4efb98c09e32b104ab1f6a5cf6344d1fcd7672d23c5aec466347b420c4b8",
+      "output_sha256": "7a5810075f0e444ec5e6dbbbe38e3a66f3e5ce922e4127dc5d5d7ef302ef4046",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1534,7 +1534,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_pecos_reeves/in_season_baseline.json",
-      "output_sha256": "735986fb2c8b4a7170f3895d4f7c1d81c8557badb2664c9684c955397d8e3bae",
+      "output_sha256": "e2f99ec67969419594ee4bc53216b04c9a9dc7946b695974759676719068bc29",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1556,7 +1556,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_pecos_reeves/out_of_season.json",
-      "output_sha256": "8abac0879feceb4c0a63519f2075645b0d065ca7c95265b899cc65830b6b1480",
+      "output_sha256": "a9c1e8a8c189a464329534a9dbe43b258f0f4656d46f5cde3ed5aa66a2d65315",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1580,7 +1580,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_pecos_reeves/no_irrigation.json",
-      "output_sha256": "d31ea3d73ec30f11603156caa9696cf2519e3625b6b455a6d3398a5632ec87a4",
+      "output_sha256": "9ad1f1310473d166fde65fba9c8dd14c653dd82af30252bf904c618f6e6514be",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1603,7 +1603,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_pecos_reeves/reliable_irrigation.json",
-      "output_sha256": "63d93e925f78ab1469a4174d5b06f6d8571a8776091a9c1ef450b9edae74d047",
+      "output_sha256": "5f1f0d68e2e50a8fc1d321e7031ebdc42b31cd183b4b8dd9ef282c0a8b799c4d",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1626,7 +1626,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_pecos_reeves/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "89b243dfb67856401fd4728b17bf8f26e11c829894712dec3aa367b0b105b862",
+      "output_sha256": "2a4143ee63194562b3586cb210d0a4405bc430426b7d94c123e43fe37bb521e8",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1650,7 +1650,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_fort_stockton/in_season_baseline.json",
-      "output_sha256": "1f1f7e51696ba8b96c89fa83afe53a119b95b96a8c8246ca225a12aa2f160b2d",
+      "output_sha256": "a60987e669f05dda326fc95f5588a384be9948ff7464e3b2c3b19b33280e15f1",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1672,7 +1672,7 @@
       "evaluation_mode": "planning",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_fort_stockton/out_of_season.json",
-      "output_sha256": "7656c4c5f7453a8ec709ac5abb6f3255bf9dd7c9e2ed432c7d4fc73e6489f2f5",
+      "output_sha256": "724a830487096850887c41c8c0a6ad3a5c33e8ff5f4e41fd9fe2b938e464765b",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1696,7 +1696,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_fort_stockton/no_irrigation.json",
-      "output_sha256": "75834c7478eb32e6f2e7eb97bafeb5a9f2f6b1931adaa0050c0e499d52e342b1",
+      "output_sha256": "a642ddc17e5cdaf7e6da399ae1b58e1db4dae3beb09b9857610b22762b860206",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1719,7 +1719,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_fort_stockton/reliable_irrigation.json",
-      "output_sha256": "bb78edac94e262c55c8a69a0bf2f449815ccff12a808f040b1acf6b918497d0d",
+      "output_sha256": "dcf6e19ecd0705bdb110be988baab03f9bb29eed57f847c554672a68b2d67857",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {
@@ -1742,7 +1742,7 @@
       "evaluation_mode": "planting_readiness",
       "requested_crop_id": "white_potato",
       "output_path": "data/scenarios/results/far_west_fort_stockton/missing_irrigation_lab_ph_override.json",
-      "output_sha256": "4ff440121fadf85c7411be5b5a3d5d7411106cfae3dfe4c258475a9f259416d8",
+      "output_sha256": "1aa7ab33cadf73a6e4afe8c37b4a0e1807857b20d7dc4f020e61e710b454dae1",
       "schema_valid": true,
       "ranking_policy_valid": true,
       "behavior_checks": {

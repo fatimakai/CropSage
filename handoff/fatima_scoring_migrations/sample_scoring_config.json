@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "scoring_version": "1.0.0",
+  "scoring_version": "1.0.1",
   "status": "frozen",
   "active_heat_window": "one_week",
   "weights_percent": {

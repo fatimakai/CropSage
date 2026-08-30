@@ -43,7 +43,7 @@ class CropSageAgentTests(unittest.TestCase):
         self.assertEqual(first["missing_fields"], ["location"])
         second = agent.chat("The coordinates are 28.89, -98.57.")
         self.assertEqual(second["status"], "recommendation")
-        self.assertEqual(second["recommendation"]["recommendation"]["scoring_version"], "1.0.0")
+        self.assertEqual(second["recommendation"]["recommendation"]["scoring_version"], "1.0.1")
         self.assertEqual(second["recommendation"]["location_resolution"]["site_id"], "central_south_poteet")
         self.assertEqual(second["recommendation"]["recommendation"]["requested_crop_id"], "fresh_market_spinach")
 

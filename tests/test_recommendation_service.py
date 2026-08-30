@@ -38,7 +38,7 @@ class RecommendationServiceContract(unittest.TestCase):
         self.assertEqual(resolution["parent_catalog_region_id"], "central_south_winter_garden")
         self.assertLess(resolution["distance_km"], 5)
         self.assertFalse(resolution["exact_cached_location_match"])
-        self.assertEqual(result["scoring_version"], "1.0.0")
+        self.assertEqual(result["scoring_version"], "1.0.1")
         self.assertEqual(len(result["rankings"]), 22)
         self.assertEqual(result["requested_crop_id"], "fresh_market_spinach")
         self.assertEqual(result["requested_crop_result"]["crop_id"], "fresh_market_spinach")

@@ -168,6 +168,22 @@ class DeterministicCropScoringTests(unittest.TestCase):
         self.assertFalse(by_id["open_meteo_heat_frost"]["available"])
         self.assertFalse(by_id["forecast_water_balance"]["available"])
         self.assertFalse(by_id["current_soil_moisture"]["available"])
+        self.assertEqual(item["evidence_coverage_percent"], 100.0)
+        self.assertGreaterEqual(item["confidence_score"], 65.0)
+
+    def test_non_applicable_factors_do_not_lower_planning_confidence(self):
+        profile = copy.deepcopy(self.profile)
+        profile["planting"] = {"planned_month": "2027-05", "flexibility_days": 30}
+        output = score_crops(self.evidence, profile, self.config)
+        item = next(row for row in output["rankings"] if row["crop_id"] == "fresh_market_spinach")
+        self.assertEqual(item["evidence_coverage_percent"], 100.0)
+        self.assertEqual(item["confidence_band"], "medium")
+
+        del profile["irrigation"]
+        missing_irrigation = score_crops(self.evidence, profile, self.config)
+        missing_item = next(row for row in missing_irrigation["rankings"] if row["crop_id"] == "fresh_market_spinach")
+        self.assertLess(missing_item["evidence_coverage_percent"], 100.0)
+        self.assertLess(missing_item["confidence_score"], item["confidence_score"])
 
     def test_profile_must_match_evidence_location(self):
         profile = copy.deepcopy(self.profile)
