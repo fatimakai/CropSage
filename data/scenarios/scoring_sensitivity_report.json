@@ -1,0 +1,239 @@
+{
+  "report_version": "1.0.0",
+  "scoring_version_reviewed": "1.0.0",
+  "scenario_manifest_id": "texas_15_sites_five_scenarios",
+  "weight_perturbation": "+20% for one active factor while proportionally rescaling all other active factors to retain a 100% total",
+  "run_count_per_weight_test": 75,
+  "crop_result_count_per_weight_test": 1650,
+  "active_factor_count": 17,
+  "baseline_summary": {
+    "recommendation_counts": {
+      "conditional": 282,
+      "not_recommended": 1235,
+      "recommended": 133
+    },
+    "confidence_band_counts": {
+      "low": 1026,
+      "medium": 624
+    },
+    "gate_counts": {
+      "far_outside_planting_window": 1131,
+      "unsupported_region": 30,
+      "required_irrigation_unavailable": 45
+    },
+    "top_crop_counts": {
+      "alfalfa_hay": 20,
+      "hard_red_winter_wheat": 4,
+      "white_potato": 5,
+      "fresh_market_spinach": 1,
+      "oilseed_sunflower": 1,
+      "forage_sorghum": 37,
+      "bermudagrass_hay": 2,
+      "sweet_potato": 1,
+      "sesame": 2,
+      "dry_bulb_onion": 1,
+      "fresh_market_cabbage": 1
+    }
+  },
+  "logical_checks": {
+    "limited_irrigation_below_no_irrigation_count": 0,
+    "reliable_irrigation_below_limited_irrigation_count": 0,
+    "all_out_of_season_requested_crops_capped": true,
+    "all_ineligible_crops_gated": true
+  },
+  "sensitivity": [
+    {
+      "factor_id": "nasa_seasonal_temperature",
+      "baseline_weight_percent": 8.0,
+      "perturbed_weight_percent": 9.6,
+      "mean_absolute_score_change": 0.3379,
+      "maximum_absolute_score_change": 2.23,
+      "recommendation_class_changes": 7,
+      "rank_changes": 355,
+      "maximum_absolute_rank_change": 13,
+      "top_crop_changes": 1
+    },
+    {
+      "factor_id": "fortyguard_temperature_fit",
+      "baseline_weight_percent": 7.0,
+      "perturbed_weight_percent": 8.4,
+      "mean_absolute_score_change": 0.2336,
+      "maximum_absolute_score_change": 1.23,
+      "recommendation_class_changes": 10,
+      "rank_changes": 218,
+      "maximum_absolute_rank_change": 13,
+      "top_crop_changes": 1
+    },
+    {
+      "factor_id": "fortyguard_threshold_exceedance",
+      "baseline_weight_percent": 12.0,
+      "perturbed_weight_percent": 14.4,
+      "mean_absolute_score_change": 0.1668,
+      "maximum_absolute_score_change": 1.73,
+      "recommendation_class_changes": 4,
+      "rank_changes": 262,
+      "maximum_absolute_rank_change": 12,
+      "top_crop_changes": 0
+    },
+    {
+      "factor_id": "fortyguard_heat_persistence",
+      "baseline_weight_percent": 5.0,
+      "perturbed_weight_percent": 6.0,
+      "mean_absolute_score_change": 0.0148,
+      "maximum_absolute_score_change": 0.37,
+      "recommendation_class_changes": 1,
+      "rank_changes": 41,
+      "maximum_absolute_rank_change": 12,
+      "top_crop_changes": 0
+    },
+    {
+      "factor_id": "open_meteo_heat_frost",
+      "baseline_weight_percent": 3.0,
+      "perturbed_weight_percent": 3.6,
+      "mean_absolute_score_change": 0.1019,
+      "maximum_absolute_score_change": 0.48,
+      "recommendation_class_changes": 3,
+      "rank_changes": 129,
+      "maximum_absolute_rank_change": 14,
+      "top_crop_changes": 0
+    },
+    {
+      "factor_id": "soil_texture",
+      "baseline_weight_percent": 6.0,
+      "perturbed_weight_percent": 7.2,
+      "mean_absolute_score_change": 0.1552,
+      "maximum_absolute_score_change": 1.32,
+      "recommendation_class_changes": 9,
+      "rank_changes": 93,
+      "maximum_absolute_rank_change": 9,
+      "top_crop_changes": 4
+    },
+    {
+      "factor_id": "soil_ph",
+      "baseline_weight_percent": 6.0,
+      "perturbed_weight_percent": 7.2,
+      "mean_absolute_score_change": 0.2731,
+      "maximum_absolute_score_change": 1.43,
+      "recommendation_class_changes": 10,
+      "rank_changes": 341,
+      "maximum_absolute_rank_change": 14,
+      "top_crop_changes": 0
+    },
+    {
+      "factor_id": "soil_drainage",
+      "baseline_weight_percent": 5.0,
+      "perturbed_weight_percent": 6.0,
+      "mean_absolute_score_change": 0.2908,
+      "maximum_absolute_score_change": 1.09,
+      "recommendation_class_changes": 4,
+      "rank_changes": 238,
+      "maximum_absolute_rank_change": 14,
+      "top_crop_changes": 0
+    },
+    {
+      "factor_id": "soil_root_zone",
+      "baseline_weight_percent": 4.0,
+      "perturbed_weight_percent": 4.8,
+      "mean_absolute_score_change": 0.2406,
+      "maximum_absolute_score_change": 0.86,
+      "recommendation_class_changes": 4,
+      "rank_changes": 209,
+      "maximum_absolute_rank_change": 14,
+      "top_crop_changes": 0
+    },
+    {
+      "factor_id": "soil_water_storage",
+      "baseline_weight_percent": 4.0,
+      "perturbed_weight_percent": 4.8,
+      "mean_absolute_score_change": 0.1476,
+      "maximum_absolute_score_change": 0.76,
+      "recommendation_class_changes": 0,
+      "rank_changes": 120,
+      "maximum_absolute_rank_change": 11,
+      "top_crop_changes": 0
+    },
+    {
+      "factor_id": "recent_rainfall",
+      "baseline_weight_percent": 3.0,
+      "perturbed_weight_percent": 3.6,
+      "mean_absolute_score_change": 0.1179,
+      "maximum_absolute_score_change": 0.52,
+      "recommendation_class_changes": 10,
+      "rank_changes": 100,
+      "maximum_absolute_rank_change": 12,
+      "top_crop_changes": 0
+    },
+    {
+      "factor_id": "forecast_water_balance",
+      "baseline_weight_percent": 6.0,
+      "perturbed_weight_percent": 7.2,
+      "mean_absolute_score_change": 0.2449,
+      "maximum_absolute_score_change": 1.15,
+      "recommendation_class_changes": 18,
+      "rank_changes": 173,
+      "maximum_absolute_rank_change": 12,
+      "top_crop_changes": 0
+    },
+    {
+      "factor_id": "current_soil_moisture",
+      "baseline_weight_percent": 4.0,
+      "perturbed_weight_percent": 4.8,
+      "mean_absolute_score_change": 0.1028,
+      "maximum_absolute_score_change": 0.57,
+      "recommendation_class_changes": 5,
+      "rank_changes": 126,
+      "maximum_absolute_rank_change": 14,
+      "top_crop_changes": 0
+    },
+    {
+      "factor_id": "crop_water_resilience",
+      "baseline_weight_percent": 3.0,
+      "perturbed_weight_percent": 3.6,
+      "mean_absolute_score_change": 0.0816,
+      "maximum_absolute_score_change": 0.73,
+      "recommendation_class_changes": 2,
+      "rank_changes": 134,
+      "maximum_absolute_rank_change": 8,
+      "top_crop_changes": 1
+    },
+    {
+      "factor_id": "irrigation_availability",
+      "baseline_weight_percent": 4.0,
+      "perturbed_weight_percent": 4.8,
+      "mean_absolute_score_change": 0.1144,
+      "maximum_absolute_score_change": 0.64,
+      "recommendation_class_changes": 2,
+      "rank_changes": 113,
+      "maximum_absolute_rank_change": 14,
+      "top_crop_changes": 1
+    },
+    {
+      "factor_id": "texas_regional_suitability",
+      "baseline_weight_percent": 7.5,
+      "perturbed_weight_percent": 9.0,
+      "mean_absolute_score_change": 0.2432,
+      "maximum_absolute_score_change": 1.32,
+      "recommendation_class_changes": 10,
+      "rank_changes": 336,
+      "maximum_absolute_rank_change": 14,
+      "top_crop_changes": 0
+    },
+    {
+      "factor_id": "planting_window",
+      "baseline_weight_percent": 12.5,
+      "perturbed_weight_percent": 15.0,
+      "mean_absolute_score_change": 0.769,
+      "maximum_absolute_score_change": 2.52,
+      "recommendation_class_changes": 21,
+      "rank_changes": 533,
+      "maximum_absolute_rank_change": 12,
+      "top_crop_changes": 8
+    }
+  ],
+  "review_notes": [
+    "The audit corrected one monotonicity defect: limited irrigation previously scored below no irrigation in 34 site-crop comparisons.",
+    "Low-confidence future-planning recommendations remain allowed because suitability and evidence confidence are intentionally separate outputs.",
+    "Crops without scoreable numeric heat thresholds keep lower confidence; the engine does not invent a heat penalty.",
+    "Forage sorghum and sorghum-sudangrass ties reflect materially similar scoreable catalog fields, not nondeterministic sorting."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "far_west_el_paso_lower_valley_fabens_reliable_irrigation",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 31.5,
+    "longitude": -106.17,
+    "farm_name": "Fabens, Texas representative scenario site",
+    "location_label": "Fabens, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-08",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "white_potato",
+  "irrigation": {
+    "availability": "yes",
+    "reliability": "reliable",
+    "method": "unknown",
+    "water_source": "unknown",
+    "notes": "Synthetic reliable-irrigation assumption for deterministic scenario testing."
+  }
+}

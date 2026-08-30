@@ -1,0 +1,731 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "texas_15_sites_five_scenarios",
+  "generated_at": "2026-08-29T04:00:00Z",
+  "farm_profile_schema_version": "1.0.0",
+  "evidence_bundle_schema_version": "1.2.0",
+  "site_count": 15,
+  "scenarios_per_site": 5,
+  "scenario_count": 75,
+  "requested_crop_policy": "Select the highest-rated regionally eligible catalog crop whose planting window includes August, preserving catalog order for ties.",
+  "out_of_season_policy": "Select the month with greatest circular distance from the representative crop planting windows, using the earliest month for ties.",
+  "assumptions": [
+    "All profiles are synthetic test fixtures and do not represent real farms or laboratory results.",
+    "The in-season month is August 2026 so the available FortyGuard heat window and Open-Meteo short-range evidence remain relevant.",
+    "The fifth scenario intentionally combines missing irrigation evidence with a synthetic pH override to exercise both engine behaviors within five profiles per site."
+  ],
+  "scenario_types": [
+    "in_season_baseline",
+    "out_of_season",
+    "no_irrigation",
+    "reliable_irrigation",
+    "missing_irrigation_lab_ph_override"
+  ],
+  "sites": [
+    {
+      "site_id": "plains_northern_panhandle_dalhart",
+      "parent_region_id": "plains",
+      "evidence_bundle_path": "data/evidence/regions/plains_northern_panhandle_dalhart/evidence_bundle.json",
+      "representative_crop_id": "white_potato",
+      "representative_crop_name": "White potato",
+      "representative_crop_rating": "suitable",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2026-11",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "plains_northern_panhandle_dalhart_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/plains_northern_panhandle_dalhart/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "plains_northern_panhandle_dalhart_out_of_season",
+          "profile_path": "data/scenarios/profiles/plains_northern_panhandle_dalhart/out_of_season.json",
+          "planned_month": "2026-11",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "plains_northern_panhandle_dalhart_no_irrigation",
+          "profile_path": "data/scenarios/profiles/plains_northern_panhandle_dalhart/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "plains_northern_panhandle_dalhart_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/plains_northern_panhandle_dalhart/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "plains_northern_panhandle_dalhart_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/plains_northern_panhandle_dalhart/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        }
+      ]
+    },
+    {
+      "site_id": "plains_south_plainview",
+      "parent_region_id": "plains",
+      "evidence_bundle_path": "data/evidence/regions/plains_south_plainview/evidence_bundle.json",
+      "representative_crop_id": "white_potato",
+      "representative_crop_name": "White potato",
+      "representative_crop_rating": "suitable",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2026-11",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "plains_south_plainview_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/plains_south_plainview/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "plains_south_plainview_out_of_season",
+          "profile_path": "data/scenarios/profiles/plains_south_plainview/out_of_season.json",
+          "planned_month": "2026-11",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "plains_south_plainview_no_irrigation",
+          "profile_path": "data/scenarios/profiles/plains_south_plainview/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "plains_south_plainview_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/plains_south_plainview/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "plains_south_plainview_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/plains_south_plainview/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        }
+      ]
+    },
+    {
+      "site_id": "plains_rolling_vernon",
+      "parent_region_id": "plains",
+      "evidence_bundle_path": "data/evidence/regions/plains_rolling_vernon/evidence_bundle.json",
+      "representative_crop_id": "white_potato",
+      "representative_crop_name": "White potato",
+      "representative_crop_rating": "suitable",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2026-11",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "plains_rolling_vernon_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/plains_rolling_vernon/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "plains_rolling_vernon_out_of_season",
+          "profile_path": "data/scenarios/profiles/plains_rolling_vernon/out_of_season.json",
+          "planned_month": "2026-11",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "plains_rolling_vernon_no_irrigation",
+          "profile_path": "data/scenarios/profiles/plains_rolling_vernon/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "plains_rolling_vernon_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/plains_rolling_vernon/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "plains_rolling_vernon_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/plains_rolling_vernon/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        }
+      ]
+    },
+    {
+      "site_id": "eastern_east_texas_tyler",
+      "parent_region_id": "eastern",
+      "evidence_bundle_path": "data/evidence/regions/eastern_east_texas_tyler/evidence_bundle.json",
+      "representative_crop_id": "fresh_market_cabbage",
+      "representative_crop_name": "Fresh-market cabbage",
+      "representative_crop_rating": "suitable",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2027-05",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "eastern_east_texas_tyler_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/eastern_east_texas_tyler/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "fresh_market_cabbage"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "eastern_east_texas_tyler_out_of_season",
+          "profile_path": "data/scenarios/profiles/eastern_east_texas_tyler/out_of_season.json",
+          "planned_month": "2027-05",
+          "requested_crop_id": "fresh_market_cabbage"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "eastern_east_texas_tyler_no_irrigation",
+          "profile_path": "data/scenarios/profiles/eastern_east_texas_tyler/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "fresh_market_cabbage"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "eastern_east_texas_tyler_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/eastern_east_texas_tyler/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "fresh_market_cabbage"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "eastern_east_texas_tyler_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/eastern_east_texas_tyler/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "fresh_market_cabbage"
+        }
+      ]
+    },
+    {
+      "site_id": "eastern_rice_belt_eagle_lake",
+      "parent_region_id": "eastern",
+      "evidence_bundle_path": "data/evidence/regions/eastern_rice_belt_eagle_lake/evidence_bundle.json",
+      "representative_crop_id": "fresh_market_cabbage",
+      "representative_crop_name": "Fresh-market cabbage",
+      "representative_crop_rating": "suitable",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2027-05",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "eastern_rice_belt_eagle_lake_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/eastern_rice_belt_eagle_lake/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "fresh_market_cabbage"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "eastern_rice_belt_eagle_lake_out_of_season",
+          "profile_path": "data/scenarios/profiles/eastern_rice_belt_eagle_lake/out_of_season.json",
+          "planned_month": "2027-05",
+          "requested_crop_id": "fresh_market_cabbage"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "eastern_rice_belt_eagle_lake_no_irrigation",
+          "profile_path": "data/scenarios/profiles/eastern_rice_belt_eagle_lake/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "fresh_market_cabbage"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "eastern_rice_belt_eagle_lake_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/eastern_rice_belt_eagle_lake/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "fresh_market_cabbage"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "eastern_rice_belt_eagle_lake_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/eastern_rice_belt_eagle_lake/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "fresh_market_cabbage"
+        }
+      ]
+    },
+    {
+      "site_id": "eastern_coastal_bend_robstown",
+      "parent_region_id": "eastern",
+      "evidence_bundle_path": "data/evidence/regions/eastern_coastal_bend_robstown/evidence_bundle.json",
+      "representative_crop_id": "fresh_market_cabbage",
+      "representative_crop_name": "Fresh-market cabbage",
+      "representative_crop_rating": "suitable",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2027-05",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "eastern_coastal_bend_robstown_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/eastern_coastal_bend_robstown/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "fresh_market_cabbage"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "eastern_coastal_bend_robstown_out_of_season",
+          "profile_path": "data/scenarios/profiles/eastern_coastal_bend_robstown/out_of_season.json",
+          "planned_month": "2027-05",
+          "requested_crop_id": "fresh_market_cabbage"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "eastern_coastal_bend_robstown_no_irrigation",
+          "profile_path": "data/scenarios/profiles/eastern_coastal_bend_robstown/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "fresh_market_cabbage"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "eastern_coastal_bend_robstown_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/eastern_coastal_bend_robstown/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "fresh_market_cabbage"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "eastern_coastal_bend_robstown_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/eastern_coastal_bend_robstown/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "fresh_market_cabbage"
+        }
+      ]
+    },
+    {
+      "site_id": "central_blackland_temple",
+      "parent_region_id": "central_south_winter_garden",
+      "evidence_bundle_path": "data/evidence/regions/central_blackland_temple/evidence_bundle.json",
+      "representative_crop_id": "white_potato",
+      "representative_crop_name": "White potato",
+      "representative_crop_rating": "primary",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2027-05",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "central_blackland_temple_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/central_blackland_temple/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "central_blackland_temple_out_of_season",
+          "profile_path": "data/scenarios/profiles/central_blackland_temple/out_of_season.json",
+          "planned_month": "2027-05",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "central_blackland_temple_no_irrigation",
+          "profile_path": "data/scenarios/profiles/central_blackland_temple/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "central_blackland_temple_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/central_blackland_temple/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "central_blackland_temple_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/central_blackland_temple/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        }
+      ]
+    },
+    {
+      "site_id": "central_winter_garden_uvalde",
+      "parent_region_id": "central_south_winter_garden",
+      "evidence_bundle_path": "data/evidence/regions/central_winter_garden_uvalde/evidence_bundle.json",
+      "representative_crop_id": "white_potato",
+      "representative_crop_name": "White potato",
+      "representative_crop_rating": "primary",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2027-05",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "central_winter_garden_uvalde_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/central_winter_garden_uvalde/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "central_winter_garden_uvalde_out_of_season",
+          "profile_path": "data/scenarios/profiles/central_winter_garden_uvalde/out_of_season.json",
+          "planned_month": "2027-05",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "central_winter_garden_uvalde_no_irrigation",
+          "profile_path": "data/scenarios/profiles/central_winter_garden_uvalde/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "central_winter_garden_uvalde_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/central_winter_garden_uvalde/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "central_winter_garden_uvalde_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/central_winter_garden_uvalde/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        }
+      ]
+    },
+    {
+      "site_id": "central_south_poteet",
+      "parent_region_id": "central_south_winter_garden",
+      "evidence_bundle_path": "data/evidence/regions/central_south_poteet/evidence_bundle.json",
+      "representative_crop_id": "white_potato",
+      "representative_crop_name": "White potato",
+      "representative_crop_rating": "primary",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2027-05",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "central_south_poteet_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/central_south_poteet/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "central_south_poteet_out_of_season",
+          "profile_path": "data/scenarios/profiles/central_south_poteet/out_of_season.json",
+          "planned_month": "2027-05",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "central_south_poteet_no_irrigation",
+          "profile_path": "data/scenarios/profiles/central_south_poteet/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "central_south_poteet_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/central_south_poteet/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "central_south_poteet_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/central_south_poteet/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        }
+      ]
+    },
+    {
+      "site_id": "lrgv_upper_mission",
+      "parent_region_id": "lower_rio_grande_valley",
+      "evidence_bundle_path": "data/evidence/regions/lrgv_upper_mission/evidence_bundle.json",
+      "representative_crop_id": "grain_sorghum",
+      "representative_crop_name": "Grain sorghum",
+      "representative_crop_rating": "primary",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2026-11",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "lrgv_upper_mission_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/lrgv_upper_mission/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "grain_sorghum"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "lrgv_upper_mission_out_of_season",
+          "profile_path": "data/scenarios/profiles/lrgv_upper_mission/out_of_season.json",
+          "planned_month": "2026-11",
+          "requested_crop_id": "grain_sorghum"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "lrgv_upper_mission_no_irrigation",
+          "profile_path": "data/scenarios/profiles/lrgv_upper_mission/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "grain_sorghum"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "lrgv_upper_mission_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/lrgv_upper_mission/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "grain_sorghum"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "lrgv_upper_mission_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/lrgv_upper_mission/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "grain_sorghum"
+        }
+      ]
+    },
+    {
+      "site_id": "lrgv_mid_weslaco",
+      "parent_region_id": "lower_rio_grande_valley",
+      "evidence_bundle_path": "data/evidence/regions/lrgv_mid_weslaco/evidence_bundle.json",
+      "representative_crop_id": "grain_sorghum",
+      "representative_crop_name": "Grain sorghum",
+      "representative_crop_rating": "primary",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2026-11",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "lrgv_mid_weslaco_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/lrgv_mid_weslaco/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "grain_sorghum"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "lrgv_mid_weslaco_out_of_season",
+          "profile_path": "data/scenarios/profiles/lrgv_mid_weslaco/out_of_season.json",
+          "planned_month": "2026-11",
+          "requested_crop_id": "grain_sorghum"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "lrgv_mid_weslaco_no_irrigation",
+          "profile_path": "data/scenarios/profiles/lrgv_mid_weslaco/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "grain_sorghum"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "lrgv_mid_weslaco_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/lrgv_mid_weslaco/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "grain_sorghum"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "lrgv_mid_weslaco_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/lrgv_mid_weslaco/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "grain_sorghum"
+        }
+      ]
+    },
+    {
+      "site_id": "lrgv_lower_san_benito",
+      "parent_region_id": "lower_rio_grande_valley",
+      "evidence_bundle_path": "data/evidence/regions/lrgv_lower_san_benito/evidence_bundle.json",
+      "representative_crop_id": "grain_sorghum",
+      "representative_crop_name": "Grain sorghum",
+      "representative_crop_rating": "primary",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2026-11",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "lrgv_lower_san_benito_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/lrgv_lower_san_benito/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "grain_sorghum"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "lrgv_lower_san_benito_out_of_season",
+          "profile_path": "data/scenarios/profiles/lrgv_lower_san_benito/out_of_season.json",
+          "planned_month": "2026-11",
+          "requested_crop_id": "grain_sorghum"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "lrgv_lower_san_benito_no_irrigation",
+          "profile_path": "data/scenarios/profiles/lrgv_lower_san_benito/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "grain_sorghum"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "lrgv_lower_san_benito_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/lrgv_lower_san_benito/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "grain_sorghum"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "lrgv_lower_san_benito_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/lrgv_lower_san_benito/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "grain_sorghum"
+        }
+      ]
+    },
+    {
+      "site_id": "far_west_el_paso_lower_valley_fabens",
+      "parent_region_id": "far_west",
+      "evidence_bundle_path": "data/evidence/regions/far_west_el_paso_lower_valley_fabens/evidence_bundle.json",
+      "representative_crop_id": "white_potato",
+      "representative_crop_name": "White potato",
+      "representative_crop_rating": "conditional",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2026-11",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "far_west_el_paso_lower_valley_fabens_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/far_west_el_paso_lower_valley_fabens/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "far_west_el_paso_lower_valley_fabens_out_of_season",
+          "profile_path": "data/scenarios/profiles/far_west_el_paso_lower_valley_fabens/out_of_season.json",
+          "planned_month": "2026-11",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "far_west_el_paso_lower_valley_fabens_no_irrigation",
+          "profile_path": "data/scenarios/profiles/far_west_el_paso_lower_valley_fabens/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "far_west_el_paso_lower_valley_fabens_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/far_west_el_paso_lower_valley_fabens/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "far_west_el_paso_lower_valley_fabens_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/far_west_el_paso_lower_valley_fabens/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        }
+      ]
+    },
+    {
+      "site_id": "far_west_pecos_reeves",
+      "parent_region_id": "far_west",
+      "evidence_bundle_path": "data/evidence/regions/far_west_pecos_reeves/evidence_bundle.json",
+      "representative_crop_id": "white_potato",
+      "representative_crop_name": "White potato",
+      "representative_crop_rating": "conditional",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2026-11",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "far_west_pecos_reeves_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/far_west_pecos_reeves/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "far_west_pecos_reeves_out_of_season",
+          "profile_path": "data/scenarios/profiles/far_west_pecos_reeves/out_of_season.json",
+          "planned_month": "2026-11",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "far_west_pecos_reeves_no_irrigation",
+          "profile_path": "data/scenarios/profiles/far_west_pecos_reeves/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "far_west_pecos_reeves_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/far_west_pecos_reeves/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "far_west_pecos_reeves_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/far_west_pecos_reeves/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        }
+      ]
+    },
+    {
+      "site_id": "far_west_fort_stockton",
+      "parent_region_id": "far_west",
+      "evidence_bundle_path": "data/evidence/regions/far_west_fort_stockton/evidence_bundle.json",
+      "representative_crop_id": "white_potato",
+      "representative_crop_name": "White potato",
+      "representative_crop_rating": "conditional",
+      "in_season_month": "2026-08",
+      "out_of_season_month": "2026-11",
+      "scenarios": [
+        {
+          "scenario_type": "in_season_baseline",
+          "profile_id": "far_west_fort_stockton_in_season_baseline",
+          "profile_path": "data/scenarios/profiles/far_west_fort_stockton/in_season_baseline.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "out_of_season",
+          "profile_id": "far_west_fort_stockton_out_of_season",
+          "profile_path": "data/scenarios/profiles/far_west_fort_stockton/out_of_season.json",
+          "planned_month": "2026-11",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "no_irrigation",
+          "profile_id": "far_west_fort_stockton_no_irrigation",
+          "profile_path": "data/scenarios/profiles/far_west_fort_stockton/no_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "reliable_irrigation",
+          "profile_id": "far_west_fort_stockton_reliable_irrigation",
+          "profile_path": "data/scenarios/profiles/far_west_fort_stockton/reliable_irrigation.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        },
+        {
+          "scenario_type": "missing_irrigation_lab_ph_override",
+          "profile_id": "far_west_fort_stockton_missing_irrigation_lab_ph_override",
+          "profile_path": "data/scenarios/profiles/far_west_fort_stockton/missing_irrigation_lab_ph_override.json",
+          "planned_month": "2026-08",
+          "requested_crop_id": "white_potato"
+        }
+      ]
+    }
+  ]
+}

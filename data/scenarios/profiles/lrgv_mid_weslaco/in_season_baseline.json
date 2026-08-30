@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "lrgv_mid_weslaco_in_season_baseline",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 26.19,
+    "longitude": -97.99,
+    "farm_name": "Weslaco, Texas representative scenario site",
+    "location_label": "Weslaco, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-08",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "grain_sorghum",
+  "irrigation": {
+    "availability": "yes",
+    "reliability": "limited",
+    "method": "unknown",
+    "water_source": "unknown",
+    "notes": "Synthetic baseline assumption for deterministic scenario testing."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "lrgv_upper_mission_missing_irrigation_lab_ph_override",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 26.32,
+    "longitude": -98.32,
+    "farm_name": "Mission, Texas representative scenario site",
+    "location_label": "Mission, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-08",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "grain_sorghum",
+  "soil_overrides": {
+    "laboratory_ph": {
+      "value": 6.5,
+      "tested_at": "2026-08-28",
+      "laboratory_name": null,
+      "report_reference": "Synthetic scenario value; not a real laboratory result."
+    }
+  }
+}

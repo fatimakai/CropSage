@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "far_west_fort_stockton_reliable_irrigation",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 30.83,
+    "longitude": -103.0,
+    "farm_name": "Fort Stockton, Texas representative scenario site",
+    "location_label": "Fort Stockton, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-08",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "white_potato",
+  "irrigation": {
+    "availability": "yes",
+    "reliability": "reliable",
+    "method": "unknown",
+    "water_source": "unknown",
+    "notes": "Synthetic reliable-irrigation assumption for deterministic scenario testing."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "lrgv_lower_san_benito_out_of_season",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 26.13,
+    "longitude": -97.66,
+    "farm_name": "San Benito, Texas representative scenario site",
+    "location_label": "San Benito, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-11",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "grain_sorghum",
+  "irrigation": {
+    "availability": "yes",
+    "reliability": "limited",
+    "method": "unknown",
+    "water_source": "unknown",
+    "notes": "Synthetic baseline assumption for deterministic scenario testing."
+  }
+}

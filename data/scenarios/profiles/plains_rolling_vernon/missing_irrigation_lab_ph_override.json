@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "plains_rolling_vernon_missing_irrigation_lab_ph_override",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 34.12,
+    "longitude": -99.32,
+    "farm_name": "Vernon, Texas representative scenario site",
+    "location_label": "Vernon, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-08",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "white_potato",
+  "soil_overrides": {
+    "laboratory_ph": {
+      "value": 6.5,
+      "tested_at": "2026-08-28",
+      "laboratory_name": null,
+      "report_reference": "Synthetic scenario value; not a real laboratory result."
+    }
+  }
+}

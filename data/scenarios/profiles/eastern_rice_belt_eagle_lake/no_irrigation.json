@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "eastern_rice_belt_eagle_lake_no_irrigation",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 29.56,
+    "longitude": -96.3,
+    "farm_name": "Eagle Lake, Texas representative scenario site",
+    "location_label": "Eagle Lake, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-08",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "fresh_market_cabbage",
+  "irrigation": {
+    "availability": "no",
+    "reliability": "not_applicable",
+    "notes": "Synthetic no-irrigation assumption for deterministic scenario testing."
+  }
+}

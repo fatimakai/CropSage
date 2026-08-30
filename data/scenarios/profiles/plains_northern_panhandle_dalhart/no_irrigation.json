@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "plains_northern_panhandle_dalhart_no_irrigation",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 36.03,
+    "longitude": -102.52,
+    "farm_name": "Dalhart, Texas representative scenario site",
+    "location_label": "Dalhart, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-08",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "white_potato",
+  "irrigation": {
+    "availability": "no",
+    "reliability": "not_applicable",
+    "notes": "Synthetic no-irrigation assumption for deterministic scenario testing."
+  }
+}

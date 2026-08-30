@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "central_south_poteet_no_irrigation",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 28.89,
+    "longitude": -98.6,
+    "farm_name": "Poteet, Texas representative scenario site",
+    "location_label": "Poteet, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-08",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "white_potato",
+  "irrigation": {
+    "availability": "no",
+    "reliability": "not_applicable",
+    "notes": "Synthetic no-irrigation assumption for deterministic scenario testing."
+  }
+}

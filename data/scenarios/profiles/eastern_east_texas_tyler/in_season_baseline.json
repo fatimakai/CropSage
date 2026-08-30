@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "eastern_east_texas_tyler_in_season_baseline",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 32.41,
+    "longitude": -95.3,
+    "farm_name": "Tyler, Texas representative scenario site",
+    "location_label": "Tyler, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-08",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "fresh_market_cabbage",
+  "irrigation": {
+    "availability": "yes",
+    "reliability": "limited",
+    "method": "unknown",
+    "water_source": "unknown",
+    "notes": "Synthetic baseline assumption for deterministic scenario testing."
+  }
+}

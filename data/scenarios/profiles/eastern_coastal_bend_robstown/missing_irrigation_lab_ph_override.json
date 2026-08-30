@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "eastern_coastal_bend_robstown_missing_irrigation_lab_ph_override",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 27.76,
+    "longitude": -97.67,
+    "farm_name": "Robstown, Texas representative scenario site",
+    "location_label": "Robstown, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-08",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "fresh_market_cabbage",
+  "soil_overrides": {
+    "laboratory_ph": {
+      "value": 6.5,
+      "tested_at": "2026-08-28",
+      "laboratory_name": null,
+      "report_reference": "Synthetic scenario value; not a real laboratory result."
+    }
+  }
+}

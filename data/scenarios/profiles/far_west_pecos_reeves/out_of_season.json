@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "far_west_pecos_reeves_out_of_season",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 31.26,
+    "longitude": -103.55,
+    "farm_name": "Pecos, Texas representative scenario site",
+    "location_label": "Pecos, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2026-11",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "white_potato",
+  "irrigation": {
+    "availability": "yes",
+    "reliability": "limited",
+    "method": "unknown",
+    "water_source": "unknown",
+    "notes": "Synthetic baseline assumption for deterministic scenario testing."
+  }
+}

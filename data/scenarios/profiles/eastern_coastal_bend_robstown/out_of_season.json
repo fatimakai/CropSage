@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "eastern_coastal_bend_robstown_out_of_season",
+  "captured_at": "2026-08-29T04:00:00Z",
+  "location": {
+    "latitude": 27.76,
+    "longitude": -97.67,
+    "farm_name": "Robstown, Texas representative scenario site",
+    "location_label": "Robstown, Texas",
+    "source": "manual_coordinates"
+  },
+  "planting": {
+    "planned_month": "2027-05",
+    "flexibility_days": 30
+  },
+  "requested_crop_id": "fresh_market_cabbage",
+  "irrigation": {
+    "availability": "yes",
+    "reliability": "limited",
+    "method": "unknown",
+    "water_source": "unknown",
+    "notes": "Synthetic baseline assumption for deterministic scenario testing."
+  }
+}
