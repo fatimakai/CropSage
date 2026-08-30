@@ -5,7 +5,6 @@ import {
   CheckCircle2,
   ChevronRight,
   CircleGauge,
-  Info,
   MapPin,
   ShieldCheck,
   ShieldX,
@@ -193,13 +192,6 @@ export function RecommendationResults(props: RecommendationResultsProps) {
         <div className="validation-badge"><ShieldCheck size={17} aria-hidden="true" /><span>Validated for display<small>{validation.validator_version}</small></span></div>
       </header>
 
-      <section className="results-context" aria-label="Assessment summary">
-        <div><span>Assessment</span><strong>{assessmentSessionId.slice(0, 8).toUpperCase()}</strong></div>
-        <div><span>{isRequestedCropAssessment ? "Crop assessed" : "Catalog results"}</span><strong>{isRequestedCropAssessment ? requestedCropName : `${recommendation.rankings.length} crops`}</strong></div>
-        <div><span>{isRequestedCropAssessment ? "Regional support" : "Regionally eligible"}</span><strong>{isRequestedCropAssessment ? requestedCrop?.regionally_eligible ? "Supported" : "Not supported" : `${groups.eligible.length} crops`}</strong></div>
-        <div><span>Evaluation</span><strong>{titleCaseIdentifier(recommendation.evaluation_mode)}</strong></div>
-      </section>
-
       {isRequestedCropAssessment ? (
         <section className="top-results-section" aria-labelledby="selected-crop-heading">
           <div className="section-title-row results-section-title">
@@ -250,13 +242,6 @@ export function RecommendationResults(props: RecommendationResultsProps) {
       </section>
         </>
       )}
-
-      <section className="result-limitations" aria-labelledby="limitations-heading">
-        <Info size={18} aria-hidden="true" />
-        <div><h2 id="limitations-heading">How to read this result</h2><p>This is preliminary crop suitability, not a yield guarantee or irrigation prescription. The catalog and scoring coefficients remain provisional pending external agronomic review.</p>
-          <details><summary>Assessment limitations <span>{recommendation.limitations.length}</span></summary><ul>{recommendation.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul></details>
-        </div>
-      </section>
 
       <footer className="results-footer">
         <span><CheckCircle2 size={16} aria-hidden="true" />{isRequestedCropAssessment ? `${requestedCropName} assessment complete.` : "All 22 catalog crops are represented."}</span>
