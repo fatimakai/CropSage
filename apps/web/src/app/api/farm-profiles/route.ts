@@ -1,7 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
 
-import { farmProfileDraftSchema } from "@/lib/contracts";
+import { farmProfileSubmissionSchema } from "@/lib/contracts";
 import { buildFarmProfileSnapshot, getMissingFarmProfileFields } from "@/lib/farm-profile/snapshot";
 import { createAdminSupabaseClient } from "@/lib/supabase/admin";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
@@ -9,7 +9,7 @@ import { createServerSupabaseClient } from "@/lib/supabase/server";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  const parsed = farmProfileDraftSchema.safeParse(await request.json().catch(() => null));
+  const parsed = farmProfileSubmissionSchema.safeParse(await request.json().catch(() => null));
 
   if (!parsed.success) {
     return NextResponse.json(
@@ -44,15 +44,33 @@ export async function POST(request: Request) {
     current = { user: data.user };
   }
 
+  const { farm_boundary_metadata: boundaryMetadata, ...profile } = parsed.data;
   const profileId = `profile_${randomUUID().replaceAll("-", "")}`;
-  const snapshot = buildFarmProfileSnapshot(parsed.data, {
+  const capturedAt = new Date().toISOString();
+  const snapshot = buildFarmProfileSnapshot(profile, {
     profileId,
-    capturedAt: new Date().toISOString(),
+    capturedAt,
   });
-  const missingFields = getMissingFarmProfileFields(parsed.data);
+  const missingFields = getMissingFarmProfileFields(profile);
   const completenessNotes = missingFields.length
     ? ["Optional farm evidence was not supplied; unavailable values must lower confidence, not count as matches."]
     : [];
+  const fieldSources = boundaryMetadata
+    ? {
+        farm_boundary: {
+          source: boundaryMetadata.source,
+          ...(boundaryMetadata.source_id ? { source_id: boundaryMetadata.source_id } : {}),
+          ...(boundaryMetadata.source === "usda_csb"
+            ? { dataset_name: "usda_nass_crop_sequence_boundaries" }
+            : {}),
+          ...(boundaryMetadata.dataset_version
+            ? { dataset_version: boundaryMetadata.dataset_version }
+            : {}),
+          farmer_confirmed: true,
+          confirmed_at: capturedAt,
+        },
+      }
+    : {};
 
   const admin = createAdminSupabaseClient();
   const { data, error } = await admin.rpc("create_farm_profile", {
@@ -60,6 +78,7 @@ export async function POST(request: Request) {
     p_profile_snapshot: snapshot,
     p_missing_fields: missingFields,
     p_completeness_notes: completenessNotes,
+    p_field_sources: fieldSources,
   });
   const saved = Array.isArray(data) ? data[0] : null;
 

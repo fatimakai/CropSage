@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
+import type { SelectedFarmField } from "@/components/farm-profile/farm-map";
 import {
   createFarmProfileResponseSchema,
   farmLocationSchema,
@@ -26,7 +27,9 @@ import {
   irrigationInputSchema,
   plantingPlanSchema,
   type FarmProfileDraft,
+  type FarmProfileSubmission,
 } from "@/lib/contracts";
+import { CROP_CATALOG_OPTIONS, cropCatalogName } from "@/lib/crops/catalog-options";
 
 const FarmMap = dynamic(
   () => import("@/components/farm-profile/farm-map").then((module) => module.FarmMap),
@@ -45,7 +48,6 @@ const steps = [
 ];
 
 type LocationSource = "map_pin" | "gps" | "demo_farm" | "manual_coordinates";
-type PlantingMode = "month" | "date";
 
 type FormState = {
   farmName: string;
@@ -53,10 +55,8 @@ type FormState = {
   latitude: string;
   longitude: string;
   locationSource: LocationSource;
-  plantingMode: PlantingMode;
-  plannedDate: string;
   plannedMonth: string;
-  flexibilityDays: string;
+  requestedCropId: string;
   irrigationAvailability: "yes" | "no" | "unknown";
   irrigationReliability: "reliable" | "limited" | "seasonal" | "unreliable" | "unknown";
   irrigationMethod: "drip" | "center_pivot" | "sprinkler" | "furrow" | "flood" | "subsurface" | "other" | "unknown";
@@ -94,10 +94,8 @@ const initialForm: FormState = {
   latitude: "",
   longitude: "",
   locationSource: "manual_coordinates",
-  plantingMode: "month",
-  plannedDate: "",
   plannedMonth: "",
-  flexibilityDays: "30",
+  requestedCropId: "",
   irrigationAvailability: "unknown",
   irrigationReliability: "unknown",
   irrigationMethod: "unknown",
@@ -154,9 +152,7 @@ function buildLocation(form: FormState) {
 
 function buildPlanting(form: FormState) {
   return plantingPlanSchema.parse({
-    planned_date: form.plantingMode === "date" ? optionalText(form.plannedDate) : undefined,
-    planned_month: form.plantingMode === "month" ? optionalText(form.plannedMonth) : undefined,
-    flexibility_days: optionalNumber(form.flexibilityDays),
+    planned_month: optionalText(form.plannedMonth),
   });
 }
 
@@ -198,7 +194,7 @@ function buildIrrigation(form: FormState) {
   });
 }
 
-function buildDraft(form: FormState): FarmProfileDraft {
+function buildDraft(form: FormState, selectedField: SelectedFarmField | null): FarmProfileDraft {
   const soilOverrides =
     form.includeTexture || form.includePh
       ? {
@@ -223,7 +219,7 @@ function buildDraft(form: FormState): FarmProfileDraft {
   return farmProfileDraftSchema.parse({
     location: buildLocation(form),
     planting: buildPlanting(form),
-    requested_crop_id: null,
+    requested_crop_id: optionalText(form.requestedCropId) ?? null,
     irrigation: buildIrrigation(form),
     soil_overrides: soilOverrides,
     current_soil_moisture: form.includeMoisture
@@ -241,6 +237,7 @@ function buildDraft(form: FormState): FarmProfileDraft {
           source: form.rainfallSource,
         }
       : undefined,
+    farm_boundary: selectedField?.geometry,
     farmer_goal: form.includeGoal
       ? {
           primary_goal: form.primaryGoal,
@@ -262,11 +259,20 @@ export function FarmProfileForm() {
   const [locationError, setLocationError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [savedSessionId, setSavedSessionId] = useState<string | null>(null);
+  const [selectedField, setSelectedField] = useState<SelectedFarmField | null>(null);
+  const requestedCropName = cropCatalogName(form.requestedCropId);
 
   const latitude = Number(form.latitude);
   const longitude = Number(form.longitude);
   const mapCoordinates =
-    Number.isFinite(latitude) && Number.isFinite(longitude) ? { latitude, longitude } : null;
+    Number.isFinite(latitude) &&
+    Number.isFinite(longitude) &&
+    latitude >= 25.8 &&
+    latitude <= 36.6 &&
+    longitude >= -106.7 &&
+    longitude <= -93.4
+      ? { latitude, longitude }
+      : null;
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((current) => ({ ...current, [key]: value }));
@@ -283,6 +289,7 @@ export function FarmProfileForm() {
       longitude: String(coordinates.longitude),
       locationSource: source,
     }));
+    setSelectedField(null);
     setLocationError(null);
     setError(null);
   }
@@ -296,6 +303,7 @@ export function FarmProfileForm() {
       longitude: "-101.76",
       locationSource: "demo_farm",
     }));
+    setSelectedField(null);
     setLocationError(null);
     setError(null);
   }
@@ -327,7 +335,7 @@ export function FarmProfileForm() {
       if (index === 0) buildLocation(form);
       if (index === 1) buildPlanting(form);
       if (index === 2) buildIrrigation(form);
-      if (index >= 3) buildDraft(form);
+      if (index >= 3) buildDraft(form, selectedField);
       setError(null);
       return true;
     } catch (validationError) {
@@ -357,7 +365,7 @@ export function FarmProfileForm() {
   async function saveProfile() {
     let draft: FarmProfileDraft;
     try {
-      draft = buildDraft(form);
+      draft = buildDraft(form, selectedField);
     } catch {
       setError("Review the profile and complete any required values before saving.");
       return;
@@ -367,10 +375,16 @@ export function FarmProfileForm() {
     setError(null);
 
     try {
+      const submission: FarmProfileSubmission = selectedField
+        ? {
+            ...draft,
+            farm_boundary_metadata: selectedField.metadata,
+          }
+        : draft;
       const response = await fetch("/api/farm-profiles", {
         method: "POST",
         headers: { "content-type": "application/json", accept: "application/json" },
-        body: JSON.stringify(draft),
+        body: JSON.stringify(submission),
       });
       const result = createFarmProfileResponseSchema.parse(await response.json());
 
@@ -397,7 +411,8 @@ export function FarmProfileForm() {
           <p>Your location and farm inputs are ready for evidence collection.</p>
           <dl className="saved-summary">
             <div><dt>Farm</dt><dd>{form.farmName || form.locationLabel || "Selected farm"}</dd></div>
-            <div><dt>Planting</dt><dd>{form.plantingMode === "month" ? form.plannedMonth : form.plannedDate}</dd></div>
+            <div><dt>Planting</dt><dd>{form.plannedMonth}</dd></div>
+            <div><dt>Crop focus</dt><dd>{requestedCropName ?? "Best available crops"}</dd></div>
             <div><dt>Assessment</dt><dd>{savedSessionId.slice(0, 8).toUpperCase()}</dd></div>
           </dl>
           <div className="complete-actions">
@@ -413,6 +428,7 @@ export function FarmProfileForm() {
                 setStep(0);
                 setHighestStep(0);
                 setSavedSessionId(null);
+                setSelectedField(null);
               }}
             >
               <MapPinned size={17} aria-hidden="true" />
@@ -428,11 +444,9 @@ export function FarmProfileForm() {
     <main className="workspace">
       <header className="page-heading">
         <div>
-          <p className="eyebrow">New assessment</p>
           <h1>Farm profile</h1>
           <p>Enter the farm location and planting plan. Add field evidence when you have it.</p>
         </div>
-        <span className="scope-label">Texas MVP</span>
       </header>
 
       <ol className="setup-steps" aria-label="Farm profile progress">
@@ -465,19 +479,24 @@ export function FarmProfileForm() {
 
       <form className="setup-surface" onSubmit={(event) => event.preventDefault()}>
         {step === 0 ? (
-          <section aria-labelledby="location-heading">
-            <div className="surface-heading">
-              <span className="section-icon" aria-hidden="true"><MapPin size={18} /></span>
-              <div>
-                <h2 id="location-heading">Farm location</h2>
-                <p>Coordinates are used for weather, climate and mapped soil evidence.</p>
-              </div>
-              <span className="required-label">Required</span>
-            </div>
+          <section aria-label="Farm location">
             <div className="location-layout">
               <FarmMap
                 coordinates={mapCoordinates}
-                onChange={(coordinates) => setCoordinates(coordinates, "map_pin")}
+                selectedField={selectedField}
+                onPointChange={(coordinates) => setCoordinates(coordinates, "map_pin")}
+                onFieldSelect={(field, coordinates) => {
+                  setForm((current) => ({
+                    ...current,
+                    latitude: String(coordinates.latitude),
+                    longitude: String(coordinates.longitude),
+                    locationSource: "map_pin",
+                  }));
+                  setSelectedField(field);
+                  setLocationError(null);
+                  setError(null);
+                }}
+                onFieldClear={() => setSelectedField(null)}
               />
               <div className="form-panel">
                 <div className="quick-actions">
@@ -509,6 +528,7 @@ export function FarmProfileForm() {
                       onChange={(event) => {
                         update("latitude", event.target.value);
                         update("locationSource", "manual_coordinates");
+                        setSelectedField(null);
                       }}
                       required
                     />
@@ -524,6 +544,7 @@ export function FarmProfileForm() {
                       onChange={(event) => {
                         update("longitude", event.target.value);
                         update("locationSource", "manual_coordinates");
+                        setSelectedField(null);
                       }}
                       required
                     />
@@ -539,26 +560,30 @@ export function FarmProfileForm() {
           <section aria-labelledby="planting-heading">
             <div className="surface-heading">
               <span className="section-icon" aria-hidden="true"><CalendarDays size={18} /></span>
-              <div><h2 id="planting-heading">Planting plan</h2><p>Choose one planting date or one planning month.</p></div>
+              <div><h2 id="planting-heading">Planting plan</h2><p>Choose the month when planting is expected to begin.</p></div>
               <span className="required-label">Required</span>
             </div>
             <div className="form-body form-body-narrow">
-              <fieldset className="field-group">
-                <legend>Planning precision</legend>
-                <div className="segmented-control">
-                  <button type="button" className={form.plantingMode === "month" ? "selected" : ""} aria-pressed={form.plantingMode === "month"} onClick={() => update("plantingMode", "month")}>Planting month</button>
-                  <button type="button" className={form.plantingMode === "date" ? "selected" : ""} aria-pressed={form.plantingMode === "date"} onClick={() => update("plantingMode", "date")}>Exact date</button>
-                </div>
-              </fieldset>
+              <label className="field field-full">
+                <span>Crop to evaluate <small>Optional</small></span>
+                <select
+                  value={form.requestedCropId}
+                  onChange={(event) => update("requestedCropId", event.target.value)}
+                >
+                  <option value="">Recommend the best crops</option>
+                  {CROP_CATALOG_OPTIONS.map((crop) => (
+                    <option key={crop.id} value={crop.id}>{crop.name}</option>
+                  ))}
+                </select>
+              </label>
               <div className="field-grid">
-                {form.plantingMode === "month" ? (
-                  <label className="field"><span>Planned month</span><input type="month" value={form.plannedMonth} onChange={(event) => update("plannedMonth", event.target.value)} required /></label>
-                ) : (
-                  <label className="field"><span>Planned date</span><input type="date" value={form.plannedDate} onChange={(event) => update("plannedDate", event.target.value)} required /></label>
-                )}
-                <label className="field"><span>Timing flexibility <small>Days</small></span><input type="number" min="0" max="120" step="1" value={form.flexibilityDays} onChange={(event) => update("flexibilityDays", event.target.value)} /></label>
+                <label className="field"><span>Planned month</span><input type="month" value={form.plannedMonth} onChange={(event) => update("plannedMonth", event.target.value)} required /></label>
               </div>
-              <p className="field-note">All 22 catalog crops will be compared for this planting period.</p>
+              <p className="field-note">
+                {requestedCropName
+                  ? `${requestedCropName} will be highlighted, while all 22 catalog crops remain in the comparison.`
+                  : "All 22 catalog crops will be compared for this planting period."}
+              </p>
             </div>
           </section>
         ) : null}
@@ -632,12 +657,12 @@ export function FarmProfileForm() {
               <div><h2 id="review-heading">Review farm profile</h2><p>Confirm the inputs that will be stored with this assessment.</p></div>
             </div>
             <div className="review-list">
-              <div className="review-section"><div><h3>Location</h3><p>{form.farmName || form.locationLabel || "Selected farm point"}</p><span>{form.latitude}, {form.longitude}</span></div><button className="icon-button" type="button" onClick={() => setStep(0)} aria-label="Edit location" title="Edit location"><Pencil size={17} /></button></div>
-              <div className="review-section"><div><h3>Planting plan</h3><p>{form.plantingMode === "month" ? form.plannedMonth : form.plannedDate}</p><span>{form.flexibilityDays ? `${form.flexibilityDays} days flexibility` : "No timing flexibility supplied"}</span></div><button className="icon-button" type="button" onClick={() => setStep(1)} aria-label="Edit planting plan" title="Edit planting plan"><Pencil size={17} /></button></div>
+              <div className="review-section"><div><h3>Location</h3><p>{form.farmName || form.locationLabel || (selectedField ? "Selected farm field" : "Selected farm point")}</p><span>{selectedField ? `${selectedField.areaAcres ? `${selectedField.areaAcres.toLocaleString(undefined, { maximumFractionDigits: 1 })} acres` : "Mapped field"} - ${selectedField.metadata.source === "farmer_drawn" ? "farmer-drawn boundary" : "USDA crop-field boundary"}` : `${form.latitude}, ${form.longitude}`}</span></div><button className="icon-button" type="button" onClick={() => setStep(0)} aria-label="Edit location" title="Edit location"><Pencil size={17} /></button></div>
+              <div className="review-section"><div><h3>Planting plan</h3><p>{form.plannedMonth}</p><span>{requestedCropName ? `${requestedCropName} crop focus` : "No crop selected; recommend the best crops"}</span></div><button className="icon-button" type="button" onClick={() => setStep(1)} aria-label="Edit planting plan" title="Edit planting plan"><Pencil size={17} /></button></div>
               <div className="review-section"><div><h3>Water</h3><p>Irrigation: {readable(form.irrigationAvailability)}</p><span>{form.irrigationAvailability === "yes" ? `${readable(form.irrigationReliability)} · ${readable(form.waterSource)}` : "No additional water details"}</span></div><button className="icon-button" type="button" onClick={() => setStep(2)} aria-label="Edit water inputs" title="Edit water inputs"><Pencil size={17} /></button></div>
               <div className="review-section"><div><h3>Field evidence</h3><p>{[form.includeTexture, form.includePh, form.includeMoisture, form.includeRainfall, form.includeGoal].filter(Boolean).length} optional items supplied</p><span>Missing optional evidence will remain unknown.</span></div><button className="icon-button" type="button" onClick={() => setStep(3)} aria-label="Edit field evidence" title="Edit field evidence"><Pencil size={17} /></button></div>
             </div>
-            <div className="review-notice"><Check size={17} aria-hidden="true" /><span>This assessment ranks all 22 catalog crops for preliminary suitability. It does not predict yield or prescribe irrigation.</span></div>
+            <div className="review-notice"><Check size={17} aria-hidden="true" /><span>This assessment ranks all 22 catalog crops for preliminary suitability{requestedCropName ? ` and highlights ${requestedCropName}` : ""}. It does not predict yield or prescribe irrigation.</span></div>
           </section>
         ) : null}
 

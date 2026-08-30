@@ -39,7 +39,7 @@ const assumptions = [
 ] as const;
 
 const scenarioTypes: Array<{ id: ScenarioType; label: string; description: string; icon: typeof CalendarDays }> = [
-  { id: "planting_timing", label: "Planting timing", description: "Change planting month or flexibility.", icon: CalendarDays },
+  { id: "planting_timing", label: "Planting timing", description: "Change the planting month.", icon: CalendarDays },
   { id: "irrigation_access", label: "Irrigation access", description: "Change availability or reliability.", icon: Droplets },
   { id: "combined", label: "Combined", description: "Change both supported input groups.", icon: GitCompareArrows },
 ];
@@ -48,7 +48,6 @@ export function ScenarioComparison({ assessmentSessionId, baseline, profile }: S
   const baselineMonth = profile.planting.planned_month ?? profile.planting.planned_date?.slice(0, 7) ?? "2026-08";
   const [scenarioType, setScenarioType] = useState<ScenarioType>("planting_timing");
   const [plannedMonth, setPlannedMonth] = useState(baselineMonth === "2026-12" ? "2027-01" : `${baselineMonth.slice(0, 5)}${String(Number(baselineMonth.slice(5)) + 1).padStart(2, "0")}`);
-  const [flexibilityDays, setFlexibilityDays] = useState(profile.planting.flexibility_days ?? 30);
   const [irrigationAvailability, setIrrigationAvailability] = useState<"yes" | "no" | "unknown">(profile.irrigation?.availability === "yes" ? "no" : "yes");
   const [irrigationReliability, setIrrigationReliability] = useState<"reliable" | "limited" | "seasonal" | "unreliable" | "unknown" | "not_applicable">("limited");
   const [acceptedAssumptions, setAcceptedAssumptions] = useState<boolean[]>([false, false, false]);
@@ -61,7 +60,6 @@ export function ScenarioComparison({ assessmentSessionId, baseline, profile }: S
     const changes: ScenarioDraft["changes"] = {};
     if (scenarioType !== "irrigation_access") {
       if (plannedMonth !== baselineMonth) changes.planned_month = plannedMonth;
-      if (flexibilityDays !== (profile.planting.flexibility_days ?? 30)) changes.planting_flexibility_days = flexibilityDays;
     }
     if (scenarioType !== "planting_timing") {
       if (irrigationAvailability !== profile.irrigation?.availability) changes.irrigation_availability = irrigationAvailability;
@@ -105,7 +103,6 @@ export function ScenarioComparison({ assessmentSessionId, baseline, profile }: S
         <div><h2 id="baseline-heading">Baseline context</h2><p>{baseline.location.farm_name} · {titleCaseIdentifier(baseline.location.texas_region_id)} region</p></div>
         <dl>
           <div><dt>Planting plan</dt><dd>{baselineMonth}</dd></div>
-          <div><dt>Flexibility</dt><dd>{profile.planting.flexibility_days ?? "Unknown"} days</dd></div>
           <div><dt>Irrigation</dt><dd>{profile.irrigation ? `${titleCaseIdentifier(profile.irrigation.availability)} · ${titleCaseIdentifier(profile.irrigation.reliability ?? "unknown")}` : "Unknown"}</dd></div>
           <div><dt>Eligible crops</dt><dd>{baselineEligible.length} of 22</dd></div>
         </dl>
@@ -117,7 +114,7 @@ export function ScenarioComparison({ assessmentSessionId, baseline, profile }: S
             <div className="section-title-row"><div><h2 id="scenario-builder-heading">Scenario inputs</h2><p>Only fields already supported by the farm profile and engine contract are available.</p></div><GitCompareArrows size={20} aria-hidden="true" /></div>
             <fieldset className="scenario-type-fieldset"><legend>Change type</legend><div className="scenario-type-grid">{scenarioTypes.map((option) => { const Icon=option.icon; return <button type="button" className={scenarioType === option.id ? "scenario-type selected" : "scenario-type"} onClick={() => setScenarioType(option.id)} key={option.id}><Icon size={18} aria-hidden="true" /><span><strong>{option.label}</strong><small>{option.description}</small></span>{scenarioType === option.id ? <Check size={17} aria-hidden="true" /> : null}</button>; })}</div></fieldset>
 
-            {scenarioType !== "irrigation_access" ? <div className="scenario-input-section"><h3><CalendarDays size={17} aria-hidden="true" />Planting timing</h3><div className="field-grid"><label className="field">Planned month<input type="month" value={plannedMonth} onChange={(event) => setPlannedMonth(event.target.value)} /></label><label className="field">Flexibility days<input type="number" min={0} max={120} value={flexibilityDays} onChange={(event) => setFlexibilityDays(Number(event.target.value))} /></label></div></div> : null}
+            {scenarioType !== "irrigation_access" ? <div className="scenario-input-section"><h3><CalendarDays size={17} aria-hidden="true" />Planting timing</h3><div className="field-grid"><label className="field">Planned month<input type="month" value={plannedMonth} onChange={(event) => setPlannedMonth(event.target.value)} /></label></div></div> : null}
 
             {scenarioType !== "planting_timing" ? <div className="scenario-input-section"><h3><Droplets size={17} aria-hidden="true" />Irrigation evidence</h3><div className="field-grid"><label className="field">Availability<select value={irrigationAvailability} onChange={(event) => setIrrigationAvailability(event.target.value as typeof irrigationAvailability)}><option value="yes">Available</option><option value="no">Not available</option><option value="unknown">Unknown</option></select></label><label className="field">Reliability<select value={irrigationReliability} onChange={(event) => setIrrigationReliability(event.target.value as typeof irrigationReliability)}><option value="reliable">Reliable</option><option value="limited">Limited</option><option value="seasonal">Seasonal</option><option value="unreliable">Unreliable</option><option value="unknown">Unknown</option><option value="not_applicable">Not applicable</option></select></label></div></div> : null}
           </section>

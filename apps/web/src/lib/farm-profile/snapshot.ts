@@ -26,7 +26,9 @@ export function buildFarmProfileSnapshot(
 }
 
 export function getMissingFarmProfileFields(profile: FarmProfileDraft): string[] {
-  const missing = ["farm_boundary"];
+  const missing: string[] = [];
+
+  if (!profile.farm_boundary) missing.push("farm_boundary");
 
   if (!profile.irrigation || profile.irrigation.availability === "unknown") {
     missing.push("irrigation");

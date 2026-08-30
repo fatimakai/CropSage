@@ -2,6 +2,74 @@ import { z } from "zod";
 
 const cropIdSchema = z.string().regex(/^[a-z0-9][a-z0-9_]*$/);
 
+const positionSchema = z.tuple([
+  z.number().min(-180).max(180),
+  z.number().min(-90).max(90),
+]);
+
+const linearRingSchema = z
+  .array(positionSchema)
+  .min(4)
+  .superRefine((ring, context) => {
+    const first = ring[0];
+    const last = ring.at(-1);
+
+    if (!first || !last || first[0] !== last[0] || first[1] !== last[1]) {
+      context.addIssue({
+        code: "custom",
+        message: "A farm boundary ring must end at its starting coordinate.",
+      });
+    }
+  });
+
+export const farmBoundarySchema = z
+  .discriminatedUnion("type", [
+    z
+      .object({
+        type: z.literal("Polygon"),
+        coordinates: z.array(linearRingSchema).min(1),
+      })
+      .strict(),
+    z
+      .object({
+        type: z.literal("MultiPolygon"),
+        coordinates: z.array(z.array(linearRingSchema).min(1)).min(1),
+      })
+      .strict(),
+  ])
+  .superRefine((geometry, context) => {
+    const polygonCoordinates =
+      geometry.type === "Polygon" ? [geometry.coordinates] : geometry.coordinates;
+    const vertexCount = polygonCoordinates.reduce(
+      (polygonTotal, polygon) =>
+        polygonTotal + polygon.reduce((ringTotal, ring) => ringTotal + ring.length, 0),
+      0,
+    );
+
+    if (vertexCount > 10_000) {
+      context.addIssue({
+        code: "custom",
+        message: "A farm boundary cannot contain more than 10,000 coordinates.",
+      });
+    }
+  });
+
+export const farmBoundaryMetadataSchema = z
+  .object({
+    source: z.enum(["usda_csb", "farmer_drawn", "uploaded"]),
+    source_id: z.string().trim().min(1).max(160).optional(),
+    dataset_version: z.string().trim().min(1).max(120).optional(),
+  })
+  .strict()
+  .superRefine((metadata, context) => {
+    if (metadata.source === "usda_csb" && (!metadata.source_id || !metadata.dataset_version)) {
+      context.addIssue({
+        code: "custom",
+        message: "A USDA field selection requires its CSB identifier and dataset version.",
+      });
+    }
+  });
+
 export const farmLocationSchema = z
   .object({
     latitude: z.number().min(25.8).max(36.6),
@@ -157,9 +225,23 @@ export const farmProfileDraftSchema = z
     soil_overrides: soilOverridesSchema.optional(),
     current_soil_moisture: currentSoilMoistureSchema.optional(),
     recent_rainfall: recentRainfallSchema.optional(),
+    farm_boundary: farmBoundarySchema.optional(),
     farmer_goal: farmerGoalSchema.optional(),
   })
   .strict();
+
+export const farmProfileSubmissionSchema = farmProfileDraftSchema
+  .extend({
+    farm_boundary_metadata: farmBoundaryMetadataSchema.optional(),
+  })
+  .superRefine((submission, context) => {
+    if (Boolean(submission.farm_boundary) !== Boolean(submission.farm_boundary_metadata)) {
+      context.addIssue({
+        code: "custom",
+        message: "A submitted farm boundary and its source metadata must be provided together.",
+      });
+    }
+  });
 
 export const farmProfileSnapshotSchema = farmProfileDraftSchema.extend({
   schema_version: z.literal("1.0.0"),
@@ -170,5 +252,8 @@ export const farmProfileSnapshotSchema = farmProfileDraftSchema.extend({
 export type FarmLocation = z.infer<typeof farmLocationSchema>;
 export type PlantingPlan = z.infer<typeof plantingPlanSchema>;
 export type IrrigationInput = z.infer<typeof irrigationInputSchema>;
+export type FarmBoundary = z.infer<typeof farmBoundarySchema>;
+export type FarmBoundaryMetadata = z.infer<typeof farmBoundaryMetadataSchema>;
 export type FarmProfileDraft = z.infer<typeof farmProfileDraftSchema>;
+export type FarmProfileSubmission = z.infer<typeof farmProfileSubmissionSchema>;
 export type FarmProfileSnapshot = z.infer<typeof farmProfileSnapshotSchema>;
