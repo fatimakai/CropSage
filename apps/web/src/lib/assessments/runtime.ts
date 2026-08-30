@@ -50,7 +50,7 @@ export async function getAssessmentProgress(
     status: event.status,
     safeSummary: event.safe_summary,
     cacheState: event.cache_state,
-    occurredAt: event.occurred_at,
+    occurredAt: new Date(event.occurred_at).toISOString(),
   }));
   const failed = run.status === "failed";
   const completed = run.status === "completed";
