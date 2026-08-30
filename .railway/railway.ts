@@ -26,6 +26,8 @@ export default defineRailway(() => {
       OPEN_ROUTER_API_KEY: preserve(),
       RECOMMENDATION_SCHEMA_VERSION: preserve(),
       SCORING_ENGINE_VERSION: preserve(),
+      SUPABASE_SERVICE_ROLE_KEY: preserve(),
+      SUPABASE_URL: preserve(),
     },
   });
   const frontend = service("frontend", {
