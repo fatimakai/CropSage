@@ -26,13 +26,6 @@ type RecommendationResultsProps = {
   result: PreparedRecommendationResult;
 };
 
-function recommendationLabel(crop: CropScoreResult) {
-  if (crop.recommendation === "recommended") return "Consider";
-  if (crop.recommendation === "conditional") return "Consider with conditions";
-  if (crop.recommendation === "not_recommended") return "Not preferred now";
-  return "Evidence incomplete";
-}
-
 function FactorSummary({ item }: { item: ScoreExplanation }) {
   return (
     <li>
@@ -51,20 +44,25 @@ function ScoreValue({ value }: { value: number | null }) {
   );
 }
 
-function TopCrop({ crop, assessmentSessionId }: { crop: CropScoreResult; assessmentSessionId: string }) {
-  const primaryRisk = crop.key_risks[0];
-
+function TopCrop({
+  crop,
+  assessmentSessionId,
+  showRank = true,
+}: {
+  crop: CropScoreResult;
+  assessmentSessionId: string;
+  showRank?: boolean;
+}) {
   return (
     <article className="top-crop-card">
-      <header>
-        <span className="rank-number" aria-label={`Eligible rank ${crop.eligible_rank}`}>
-          {crop.eligible_rank}
-        </span>
+      <header className={showRank ? undefined : "selected-crop-header"}>
+        {showRank ? (
+          <span className="rank-number" aria-label={`Eligible rank ${crop.eligible_rank}`}>
+            {crop.eligible_rank}
+          </span>
+        ) : null}
         <div>
           <h3>{crop.crop_name}</h3>
-          <span className={`recommendation-tag recommendation-${crop.recommendation}`}>
-            {recommendationLabel(crop)}
-          </span>
         </div>
       </header>
 
@@ -77,14 +75,6 @@ function TopCrop({ crop, assessmentSessionId }: { crop: CropScoreResult; assessm
           <span>Confidence</span>
           <ScoreValue value={crop.confidence_score} />
           <small>{crop.confidence_band ? titleCaseIdentifier(crop.confidence_band) : "Unknown"}</small>
-        </div>
-      </div>
-
-      <div className="primary-risk">
-        <AlertTriangle size={16} aria-hidden="true" />
-        <div>
-          <span>Primary risk</span>
-          <p>{primaryRisk?.reason ?? "No scored risk explanation is available."}</p>
         </div>
       </div>
 
@@ -119,8 +109,6 @@ function EligibleTable({ crops, assessmentSessionId }: { crops: CropScoreResult[
               <th scope="col">Crop</th>
               <th scope="col">Suitability</th>
               <th scope="col">Confidence</th>
-              <th scope="col">Guidance</th>
-              <th scope="col">Primary risk</th>
             </tr>
           </thead>
           <tbody>
@@ -130,8 +118,6 @@ function EligibleTable({ crops, assessmentSessionId }: { crops: CropScoreResult[
                 <td><Link className="ranking-crop-link" href={`/assessments/${assessmentSessionId}/crops/${crop.crop_id}`}>{crop.crop_name}<ChevronRight size={13} aria-hidden="true" /></Link><span>{crop.crop_id}</span></td>
                 <td><ScoreValue value={crop.suitability_score} /></td>
                 <td><ScoreValue value={crop.confidence_score} /><span>{crop.confidence_band ? titleCaseIdentifier(crop.confidence_band) : "Unknown"}</span></td>
-                <td><span className={`recommendation-tag recommendation-${crop.recommendation}`}>{recommendationLabel(crop)}</span></td>
-                <td><p>{crop.key_risks[0]?.reason ?? "Unknown"}</p></td>
               </tr>
             ))}
           </tbody>
@@ -143,13 +129,12 @@ function EligibleTable({ crops, assessmentSessionId }: { crops: CropScoreResult[
           <li key={crop.crop_id}>
             <div className="mobile-rank-heading">
               <span className="rank-number">{crop.eligible_rank}</span>
-              <div><Link className="ranking-crop-link" href={`/assessments/${assessmentSessionId}/crops/${crop.crop_id}`}>{crop.crop_name}<ChevronRight size={13} aria-hidden="true" /></Link><span className={`recommendation-tag recommendation-${crop.recommendation}`}>{recommendationLabel(crop)}</span></div>
+              <div><Link className="ranking-crop-link" href={`/assessments/${assessmentSessionId}/crops/${crop.crop_id}`}>{crop.crop_name}<ChevronRight size={13} aria-hidden="true" /></Link></div>
             </div>
             <dl>
               <div><dt>Suitability</dt><dd>{formatScore(crop.suitability_score)}{crop.suitability_score === null ? "" : "/100"}</dd></div>
               <div><dt>Confidence</dt><dd>{formatScore(crop.confidence_score)}{crop.confidence_score === null ? "" : "/100"} · {crop.confidence_band ? titleCaseIdentifier(crop.confidence_band) : "Unknown"}</dd></div>
             </dl>
-            <p><AlertTriangle size={14} aria-hidden="true" />{crop.key_risks[0]?.reason ?? "Risk evidence is unknown."}</p>
           </li>
         ))}
       </ol>
@@ -184,13 +169,25 @@ export function RecommendationResults(props: RecommendationResultsProps) {
   const { recommendation, validation } = result;
   const groups = groupRecommendationRankings(recommendation.rankings);
   const location = recommendation.location;
+  const isRequestedCropAssessment = recommendation.requested_crop_id !== null;
+  const requestedCrop = isRequestedCropAssessment
+    ? recommendation.requested_crop_result
+      ?? recommendation.rankings.find(
+        (crop) => crop.crop_id === recommendation.requested_crop_id,
+      )
+      ?? null
+    : null;
+  const requestedCropName = requestedCrop?.crop_name
+    ?? (recommendation.requested_crop_id
+      ? titleCaseIdentifier(recommendation.requested_crop_id)
+      : null);
 
   return (
     <main className="workspace results-workspace">
       <header className="page-heading results-heading">
         <div>
           <p className="eyebrow">Preliminary suitability</p>
-          <h1>Crop recommendations</h1>
+          <h1>{isRequestedCropAssessment ? "Crop assessment" : "Crop recommendations"}</h1>
           <p className="results-location"><MapPin size={15} aria-hidden="true" />{location.farm_name} · {titleCaseIdentifier(location.texas_region_id)} region</p>
         </div>
         <div className="validation-badge"><ShieldCheck size={17} aria-hidden="true" /><span>Validated for display<small>{validation.validator_version}</small></span></div>
@@ -198,11 +195,27 @@ export function RecommendationResults(props: RecommendationResultsProps) {
 
       <section className="results-context" aria-label="Assessment summary">
         <div><span>Assessment</span><strong>{assessmentSessionId.slice(0, 8).toUpperCase()}</strong></div>
-        <div><span>Catalog results</span><strong>{recommendation.rankings.length} crops</strong></div>
-        <div><span>Regionally eligible</span><strong>{groups.eligible.length} crops</strong></div>
+        <div><span>{isRequestedCropAssessment ? "Crop assessed" : "Catalog results"}</span><strong>{isRequestedCropAssessment ? requestedCropName : `${recommendation.rankings.length} crops`}</strong></div>
+        <div><span>{isRequestedCropAssessment ? "Regional support" : "Regionally eligible"}</span><strong>{isRequestedCropAssessment ? requestedCrop?.regionally_eligible ? "Supported" : "Not supported" : `${groups.eligible.length} crops`}</strong></div>
         <div><span>Evaluation</span><strong>{titleCaseIdentifier(recommendation.evaluation_mode)}</strong></div>
       </section>
 
+      {isRequestedCropAssessment ? (
+        <section className="top-results-section" aria-labelledby="selected-crop-heading">
+          <div className="section-title-row results-section-title">
+            <div><h2 id="selected-crop-heading">Selected crop result</h2><p>{requestedCropName} assessed for this farm and planting plan.</p></div>
+            <CircleGauge size={20} aria-hidden="true" />
+          </div>
+          {requestedCrop ? (
+            <div className="top-crop-grid selected-crop-grid">
+              <TopCrop crop={requestedCrop} assessmentSessionId={assessmentSessionId} showRank={false} />
+            </div>
+          ) : (
+            <div className="form-error" role="alert">The selected crop result is unavailable. Start a new assessment and try again.</div>
+          )}
+        </section>
+      ) : (
+        <>
       <section className="top-results-section" aria-labelledby="top-results-heading">
         <div className="section-title-row results-section-title">
           <div><h2 id="top-results-heading">Top eligible crops</h2><p>Ranked by the deterministic engine for this prepared evidence run.</p></div>
@@ -235,6 +248,8 @@ export function RecommendationResults(props: RecommendationResultsProps) {
           );
         })}
       </section>
+        </>
+      )}
 
       <section className="result-limitations" aria-labelledby="limitations-heading">
         <Info size={18} aria-hidden="true" />
@@ -244,7 +259,7 @@ export function RecommendationResults(props: RecommendationResultsProps) {
       </section>
 
       <footer className="results-footer">
-        <span><CheckCircle2 size={16} aria-hidden="true" />All 22 catalog crops are represented.</span>
+        <span><CheckCircle2 size={16} aria-hidden="true" />{isRequestedCropAssessment ? `${requestedCropName} assessment complete.` : "All 22 catalog crops are represented."}</span>
         <div><Link className="button button-primary" href={`/assessments/${assessmentSessionId}/scenarios`}>Compare scenarios<ChevronRight size={17} aria-hidden="true" /></Link><Link className="button button-secondary" href="/farm"><ArrowLeft size={17} aria-hidden="true" />New farm assessment</Link></div>
       </footer>
     </main>

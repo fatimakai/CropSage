@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   ArrowLeft,
   ArrowRight,
@@ -252,13 +252,14 @@ function readable(value: string) {
 }
 
 export function FarmProfileForm() {
+  const router = useRouter();
   const [form, setForm] = useState<FormState>(initialForm);
   const [step, setStep] = useState(0);
   const [highestStep, setHighestStep] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [locationError, setLocationError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
-  const [savedSessionId, setSavedSessionId] = useState<string | null>(null);
+  const [pendingAssessmentSessionId, setPendingAssessmentSessionId] = useState<string | null>(null);
   const [selectedField, setSelectedField] = useState<SelectedFarmField | null>(null);
   const requestedCropName = cropCatalogName(form.requestedCropId);
 
@@ -276,6 +277,7 @@ export function FarmProfileForm() {
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((current) => ({ ...current, [key]: value }));
+    setPendingAssessmentSessionId(null);
     setError(null);
   }
 
@@ -289,6 +291,7 @@ export function FarmProfileForm() {
       longitude: String(coordinates.longitude),
       locationSource: source,
     }));
+    setPendingAssessmentSessionId(null);
     setSelectedField(null);
     setLocationError(null);
     setError(null);
@@ -303,6 +306,7 @@ export function FarmProfileForm() {
       longitude: "-101.76",
       locationSource: "demo_farm",
     }));
+    setPendingAssessmentSessionId(null);
     setSelectedField(null);
     setLocationError(null);
     setError(null);
@@ -375,69 +379,53 @@ export function FarmProfileForm() {
     setError(null);
 
     try {
-      const submission: FarmProfileSubmission = selectedField
-        ? {
-            ...draft,
-            farm_boundary_metadata: selectedField.metadata,
-          }
-        : draft;
-      const response = await fetch("/api/farm-profiles", {
-        method: "POST",
-        headers: { "content-type": "application/json", accept: "application/json" },
-        body: JSON.stringify(submission),
-      });
-      const result = createFarmProfileResponseSchema.parse(await response.json());
+      let assessmentSessionId = pendingAssessmentSessionId;
 
-      if (!result.ok) {
-        setError(result.error.message);
+      if (!assessmentSessionId) {
+        const submission: FarmProfileSubmission = selectedField
+          ? {
+              ...draft,
+              farm_boundary_metadata: selectedField.metadata,
+            }
+          : draft;
+        const response = await fetch("/api/farm-profiles", {
+          method: "POST",
+          headers: { "content-type": "application/json", accept: "application/json" },
+          body: JSON.stringify(submission),
+        });
+        const result = createFarmProfileResponseSchema.parse(await response.json());
+
+        if (!result.ok) {
+          setError(result.error.message);
+          return;
+        }
+
+        assessmentSessionId = result.assessmentSessionId;
+        setPendingAssessmentSessionId(assessmentSessionId);
+      }
+
+      const assessmentResponse = await fetch(`/api/assessments/${assessmentSessionId}/run`, {
+        method: "POST",
+        headers: { accept: "application/json" },
+      });
+      const assessmentResult = (await assessmentResponse.json().catch(() => null)) as
+        | { ok?: boolean; error?: { message?: string } }
+        | null;
+
+      if (!assessmentResponse.ok || !assessmentResult?.ok) {
+        setError(
+          assessmentResult?.error?.message
+            ?? "Crop recommendations could not be prepared. Try again.",
+        );
         return;
       }
 
-      setSavedSessionId(result.assessmentSessionId);
+      router.replace(`/assessments/${assessmentSessionId}/results`);
     } catch {
-      setError("The farm profile could not be saved. Please try again.");
+      setError("Crop recommendations could not be prepared. Please try again.");
     } finally {
       setSaving(false);
     }
-  }
-
-  if (savedSessionId) {
-    return (
-      <main className="workspace setup-complete-workspace">
-        <section className="setup-complete" aria-labelledby="profile-saved-heading">
-          <span className="complete-icon" aria-hidden="true"><Check size={28} /></span>
-          <p className="eyebrow">Profile ready</p>
-          <h1 id="profile-saved-heading">Farm profile saved</h1>
-          <p>Your location and farm inputs are ready for evidence collection.</p>
-          <dl className="saved-summary">
-            <div><dt>Farm</dt><dd>{form.farmName || form.locationLabel || "Selected farm"}</dd></div>
-            <div><dt>Planting</dt><dd>{form.plannedMonth}</dd></div>
-            <div><dt>Crop focus</dt><dd>{requestedCropName ?? "Best available crops"}</dd></div>
-            <div><dt>Assessment</dt><dd>{savedSessionId.slice(0, 8).toUpperCase()}</dd></div>
-          </dl>
-          <div className="complete-actions">
-            <Link className="button button-primary" href={`/assessments/${savedSessionId}/progress`}>
-              Collect evidence
-              <ArrowRight size={17} aria-hidden="true" />
-            </Link>
-            <button
-              className="button button-secondary"
-              type="button"
-              onClick={() => {
-                setForm(initialForm);
-                setStep(0);
-                setHighestStep(0);
-                setSavedSessionId(null);
-                setSelectedField(null);
-              }}
-            >
-              <MapPinned size={17} aria-hidden="true" />
-              Add another farm
-            </button>
-          </div>
-        </section>
-      </main>
-    );
   }
 
   return (
@@ -492,11 +480,15 @@ export function FarmProfileForm() {
                     longitude: String(coordinates.longitude),
                     locationSource: "map_pin",
                   }));
+                  setPendingAssessmentSessionId(null);
                   setSelectedField(field);
                   setLocationError(null);
                   setError(null);
                 }}
-                onFieldClear={() => setSelectedField(null)}
+                onFieldClear={() => {
+                  setPendingAssessmentSessionId(null);
+                  setSelectedField(null);
+                }}
               />
               <div className="form-panel">
                 <div className="quick-actions">
@@ -581,7 +573,7 @@ export function FarmProfileForm() {
               </div>
               <p className="field-note">
                 {requestedCropName
-                  ? `${requestedCropName} will be highlighted, while all 22 catalog crops remain in the comparison.`
+                  ? `Only ${requestedCropName} will be shown in the results.`
                   : "All 22 catalog crops will be compared for this planting period."}
               </p>
             </div>
@@ -662,7 +654,7 @@ export function FarmProfileForm() {
               <div className="review-section"><div><h3>Water</h3><p>Irrigation: {readable(form.irrigationAvailability)}</p><span>{form.irrigationAvailability === "yes" ? `${readable(form.irrigationReliability)} · ${readable(form.waterSource)}` : "No additional water details"}</span></div><button className="icon-button" type="button" onClick={() => setStep(2)} aria-label="Edit water inputs" title="Edit water inputs"><Pencil size={17} /></button></div>
               <div className="review-section"><div><h3>Field evidence</h3><p>{[form.includeTexture, form.includePh, form.includeMoisture, form.includeRainfall, form.includeGoal].filter(Boolean).length} optional items supplied</p><span>Missing optional evidence will remain unknown.</span></div><button className="icon-button" type="button" onClick={() => setStep(3)} aria-label="Edit field evidence" title="Edit field evidence"><Pencil size={17} /></button></div>
             </div>
-            <div className="review-notice"><Check size={17} aria-hidden="true" /><span>This assessment ranks all 22 catalog crops for preliminary suitability{requestedCropName ? ` and highlights ${requestedCropName}` : ""}. It does not predict yield or prescribe irrigation.</span></div>
+            <div className="review-notice"><Check size={17} aria-hidden="true" /><span>{requestedCropName ? `This assessment evaluates ${requestedCropName} for preliminary suitability.` : "This assessment ranks all 22 catalog crops for preliminary suitability."} It does not predict yield or prescribe irrigation.</span></div>
           </section>
         ) : null}
 
@@ -671,7 +663,7 @@ export function FarmProfileForm() {
         <footer className="form-actions">
           <button className="button button-secondary" type="button" onClick={previousStep} disabled={step === 0 || saving}><ArrowLeft size={17} aria-hidden="true" /> Back</button>
           <span>Step {step + 1} of {steps.length}</span>
-          {step < steps.length - 1 ? <button className="button button-primary" type="button" onClick={nextStep}>Continue <ArrowRight size={17} aria-hidden="true" /></button> : <button className="button button-primary" type="button" onClick={saveProfile} disabled={saving}>{saving ? <LoaderCircle className="spin" size={17} aria-hidden="true" /> : <Save size={17} aria-hidden="true" />}{saving ? "Saving..." : "Save farm profile"}</button>}
+          {step < steps.length - 1 ? <button className="button button-primary" type="button" onClick={nextStep}>Continue <ArrowRight size={17} aria-hidden="true" /></button> : <button className="button button-primary" type="button" onClick={saveProfile} disabled={saving}>{saving ? <LoaderCircle className="spin" size={17} aria-hidden="true" /> : <Save size={17} aria-hidden="true" />}{saving ? "Preparing recommendations..." : pendingAssessmentSessionId ? "Try recommendations again" : "View crop recommendations"}</button>}
         </footer>
       </form>
     </main>
