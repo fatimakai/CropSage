@@ -1459,45 +1459,6 @@ button.session-status {
   font-weight: 550;
 }
 
-.results-context {
-  display: grid;
-  overflow: hidden;
-  margin-bottom: 40px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.results-context > div {
-  min-width: 0;
-  padding: 14px 16px;
-  border-right: 1px solid var(--line);
-}
-
-.results-context > div:last-child {
-  border-right: 0;
-}
-
-.results-context span,
-.results-context strong {
-  display: block;
-}
-
-.results-context span {
-  margin-bottom: 5px;
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 680;
-  text-transform: uppercase;
-}
-
-.results-context strong {
-  overflow-wrap: anywhere;
-  color: var(--forest-strong);
-  font-size: 13px;
-}
-
 .top-results-section,
 .all-rankings-section,
 .ineligible-section {
@@ -1846,60 +1807,6 @@ button.session-status {
   color: #4e3b1f;
   font-size: 12px;
   font-weight: 740;
-}
-
-.result-limitations {
-  display: grid;
-  align-items: start;
-  gap: 12px;
-  margin-bottom: 26px;
-  padding: 17px 18px;
-  border-left: 3px solid var(--blue);
-  color: #2d5574;
-  background: #edf3f7;
-  grid-template-columns: 20px 1fr;
-}
-
-.result-limitations h2,
-.result-limitations p {
-  margin: 0;
-}
-
-.result-limitations h2 {
-  font-size: 14px;
-}
-
-.result-limitations p {
-  margin-top: 5px;
-  color: #4c6679;
-  font-size: 11px;
-  line-height: 1.5;
-}
-
-.result-limitations details {
-  margin-top: 12px;
-}
-
-.result-limitations summary {
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 720;
-}
-
-.result-limitations summary span {
-  margin-left: 5px;
-  padding: 2px 5px;
-  border-radius: 3px;
-  background: #dbe8f0;
-  font-size: 9px;
-}
-
-.result-limitations ul {
-  margin: 10px 0 0;
-  padding-left: 18px;
-  color: #4c6679;
-  font-size: 10px;
-  line-height: 1.55;
 }
 
 .results-footer {
@@ -3268,18 +3175,6 @@ button.session-status {
 
   .validation-badge {
     min-width: 0;
-  }
-
-  .results-context {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .results-context > div:nth-child(2) {
-    border-right: 0;
-  }
-
-  .results-context > div:nth-child(-n + 2) {
-    border-bottom: 1px solid var(--line);
   }
 
   .ineligible-crop dl {
