@@ -31,6 +31,7 @@ export default defineRailway(() => {
     },
   });
   const frontend = service("frontend", {
+    source: github("fatimakai/CropSage"),
     build: {
       buildEnvironment: "V3",
       builder: "DOCKERFILE",
