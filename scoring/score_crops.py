@@ -166,6 +166,7 @@ def factor(
     sources: list[str],
     values: dict[str, Any] | None = None,
     scoring_use: str = "scored",
+    confidence_applicable: bool = True,
 ) -> dict[str, Any]:
     available = score is not None and weight > 0 and scoring_use == "scored"
     normalized_score = round(clamp(score), 2) if score is not None else None
@@ -180,6 +181,9 @@ def factor(
         "scoring_use": scoring_use,
         "reason": reason,
         "evidence": {"sources": sources, "values": values or {}},
+        # Internal calculation flag. It is removed before the public result is
+        # returned so the finalized recommendation contract does not change.
+        "_confidence_applicable": confidence_applicable and weight > 0 and scoring_use == "scored",
     }
 
 
@@ -316,6 +320,7 @@ def score_one_crop(crop: dict[str, Any], evidence: dict[str, Any], profile: dict
         "Farm-scale one-week mean temperature is compared with the crop optimum." if fg_relevant else "The requested planting period does not overlap the available FortyGuard heat window.",
         ["fortyguard", "crop_catalog"],
         {"window": active_name, "mean_temperature_c": active_location_window["mean_temperature_c"], "optimal_range_c": crop_profile["optimal_temperature_range_c"]},
+        confidence_applicable=fg_relevant,
     ))
 
     heat_scoreable = crop_profile["heat_threshold_scoring_use"] == "soft_penalty"
@@ -335,6 +340,7 @@ def score_one_crop(crop: dict[str, Any], evidence: dict[str, Any], profile: dict
         ["fortyguard", "crop_catalog"],
         {"window": active_name, "threshold_c": heat_window.get("heat_threshold_c"), "exceedance_hours": heat_window.get("exceedance_hours"), "exceedance_fraction": heat_window.get("exceedance_fraction_of_window")},
         heat_use,
+        confidence_applicable=fg_relevant and heat_scoreable,
     ))
     factors.append(factor(
         "fortyguard_heat_persistence", weights["fortyguard_heat_persistence"], persistence_score, fg_confidence,
@@ -342,6 +348,7 @@ def score_one_crop(crop: dict[str, Any], evidence: dict[str, Any], profile: dict
         ["fortyguard", "crop_catalog"],
         {"window": active_name, "persistence_hours": heat_window.get("persistence_hours")},
         heat_use,
+        confidence_applicable=fg_relevant and heat_scoreable,
     ))
 
     operational = evidence["location_evidence"]["open_meteo_weather"]["operational_summary"]
@@ -362,6 +369,7 @@ def score_one_crop(crop: dict[str, Any], evidence: dict[str, Any], profile: dict
         "Short-range heat and frost forecast for planting readiness." if om_score is not None else "Short-range forecast is not applicable to this future planning period.",
         ["open_meteo", "crop_catalog"],
         {"forecast_max_temperature_c": operational["forecast_max_temperature_c"], "frost_risk_days": operational["forecast_frost_risk_days_at_or_below_0c"], "heat_threshold_c": crop_profile["heat_stress_threshold_c"]},
+        confidence_applicable=mode == "planting_readiness",
     ))
 
     soil = evidence["location_evidence"]["ssurgo_soil"]
@@ -421,20 +429,20 @@ def score_one_crop(crop: dict[str, Any], evidence: dict[str, Any], profile: dict
     if recent_rain is not None and expected_weekly and expected_weekly > 0:
         ratio = recent_rain / expected_weekly
         rain_score = 100.0 if ratio >= 1 else 85.0 if ratio >= 0.75 else 65.0 if ratio >= 0.5 else 40.0 if ratio >= 0.25 else 15.0
-    factors.append(factor("recent_rainfall", weights["recent_rainfall"], rain_score, source_confidence(config, rain_source, crop), "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand." if rain_score is not None else "Recent rainfall is unavailable or the requested period is outside current observations.", [rain_source, "crop_catalog"] if rain_score is not None else [], {"recent_rainfall_mm": recent_rain, "approximate_weekly_demand_mm": expected_weekly}))
+    factors.append(factor("recent_rainfall", weights["recent_rainfall"], rain_score, source_confidence(config, rain_source, crop), "Recent rainfall is compared with an approximate weekly share of catalog seasonal water demand." if rain_score is not None else "Recent rainfall is unavailable or the requested period is outside current observations.", [rain_source, "crop_catalog"] if rain_score is not None else [], {"recent_rainfall_mm": recent_rain, "approximate_weekly_demand_mm": expected_weekly}, confidence_applicable=profile.get("recent_rainfall") is not None or mode == "planting_readiness"))
 
     deficit = float(operational["forecast_rain_minus_et0_mm"]) if mode == "planting_readiness" else None
     balance_score = None
     if deficit is not None:
         balance_score = 100.0 if deficit >= 0 else 80.0 if deficit >= -10 else 60.0 if deficit >= -25 else 30.0 if deficit >= -50 else 10.0
-    factors.append(factor("forecast_water_balance", weights["forecast_water_balance"], balance_score, source_confidence(config, "open_meteo", crop, uses_catalog=False), "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit." if balance_score is not None else "Short-range water balance is not applicable to this future planning period.", ["open_meteo"] if balance_score is not None else [], {"rain_minus_et0_mm": deficit}))
+    factors.append(factor("forecast_water_balance", weights["forecast_water_balance"], balance_score, source_confidence(config, "open_meteo", crop, uses_catalog=False), "Seven-day forecast rain minus reference evapotranspiration indicates atmospheric water deficit." if balance_score is not None else "Short-range water balance is not applicable to this future planning period.", ["open_meteo"] if balance_score is not None else [], {"rain_minus_et0_mm": deficit}, confidence_applicable=mode == "planting_readiness"))
 
     moisture_value, moisture_source = farmer_soil_moisture(profile)
     if moisture_value is None and mode == "planting_readiness":
         root_limit = float(soil["soil_root_limit_cm"])
         moisture_value = weighted_root_moisture(evidence["location_evidence"]["open_meteo_weather"]["current"]["soil_moisture_profile"], root_limit)
         moisture_source = "open_meteo" if moisture_value is not None else None
-    factors.append(factor("current_soil_moisture", weights["current_soil_moisture"], moisture_score(moisture_value) if moisture_value is not None else None, source_confidence(config, moisture_source, crop, uses_catalog=False) if moisture_source else 0.0, "Farmer evidence overrides modeled soil moisture." if moisture_source and moisture_source.startswith("farmer") else ("Modeled root-profile soil moisture is used as a current screening signal." if moisture_value is not None else "Current soil moisture is unavailable for this planning period."), [moisture_source] if moisture_source else [], {"volumetric_soil_moisture_m3_m3": moisture_value}))
+    factors.append(factor("current_soil_moisture", weights["current_soil_moisture"], moisture_score(moisture_value) if moisture_value is not None else None, source_confidence(config, moisture_source, crop, uses_catalog=False) if moisture_source else 0.0, "Farmer evidence overrides modeled soil moisture." if moisture_source and moisture_source.startswith("farmer") else ("Modeled root-profile soil moisture is used as a current screening signal." if moisture_value is not None else "Current soil moisture is unavailable for this planning period."), [moisture_source] if moisture_source else [], {"volumetric_soil_moisture_m3_m3": moisture_value}, confidence_applicable=profile.get("current_soil_moisture") is not None or mode == "planting_readiness"))
 
     demand_score = float(config["mapping_scores"]["water_demand"].get(crop_profile["water_demand_class"], 50.0))
     drought_score = float(config["mapping_scores"]["drought_tolerance"].get(crop_profile["drought_tolerance"], 50.0))
@@ -485,12 +493,25 @@ def score_one_crop(crop: dict[str, Any], evidence: dict[str, Any], profile: dict
         suitability = round(min([raw] + [float(item["cap"]) for item in caps]), 2)
         status = "scored"
         recommendation = next(item["label"] for item in config["recommendation_bands"] if suitability >= item["minimum"])
-    active_weight = sum(weight for weight in weights.values() if weight > 0)
-    confidence = round(sum(item["weight_percent"] * item["evidence_confidence"] for item in factors if item["available"]) / active_weight * 100, 2)
+    confidence_factors = [item for item in factors if item["_confidence_applicable"]]
+    applicable_weight = sum(item["weight_percent"] for item in confidence_factors)
+    confidence = round(
+        sum(
+            item["weight_percent"] * item["evidence_confidence"]
+            for item in confidence_factors
+            if item["available"]
+        )
+        / applicable_weight
+        * 100,
+        2,
+    ) if applicable_weight else 0.0
     confidence_band = next(item["label"] for item in config["confidence_bands"] if confidence >= item["minimum"])
 
     positive = sorted((item for item in scored if item["score"] >= 75), key=lambda item: item["weighted_points"], reverse=True)[:3]
     risks = sorted((item for item in scored if item["score"] < 55), key=lambda item: (item["score"], -item["weight_percent"]))[:3]
+    for item in factors:
+        item.pop("_confidence_applicable", None)
+
     return {
         "crop_id": crop["crop_id"],
         "crop_name": crop["crop_name"],
@@ -500,7 +521,7 @@ def score_one_crop(crop: dict[str, Any], evidence: dict[str, Any], profile: dict
         "recommendation": recommendation,
         "confidence_score": confidence,
         "confidence_band": confidence_band,
-        "evidence_coverage_percent": round(available_weight / active_weight * 100, 2),
+        "evidence_coverage_percent": round(available_weight / applicable_weight * 100, 2) if applicable_weight else 0.0,
         "applied_caps": caps,
         "applied_gates": list(caps),
         "factors": factors,
@@ -560,7 +581,7 @@ def score_crops(evidence: dict[str, Any], profile: dict[str, Any], config: dict[
         "limitations": config["limitations"],
         "method": {
             "suitability": "Weighted mean of available scoreable factors, followed by explicit hard caps. Missing values are excluded, never scored as zero.",
-            "confidence": "Weighted evidence reliability across all active factors; missing factors contribute no confidence.",
+            "confidence": "Weighted evidence reliability across factors applicable to the evaluation mode and crop policy. Non-applicable factors are excluded; missing expected evidence contributes no confidence.",
             "active_weight_percent": sum(value for value in weights.values() if value > 0),
         },
     }

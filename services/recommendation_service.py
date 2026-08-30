@@ -32,7 +32,7 @@ CONFIG_PATH = ROOT / "data" / "scoring" / "crop_scoring_config.json"
 RECOMMENDATION_SCHEMA_PATH = ROOT / "data" / "scoring" / "recommendation.schema.json"
 
 SERVICE_VERSION = "1.0.0"
-REQUIRED_SCORING_VERSION = "1.0.0"
+REQUIRED_SCORING_VERSION = "1.0.1"
 PLANTING_MONTH_PATTERN = re.compile(r"^[0-9]{4}-(0[1-9]|1[0-2])$")
 
 # Coarse rejection envelope only. The service reports that this is not a GIS

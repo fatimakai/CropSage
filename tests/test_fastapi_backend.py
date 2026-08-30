@@ -46,7 +46,7 @@ class FastApiBackendTests(unittest.TestCase):
         self.assertEqual(body["service"], "backend-api")
         self.assertEqual(body["contracts"]["evidence_bundle"], "1.2.0")
         self.assertEqual(body["contracts"]["crop_catalog"], "1.1.0")
-        self.assertEqual(body["contracts"]["scoring_engine"], "1.0.0")
+        self.assertEqual(body["contracts"]["scoring_engine"], "1.0.1")
 
     def test_finalized_score_contract_returns_valid_22_crop_output(self) -> None:
         response = self.client.post("/v1/recommendations/score", json=scoring_request())
