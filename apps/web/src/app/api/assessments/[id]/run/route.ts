@@ -22,9 +22,20 @@ export async function POST(_request: Request, context: RouteContext) {
     const result = await executeAssessment(id);
     return NextResponse.json({ ok: true, ...result });
   } catch (error) {
+    const safeError = error as {
+      name?: unknown;
+      code?: unknown;
+      message?: unknown;
+    };
     console.error("assessment_execution_failed", {
       assessmentSessionId: id,
-      errorType: error instanceof Error ? error.name : "UnknownError",
+      errorType:
+        typeof safeError.name === "string" ? safeError.name : "UnknownError",
+      code: typeof safeError.code === "string" ? safeError.code : undefined,
+      message:
+        typeof safeError.message === "string"
+          ? safeError.message.slice(0, 500)
+          : "No safe error message was returned.",
     });
     return NextResponse.json(
       {
